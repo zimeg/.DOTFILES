@@ -9,7 +9,7 @@ vim:
 	git clone https://github.com/pangloss/vim-javascript.git ${HOME}/.vim/pack/vim-javascript/start/vim-javascript
 	# remaining plugins will be installed on first open
 
-# removal commands, mostly for development. can be dangerous
+# removal commands, mostly for fresh installs and development. can be dangerous.
 # https://twitter.com/zimboboys/status/1485159247461552130
 clean-vim:
 	rm ${HOME}/.vimrc

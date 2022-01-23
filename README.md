@@ -7,7 +7,7 @@ feel free to use or critique my choices.
 
 installations have been automated using `Makefile`. these commands assume you
 are working with a clean machine, so they may be desctructive to past configs.
-run at your own risk.
+to guarantee fresh installs, run `clean-[cmd]`.
 
 **instructions**
 first, clone the repo and move to the directory. then, choose a command.
