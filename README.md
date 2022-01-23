@@ -17,9 +17,3 @@ first, clone the repo and move to the directory. then, choose a command.
 
 **commands**:
 - vim: `make vim`
-
-## note about some of the files
-
-my setup uses a few plugins which may be included here for completeness and
-easy installs (and that i've yet to automate this). future plans remove these
-from version control to make the setup _fancier_.
