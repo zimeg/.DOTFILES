@@ -8,6 +8,7 @@ set hidden
 
 syntax on
 colorscheme deus
+set nomodeline
 
 " indentation
 set expandtab
