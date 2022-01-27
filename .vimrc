@@ -19,6 +19,9 @@ set autoindent
 " better searching
 set ignorecase
 set smartcase
+set hlsearch
+set incsearch
+nnoremap HH :silent! nohls<CR>
 
 " fancy line numbers
 set number relativenumber
@@ -28,7 +31,7 @@ set nu rnu
 set visualbell
 set t_vb=
 
-" custom mappings
+" misc mappings
 imap kj <Esc>
 
 " file specific changes
