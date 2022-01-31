@@ -15,6 +15,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set autoindent
+nnoremap LL :set! list<CR>
 
 " better searching
 set ignorecase
@@ -31,7 +32,7 @@ set nu rnu
 set visualbell
 set t_vb=
 
-" misc mappings
+" quick espace
 imap kj <Esc>
 
 " file specific changes
