@@ -15,6 +15,11 @@ first, clone the repo and move to the directory. then, choose a command.
     cd .DOTFILES
 
 ## commands
+**homebrew**:
+
+if on a mac, homebrew packages can be installed with `./homebrew.sh` and
+authenticated with using `./homebrew-login.sh`.
+
 **vim**:
 
 install a nice flavor of vim using `./vim.sh`.
