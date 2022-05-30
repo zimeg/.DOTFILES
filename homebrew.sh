@@ -5,6 +5,8 @@ echo "💾 Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo "💾 Installing packages"
+brew install tmux # https://github.com/tmux/tmux
+cp .tmux.conf ../.tmux.conf
 brew install jq # https://github.com/stedolan/jq
 brew install bat # https://github.com/sharkdp/bat
 
