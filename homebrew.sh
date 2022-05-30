@@ -11,6 +11,9 @@ brew install jq # https://github.com/stedolan/jq
 brew install bat # https://github.com/sharkdp/bat
 brew install ngrok/ngrok/ngrok # https://ngrok.com/docs
 
+brew tap hashicorp/tap # https://www.terraform.io/
+brew install hashicorp/tap/terraform
+
 brew install bitwarden-cli # https://github.com/bitwarden/cli
 brew install shpotify # https://github.com/hnarayanan/shpotify
 brew install gh # https://cli.github.com/
