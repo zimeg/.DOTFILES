@@ -69,4 +69,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline_section_z = '%l:%c'
   let g:airline_theme='deus'
 
+  " language specific syntax highlighting
+  Plug 'hashivim/vim-terraform'
+
 call plug#end()
