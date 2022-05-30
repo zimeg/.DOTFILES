@@ -9,6 +9,7 @@ brew install tmux # https://github.com/tmux/tmux
 cp .tmux.conf ../.tmux.conf
 brew install jq # https://github.com/stedolan/jq
 brew install bat # https://github.com/sharkdp/bat
+brew install ngrok/ngrok/ngrok # https://ngrok.com/docs
 
 brew install bitwarden-cli # https://github.com/bitwarden/cli
 brew install shpotify # https://github.com/hnarayanan/shpotify
