@@ -10,6 +10,7 @@ cp .tmux.conf ../.tmux.conf
 brew install jq # https://github.com/stedolan/jq
 brew install bat # https://github.com/sharkdp/bat
 brew install ngrok/ngrok/ngrok # https://ngrok.com/docs
+brew install httpie # https://httpie.io/cli
 
 brew tap hashicorp/tap # https://www.terraform.io/
 brew install hashicorp/tap/terraform
