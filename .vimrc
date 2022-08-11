@@ -71,5 +71,6 @@ call plug#begin('~/.vim/plugged')
 
   " language specific syntax highlighting
   Plug 'hashivim/vim-terraform'
+  Plug 'tweekmonster/gofmt.vim'
 
 call plug#end()
