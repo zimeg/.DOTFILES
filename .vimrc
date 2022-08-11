@@ -12,8 +12,8 @@ set nomodeline
 
 " indentation
 set expandtab
-set shiftwidth=2
 set softtabstop=2
+set shiftwidth=0 " always match tabstop width
 set autoindent
 nnoremap LL :set! list<CR>
 
@@ -37,6 +37,7 @@ imap kj <Esc>
 
 " file specific changes
 au BufNewFile,BufRead Makefile set noexpandtab shiftwidth=4 softtabstop=-1 tabstop=4
+au FileType go setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 
 " # plugins
@@ -72,5 +73,6 @@ call plug#begin('~/.vim/plugged')
   " language specific syntax highlighting
   Plug 'hashivim/vim-terraform'
   Plug 'tweekmonster/gofmt.vim'
+  let g:gofmt_exe='/usr/local/go/bin/gofmt' " custom gofmt path
 
 call plug#end()
