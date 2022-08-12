@@ -56,6 +56,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " running specific plugins
 call plug#begin('~/.vim/plugged')
 
+  " git
+  Plug 'tpope/vim-fugitive'
+
   " nerd tree
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <C-n> :NERDTreeToggle<CR>
