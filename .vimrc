@@ -35,6 +35,10 @@ set t_vb=
 " quick espace
 imap kj <Esc>
 
+" quick jumps
+map <C-u> <C-u>zz
+map <C-d> <C-d>zz
+
 " file specific changes
 au BufNewFile,BufRead Makefile set noexpandtab shiftwidth=4 softtabstop=-1 tabstop=4
 au FileType go setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
