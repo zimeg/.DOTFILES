@@ -1,4 +1,4 @@
-# .files
+# .DOTFILES
 
 this repo holds my personal dotfiles for safekeeping and easy installations.
 feel free to use or critique my choices.
@@ -11,15 +11,22 @@ with a clean machine, so they may be desctructive to past configs.
 **instructions**
 first, clone the repo and move to the directory. then, choose a command.
 
-    git clone https://github.com/Zimboboys/.DOTFILES.git
+    git clone https://github.com/e-zim/.DOTFILES.git
     cd .DOTFILES
 
 ## commands
-**homebrew**:
+
+### homebrew
 
 if on a mac, homebrew packages can be installed with `./homebrew.sh` and
 authenticated with using `./homebrew-login.sh`.
 
-**vim**:
+### vim
 
 install a nice flavor of vim using `./vim.sh`.
+
+### tmux
+
+setup a friendly multiplexer with `./tmux.sh setup`. tmux installed seperately.
+
+modify the configs with `./tmux.sh edit`.
