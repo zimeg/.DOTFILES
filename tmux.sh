@@ -35,4 +35,5 @@ then
 else
     echo "Command \`$1\` not found! Try one of the following:"
     help
+    exit 1
 fi
