@@ -2,23 +2,50 @@
 
 # Display an informative message
 function help {
-    echo "    edit  modify and reload the config"
-    echo "    help  display this informative message"
-    echo "   setup  prepare local nvim preferences"
+    echo "    clean  reset all existing settings"
+    echo "     copy  apply configs to the editor"
+    echo "     edit  modify and reload the config"
+    echo "  install  download additional plugins"
+    echo "     help  display this informative message"
+    echo "    setup  prepare local nvim preferences"
+}
+
+# Reset back to default settings
+function clean {
+    rm -rf $HOME/.config/nvim
+    rm -rf $HOME/.local/share/nvim
+}
+
+# Copy the configs from this repo
+function copy {
+    echo -n "Copying configs..."
+    mkdir -p $HOME/.config
+    cp -r nvim $HOME/.config
+    echo " Done!"
+}
+
+# Download remote plugins
+function install {
+    rm -rf $HOME/.local/share/nvim # Avoid overwriting...
+
+    echo -n "Cloning plugins..."
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim 2> /dev/null
+    echo " Done!"
+    echo "TODO: Run :PackerSync to complete installation!"
 }
 
 # Copy configuration settings
 function setup {
-    echo -n "Copying configs..."
-    mkdir -p $HOME/.config
-    cp -r nvim  $HOME/.config
-    echo " Done!"
+    clean
+    copy
+    install
 }
 
 # Modify and apply configurations
 function edit {
-    $EDITOR nvim # TODO
-    setup # TODO source?
+    $EDITOR nvim # TODO: open the directory
+    copy
 }
 
 # Error if no command is provided

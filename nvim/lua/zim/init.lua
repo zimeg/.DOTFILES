@@ -1,2 +1,3 @@
+require("zim.packer")
 require("zim.remap")
-print("hello world!")
+
