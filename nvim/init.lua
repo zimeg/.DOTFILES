@@ -1,0 +1,2 @@
+require("zim")
+print("hello")
