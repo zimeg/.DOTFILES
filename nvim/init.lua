@@ -1,2 +1,2 @@
-require("zim")
+require("configs")
 print("hello!")
