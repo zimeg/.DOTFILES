@@ -13,5 +13,6 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Themes
-    use "savq/melange-nvim"
+    use 'savq/melange-nvim'
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 end)
