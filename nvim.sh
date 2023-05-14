@@ -4,7 +4,7 @@
 function help {
     echo "    clean  reset all existing settings"
     echo "     copy  apply configs to the editor"
-    echo "     edit  modify and reload the config"
+    echo "     edit  update any configurations"
     echo "  install  download additional plugins"
     echo "     help  display this informative message"
     echo "    setup  prepare local nvim preferences"
@@ -18,9 +18,9 @@ function clean {
 
 # Copy the configs from this repo
 function copy {
-    echo -n "Copying configs..."
+    echo -n "Linking configs..."
     mkdir -p $HOME/.config
-    cp -r nvim $HOME/.config
+    ln -s $(pwd)/nvim $HOME/.config/nvim
     echo " Done!"
 }
 
@@ -45,7 +45,6 @@ function setup {
 # Modify and apply configurations
 function edit {
     $EDITOR nvim # TODO: open the directory
-    copy
 }
 
 # Error if no command is provided

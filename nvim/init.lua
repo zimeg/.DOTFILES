@@ -1,2 +1,2 @@
 require("zim")
-print("hello")
+print("hello!")
