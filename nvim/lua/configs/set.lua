@@ -1,0 +1,28 @@
+vim.opt.guicursor = ""
+vim.opt.termguicolors = true
+vim.opt.updatetime = 50
+
+-- Silent vim
+vim.opt.visualbell = false
+
+-- Fancy line numbers
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+-- Smarter indentation
+vim.opt.smartindent = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- Improved searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Line length guards
+vim.opt.wrap = false
+
+-- Better scrolling
+vim.opt.scrolloff = 6
