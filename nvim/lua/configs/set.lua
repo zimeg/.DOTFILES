@@ -1,5 +1,4 @@
 vim.opt.guicursor = ""
-vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- Silent vim
