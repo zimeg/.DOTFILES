@@ -16,6 +16,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
+vim.keymap.set("n", "]h", vim.cmd.GitGutterNextHunk)
+vim.keymap.set("v", "]h", vim.cmd.GitGutterNextHunk)
+vim.keymap.set("n", "[h", vim.cmd.GitGutterPrevHunk)
+vim.keymap.set("v", "[h", vim.cmd.GitGutterPrevHunk)
+
 -- Moveable selections
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -32,5 +37,6 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
--- Easier undos
+-- Easier versioning
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>hd", vim.cmd.GitGutterDiffOrig)

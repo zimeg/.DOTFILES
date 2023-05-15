@@ -35,10 +35,11 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Themes
+    -- Themes and syntax
     use 'savq/melange-nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     -- Easier versioning
     use('mbbill/undotree')
+    use('airblade/vim-gitgutter')
 end)
