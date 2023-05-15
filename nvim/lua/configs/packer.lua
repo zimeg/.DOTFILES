@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'}, {'BurntSushi/ripgrep'} }
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use('theprimeagen/harpoon')
 
     -- LSP
     use {
