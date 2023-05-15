@@ -40,3 +40,4 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- Easier versioning
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>hd", vim.cmd.GitGutterDiffOrig)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
