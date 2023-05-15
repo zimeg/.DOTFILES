@@ -31,3 +31,6 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 -- Silent deletions
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
+
+-- Easier undos
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

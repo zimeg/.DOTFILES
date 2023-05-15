@@ -26,3 +26,9 @@ vim.opt.wrap = false
 
 -- Better scrolling
 vim.opt.scrolloff = 6
+
+-- Easier undos
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+vim.opt.undofile = true

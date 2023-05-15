@@ -37,4 +37,7 @@ return require('packer').startup(function(use)
     -- Themes
     use 'savq/melange-nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
+    -- Easier versioning
+    use('mbbill/undotree')
 end)
