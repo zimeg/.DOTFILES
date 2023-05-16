@@ -4,10 +4,13 @@ lsp.preset("recommended")
 
 -- Lanuage configs
 lsp.ensure_installed({
+    'gopls',
     'lua_ls',
     'rust_analyzer',
 })
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+local config = require('lspconfig')
+config.lua_ls.setup(lsp.nvim_lua_ls())
 
 -- General mappings
 local cmp = require('cmp')
