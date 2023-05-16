@@ -11,5 +11,5 @@ vim.keymap.set('n', '<leader>fa', builtin.git_files, {})
 
 -- TODO: Search for a specific string
 vim.keymap.set('n', '<leader>fs', function()
-    builtin.grep_string({ search = vim.fn.input("> ") });
+    builtin.grep_string({ search = vim.fn.input("> ") })
 end)

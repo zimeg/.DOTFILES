@@ -8,9 +8,9 @@ return require('packer').startup(function(use)
     -- File navigation
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'}, {'BurntSushi/ripgrep'} }
+        requires = { { 'nvim-lua/plenary.nvim' }, { 'BurntSushi/ripgrep' } }
     }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use('theprimeagen/harpoon')
     use('kshenoy/vim-signature')
 
@@ -20,19 +20,19 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP support
-            {'neovim/nvim-lspconfig'},
+            { 'neovim/nvim-lspconfig' },
             {
                 'williamboman/mason.nvim',
                 run = function()
-                  pcall(vim.cmd, 'MasonUpdate')
+                    pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
 
