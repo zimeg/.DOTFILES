@@ -10,6 +10,6 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.cmd([[highlight StatusLeft guifg=#b89984]])
 vim.cmd([[highlight StatusRight guifg=#7A6C60]])
 vim.cmd([[
-    set statusline=%#StatusLeft#\%F\ %R
+    set statusline=%#StatusLeft#\%F
     set statusline+=\%=
     set statusline+=\%#StatusRight#\ %M\%l:%c\ ]])
