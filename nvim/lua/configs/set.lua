@@ -1,6 +1,9 @@
 vim.opt.guicursor = ""
 vim.opt.updatetime = 50
 
+-- Remove the mouse
+vim.opt.mouse = ""
+
 -- Silent vim
 vim.opt.visualbell = false
 
