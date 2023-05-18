@@ -21,9 +21,9 @@ first, clone the repo and move to the directory. then, choose a command.
 if on a mac, homebrew packages can be installed with `./homebrew.sh` and
 authenticated with using `./homebrew-login.sh`.
 
-### vim
+### neovim
 
-install a nice flavor of vim using `./vim.sh`.
+configure a nice flavor of neovim using `./nvim.sh setup`. needs neovim v0.9ish.
 
 ### tmux
 
