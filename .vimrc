@@ -1,3 +1,4 @@
+" the .vimrc is what makes vim good
 set nocompatible
 
 set wildmenu
