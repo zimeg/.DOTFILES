@@ -16,7 +16,7 @@ function help {
 # Copy configuration settings
 function setup {
     echo -n "Copying configs..."
-    cp .tmux.conf $HOME/.tmux.conf
+    ln -s .tmux.conf $HOME/.tmux.conf
     echo " Done!"
 }
 
