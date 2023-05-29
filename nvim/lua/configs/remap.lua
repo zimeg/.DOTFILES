@@ -12,6 +12,9 @@ vim.keymap.set("n", "HH", ":nohls<CR>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Invisible characters
+vim.keymap.set("n", "LL", ':lua vim.wo.list = not vim.wo.list<CR>', { noremap = true, silent = true })
+
 -- Better scrolling
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

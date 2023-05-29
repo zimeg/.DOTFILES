@@ -23,6 +23,9 @@ vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Invisible characters
+vim.wo.list = true
+
 -- Line length guards
 vim.opt.wrap = false
 

@@ -15,4 +15,4 @@ for a successful install, make sure the following is true:
 most keymappings are sourced from the internet. here are my sources:
 
 * `kj` movement – [this stackexchange post](https://vi.stackexchange.com/a/18081)
-* neovim setup and plugins – [this youtube video](https://youtu.be/w7i4amO_zaE)
+* neovim setup and plugins – [this youtube video](https://youtu.be/w7i4amO_zaE)
