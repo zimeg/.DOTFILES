@@ -13,3 +13,8 @@ vim.cmd([[
     set statusline=%#StatusLeft#\%F
     set statusline+=\%=
     set statusline+=\%#StatusRight#\ %M\%l:%c\ ]])
+
+-- Highlight unique extensions
+vim.api.nvim_exec([[
+  autocmd BufRead,BufNewFile *.cl set filetype=c
+]], false)
