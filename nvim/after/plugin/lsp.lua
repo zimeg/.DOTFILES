@@ -1,19 +1,19 @@
 local lsp = require('lsp-zero')
-
-lsp.preset("recommended")
+local config = require('lspconfig')
+local cmp = require('cmp')
 
 -- Lanuage configs
+lsp.preset("recommended")
 lsp.ensure_installed({
     'gopls',
     'lua_ls',
     'rust_analyzer',
 })
 
-local config = require('lspconfig')
 config.lua_ls.setup(lsp.nvim_lua_ls())
+config.rust_analyzer.setup({})
 
--- General mappings
-local cmp = require('cmp')
+-- Text completions
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-Space>'] = cmp.mapping.complete(),
 })
