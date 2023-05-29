@@ -3,6 +3,7 @@
 # Display an informative message
 function help {
     echo "    clean  reset all existing settings"
+    echo "  classic  prepare a classic .vimrc"
     echo "     copy  apply configs to the editor"
     echo "     edit  update any configurations"
     echo "  install  download additional plugins"
@@ -40,6 +41,11 @@ function setup {
     clean
     copy
     install
+}
+
+# Setup a standard .vimrc for vim
+function classic {
+    ln -s $(pwd)/.vimrc $HOME/.vimrc
 }
 
 # Modify and apply configurations

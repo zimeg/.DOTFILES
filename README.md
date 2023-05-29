@@ -25,6 +25,8 @@ authenticated with using `./homebrew-login.sh`.
 
 configure a nice flavor of neovim using `./nvim.sh setup`. needs neovim v0.9ish.
 
+if neovim isn't available, use `./nvim.sh classic` for a regular `.vimrc`.
+
 ### tmux
 
 setup a friendly multiplexer with `./tmux.sh setup`. tmux installed seperately.
