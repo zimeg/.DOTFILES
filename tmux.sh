@@ -13,10 +13,10 @@ function help {
     echo "   setup  prepare local tmux preferences"
 }
 
-# Copy configuration settings
+# Copy (not link) configuration settings
 function setup {
     echo -n "Copying configs..."
-    ln -s .tmux.conf $HOME/.tmux.conf
+    cp .tmux.conf $HOME/.tmux.conf
     echo " Done!"
 }
 
