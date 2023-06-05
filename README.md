@@ -11,7 +11,7 @@ with a clean machine, so they may be desctructive to past configs.
 **instructions**
 first, clone the repo and move to the directory. then, choose a command.
 
-    git clone https://github.com/e-zim/.DOTFILES.git
+    git clone https://github.com/zimeg/.DOTFILES.git
     cd .DOTFILES
 
 ## commands
