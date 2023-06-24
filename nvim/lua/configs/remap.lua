@@ -32,6 +32,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Stable appends
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Copyless deletes
+vim.keymap.set("n", "dd", "\"_dd")
+
 -- System copies
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
