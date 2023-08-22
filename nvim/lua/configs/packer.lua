@@ -42,6 +42,6 @@ return require('packer').startup(function(use)
 
     -- Easier versioning
     use('mbbill/undotree')
-    use('airblade/vim-gitgutter')
+    use({ 'airblade/vim-gitgutter', branch = 'main' })
     use('tpope/vim-fugitive')
 end)
