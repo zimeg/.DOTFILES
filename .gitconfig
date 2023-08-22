@@ -1,0 +1,33 @@
+[user]
+	name = Ethan Zimbelman
+	email = ethan.zimbelman@me.com
+[alias]
+	last = log -1 HEAD
+    differ = difftool
+[init]
+	defaultBranch = main
+[fetch]
+    prune = true
+[pull]
+    rebase = false
+[push]
+    default = simple
+[advice]
+    addEmptyPathspec = false
+[color]
+    ui = auto
+[core]
+    ignorecase = true
+    editor = nvim
+    excludesFile = ~/.gitignore.global
+[diff]
+	tool = nvimdiff
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
+[filter "lfs"]
+    required = true
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

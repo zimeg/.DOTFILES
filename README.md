@@ -16,10 +16,14 @@ first, clone the repo and move to the directory. then, choose a command.
 
 ## commands
 
+### git
+
+version controlled configs for a version control system can be setup with the
+`git.sh setup` script.
+
 ### homebrew
 
-if on a mac, homebrew packages can be installed with `./homebrew.sh` and
-authenticated with using `./homebrew-login.sh`.
+if on a mac, info on the homebrew setup can be found with `./homebrew.sh help`.
 
 ### neovim
 
