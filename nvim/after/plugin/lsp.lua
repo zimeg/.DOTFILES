@@ -5,6 +5,7 @@ local cmp = require('cmp')
 -- Lanuage configs
 lsp.preset("recommended")
 lsp.ensure_installed({
+    'bashls',
     'denols',
     'gopls',
     'lua_ls',
