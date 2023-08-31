@@ -9,6 +9,8 @@ vim.keymap.set("n", "<leader>kj", vim.cmd.Ex)
 
 -- Improved searching
 vim.keymap.set("n", "/", ":set hls<CR>/")
+vim.keymap.set("n", "#", ":set hls<CR>#")
+vim.keymap.set("n", "*", ":set hls<CR>*")
 vim.keymap.set("n", "HH", ":set invhlsearch<CR>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
