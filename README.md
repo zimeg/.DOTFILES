@@ -9,10 +9,11 @@ installs are performed by bash scripts. the commands run assume you are working
 with a clean machine, so they may be desctructive to past configs.
 
 **instructions**
-first, clone the repo and move to the directory. then, choose a command.
+first, clone the repo and prepare the directory. then, choose a command.
 
     git clone https://github.com/zimeg/.DOTFILES.git
     cd .DOTFILES
+    git submodule init
 
 ## commands
 
