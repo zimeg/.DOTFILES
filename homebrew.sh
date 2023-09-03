@@ -74,12 +74,14 @@ function setup {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
     echo "💾 Installing packages"
-    brew install tmux # https://github.com/tmux/tmux
-    cp .tmux.conf ../.tmux.conf
-    brew install jq # https://github.com/stedolan/jq
     brew install bat # https://github.com/sharkdp/bat
-    brew install ngrok/ngrok/ngrok # https://ngrok.com/docs
+    brew install fd # https://github.com/sharkdp/fd
+    brew install jq # https://github.com/stedolan/jq
+    brew install tmux # https://github.com/tmux/tmux
+    brew install wget # https://www.gnu.org/software/wget/
+
     brew install httpie # https://httpie.io/cli
+    brew install ngrok/ngrok/ngrok # https://ngrok.com/docs
 
     brew tap hashicorp/tap # https://www.terraform.io/
     brew install hashicorp/tap/terraform
