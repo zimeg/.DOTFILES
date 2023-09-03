@@ -45,4 +45,7 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use({ 'airblade/vim-gitgutter', branch = 'main' })
     use('tpope/vim-fugitive')
+
+    -- Talking with tmux
+    use('tpope/vim-obsession')
 end)

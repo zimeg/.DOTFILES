@@ -50,3 +50,8 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>hd", vim.cmd.GitGutterDiffOrig)
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+-- Session management
+vim.keymap.set("n", "<leader><C-r>", ":source Session.vim<CR>")
+vim.keymap.set("n", "<leader><C-s>", ":Obsess<CR>")
+vim.keymap.set("n", "<leader><C-x>", ":Obsess!<CR>")
