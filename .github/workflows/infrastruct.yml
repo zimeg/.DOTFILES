@@ -1,0 +1,48 @@
+name: Synchronize shared resources
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  infrastruct:
+    name: Infrastructural adaptations
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform tooling
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Prepare the cloud directory
+      working-directory: ./cloud
+      run: terraform init
+
+    - name: Ensure sensible code
+      working-directory: ./cloud
+      run: |
+        terraform fmt -check
+        terraform validate
+
+    - name: Synchronize existing resources
+      working-directory: ./cloud
+      run: ./cloud.sh sync
+
+    - name: Plan the upcoming change
+      if: github.event_name == 'pull_request'
+      working-directory: ./cloud
+      run: terraform plan
+
+    - name: Actually apply the change
+      if: github.ref == 'refs/heads/main'
+      working-directory: ./cloud
+      run: terraform apply -auto-approve
