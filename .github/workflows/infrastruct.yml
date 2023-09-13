@@ -23,6 +23,10 @@ jobs:
     - name: Setup Terraform tooling
       uses: hashicorp/setup-terraform@v2
 
+    - name: Prepare the cloud directory
+      working-directory: ./cloud
+      run: terraform init
+
     - name: Ensure sensible code
       working-directory: ./cloud
       run: |
