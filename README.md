@@ -39,8 +39,8 @@ setup a friendly multiplexer with `./tmux.sh setup`. tmux installed seperately.
 
 ### cloud
 
-some infrastructure state and setup for shared resources can be managed from the
-`cloud` directory with `./cloud.sh`.
+infrastructure state and setup for shared resources is managed from the `cloud`
+directory with `./cloud.sh`.
 
 ### homebrew
 
