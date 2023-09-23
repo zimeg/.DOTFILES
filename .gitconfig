@@ -4,7 +4,8 @@
 [alias]
 	last = log -1 HEAD
     list = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    differ = difftool
+    staged = diff --staged
+    unstage = restore --staged
     whatsnew = diff HEAD@{1} HEAD
 [init]
 	defaultBranch = main
