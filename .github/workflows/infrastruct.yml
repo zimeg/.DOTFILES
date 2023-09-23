@@ -18,20 +18,42 @@ jobs:
 
     steps:
     - name: Checkout this repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Setup Terraform tooling
-      uses: hashicorp/setup-terraform@v2
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Download the Tofu source
+      uses: actions/checkout@v4
+      with:
+        repository: opentofu/opentofu
+        path: opentofu
+
+    - name: Install Tofu tooling
+      uses: actions/setup-go@v4
+      with:
+        go-version-file: opentofu/go.mod
+        cache-dependency-path: opentofu/go.sum
+
+    - name: Prepare the Tofu command
+      working-directory: opentofu
+      run: |
+        go build -ldflags "-w -s -X 'github.com/opentofu/opentofu/version.dev=no'" -o bin/tofu .
+        echo $(pwd)/bin >> $GITHUB_PATH
 
     - name: Prepare the cloud directory
       working-directory: ./cloud
-      run: terraform init
+      run: tofu init
 
-    - name: Ensure sensible code
+    - name: Ensure sensible setups
       working-directory: ./cloud
       run: |
-        terraform fmt -check
-        terraform validate
+        tofu fmt -check
+        tofu validate
 
     - name: Synchronize existing resources
       working-directory: ./cloud
@@ -40,9 +62,9 @@ jobs:
     - name: Plan the upcoming change
       if: github.event_name == 'pull_request'
       working-directory: ./cloud
-      run: terraform plan
+      run: tofu plan
 
     - name: Actually apply the change
       if: github.ref == 'refs/heads/main'
       working-directory: ./cloud
-      run: terraform apply -auto-approve
+      run: tofu apply -auto-approve
