@@ -1,4 +1,5 @@
 # https://developer.hashicorp.com/terraform/language/settings/backends/s3
+# https://opentofu.org/docs/language/v1-compatibility-promises#state-storage-backends
 
 variable "state_bucket" {
   type     = string

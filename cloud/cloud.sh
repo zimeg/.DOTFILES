@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-TF_STATE_BUCKET=$(jq -r .state_bucket terraform.tfvars.json)
-TF_STATE_TABLE=$(jq -r .state_lock_table terraform.tfvars.json)
+TF_STATE_BUCKET=$(jq -r .state_bucket tofu.auto.tfvars.json)
+TF_STATE_TABLE=$(jq -r .state_lock_table tofu.auto.tfvars.json)
 
 # Display an informative message
 function help {
@@ -15,13 +15,13 @@ function help {
 
 # Update infrastructure with any state changes
 function apply {
-    terraform apply
+    tofu apply
 }
 
 # Ensure formatting matches a statand
 function check {
-    terraform fmt -check
-    terraform validate
+    tofu fmt -check
+    tofu validate
 }
 
 # Reset back to a clean directory
@@ -35,21 +35,21 @@ function clean {
 
 # Preview any changes to the configurations
 function plan {
-    terraform plan
+    tofu plan
 }
 
 # Collect the current state
 function sync {
     rm -f terraform.tfstate terraform.tfstate.backup
 
-    terraform init
+    tofu init
 
-    terraform import aws_s3_bucket.tf_state $TF_STATE_BUCKET
-    terraform import aws_s3_bucket_ownership_controls.tf_state_controls $TF_STATE_BUCKET
-    terraform import aws_s3_bucket_versioning.tf_state_versioning $TF_STATE_BUCKET
-    terraform import aws_s3_bucket_acl.tf_state_acl $TF_STATE_BUCKET
+    tofu import aws_s3_bucket.tf_state $TF_STATE_BUCKET
+    tofu import aws_s3_bucket_ownership_controls.tf_state_controls $TF_STATE_BUCKET
+    tofu import aws_s3_bucket_versioning.tf_state_versioning $TF_STATE_BUCKET
+    tofu import aws_s3_bucket_acl.tf_state_acl $TF_STATE_BUCKET
 
-    terraform import aws_dynamodb_table.dynamodb_tf_state_lock $TF_STATE_TABLE
+    tofu import aws_dynamodb_table.dynamodb_tf_state_lock $TF_STATE_TABLE
 }
 
 # Error if no command is provided
