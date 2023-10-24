@@ -27,23 +27,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Download the tofu source
-      uses: actions/checkout@v4
-      with:
-        repository: opentofu/opentofu
-        path: opentofu
-
-    - name: Install tofu tooling
-      uses: actions/setup-go@v4
-      with:
-        go-version-file: opentofu/go.mod
-        cache-dependency-path: opentofu/go.sum
-
-    - name: Prepare the tofu command
-      working-directory: opentofu
-      run: |
-        go build -ldflags "-w -s -X 'github.com/opentofu/opentofu/version.dev=no'" -o bin/tofu .
-        echo $(pwd)/bin >> $GITHUB_PATH
+    - name: Setup tofu tooling
+      uses: opentofu/setup-opentofu@v1.0.0
 
     - name: Prepare the cloud directory
       working-directory: ./cloud
