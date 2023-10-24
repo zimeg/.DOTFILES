@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 
     -- File navigation
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { { 'nvim-lua/plenary.nvim' }, { 'BurntSushi/ripgrep' } }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
