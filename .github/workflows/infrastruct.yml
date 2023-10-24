@@ -28,7 +28,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Setup tofu tooling
-      uses: opentofu/setup-opentofu
+      uses: opentofu/setup-opentofu@v1.0.0
 
     - name: Prepare the cloud directory
       working-directory: ./cloud
