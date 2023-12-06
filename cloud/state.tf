@@ -41,7 +41,27 @@ resource "aws_s3_bucket_versioning" "tf_state_versioning" {
   }
 }
 
+resource "aws_dynamodb_table" "dynamodb_tf_state_lock" {
+  name           = var.state_lock_table
+  read_capacity  = 2
+  write_capacity = 2
+  hash_key       = "LockID"
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
+
+resource "aws_iam_policy" "tofu_grocer" {
+  name        = "tofu-deployment-grocer"
+  description = "Permissions for managing deployment states"
+  policy      = data.aws_iam_policy_document.tf_state_policy.json
+}
+
 data "aws_iam_policy_document" "tf_state_policy" {
+  version = "2012-10-17"
+
   statement {
     actions   = ["s3:ListBucket"]
     resources = [aws_s3_bucket.tf_state.arn]
@@ -63,14 +83,3 @@ data "aws_iam_policy_document" "tf_state_policy" {
   }
 }
 
-resource "aws_dynamodb_table" "dynamodb_tf_state_lock" {
-  name           = var.state_lock_table
-  read_capacity  = 2
-  write_capacity = 2
-  hash_key       = "LockID"
-
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-}
