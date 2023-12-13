@@ -30,7 +30,7 @@ function clean {
     rm -f terraform.tfstate*
 
     echo "provisioned resources remain safe and unchanged"
-    echo " carefully remove these with \`terraform destroy\`"
+    echo "  carefully remove these with \`tofu destroy\`"
 }
 
 # Preview any changes to the configurations
@@ -55,7 +55,7 @@ function sync {
 # Error if no command is provided
 if [ -z "$1" ]
 then
-    echo "Enter a command! Example: \`./git.sh setup\`"
+    echo "Enter a command! Example: \`./cloud.sh sync\`"
     help
     exit 1
 fi
