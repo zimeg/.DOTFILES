@@ -11,6 +11,11 @@ variable "state_lock_table" {
   nullable = false
 }
 
+variable "state_policy" {
+  type     = string
+  nullable = false
+}
+
 resource "aws_s3_bucket" "tf_state" {
   bucket = var.state_bucket
 }
