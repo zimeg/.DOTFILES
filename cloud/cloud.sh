@@ -2,6 +2,7 @@
 
 TF_STATE_BUCKET=$(jq -r .state_bucket tofu.auto.tfvars.json)
 TF_STATE_TABLE=$(jq -r .state_lock_table tofu.auto.tfvars.json)
+TF_STATE_POLICY=$(jq -r .state_policy tofu.auto.tfvars.json)
 
 # Display an informative message
 function help {
@@ -50,6 +51,8 @@ function sync {
     tofu import aws_s3_bucket_acl.tf_state_acl $TF_STATE_BUCKET
 
     tofu import aws_dynamodb_table.dynamodb_tf_state_lock $TF_STATE_TABLE
+
+    tofu import aws_iam_policy.tofu_grocer $TF_STATE_POLICY
 }
 
 # Error if no command is provided
