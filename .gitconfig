@@ -6,7 +6,7 @@
     list = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     staged = diff --staged
     unstage = restore --staged
-    update = "!git checkout main && git pull && git checkout - && git merge main --message 'merge w main'"
+    update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'"
     whatsnew = diff HEAD@{1} HEAD
 [init]
 	defaultBranch = main
