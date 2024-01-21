@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "ez";
-  home.homeDirectory = "/home/ez";
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = builtins.getEnv "HOME";
   home.stateVersion = "23.11";
   home.packages = [
     pkgs.cowsay
