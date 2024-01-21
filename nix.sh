@@ -2,39 +2,41 @@
 
 # Display an informative message
 function help {
-    echo "    clean  reset all existing settings"
-    echo "     copy  apply configs to package manager"
+    echo "     copy  share settings with home manager"
     echo "     help  display this informative message"
     echo "   remove  uninstall the nix installation"
     echo "    setup  prepare local package preferences"
 }
 
-# Reset back to default settings
-function clean {
-    echo "Cleaning past configs... (TODO)..."
-    # rm -rf $HOME/.config/nix
-    echo "Uninstall Nix with \`source nix.sh remove\`"
-}
-
 # Copy the configs from this repo
 function copy {
-    echo -n "Linking configs..."
-    echo -n " (TODO)..."
-    # ln -s $(pwd)/nix $HOME/.config/nix
-    echo " Done!"
+    ln -s $(pwd)/nix/home.nix $HOME/.config/home-manager/home.nix
 }
 
 # Uninstall the existing Nix installation
 function remove {
     /nix/nix-installer uninstall
+    rm -rf $HOME/.local/state/nix
+    rm -rf $HOME/.local/state/home-manager
+    rm -rf $HOME/.nix-defexpr
+    rm -f $HOME/.nix-channels
+    rm -f $HOME/.nix-profile
 }
 
 # Copy configuration settings
+#
+# https://github.com/DeterminateSystems/nix-installer
+# https://github.com/nix-community/home-manager
 function setup {
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     echo "Checking the installed Nix version:"
     nix --version
+    echo "Installing the Nix home manager..."
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+    rm result
     copy
 }
 

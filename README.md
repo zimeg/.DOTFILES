@@ -45,3 +45,7 @@ directory with `./cloud.sh`.
 ### homebrew
 
 if on a mac, info on the homebrew setup can be found with `./homebrew.sh help`.
+
+### nix
+
+a functional and deterministic package manager to manage other configurations.
