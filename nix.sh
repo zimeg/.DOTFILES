@@ -10,7 +10,9 @@ function help {
 
 # Copy the configs from this repo
 function copy {
+    rm -f $HOME/.config/home-manager/home.nix
     ln -s $(pwd)/nix/home.nix $HOME/.config/home-manager/home.nix
+    home-manager switch
 }
 
 # Uninstall the existing Nix installation
