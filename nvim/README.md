@@ -4,11 +4,35 @@ settings for the terminal editor. note: `alias vim="nvim"`
 
 ## requisites
 
-for a successful install, make sure the following is true:
+for a successful install, make sure the following is tried:
 
-* [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is installed
-* `:PackerSync` is run from the editor after `./nvim.sh setup`, then a restart
-* this .DOTFILES repo is not moved (lest a symbolic link break)
+* `:PackerSync` packages plugins and other dependencies
+* `:TSInstall` provides parsers for programming languages
+* `:checkhealth` returns few or hopefully no errors
+
+if packer hasn't yet been installed, download a copy with:
+
+```sh
+$ git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim 2> /dev/null
+```
+
+### classics
+
+systems that request the standard installation of `vim` have hope:
+
+```sh
+$ ln -s $HOME/.DOTFILES/.vimrc $HOME/.vimrc
+```
+
+### removals
+
+if things aren't working out, generated configurations can be rid:
+
+```sh
+$ rm -rf $HOME/.config/nvim
+$ rm -rf $HOME/.local/share/nvim
+```
 
 ## references
 

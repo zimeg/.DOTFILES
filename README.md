@@ -27,9 +27,8 @@ version controlled configs for a version control system can be setup with the
 
 ### neovim
 
-configure a nice flavor of neovim using `./nvim.sh setup`. needs neovim v0.9ish.
-
-if neovim isn't available, use `./nvim.sh classic` for a regular `.vimrc`.
+a nice flavor of `neovim` is configured with `nix`. a fallback `.vimrc` remains
+available.
 
 ### tmux
 

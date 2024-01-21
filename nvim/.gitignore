@@ -1,5 +1,0 @@
-# Download plugins with :PackerSync instead
-plugin/*
-
-# Ignore stored undos
-undodir/*
