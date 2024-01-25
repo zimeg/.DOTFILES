@@ -18,6 +18,9 @@
   programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;
+    initExtra = ''
+      PROMPT='%B%F{black}%(!.#.$)%b%f '
+    '';
   };
   programs.direnv = {
     enable = true;

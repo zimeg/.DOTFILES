@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `zsh`: prompt for command input with a dollar or rooted hash 2024-01-25
 - `direnv`: prepare environments for a configured directory 2024-01-21
 - `nix`: start with these saved home management configurations 2024-01-21
 - `nix`: set username and home directory with environment variables 2024-01-21
