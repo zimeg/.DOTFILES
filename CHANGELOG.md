@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `wd`: jump between distant directories at warp speeds 2024-01-26
 - `eza`: list directory contents in a stylish and ordered list 2024-01-26
 - `zsh`: prompt for command input with a dollar or rooted hash 2024-01-25
 - `direnv`: prepare environments for a configured directory 2024-01-21
