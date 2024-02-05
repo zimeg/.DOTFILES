@@ -14,7 +14,8 @@ vim.cmd([[
     set statusline+=\%=
     set statusline+=\%#StatusRight#\ %M\%l:%c\ ]])
 
--- Highlight unique extensions
+-- Recognize unique extensions
 vim.api.nvim_exec([[
   autocmd BufRead,BufNewFile *.cl set filetype=c
+  autocmd BufRead,BufNewFile *.gradle set filetype=groovy
 ]], false)

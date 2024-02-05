@@ -7,6 +7,8 @@
   home.packages = [
     pkgs.cowsay
     pkgs.fd
+    pkgs.groovy
+    pkgs.jdt-language-server
     pkgs.ripgrep
   ];
   home.file = {
@@ -23,6 +25,7 @@
         settings = map formatKeyValue settingsList;
       in
         builtins.concatStringsSep ":" settings;
+    JDTLS_PATH="${pkgs.jdt-language-server}/bin/jdtls";
   };
   programs.home-manager.enable = true;
   programs.zsh = {

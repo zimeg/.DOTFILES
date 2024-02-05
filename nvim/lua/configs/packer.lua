@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
             },
             { 'williamboman/mason-lspconfig.nvim' },
 
+            -- Languages
+            { 'mfussenegger/nvim-jdtls' },
+
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },

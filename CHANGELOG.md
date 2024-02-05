@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: attach a global java language server to the editor 2024-02-04
 - `wd`: jump between distant directories at warp speeds 2024-01-26
 - `eza`: list directory contents in a stylish and ordered list 2024-01-26
 - `zsh`: prompt for command input with a dollar or rooted hash 2024-01-25

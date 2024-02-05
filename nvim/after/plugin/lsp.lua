@@ -8,6 +8,7 @@ lsp.ensure_installed({
     'bashls',
     'denols',
     'gopls',
+    'groovyls',
     'lua_ls',
     'rust_analyzer',
     'tsserver',
