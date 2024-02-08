@@ -1,16 +1,23 @@
 { config, pkgs, ... }:
 
+let
+  tools = [
+    pkgs.cowsay
+    pkgs.fd
+    pkgs.ripgrep
+  ];
+  languages = [
+    pkgs.deno
+    pkgs.groovy
+    pkgs.jdt-language-server
+    pkgs.nodejs_20
+  ];
+in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
   home.stateVersion = "23.11";
-  home.packages = [
-    pkgs.cowsay
-    pkgs.fd
-    pkgs.groovy
-    pkgs.jdt-language-server
-    pkgs.ripgrep
-  ];
+  home.packages = tools ++ languages;
   home.file = {
     ".config/nvim" = {
       source = ~/.DOTFILES/nvim;
