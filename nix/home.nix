@@ -119,6 +119,24 @@ in
           set -g @continuum-restore 'on'
         '';
       }
+      {
+        plugin = tmuxPlugins.mkTmuxPlugin {
+          pluginName = "cowboy";
+          version = "75702b6d";
+          src = pkgs.fetchFromGitHub {
+            owner = "tmux-plugins";
+            repo = "tmux-cowboy";
+            rev = "75702b6d0a866769dd14f3896e9d19f7e0acd4f2";
+            sha256 = "sha256-KJNsdDLqT2Uzc25U4GLSB2O1SA/PThmDj9Aej5XjmJs=";
+            };
+        };
+      }
+      {
+        plugin = tmuxPlugins.pain-control;
+      }
+      {
+        plugin = tmuxPlugins.sessionist;
+      }
     ];
   };
 }
