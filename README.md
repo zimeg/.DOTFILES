@@ -14,8 +14,6 @@ first, clone the repo and prepare the directory. then, choose a command.
 ```sh
 $ git clone https://github.com/zimeg/.DOTFILES.git
 $ cd .DOTFILES
-$ git submodule init
-$ git submodule update
 ```
 
 ## commands
@@ -32,7 +30,7 @@ available.
 
 ### tmux
 
-setup a friendly multiplexer with `./tmux.sh setup`. tmux installed seperately.
+the friendly multiplexer called `tmux` is provided in the `nix` configurations.
 
 ## configurations
 

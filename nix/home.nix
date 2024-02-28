@@ -23,6 +23,9 @@ in
       source = ~/.DOTFILES/nvim;
       recursive = true;
     };
+    ".tmux.conf" = {
+      source = ~/.DOTFILES/.tmux.conf;
+    };
   };
   home.sessionVariables = {
     EZA_COLORS =
@@ -96,5 +99,20 @@ in
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+  };
+  programs.tmux = {
+    enable = true;
+    newSession = true;
+    shell = "${pkgs.zsh}/bin/zsh";
+    terminal = "screen-256color";
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = ''
+          set -g @resurrect-capture-pane-contents 'on'
+          set -g @resurrect-strategy-nvim 'session'
+        '';
+      }
+    ];
   };
 }

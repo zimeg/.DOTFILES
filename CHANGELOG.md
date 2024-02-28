@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tmux`: delegate configuration setups to the home manager 2024-02-27
 - `javascript`: install the node and deno runtime everywhere 2024-02-07
 - `nvim`: attach a global java language server to the editor 2024-02-04
 - `wd`: jump between distant directories at warp speeds 2024-01-26

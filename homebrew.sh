@@ -77,7 +77,6 @@ function setup {
     brew install bat # https://github.com/sharkdp/bat
     brew install fd # https://github.com/sharkdp/fd
     brew install jq # https://github.com/stedolan/jq
-    brew install tmux # https://github.com/tmux/tmux
     brew install wget # https://www.gnu.org/software/wget/
 
     brew install httpie # https://httpie.io/cli
