@@ -113,6 +113,12 @@ in
           set -g @resurrect-strategy-nvim 'session'
         '';
       }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+        '';
+      }
     ];
   };
 }
