@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tmux`: revert to vim bindings for scrolling within panes 2024-02-28
 - `tmux`: shortcut session and paneful processes with plugins 2024-02-28
 - `tmux`: continuous session saving for more stable restore 2024-02-27
 - `tmux`: delegate configuration setups to the home manager 2024-02-27
