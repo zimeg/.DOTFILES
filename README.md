@@ -20,8 +20,8 @@ $ cd .DOTFILES
 
 ### git
 
-version controlled configs for a version control system can be setup with the
-`git.sh setup` script.
+version controlled configs for a version control system. [additional setup is
+required][ssh].
 
 ### neovim
 
@@ -46,3 +46,5 @@ if on a mac, info on the homebrew setup can be found with `./homebrew.sh help`.
 ### nix
 
 a functional and deterministic package manager to manage other configurations.
+
+[ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent

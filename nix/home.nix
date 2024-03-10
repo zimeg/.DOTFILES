@@ -23,6 +23,9 @@ in
       source = ~/.DOTFILES/nvim;
       recursive = true;
     };
+    ".gitconfig" = {
+      source = ~/.DOTFILES/.gitconfig;
+    };
     ".tmux.conf" = {
       source = ~/.DOTFILES/.tmux.conf;
     };
@@ -93,6 +96,12 @@ in
       "--octal-permissions"
       "--sort=Name"
       "--time-style=long-iso"
+    ];
+  };
+  programs.git = {
+    enable = true;
+    ignores = [
+      ".DS_Store"
     ];
   };
   programs.neovim = {

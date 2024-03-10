@@ -23,7 +23,6 @@
 [core]
     ignorecase = true
     editor = nvim
-    excludesFile = ~/.gitignore.global
 [diff]
 	tool = nvimdiff
 [difftool]
