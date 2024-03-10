@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: replace homebrew plugin management with nix packages 2024-03-09
 - `git`: configure version control setups with home manager 2024-03-09
 - `tmux`: revert to vim bindings for scrolling within panes 2024-02-28
 - `tmux`: shortcut session and paneful processes with plugins 2024-02-28

@@ -3,8 +3,10 @@
 let
   tools = [
     pkgs.cowsay
+    pkgs.curl
     pkgs.fd
     pkgs.ripgrep
+    pkgs.wget
   ];
   languages = [
     pkgs.deno
@@ -98,11 +100,20 @@ in
       "--time-style=long-iso"
     ];
   };
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+    };
+  };
   programs.git = {
     enable = true;
     ignores = [
       ".DS_Store"
     ];
+  };
+  programs.jq = {
+    enable = true;
   };
   programs.neovim = {
     enable = true;

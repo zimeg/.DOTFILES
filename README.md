@@ -39,12 +39,9 @@ the friendly multiplexer called `tmux` is provided in the `nix` configurations.
 infrastructure state and setup for shared resources is managed from the `cloud`
 directory with `./cloud.sh`.
 
-### homebrew
-
-if on a mac, info on the homebrew setup can be found with `./homebrew.sh help`.
-
 ### nix
 
 a functional and deterministic package manager to manage other configurations.
+try: `source nix.sh setup`.
 
 [ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
