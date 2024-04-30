@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: map some pattern to rename lsp symbols under the cursor 2024-04-29
 - `eza`: remove the aliases setting from nix for default settings 2024-04-29
 - `nix`: replace homebrew plugin management with nix packages 2024-03-09
 - `git`: configure version control setups with home manager 2024-03-09
