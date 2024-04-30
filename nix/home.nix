@@ -87,7 +87,6 @@ in
   };
   programs.eza = {
     enable = true;
-    enableAliases = true;
     extraOptions = [
       "--all"
       "--classify"
