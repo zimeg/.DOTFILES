@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: store large files in repositories using large file storage 2024-05-08
 - `nix`: include reference to installing a specific package version 2024-05-05
 - `nvim`: map some pattern to rename lsp symbols under the cursor 2024-04-29
 - `eza`: remove the aliases setting from nix for default settings 2024-04-29

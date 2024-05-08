@@ -110,6 +110,9 @@ in
     ignores = [
       ".DS_Store"
     ];
+    lfs = {
+      enable = true;
+    };
   };
   programs.jq = {
     enable = true;
