@@ -56,8 +56,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "mfaerevaag";
           repo = "wd";
-          rev = "v0.5.2";
-          sha256 = "sha256-4yJ1qhqhNULbQmt6Z9G22gURfDLe30uV1ascbzqgdhg=";
+          rev = "v0.7.0";
+          sha256 = "sha256-u3n+JzInv8VajWAFXECuEOWuQurX8iWklwV2LG4Tj24=";
         };
       }
     ];
