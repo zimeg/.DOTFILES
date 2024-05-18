@@ -10,7 +10,9 @@ let
   ];
   languages = [
     pkgs.deno
+    pkgs.gradle_7
     pkgs.groovy
+    pkgs.jdk19
     pkgs.jdt-language-server
     pkgs.nodejs_20
   ];
