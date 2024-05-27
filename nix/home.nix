@@ -126,6 +126,10 @@ in
   programs.jq = {
     enable = true;
   };
+  programs.man = {
+    enable = true;
+    generateCaches = true;
+  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
