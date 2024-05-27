@@ -20,7 +20,7 @@ in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   home.packages = tools ++ languages;
   home.file = {
     ".config/nvim" = {

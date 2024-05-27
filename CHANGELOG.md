@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: bump the nixpkgs state version to the latest 24.05 release 2024-05-26
 - `wd`: bump to a version that warps to directories of changed name 2024-05-17
 - `nix`: install global compatible versions of java 19 and gradle 7 2024-05-17
 - `git`: store large files in repositories using large file storage 2024-05-08
