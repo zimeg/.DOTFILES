@@ -46,9 +46,16 @@ in
   };
   programs.home-manager.enable = true;
   programs.zsh = {
+    autosuggestion.enable = true;
     enable = true;
+    enableCompletion = true;
     initExtra = ''
+      bindkey '^Y' autosuggest-accept
+      bindkey '^ ' autosuggest-toggle
+      bindkey '^P' history-beginning-search-backward
+      bindkey '^N' history-beginning-search-forward
       PROMPT='%B%F{black}%(!.#.$)%b%f '
+      ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=0
     '';
     plugins = [
       {
