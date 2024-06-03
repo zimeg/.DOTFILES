@@ -1,5 +1,6 @@
 -- Lead with space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Quick escape
 vim.keymap.set("i", "kj", "<Esc>")
@@ -16,7 +17,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Invisible characters
-vim.keymap.set("n", "LL", ':lua vim.wo.list = not vim.wo.list<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "LL", ":lua vim.wo.list = not vim.wo.list<CR>", { noremap = true, silent = true })
 
 -- Better scrolling
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -35,16 +36,16 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "m'J`'")
 
 -- Copyless deletes
-vim.keymap.set("n", "dd", "\"_dd")
+vim.keymap.set("n", "dd", '"_dd')
 
 -- System copies
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Silent deletions
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
 
 -- Easier versioning
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

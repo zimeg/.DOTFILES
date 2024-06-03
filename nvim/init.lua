@@ -1,2 +1,0 @@
-require("configs")
-print("hello!")

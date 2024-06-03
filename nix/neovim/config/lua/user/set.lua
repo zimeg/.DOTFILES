@@ -11,13 +11,17 @@ vim.opt.visualbell = false
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Space the side bar
+vim.opt.numberwidth = 4
+vim.opt.signcolumn = "yes"
+
 -- Smarter indentation
 vim.opt.smartindent = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 
 -- Fast file explorer
 vim.g.netrw_keepdir = 0
@@ -37,5 +41,5 @@ vim.opt.scrolloff = 6
 -- Easier undos
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+vim.opt.undodir = vim.fn.stdpath("data") .. "undodir"
 vim.opt.undofile = true
