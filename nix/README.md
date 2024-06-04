@@ -26,5 +26,4 @@ $ cowsay darn tootin
 - https://github.com/nix-community/home-manager/tree/master/modules/programs
 - https://blog.mplanchard.com/posts/installing-a-specific-version-of-a-package-with-nix.html
 
-<!-- a collection of links -->
 [hm]: https://github.com/nix-community/home-manager

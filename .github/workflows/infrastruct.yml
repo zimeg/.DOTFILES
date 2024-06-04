@@ -1,13 +1,11 @@
 name: Synchronize shared resources
-
 on:
   push:
     branches:
       - main
   pull_request:
     branches:
-      - '*'
-
+      - "*"
 jobs:
   infrastruct:
     name: Infrastructural adaptations
@@ -15,41 +13,33 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
     steps:
-    - name: Checkout this repo
-      uses: actions/checkout@v4
-
-    - name: Configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-    - name: Setup tofu tooling
-      uses: opentofu/setup-opentofu@v1
-
-    - name: Prepare the cloud directory
-      working-directory: ./cloud
-      run: tofu init
-
-    - name: Ensure sensible setups
-      working-directory: ./cloud
-      run: |
-        tofu fmt -check
-        tofu validate
-
-    - name: Synchronize existing resources
-      working-directory: ./cloud
-      run: ./cloud.sh sync
-
-    - name: Plan the upcoming change
-      if: github.event_name == 'pull_request'
-      working-directory: ./cloud
-      run: tofu plan
-
-    - name: Actually apply the change
-      if: github.ref == 'refs/heads/main'
-      working-directory: ./cloud
-      run: tofu apply -auto-approve
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Setup tofu tooling
+        uses: opentofu/setup-opentofu@v1
+      - name: Prepare the cloud directory
+        working-directory: ./cloud
+        run: tofu init
+      - name: Ensure sensible setups
+        working-directory: ./cloud
+        run: |
+          tofu fmt -check
+          tofu validate
+      - name: Synchronize existing resources
+        working-directory: ./cloud
+        run: ./cloud.sh sync
+      - name: Plan the upcoming change
+        if: github.event_name == 'pull_request'
+        working-directory: ./cloud
+        run: tofu plan
+      - name: Actually apply the change
+        if: github.ref == 'refs/heads/main'
+        working-directory: ./cloud
+        run: tofu apply -auto-approve

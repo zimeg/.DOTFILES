@@ -87,4 +87,3 @@ data "aws_iam_policy_document" "tf_state_policy" {
     resources = [aws_dynamodb_table.dynamodb_tf_state_lock.arn]
   }
 }
-

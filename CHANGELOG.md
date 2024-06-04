@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `dotfiles`: format files to match expections from some formatters 2024-06-03
 - `nvim`: install plugins as packages and configure language server 2024-06-02
 - `man`: generate caches for man pages for improved search and find 2024-05-26
 - `zsh`: toggle command suggestions from memories of recent history 2024-05-26

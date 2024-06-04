@@ -76,8 +76,8 @@ in
         formatKeyValue = k: "${k}=${builtins.getAttr k config.programs.dircolors.settings}";
         settings = map formatKeyValue settingsList;
       in
-        builtins.concatStringsSep ":" settings;
-    JDTLS_PATH="${pkgs.jdt-language-server}/bin/jdtls";
+      builtins.concatStringsSep ":" settings;
+    JDTLS_PATH = "${pkgs.jdt-language-server}/bin/jdtls";
   };
   programs.home-manager.enable = true;
   imports = [
@@ -197,7 +197,7 @@ in
             repo = "tmux-cowboy";
             rev = "75702b6d0a866769dd14f3896e9d19f7e0acd4f2";
             sha256 = "sha256-KJNsdDLqT2Uzc25U4GLSB2O1SA/PThmDj9Aej5XjmJs=";
-            };
+          };
         };
       }
       {

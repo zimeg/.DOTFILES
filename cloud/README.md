@@ -62,5 +62,4 @@ terraform {
 }
 ```
 
-<!-- a collection of links -->
 [opentofu]: https://github.com/opentofu/opentofu
