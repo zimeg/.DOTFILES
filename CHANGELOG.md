@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: prefer the online handle and shorthand email for attribute 2024-06-03
 - `dotfiles`: format files to match expections from some formatters 2024-06-03
 - `nvim`: install plugins as packages and configure language server 2024-06-02
 - `man`: generate caches for man pages for improved search and find 2024-05-26
