@@ -7,7 +7,7 @@ settings for the terminal editor. note: `alias vim="nvim"`
 systems that request the standard installation of `vim` have hope:
 
 ```sh
-$ ln -s $HOME/.DOTFILES/.vimrc $HOME/.vimrc
+$ ln -s $HOME/.DOTFILES/programs/neovim/.vimrc $HOME/.vimrc
 ```
 
 ## languages

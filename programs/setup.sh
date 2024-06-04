@@ -5,13 +5,13 @@ function help {
 	echo "     copy  share settings with home manager"
 	echo "     help  display this informative message"
 	echo "   remove  uninstall the nix installation"
-	echo "    setup  prepare local package preferences"
+	echo "      run  install packaged configurations"
 }
 
 # Copy the configs from this repo
 function copy {
 	rm -f "$HOME/.config/home-manager/home.nix"
-	ln -s "$(pwd)/nix/home.nix" "$HOME/.config/home-manager/home.nix"
+	ln -s "$(pwd)/home.nix" "$HOME/.config/home-manager/home.nix"
 	home-manager switch
 }
 
@@ -25,11 +25,11 @@ function remove {
 	rm -f "$HOME/.nix-profile"
 }
 
-# Copy configuration settings
+# Install a flaked Nix with configuration settings
 #
 # https://github.com/DeterminateSystems/nix-installer
 # https://github.com/nix-community/home-manager
-function setup {
+function run {
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 	echo "Checking the installed Nix version:"
@@ -43,7 +43,7 @@ function setup {
 
 # Error if no command is provided
 if [ -z "$1" ]; then
-	echo "Enter a command! Example: \`source nix.sh setup\`"
+	echo "Enter a command! Example: \`source setup.sh run\`"
 	help
 	return
 fi

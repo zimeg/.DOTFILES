@@ -1,13 +1,13 @@
-# `nix`
+# `programs`
 
-sustainable configurations for packages to help keep the environment clean.
+bundled configurations for packages to help keep the environment clean.
 
 ## home manager
 
-most other dotfiles and profile settings are managed with [home manager][hm].
+most dotfiles and profile settings are managed with [home manager][hm].
 
 ```
-$ ./nix.sh setup
+$ source setup.sh run
 $ home-manager switch
 $ cowsay darn tootin
  _____________
