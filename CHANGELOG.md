@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `gimp`: manipulate images with a program available as source code 2024-06-11
 - `dotfiles`: organize packages with the configurations as programs 2024-06-03
 - `git`: prefer the online handle and shorthand email for attribute 2024-06-03
 - `dotfiles`: format files to match expections from some formatters 2024-06-03

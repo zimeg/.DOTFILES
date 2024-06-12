@@ -3,6 +3,7 @@ let
   tools = with pkgs; [
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
+    gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
     wget # https://github.com/mirror/wget
   ];
