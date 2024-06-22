@@ -37,6 +37,11 @@ lspconfig.bashls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.biome.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.cssls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

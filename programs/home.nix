@@ -9,6 +9,7 @@ let
   ];
   languages = with pkgs; with pkgs.nodePackages_latest; with pkgs.python311Packages; [
     bash-language-server # https://github.com/bash-lsp/bash-language-server
+    biome # https://github.com/biomejs/biome
     black # https://github.com/psf/black
     cargo # https://github.com/rust-lang/cargo
     delve # https://github.com/go-delve/delve
