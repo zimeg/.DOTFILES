@@ -55,18 +55,20 @@ function sync {
 	tofu import aws_iam_policy.tofu_grocer "$TF_STATE_POLICY"
 }
 
-# Error if no command is provided
+# Hint if no command is provided
 if [ -z "$1" ]; then
-	echo "Enter a command! Example: \`./cloud.sh sync\`"
+	printf "\x1b[1mEnter a command!\x1b[0;2m $ ./cloud.sh sync\x1b[0m\n"
 	help
-	exit 1
+	return 2>/dev/null
+	exit 0
 fi
 
 # Run the provided command if found
 if [[ "$1" ]] && declare -f "$1" >/dev/null; then
 	"$@"
 else
-	echo "Command \`$1\` not found! Try one of the following:"
+	printf "\x1b[1mCommand \x1b[2m%s\x1b[0;1m not found! Try one of the following:\x1b[0m\n" "$1"
 	help
+	return 1 2>/dev/null
 	exit 1
 fi
