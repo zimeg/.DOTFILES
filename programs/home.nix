@@ -5,6 +5,7 @@ let
     curl # https://github.com/curl/curl
     gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
+    gnused # https://git.savannah.gnu.org/cgit/sed.git
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; with pkgs.nodePackages_latest; with pkgs.python311Packages; [

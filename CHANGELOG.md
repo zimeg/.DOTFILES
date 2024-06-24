@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sed`: prefer the gnu standard for a tool that edits text streams 2024-06-23
 - `cloud`: maintain infrastructure with help of the kind dependabot 2024-06-23
 - `cloud`: include flaked development tooling for synchronize tasks 2024-06-23
 - `nvim`: unlock the biome formatter for certain ecmascript project 2024-06-22
