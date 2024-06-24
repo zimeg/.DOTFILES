@@ -4,3 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    commit-message:
+      prefix: "build(ci)"
+  - package-ecosystem: "terraform"
+    directory: "cloud"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "build(cloud)"

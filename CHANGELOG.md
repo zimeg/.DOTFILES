@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cloud`: maintain infrastructure with help of the kind dependabot 2024-06-23
 - `cloud`: include flaked development tooling for synchronize tasks 2024-06-23
 - `nvim`: unlock the biome formatter for certain ecmascript project 2024-06-22
 - `gimp`: manipulate images with a program available as source code 2024-06-11
