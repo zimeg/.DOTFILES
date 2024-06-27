@@ -8,8 +8,7 @@ let
     gnused # https://git.savannah.gnu.org/cgit/sed.git
     wget # https://github.com/mirror/wget
   ];
-  languages = with pkgs; with pkgs.nodePackages_latest; with pkgs.python311Packages; [
-    bash-language-server # https://github.com/bash-lsp/bash-language-server
+  languages = with pkgs; [
     biome # https://github.com/biomejs/biome
     black # https://github.com/psf/black
     cargo # https://github.com/rust-lang/cargo
@@ -33,8 +32,11 @@ let
     marksman # https://github.com/artempyanykh/marksman
     nil # https://github.com/oxalica/nil
     nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
+    nodePackages_latest."@astrojs/language-server" # https://github.com/withastro/language-tools/tree/main/packages/language-server
+    nodePackages_latest.bash-language-server # https://github.com/bash-lsp/bash-language-server
+    nodePackages_latest.prettier # https://github.com/prettier/prettier
+    nodePackages_latest.typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
     nodejs_22 # https://github.com/nodejs/node
-    prettierd # https://github.com/fsouza/prettierd
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
@@ -50,7 +52,6 @@ let
     terraform-ls # https://github.com/hashicorp/terraform-ls
     tflint # https://github.com/terraform-linters/tflint
     tree-sitter # https://github.com/tree-sitter/tree-sitter
-    typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
     vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
     yaml-language-server # https://github.com/redhat-developer/yaml-language-server
     yamllint # https://github.com/adrienverge/yamllint

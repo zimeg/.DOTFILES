@@ -1,3 +1,4 @@
+# https://github.com/neovim/neovim
 { pkgs, ... }:
 {
   programs.neovim = {

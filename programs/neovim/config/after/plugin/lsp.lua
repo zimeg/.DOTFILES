@@ -32,6 +32,11 @@ local on_attach = function(client, bufnr)
 	keymap("crn", vim.lsp.buf.rename, bufnr)
 end
 
+lspconfig.astro.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.bashls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
