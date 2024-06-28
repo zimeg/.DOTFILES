@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   tools = with pkgs; [
+    cachix # https://github.com/cachix/cachix
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
     gimp # https://gitlab.gnome.org/GNOME/gimp

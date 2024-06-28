@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cachix`: install built binaries instead of building from scratch 2024-06-27
 - `lsp`: find meaning from text files found while blogging in space 2024-06-26
 - `scripts`: guard against unexpected exit messages in setup script 2024-06-23
 - `sed`: prefer the gnu standard for a tool that edits text streams 2024-06-23
