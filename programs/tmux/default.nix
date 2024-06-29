@@ -5,7 +5,7 @@
     enable = true;
     newSession = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "screen-256color";
+    terminal = "xterm-256color";
     plugins = with pkgs; [
       {
         # https://github.com/tmux-plugins/tmux-resurrect

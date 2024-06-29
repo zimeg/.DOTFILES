@@ -68,6 +68,7 @@ in
   };
   programs.home-manager.enable = true;
   imports = [
+    ./alacritty
     ./dircolors
     ./direnv
     ./eza
