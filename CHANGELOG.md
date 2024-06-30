@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: find the nearest matching file fast with proximity plugin 2024-06-29
 - `alacritty`: emulate a terminal environment responding super fast 2024-06-29
 - `cachix`: install built binaries instead of building from scratch 2024-06-27
 - `lsp`: find meaning from text files found while blogging in space 2024-06-26

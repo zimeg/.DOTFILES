@@ -1,24 +1,28 @@
 # https://github.com/neovim/neovim
 { pkgs, ... }:
+let
+  zimeg = import (builtins.fetchTarball "https://github.com/zimeg/nur-packages/archive/main.tar.gz") { };
+in
 {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
-      telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
-      vim-signature # https://github.com/kshenoy/vim-signature
-      vim-gitgutter # https://github.com/airblade/vim-gitgutter
-      vim-fugitive # https://github.com/tpope/vim-fugitive
-      undotree # https://github.com/mbbill/undotree
-      vim-obsession # https://github.com/tpope/vim-obsession
-      nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
-      nvim-jdtls # https://github.com/mfussenegger/nvim-jdtls
-      nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
       conform-nvim # https://github.com/stevearc/conform.nvim
       melange-nvim # https://github.com/savq/melange-nvim
+      nvim-cmp # https://github.com/hrsh7th/nvim-cmp
+      nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
+      nvim-jdtls # https://github.com/mfussenegger/nvim-jdtls
+      telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
+      telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
+      undotree # https://github.com/mbbill/undotree
+      vim-fugitive # https://github.com/tpope/vim-fugitive
+      vim-gitgutter # https://github.com/airblade/vim-gitgutter
+      vim-obsession # https://github.com/tpope/vim-obsession
+      vim-signature # https://github.com/kshenoy/vim-signature
+      zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [
