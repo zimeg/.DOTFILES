@@ -83,6 +83,7 @@ in
     ./neovim
     ./rbenv
     ./ripgrep
+    ./ssh
     ./tmux
     ./zsh
   ];
