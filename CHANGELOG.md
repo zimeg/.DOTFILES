@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: recollect information about the one performing the commits 2024-07-06
 - `ssh`: connect to known hosts and other ips with tunneling powers 2024-07-06
 - `tom`: revitalize the ordering machine using nix operating system 2024-07-05
 - `ruby`: install an environment specific version of ruby languages 2024-07-01
