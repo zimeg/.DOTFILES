@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+# https://github.com/nix-community/home-manager
+{ pkgs, lib, ... }:
 let
   tools = with pkgs; [
     cachix # https://github.com/cachix/cachix
@@ -60,8 +61,8 @@ let
   ];
 in
 {
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = builtins.getEnv "HOME";
+  home.username = lib.mkDefault (builtins.getEnv "USER");
+  home.homeDirectory = lib.mkDefault (builtins.getEnv "HOME");
   home.stateVersion = "24.05";
   home.packages = tools ++ languages;
   home.sessionVariables = {

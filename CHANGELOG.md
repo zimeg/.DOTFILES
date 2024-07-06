@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tom`: revitalize the ordering machine using nix operating system 2024-07-05
 - `ruby`: install an environment specific version of ruby languages 2024-07-01
 - `nvim`: find the nearest matching file fast with proximity plugin 2024-06-29
 - `alacritty`: emulate a terminal environment responding super fast 2024-06-29
