@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cuda`: capture cores of the graphics card for cuda pattern codes 2024-07-07
 - `ssh`: unambiguate the path to passphrases of secure shell things 2024-07-07
 - `tom`: avoid sleeping or resting to continue computer connections 2024-07-07
 - `git`: recollect information about the one performing the commits 2024-07-06

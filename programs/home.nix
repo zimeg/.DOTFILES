@@ -5,9 +5,11 @@ let
     cachix # https://github.com/cachix/cachix
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
+    file # https://github.com/file/file
     gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
     gnused # https://git.savannah.gnu.org/cgit/sed.git
+    pciutils # https://github.com/pciutils/pciutils
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; [

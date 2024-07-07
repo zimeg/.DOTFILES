@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
@@ -13,6 +13,8 @@ in
   imports = [
     (import "${home-manager}/nixos")
     ./hardware/configuration
+    (import ./hardware/nvidia { config = config; })
+    ./hardware/opengl
     ./hardware/pulseaudio
     ./programs/gnupg
     ./security/rtkit
@@ -23,6 +25,7 @@ in
     ./services/printing
     ./services/sddm
     ./services/xserver
+    (import ./systemd/services { pkgs = pkgs; })
     ./systemd/targets
   ];
   boot = {
@@ -35,6 +38,12 @@ in
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+    addOpenGLRunpath
+    cudaPackages.cuda_cudart
+    cudaPackages.cudatoolkit
+    linuxPackages.nvidia_x11
+  ];
   home-manager.users.default = {
     imports = [ ../../programs/home.nix ];
   };
