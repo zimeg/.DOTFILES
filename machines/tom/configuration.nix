@@ -19,6 +19,7 @@ in
     ./programs/gnupg
     ./security/rtkit
     (import ./services/interception-tools { pkgs = pkgs; })
+    ./services/ollama
     ./services/openssh
     ./services/pipewire
     ./services/plasma6

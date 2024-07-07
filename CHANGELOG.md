@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ollama`: boost response intelligence of tom the so nice computer 2024-07-07
 - `cuda`: capture cores of the graphics card for cuda pattern codes 2024-07-07
 - `ssh`: unambiguate the path to passphrases of secure shell things 2024-07-07
 - `tom`: avoid sleeping or resting to continue computer connections 2024-07-07
