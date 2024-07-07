@@ -23,6 +23,7 @@ in
     ./services/printing
     ./services/sddm
     ./services/xserver
+    ./systemd/targets
   ];
   boot = {
     loader = {
