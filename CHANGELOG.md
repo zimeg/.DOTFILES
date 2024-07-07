@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: search for the maintainers guide in other possible places 2024-07-07
 - `ollama`: boost response intelligence of tom the so nice computer 2024-07-07
 - `cuda`: capture cores of the graphics card for cuda pattern codes 2024-07-07
 - `ssh`: unambiguate the path to passphrases of secure shell things 2024-07-07
