@@ -76,6 +76,7 @@ in
     name = "ez";
     description = "eden";
     extraGroups = [ "networkmanager" "wheel" ];
+    linger = true;
     packages = with pkgs; [
       thunderbird
     ];
