@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `java`: bump the jdk to the latest stable along with gradle build 2024-07-16
 - `systemd`: start actions behind etime command for measuring force 2024-07-07
 - `systemd`: start slithers around artificial snaek socket services 2024-07-07
 - `nvim`: search for the maintainers guide in other possible places 2024-07-07

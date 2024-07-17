@@ -24,11 +24,11 @@ let
     golangci-lint # https://github.com/golangci/golangci-lint
     golangci-lint-langserver # https://github.com/nametake/golangci-lint-langserver
     gopls # https://github.com/golang/tools/tree/master/gopls
-    gradle_7 # https://github.com/gradle/gradle/tree/v7.6.4
+    gradle # https://github.com/gradle/gradle
     groovy # https://github.com/apache/groovy
     htmx-lsp # https://github.com/ThePrimeagen/htmx-lsp
     isort # https://github.com/PyCQA/isort
-    jdk19 # https://github.com/openjdk/jdk/releases/tag/jdk-19-ga
+    jdk22 # https://github.com/openjdk/jdk/releases/tag/jdk-22-ga
     jdt-language-server # https://github.com/eclipse-jdtls/eclipse.jdt.ls
     jq-lsp # https://github.com/wader/jq-lsp
     lua-language-server # https://github.com/LuaLS/lua-language-server
