@@ -33,16 +33,10 @@ specifics of the implementation is contained in `state.tf`.
 
 ### command setup
 
-build the latest version of [opentofu][opentofu] and create an alias to `tofu`:
+a stable version of [opentofu][opentofu] can be tried as a nix package with:
 
 ```sh
-# https://github.com/opentofu/opentofu/blob/main/BUILDING.md
-$ mkdir -p ~/go/src/github.com/opentofu
-$ cd ~/go/src/github.com/opentofu
-$ git clone https://github.com/opentofu/opentofu
-$ cd opentofu
-$ go build -ldflags "-w -s -X 'github.com/opentofu/opentofu/version.dev=no'" -o bin/tofu .
-$ ln -s $(pwd)/bin/tofu /usr/local/bin/tofu
+$ nix shell nixpkgs#opentofu
 ```
 
 ### collecting state

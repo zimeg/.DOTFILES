@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cloud`: update opentofu command setup with nix build preferences 2024-08-07
 - `minecraft`: setup a small server shared across this home network 2024-08-07
 - `nvim`: find a few other project files fast within some proximity 2024-07-20
 - `java`: bump the jdk to the latest stable along with gradle build 2024-07-16
