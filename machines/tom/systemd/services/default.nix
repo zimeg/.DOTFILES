@@ -26,6 +26,22 @@
         StartLimitIntervalSec = 24;
       };
     };
+    "minecraft:server" = {
+      documentation = [ "https://github.com/zimeg/minecraft" ];
+      wantedBy = [ "default.target" ];
+      path = [ pkgs.git pkgs.nix pkgs.time ];
+      serviceConfig = {
+        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"minecraft-server\"";
+        Restart = "always";
+        RestartSec = 2;
+        WorkingDirectory = /home/ez/games/minecraft/server;
+      };
+      unitConfig = {
+        ConditionPathExists = /home/ez/games/minecraft/server/server.properties;
+        StartLimitBurst = 12;
+        StartLimitIntervalSec = 24;
+      };
+    };
     "slack:snaek" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
       wantedBy = [ "default.target" ];

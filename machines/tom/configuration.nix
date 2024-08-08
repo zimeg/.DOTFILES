@@ -67,6 +67,14 @@ in
     networkmanager = {
       enable = true;
     };
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        443
+        25565
+      ];
+    };
   };
   time = {
     timeZone = "America/Los_Angeles";
