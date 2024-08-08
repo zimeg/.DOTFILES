@@ -28,6 +28,7 @@ in
     ./services/xserver
     (import ./systemd/services { pkgs = pkgs; })
     ./systemd/targets
+    ./systemd/timers
   ];
   boot = {
     loader = {
