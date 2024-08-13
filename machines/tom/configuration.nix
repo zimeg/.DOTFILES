@@ -5,11 +5,16 @@ in
 {
   system.stateVersion = "24.05";
   nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    gc = {
+      automatic = true;
+    };
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
   };
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   imports = [
     (import "${home-manager}/nixos")
     ./hardware/configuration
