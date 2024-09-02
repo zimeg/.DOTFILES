@@ -167,6 +167,12 @@ lspconfig.rust_analyzer.setup({
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern(
+		"tailwind.config.cjs",
+		"tailwind.config.js",
+		"tailwind.config.mjs",
+		"tailwind.config.ts"
+	),
 })
 
 lspconfig.terraformls.setup({
