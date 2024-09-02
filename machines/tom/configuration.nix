@@ -78,6 +78,7 @@ in
       allowedTCPPorts = [
         80
         443
+        3000
         25565
       ];
     };
