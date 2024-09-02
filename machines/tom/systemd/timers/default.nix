@@ -4,7 +4,7 @@
     "minecraft:backup" = {
       timerConfig = {
         OnCalendar = "weekly";
-        Unit = "minecraft:backup";
+        Unit = "minecraft:backup.service";
       };
     };
   };

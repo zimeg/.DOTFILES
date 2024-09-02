@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `minecraft`: restart the specific backup service with unit timers 2024-09-01
 - `tom`: gather outmoded packages as garbage to get more disk space 2024-08-12
 - `minecraft`: schedule weekly backups of the world for safekeeping 2024-08-07
 - `cloud`: update opentofu command setup with nix build preferences 2024-08-07
