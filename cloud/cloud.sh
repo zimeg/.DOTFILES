@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 
 TF_STATE_BUCKET=$(jq -r .state_bucket tofu.auto.tfvars.json)
 TF_STATE_TABLE=$(jq -r .state_lock_table tofu.auto.tfvars.json)

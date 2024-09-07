@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `scripts`: gather a source for bash from known computing binaries 2024-09-06
 - `nvim`: configure telescope for inspections into git and the lsps 2024-09-01
 - `lsp`: search for a tailwind configuration file prior to starting 2024-09-01
 - `tom`: unlock the 3000th tcp port of tom and experiment with webs 2024-09-01
