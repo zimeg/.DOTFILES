@@ -185,7 +185,7 @@ lspconfig.tflint.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)

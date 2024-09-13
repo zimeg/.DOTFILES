@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: replace the deprecated tsserver lspconfig setup for ts_ls 2024-09-13
 - `nvim`: show relative line numbers when listing files using netrw 2024-09-10
 - `scripts`: gather a source for bash from known computing binaries 2024-09-06
 - `nvim`: configure telescope for inspections into git and the lsps 2024-09-01
