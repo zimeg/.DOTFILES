@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: jump to the starting point of tofu project configurations 2024-09-13
 - `ssh`: attach to tmux sessions for started communication with tom 2024-09-13
 - `nvim`: replace the deprecated tsserver lspconfig setup for ts_ls 2024-09-13
 - `nvim`: show relative line numbers when listing files using netrw 2024-09-10

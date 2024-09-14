@@ -17,6 +17,7 @@ proximity.setup({
 		["<leader>pp"] = {
 			"build.gradle",
 			"go.mod",
+			"main.tf",
 			"package.json",
 			"pyproject.toml",
 		},
