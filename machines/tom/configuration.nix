@@ -47,6 +47,7 @@ in
   };
   environment.systemPackages = with pkgs; [
     addOpenGLRunpath
+    parted
     cudaPackages.cuda_cudart
     cudaPackages.cudatoolkit
     linuxPackages.nvidia_x11
