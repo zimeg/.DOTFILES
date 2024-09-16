@@ -1,8 +1,5 @@
 # https://github.com/neovim/neovim
-{ pkgs, ... }:
-let
-  zimeg = import (builtins.fetchTarball "https://github.com/zimeg/nur-packages/archive/main.tar.gz") { };
-in
+{ pkgs, config, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -22,7 +19,7 @@ in
       vim-gitgutter # https://github.com/airblade/vim-gitgutter
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
-      zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
+      config.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [

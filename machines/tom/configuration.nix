@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in
 {
   system.stateVersion = "24.05";
   nix = {
@@ -16,10 +13,9 @@ in
     allowUnfree = true;
   };
   imports = [
-    (import "${home-manager}/nixos")
     ./hardware/configuration
+    ./hardware/graphics
     (import ./hardware/nvidia { config = config; })
-    ./hardware/opengl
     ./hardware/pulseaudio
     ./programs/gnupg
     ./security/rtkit
@@ -52,9 +48,6 @@ in
     cudaPackages.cudatoolkit
     linuxPackages.nvidia_x11
   ];
-  home-manager.users.default = {
-    imports = [ ../../programs/home.nix ];
-  };
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {

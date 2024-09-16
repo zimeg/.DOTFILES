@@ -20,6 +20,11 @@ $ cd .DOTFILES
 infrastructure state and setup for shared resources is managed from the `cloud`
 directory with `./cloud.sh`.
 
+### machines
+
+computers with coded configuration are saved for setup in `machines` and are
+built with the flake derivation.
+
 ### programs
 
 a functional and deterministic package manager to manage `programs`. use nix

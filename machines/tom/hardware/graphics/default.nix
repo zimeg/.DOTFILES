@@ -1,6 +1,6 @@
 # https://github.com/KhronosGroup/OpenGL-Registry
 {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 }
