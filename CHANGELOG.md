@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: feed darwin the same flake packaging for matching versions 2024-09-18
 - `nix`: share locked package version with flake instead of channel 2024-09-15
 - `tom`: resize the disk containing nix storage after an unmounting 2024-09-15
 - `nvim`: jump to the starting point of tofu project configurations 2024-09-13

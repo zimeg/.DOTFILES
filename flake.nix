@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -13,21 +17,45 @@
     };
   };
   outputs = { self, nixpkgs, nur, ... }@inputs: {
+    darwinConfigurations = {
+      ezmbp24.lan = inputs.nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit inputs self;
+        };
+        modules = [
+          ./machines/puma/configuration.nix
+          inputs.home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              sharedModules = [ nur.hmModules.nur ];
+              useGlobalPkgs = true;
+              useUserPackages = false;
+              users = {
+                "ez" = {
+                  imports = [ ./programs/home.nix ];
+                };
+              };
+            };
+          }
+        ];
+      };
+    };
     nixosConfigurations = {
       tom = nixpkgs.lib.nixosSystem {
         modules = [
-          nur.nixosModules.nur
           ./machines/tom/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.default = {
-              imports = [
-                ./programs/home.nix
-              ];
+            home-manager = {
+              sharedModules = [ nur.hmModules.nur ];
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users = {
+                default = {
+                  imports = [ ./programs/home.nix ];
+                };
+              };
             };
-            home-manager.sharedModules = [ nur.hmModules.nur ];
           }
         ];
       };
