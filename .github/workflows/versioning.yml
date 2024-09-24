@@ -22,5 +22,5 @@ jobs:
           nix flake update
       - name: Save changed version
         run: |
-          git commit --add --message "chore(deps): automatic version bump to the most recent packages"
+          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           git push -u origin main
