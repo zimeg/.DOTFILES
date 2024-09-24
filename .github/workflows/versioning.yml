@@ -1,4 +1,4 @@
-name: Update packages
+name: Update depended packages
 on:
   push:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   updateronimo:
-    name: Snapshot upstream recent releases
+    name: Snapshot upstream releases
     runs-on: ubtuntu-latest
     steps:
       - name: Checkout this repo
