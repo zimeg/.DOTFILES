@@ -1,0 +1,25 @@
+name: Update packages
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+jobs:
+  updateronimo:
+    name: Snapshot upstream recent releases
+    runs-on: ubtuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+      - name: Configure git credentials
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Install a flaked Nix
+        uses: DeterminateSystems/nix-installer-action@v13
+      - name: Update to the latest
+        run: |
+          nix flake update
+      - name: Save changed version
+        run: |
+          git commit --add --message "chore(deps): automatic version bump to the most recent packages"
+          git push -u origin main
