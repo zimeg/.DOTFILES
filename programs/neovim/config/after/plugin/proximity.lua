@@ -9,6 +9,9 @@ proximity.setup({
 		["<leader>pf"] = {
 			"flake.nix",
 		},
+		["<leader>pgi"] = {
+			".gitignore",
+		},
 		["<leader>pm"] = {
 			".github/MAINTAINERS_GUIDE.md",
 			"MAINTAINERS_GUIDE.md",
