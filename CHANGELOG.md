@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `wd`: save the latest version used to warp to the wellknown paths 2024-09-29
 - `nix`: fix the darwin hostname to match ouput of scripted command 2024-09-29
 - `nvim`: find the nearest ignored declarations for version control 2024-09-25
 - `tom`: unlock the udp port that gates time servers given increase 2024-09-25
