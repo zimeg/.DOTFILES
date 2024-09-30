@@ -18,7 +18,7 @@
   };
   outputs = { self, nixpkgs, nur, ... }@inputs: {
     darwinConfigurations = {
-      ezmbp24.lan = inputs.nix-darwin.lib.darwinSystem {
+      ezmbp24.local = inputs.nix-darwin.lib.darwinSystem {
         specialArgs = {
           inherit inputs self;
         };

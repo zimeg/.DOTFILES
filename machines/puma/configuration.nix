@@ -1,5 +1,5 @@
 # https://github.com/LnL7/nix-darwin
-{ self, ... }@inputs:
+{ self, ... }:
 {
   nix = {
     settings = {
