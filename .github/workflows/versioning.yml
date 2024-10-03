@@ -37,5 +37,6 @@ jobs:
       - name: Save changed version
         if: ${{ matrix.npm == "tom" }}
         run: |
-          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
-          git push -u origin main
+          git diff
+          # git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          # git push -u origin main
