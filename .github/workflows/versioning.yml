@@ -23,8 +23,8 @@ jobs:
       - name: Save the flake locks
         uses: actions/cache/save@v4
         with:
-          path: flake.nix
           key: ${{ github.run_id }}
+          path: flake.lock
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
@@ -44,6 +44,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           key: ${{ github.run_id }}
+          path: flake.lock
       - name: Insure nixos builds
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
