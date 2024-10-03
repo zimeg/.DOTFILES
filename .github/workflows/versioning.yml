@@ -4,25 +4,32 @@ on:
     - cron: "0 12 * * *"
   workflow_dispatch:
 jobs:
+  stablearhtns:
+    name: Check for broken builds
+    runs-on: macos-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Install a flaked Nix
+        uses: DeterminateSystems/nix-installer-action@v14
+      - name: Update to the latest
+        run: |
+          nix flake update
+      - name: Confirm builds build
+        run: |
+          nix build .#darwinConfigurations.ezmbp24.local.system
   updateronimo:
     name: Snapshot upstream releases
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - host: puma
-            flake: .#darwinConfigurations.ezmbp24.local.system
-            os: macos-latest
-          - host: tom
-            flake: .#nixosConfigurations.tom.system
-            os: ubuntu-latest
+    needs: stablearhtns
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
         with:
           ref: main
       - name: Configure git credentials
-        if: ${{ matrix.npm == "tom" }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -33,9 +40,8 @@ jobs:
           nix flake update
       - name: Confirm builds build
         run: |
-          nix build ${{ matrix.flake }}
+          nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
-        if: ${{ matrix.npm == "tom" }}
         run: |
           git diff
           # git commit --all --message "chore(deps): automatic version bump to the most recent packages"
