@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
 
+# Exit after errors
+set -eo pipefail
+
 # Display this informative message
 function help {
     echo "     help  display this informative message"
+    echo "     host  configure the machine this runs"
     echo "   switch  change to the latest declarations"
+}
+
+# Configure the machine this runs
+function host {
+    if [ -z "$1" ]; then
+        printf "\x1b[1mProvide a name! \x1b[0;2m\$ setup.sh host example.local\x1b[0m\n"
+        exit 1
+    fi
+    printf "Current hostname: \x1b[33m%s\x1b[0m\n" "$(scutil --get HostName)"
+    printf "Request hostname: \x1b[2m%s\x1b[0m\n" "$1"
+    scutil --set HostName "$1"
+    printf "Changed hostname: \x1b[32m%s\x1b[0m\n" "$(scutil --get HostName)"
 }
 
 # Change to the latest declarations
