@@ -33,7 +33,7 @@ jobs:
           nix flake update
       - name: Confirm builds build
         run: |
-          nix build .#
+          nix build ${{ matrix.flake }}
       - name: Save changed version
         if: ${{ matrix.npm == "tom" }}
         run: |
