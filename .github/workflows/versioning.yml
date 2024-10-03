@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   stablearhtns:
-    name: Check for broken builds
+    name: Check for broken evolutions
     runs-on: macos-latest
     steps:
       - name: Checkout this repo
@@ -17,9 +17,14 @@ jobs:
       - name: Update to the latest
         run: |
           nix flake update
-      - name: Confirm builds build
+      - name: Confirm darwin builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Save the flake locks
+        uses: actions/cache/save@v4
+        with:
+          path: flake.nix
+          key: ${{ github.run_id }}
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
@@ -35,10 +40,11 @@ jobs:
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
-      - name: Update to the latest
-        run: |
-          nix flake update
-      - name: Confirm builds build
+      - name: Cache the latest locks
+        uses: actions/cache/restore@v4
+        with:
+          key: ${{ github.run_id }}
+      - name: Insure nixos builds
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
