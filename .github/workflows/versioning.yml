@@ -40,11 +40,14 @@ jobs:
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
-      - name: Cache the latest locks
+      - name: Cached the latest locks
         uses: actions/cache/restore@v4
         with:
           key: ${{ github.run_id }}
           path: flake.lock
+      - name: Write remembered commit
+        run: |
+          cat flake.lock
       - name: Insure nixos builds
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
