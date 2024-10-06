@@ -20,6 +20,7 @@
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
       config.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
+      config.nur.repos.zimeg.telescope-git-conflicts-nvim # https://github.com/Snikimonkd/telescope-git-conflicts.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [

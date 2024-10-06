@@ -2,6 +2,7 @@ local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
 -- Load native sorting methods
+telescope.load_extension("conflicts")
 telescope.load_extension("fzf")
 
 -- Correct quick spellings
@@ -30,6 +31,9 @@ vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions)
 
 -- Find all files contained
 vim.keymap.set("n", "<leader>ff", builtin.find_files)
+
+-- Attend different changes
+vim.keymap.set("n", "<leader>fG", ":Telescope conflicts<CR>")
 
 -- Reveal unversioned saves
 vim.keymap.set("n", "<leader>fg", builtin.git_status)
