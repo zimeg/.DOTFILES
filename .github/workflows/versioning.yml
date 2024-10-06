@@ -4,8 +4,30 @@ on:
     - cron: "0 12 * * *"
   workflow_dispatch:
 jobs:
+  stablearhtns:
+    name: Check for broken evolutions
+    runs-on: macos-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Install a flaked Nix
+        uses: DeterminateSystems/nix-installer-action@v14
+      - name: Update to the latest
+        run: |
+          nix flake update
+      - name: Confirm darwin builds
+        run: |
+          nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Save the flake locks
+        uses: actions/cache/save@v4
+        with:
+          key: ${{ github.run_id }}
+          path: flake.lock
   updateronimo:
     name: Snapshot upstream releases
+    needs: stablearhtns
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
@@ -18,10 +40,19 @@ jobs:
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
-      - name: Update to the latest
+      - name: Cached the latest locks
+        uses: actions/cache/restore@v4
+        with:
+          key: ${{ github.run_id }}
+          path: flake.lock
+      - name: Write remembered commit
         run: |
-          nix flake update
+          cat flake.lock
+      - name: Insure nixos builds
+        run: |
+          nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
         run: |
-          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
-          git push -u origin main
+          git diff
+          # git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          # git push -u origin main
