@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `darwin`: build packages and derivations in the separated sandbox 2024-10-07
 - `nvim`: attend to different changes that happen in merge conflict 2024-10-06
 - `darwin`: configure the hostname of machines switching to a flake 2024-10-02
 - `wd`: save the latest version used to warp to the wellknown paths 2024-09-29
