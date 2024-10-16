@@ -18,6 +18,27 @@
   };
   outputs = { self, nixpkgs, nur, ... }@inputs: {
     darwinConfigurations = {
+      edenzim-ltmbn8v.internal.salesforce.com = inputs.nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit inputs self;
+        };
+        modules = [
+          ./machines/puma/configuration.nix
+          inputs.home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              sharedModules = [ nur.hmModules.nur ];
+              useGlobalPkgs = true;
+              useUserPackages = false;
+              users = {
+                "eden.zimbelman" = {
+                  imports = [ ./programs/home.nix ];
+                };
+              };
+            };
+          }
+        ];
+      };
       ezmbp24.local = inputs.nix-darwin.lib.darwinSystem {
         specialArgs = {
           inherit inputs self;

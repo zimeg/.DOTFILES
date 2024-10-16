@@ -21,6 +21,10 @@
   };
   users = {
     users = {
+      "eden.zimbelman" = {
+        home = /Users/eden.zimbelman;
+        name = "eden.zimbelman";
+      };
       ez = {
         home = /Users/ez;
         name = "ez";
