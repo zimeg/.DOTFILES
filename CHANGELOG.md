@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: use the upstream telescope git conflicts inspector plugin 2024-10-19
 - `darwin`: reimage the work computer to match an expected username 2024-10-16
 - `darwin`: build packages and derivations in the separated sandbox 2024-10-07
 - `nvim`: attend to different changes that happen in merge conflict 2024-10-06

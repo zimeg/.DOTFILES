@@ -13,6 +13,7 @@
       nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
       nvim-jdtls # https://github.com/mfussenegger/nvim-jdtls
       telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
+      telescope-git-conflicts-nvim # https://github.com/Snikimonkd/telescope-git-conflicts.nvim
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       undotree # https://github.com/mbbill/undotree
       vim-fugitive # https://github.com/tpope/vim-fugitive
@@ -20,7 +21,6 @@
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
       config.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
-      config.nur.repos.zimeg.telescope-git-conflicts-nvim # https://github.com/Snikimonkd/telescope-git-conflicts.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [
