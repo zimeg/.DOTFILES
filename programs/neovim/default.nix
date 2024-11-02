@@ -13,6 +13,7 @@
       nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
       nvim-jdtls # https://github.com/mfussenegger/nvim-jdtls
       telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
+      telescope-git-conflicts-nvim # https://github.com/Snikimonkd/telescope-git-conflicts.nvim
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       undotree # https://github.com/mbbill/undotree
       vim-fugitive # https://github.com/tpope/vim-fugitive

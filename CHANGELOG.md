@@ -6,7 +6,12 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `ci`: check that updates still build before committing to changes 2024-10-02
+- `ci`: check that updates still build before committing to changes 2024-11-02
+- `wd`: bump to the latest released patch version changes of v0.9.1 2024-10-28
+- `nvim`: use the upstream telescope git conflicts inspector plugin 2024-10-19
+- `darwin`: reimage the work computer to match an expected username 2024-10-16
+- `darwin`: build packages and derivations in the separated sandbox 2024-10-07
+- `nvim`: attend to different changes that happen in merge conflict 2024-10-06
 - `darwin`: configure the hostname of machines switching to a flake 2024-10-02
 - `wd`: save the latest version used to warp to the wellknown paths 2024-09-29
 - `nix`: fix the darwin hostname to match ouput of scripted command 2024-09-29

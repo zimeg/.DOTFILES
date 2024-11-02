@@ -4,6 +4,7 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      sandbox = true;
     };
   };
   nixpkgs = {
@@ -20,6 +21,10 @@
   };
   users = {
     users = {
+      "eden.zimbelman" = {
+        home = /Users/eden.zimbelman;
+        name = "eden.zimbelman";
+      };
       ez = {
         home = /Users/ez;
         name = "ez";
