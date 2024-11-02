@@ -38,7 +38,12 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Reflect existing Nix
+        id: nixos
+        continue-on-error: true
+        run: uname -a | grep NixOS
       - name: Install a flaked Nix
+        if: steps.nixos.outcome != 'success'
         uses: DeterminateSystems/nix-installer-action@v14
       - name: Cached the latest locks
         uses: actions/cache/restore@v4
