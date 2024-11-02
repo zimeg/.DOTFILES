@@ -28,7 +28,7 @@ jobs:
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
