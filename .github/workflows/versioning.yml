@@ -59,5 +59,7 @@ jobs:
       - name: Save changed version
         run: |
           git diff
+          git config user.name
+          git config user.email
           # git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           # git push -u origin main
