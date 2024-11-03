@@ -19,6 +19,7 @@
     ./hardware/pulseaudio
     ./programs/gnupg
     ./security/rtkit
+    ./services/github-runners
     (import ./services/interception-tools { pkgs = pkgs; })
     ./services/ollama
     ./services/openssh

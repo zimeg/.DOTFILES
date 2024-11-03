@@ -4,9 +4,9 @@ on:
     - cron: "0 12 * * *"
   workflow_dispatch:
 jobs:
-  updateronimo:
-    name: Snapshot upstream releases
-    runs-on: ubuntu-latest
+  stablearhtns:
+    name: Check for broken evolutions
+    runs-on: macos-latest
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
@@ -14,14 +14,47 @@ jobs:
           ref: main
       - name: Configure git credentials
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
       - name: Update to the latest
         run: |
           nix flake update
+      - name: Confirm darwin builds
+        run: |
+          nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Save the flake locks
+        run: |
+          git checkout -b update
+          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          git push -u origin update
+  updateronimo:
+    name: Snapshot upstream releases
+    needs: stablearhtns
+    runs-on: self-hosted
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: update
+      - name: Reflect existing Nix
+        id: nixos
+        continue-on-error: true
+        run: uname -a | grep NixOS
+      - name: Install a flaked Nix
+        if: steps.nixos.outcome != 'success'
+        uses: DeterminateSystems/nix-installer-action@v14
+      - name: Write remembered commit
+        run: |
+          cat flake.lock
+      - name: Insure nixos builds
+        run: |
+          nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
         run: |
-          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          git checkout main
+          git merge update
           git push -u origin main
+          git push origin --delete update
