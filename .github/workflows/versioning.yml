@@ -26,6 +26,7 @@ jobs:
           nix build .#darwinConfigurations.ezmbp24.local.system
       - name: Save the flake locks
         run: |
+          git checkout -b update
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           git push -u origin update
   updateronimo:
