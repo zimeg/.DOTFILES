@@ -12,6 +12,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Configure git credentials
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
       - name: Update to the latest
@@ -20,10 +24,6 @@ jobs:
       - name: Confirm darwin builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
-      - name: Configure git credentials
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Save the flake locks
         run: |
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
