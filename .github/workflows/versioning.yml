@@ -57,4 +57,4 @@ jobs:
           git checkout main
           git merge update
           git push -u origin main
-          git branch -d update
+          git push origin --delete update
