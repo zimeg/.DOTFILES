@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: push updated changes to a branch before attempting to build 2024-11-03
 - `ci`: check that updates still build before committing to changes 2024-11-02
 - `wd`: bump to the latest released patch version changes of v0.9.1 2024-10-28
 - `nvim`: use the upstream telescope git conflicts inspector plugin 2024-10-19
