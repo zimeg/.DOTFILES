@@ -20,11 +20,14 @@ jobs:
       - name: Confirm darwin builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Configure git credentials
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Save the flake locks
-        uses: actions/cache/save@v4
-        with:
-          key: ${{ github.run_id }}
-          path: flake.lock
+        run: |
+          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          git push -u origin update
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
@@ -33,11 +36,7 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v4
         with:
-          ref: main
-      - name: Configure git credentials
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          ref: update
       - name: Reflect existing Nix
         id: nixos
         continue-on-error: true
@@ -45,11 +44,6 @@ jobs:
       - name: Install a flaked Nix
         if: steps.nixos.outcome != 'success'
         uses: DeterminateSystems/nix-installer-action@v14
-      - name: Cached the latest locks
-        uses: actions/cache/restore@v4
-        with:
-          key: ${{ github.run_id }}
-          path: flake.lock
       - name: Write remembered commit
         run: |
           cat flake.lock
@@ -58,8 +52,9 @@ jobs:
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
         run: |
+          git status
           git diff
           git config user.name
           git config user.email
-          # git commit --all --message "chore(deps): automatic version bump to the most recent packages"
+          git log | head -n 12
           # git push -u origin main
