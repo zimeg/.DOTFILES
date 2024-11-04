@@ -18,6 +18,8 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
+      - name: Setup the Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
       - name: Update to the latest
         if: github.event_name != 'pull_request'
         run: |
