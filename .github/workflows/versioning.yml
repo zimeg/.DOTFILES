@@ -1,11 +1,13 @@
 name: Update depended packages
 on:
+  pull_request:
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
 jobs:
   stablearhtns:
     name: Check for broken evolutions
+    if: github.event_name != 'pull_request'
     runs-on: macos-latest
     steps:
       - name: Checkout this repo
@@ -53,6 +55,7 @@ jobs:
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
+        if: github.event_name != 'pull_request'
         run: |
           git checkout main
           git merge update
