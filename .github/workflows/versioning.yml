@@ -7,23 +7,23 @@ on:
 jobs:
   stablearhtns:
     name: Check for broken evolutions
-    if: github.event_name != 'pull_request'
     runs-on: macos-latest
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
-        with:
-          ref: main
       - name: Configure git credentials
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
       - name: Update to the latest
+        if: github.event_name != 'pull_request'
         run: |
           nix flake update
       - name: Save the flake locks
+        if: github.event_name != 'pull_request'
         run: |
           git checkout -b update
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
