@@ -1,5 +1,6 @@
 name: Update depended packages
 on:
+  pull_request:
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
@@ -10,18 +11,21 @@ jobs:
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
-        with:
-          ref: main
       - name: Configure git credentials
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@v14
+      - name: Setup the Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
       - name: Update to the latest
+        if: github.event_name != 'pull_request'
         run: |
           nix flake update
       - name: Save the flake locks
+        if: github.event_name != 'pull_request'
         run: |
           git checkout -b update
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
@@ -53,6 +57,7 @@ jobs:
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.toplevel
       - name: Save changed version
+        if: github.event_name != 'pull_request'
         run: |
           git checkout main
           git merge update

@@ -6,6 +6,9 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: use a cache to avoid building darwin package anew each time 2024-11-03
+- `ci`: check that updated changes build in pull request ci testing 2024-11-03
+- `java`: bump the jdk to the latest stable supported build release 2024-11-03
 - `ci`: push updated changes to a branch before attempting to build 2024-11-03
 - `ci`: check that updates still build before committing to changes 2024-11-02
 - `wd`: bump to the latest released patch version changes of v0.9.1 2024-10-28
