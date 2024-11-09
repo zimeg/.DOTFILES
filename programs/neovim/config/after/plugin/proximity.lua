@@ -17,12 +17,20 @@ proximity.setup({
 			"MAINTAINERS_GUIDE.md",
 			"docs/MAINTAINERS_GUIDE.md",
 		},
-		["<leader>pp"] = {
+		["<leader>ppd"] = {
 			"build.gradle",
 			"go.mod",
 			"main.tf",
 			"package.json",
 			"pyproject.toml",
+		},
+		["<leader>ppi"] = {
+			"default.nix",
+			"index.js",
+			"index.ts",
+			"main.go",
+			"src/index.js",
+			"src/index.ts",
 		},
 		["<leader>pr"] = {
 			"README.md",
