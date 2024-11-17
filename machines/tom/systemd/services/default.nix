@@ -71,5 +71,22 @@
         StartLimitIntervalSec = 24;
       };
     };
+    "slack:tails" = {
+      documentation = [ "https://github.com/zimeg/slack-sandbox" ];
+      wantedBy = [ "default.target" ];
+      path = [ pkgs.git ];
+      serviceConfig = {
+        EnvironmentFile = /home/ez/programming/slack/sandbox/js.bolt.tails/.env.production;
+        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"npm run start\"";
+        Restart = "always";
+        RestartSec = 2;
+        WorkingDirectory = /home/ez/programming/slack/sandbox/js.bolt.tails;
+      };
+      unitConfig = {
+        ConditionPathExists = /home/ez/programming/slack/sandbox/js.bolt.tails/slack.json;
+        StartLimitBurst = 12;
+        StartLimitIntervalSec = 24;
+      };
+    };
   };
 }
