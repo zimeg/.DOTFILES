@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: replace runners with a matching name to avoid rebuild error 2024-11-16
 - `nvim`: find dependencies and default files for a proxied project 2024-11-08
 - `ci`: use a cache to avoid building darwin package anew each time 2024-11-03
 - `ci`: check that updated changes build in pull request ci testing 2024-11-03
