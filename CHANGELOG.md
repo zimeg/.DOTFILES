@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: replace the ruff lsp with the shorthand ruff replacements 2024-11-30
 - `fix`: remove ditto workarounds after some changes to darin files 2024-11-30
 - `fix`: add ditto as allowed impure host depenendencies for darwin 2024-11-29
 - `systemd`: start thunderous takings of video streaming in channel 2024-11-16
