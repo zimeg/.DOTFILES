@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `fix`: add ditto as allowed impure host depenendencies for darwin 2024-11-29
 - `systemd`: start thunderous takings of video streaming in channel 2024-11-16
 - `ci`: replace runners with a matching name to avoid rebuild error 2024-11-16
 - `nvim`: find dependencies and default files for a proxied project 2024-11-08

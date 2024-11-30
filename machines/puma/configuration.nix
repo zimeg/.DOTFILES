@@ -3,6 +3,9 @@
 {
   nix = {
     settings = {
+      allowed-impure-host-deps = [
+        "/usr/bin/ditto" # https://github.com/zimeg/.DOTFILES/issues/21
+      ];
       experimental-features = [ "nix-command" "flakes" ];
       sandbox = true;
     };
