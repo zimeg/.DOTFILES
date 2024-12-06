@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: command open a web browser for the current repo and branch 2024-12-05
 - `ssh`: replace the ip to find tom at after swapping a wifi router 2024-12-05
 - `wd`: bump to the latest released patch version changes of v0.9.2 2024-11-30
 - `nvim`: replace the ruff lsp with the shorthand ruff replacements 2024-11-30

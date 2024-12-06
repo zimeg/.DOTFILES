@@ -1,4 +1,5 @@
 # https://github.com/git/git
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -12,4 +13,7 @@
   home.file.".gitconfig" = {
     source = ./.gitconfig;
   };
+  home.packages = [
+    pkgs.git-open # https://github.com/paulirish/git-open
+  ];
 }
