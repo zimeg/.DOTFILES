@@ -43,7 +43,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    addOpenGLRunpath
+    addDriverRunpath
     parted
     cudaPackages.cuda_cudart
     cudaPackages.cudatoolkit
