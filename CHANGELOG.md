@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ssh`: replace the ip to find tom at after swapping a wifi router 2024-12-05
 - `wd`: bump to the latest released patch version changes of v0.9.2 2024-11-30
 - `nvim`: replace the ruff lsp with the shorthand ruff replacements 2024-11-30
 - `fix`: remove ditto workarounds after some changes to darin files 2024-11-30
