@@ -1,5 +1,5 @@
 # https://github.com/neovim/neovim
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -20,7 +20,7 @@
       vim-gitgutter # https://github.com/airblade/vim-gitgutter
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
-      config.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
+      pkgs.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [

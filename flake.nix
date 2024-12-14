@@ -26,8 +26,9 @@
           ./machines/puma/configuration.nix
           inputs.home-manager.darwinModules.home-manager
           {
+            nixpkgs.overlays = [ nur.overlays.default ];
             home-manager = {
-              sharedModules = [ nur.hmModules.nur ];
+              sharedModules = [ nur.modules.homeManager.default ];
               useGlobalPkgs = true;
               useUserPackages = false;
               users = {
@@ -47,8 +48,9 @@
           ./machines/puma/configuration.nix
           inputs.home-manager.darwinModules.home-manager
           {
+            nixpkgs.overlays = [ nur.overlays.default ];
             home-manager = {
-              sharedModules = [ nur.hmModules.nur ];
+              sharedModules = [ nur.modules.homeManager.default ];
               useGlobalPkgs = true;
               useUserPackages = false;
               users = {
@@ -64,11 +66,12 @@
     nixosConfigurations = {
       tom = nixpkgs.lib.nixosSystem {
         modules = [
+          nur.modules.nixos.default
           ./machines/tom/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
-              sharedModules = [ nur.hmModules.nur ];
+              sharedModules = [ nur.modules.homeManager.default ];
               useGlobalPkgs = true;
               useUserPackages = true;
               users = {
