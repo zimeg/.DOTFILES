@@ -27,6 +27,7 @@
     ./services/plasma6
     ./services/printing
     ./services/sddm
+    ./services/tailscale
     ./services/xserver
     (import ./systemd/services { pkgs = pkgs; })
     ./systemd/targets

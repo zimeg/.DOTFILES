@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tailscale`: start services to tunnel towards tom across networks 2024-12-14
 - `nix`: separate configurations of the work machine forced balance 2024-12-14
 - `nix`: overlay nur modules and repos upon the shared pkgs configs 2024-12-14
 - `git`: delete local branches after the merging of upstream change 2024-12-05

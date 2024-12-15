@@ -14,6 +14,10 @@
     nix-daemon = {
       enable = true;
     };
+    # https://github.com/tailscale/tailscale
+    tailscale = {
+      enable = true;
+    };
   };
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
