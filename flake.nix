@@ -23,7 +23,7 @@
           inherit inputs self;
         };
         modules = [
-          ./machines/puma/configuration.nix
+          ./machines/work/configuration.nix
           inputs.home-manager.darwinModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlays.default ];
