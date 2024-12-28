@@ -1,12 +1,24 @@
 # https://nixos.wiki/wiki/Nixos-generate-config
-{ config, lib, modulesPath, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   boot = {
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = [
+        "ahci"
+        "nvme"
+        "sd_mod"
+        "usb_storage"
+        "usbhid"
+        "xhci_pci"
+      ];
       kernelModules = [ "dm-snapshot" ];
     };
     kernelModules = [ "kvm-amd" ];
@@ -20,7 +32,10 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/205C-364C";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "dmask=0022"
+        "fmask=0022"
+      ];
     };
     "/home" = {
       device = "/dev/disk/by-uuid/30535ff2-b087-45ac-a9cd-cc198dbe7f81";

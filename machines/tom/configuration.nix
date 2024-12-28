@@ -6,7 +6,10 @@
       automatic = true;
     };
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
     };
   };
   nixpkgs.config = {
@@ -89,7 +92,10 @@
     isNormalUser = true;
     name = "ez";
     description = "eden";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     linger = true;
     packages = with pkgs; [
       thunderbird

@@ -16,73 +16,80 @@
       url = "github:nix-community/NUR";
     };
   };
-  outputs = { self, nixpkgs, nur, ... }@inputs: {
-    darwinConfigurations = {
-      edenzim-ltmbn8v.internal.salesforce.com = inputs.nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit inputs self;
-        };
-        modules = [
-          ./machines/work/configuration.nix
-          inputs.home-manager.darwinModules.home-manager
-          {
-            nixpkgs.overlays = [ nur.overlays.default ];
-            home-manager = {
-              sharedModules = [ nur.modules.homeManager.default ];
-              useGlobalPkgs = true;
-              useUserPackages = false;
-              users = {
-                "eden.zimbelman" = {
-                  imports = [ ./programs/home.nix ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nur,
+      ...
+    }@inputs:
+    {
+      darwinConfigurations = {
+        edenzim-ltmbn8v.internal.salesforce.com = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs self;
+          };
+          modules = [
+            ./machines/work/configuration.nix
+            inputs.home-manager.darwinModules.home-manager
+            {
+              nixpkgs.overlays = [ nur.overlays.default ];
+              home-manager = {
+                sharedModules = [ nur.modules.homeManager.default ];
+                useGlobalPkgs = true;
+                useUserPackages = false;
+                users = {
+                  "eden.zimbelman" = {
+                    imports = [ ./programs/home.nix ];
+                  };
                 };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
+        ezmbp24.local = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs self;
+          };
+          modules = [
+            ./machines/puma/configuration.nix
+            inputs.home-manager.darwinModules.home-manager
+            {
+              nixpkgs.overlays = [ nur.overlays.default ];
+              home-manager = {
+                sharedModules = [ nur.modules.homeManager.default ];
+                useGlobalPkgs = true;
+                useUserPackages = false;
+                users = {
+                  "ez" = {
+                    imports = [ ./programs/home.nix ];
+                  };
+                };
+              };
+            }
+          ];
+        };
       };
-      ezmbp24.local = inputs.nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit inputs self;
-        };
-        modules = [
-          ./machines/puma/configuration.nix
-          inputs.home-manager.darwinModules.home-manager
-          {
-            nixpkgs.overlays = [ nur.overlays.default ];
-            home-manager = {
-              sharedModules = [ nur.modules.homeManager.default ];
-              useGlobalPkgs = true;
-              useUserPackages = false;
-              users = {
-                "ez" = {
-                  imports = [ ./programs/home.nix ];
+      nixosConfigurations = {
+        tom = nixpkgs.lib.nixosSystem {
+          modules = [
+            nur.modules.nixos.default
+            ./machines/tom/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                sharedModules = [ nur.modules.homeManager.default ];
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  default = {
+                    imports = [ ./programs/home.nix ];
+                  };
                 };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
     };
-    nixosConfigurations = {
-      tom = nixpkgs.lib.nixosSystem {
-        modules = [
-          nur.modules.nixos.default
-          ./machines/tom/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              sharedModules = [ nur.modules.homeManager.default ];
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users = {
-                default = {
-                  imports = [ ./programs/home.nix ];
-                };
-              };
-            };
-          }
-        ];
-      };
-    };
-  };
 }

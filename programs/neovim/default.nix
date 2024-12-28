@@ -22,8 +22,8 @@
       vim-signature # https://github.com/kshenoy/vim-signature
       pkgs.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
       # https://github.com/tree-sitter/tree-sitter
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
-        with plugins; [
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+        plugins: with plugins; [
           astro # https://github.com/virchau13/tree-sitter-astro
           bash # https://github.com/tree-sitter/tree-sitter-bash
           c # https://github.com/tree-sitter/tree-sitter-c
@@ -75,8 +75,9 @@
           vimdoc # https://github.com/neovim/tree-sitter-vimdoc
           xml # https://github.com/tree-sitter-grammars/tree-sitter-xml
           yaml # https://github.com/tree-sitter-grammars/tree-sitter-yaml
-        ]))
-      nvim-treesitter-context # https://github.com/nvim-treesitter/nvim-treesitter-context 
+        ]
+      ))
+      nvim-treesitter-context # https://github.com/nvim-treesitter/nvim-treesitter-context
     ];
   };
   xdg.configFile."nvim" = {

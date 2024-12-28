@@ -13,7 +13,11 @@
     "github:etime" = {
       documentation = [ "https://github.com/zimeg/emporia-time" ];
       wantedBy = [ "default.target" ];
-      path = [ pkgs.git pkgs.nix pkgs.time ];
+      path = [
+        pkgs.git
+        pkgs.nix
+        pkgs.time
+      ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix develop .#gh --command bash -c \"run.sh\"";
         Restart = "always";
@@ -29,7 +33,10 @@
     "minecraft:backup" = {
       documentation = [ "https://github.com/zimeg/minecraft" ];
       wantedBy = [ "default.target" ];
-      path = [ pkgs.git pkgs.nix ];
+      path = [
+        pkgs.git
+        pkgs.nix
+      ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix develop .#backup --command bash -c \"./backup/backup.sh\"";
         WorkingDirectory = /home/ez/games/minecraft/server;
@@ -41,7 +48,10 @@
     "minecraft:server" = {
       documentation = [ "https://github.com/zimeg/minecraft" ];
       wantedBy = [ "default.target" ];
-      path = [ pkgs.git pkgs.nix ];
+      path = [
+        pkgs.git
+        pkgs.nix
+      ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"minecraft-server\"";
         Restart = "always";

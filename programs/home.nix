@@ -35,7 +35,7 @@ let
     luajit # https://github.com/LuaJIT/LuaJIT
     marksman # https://github.com/artempyanykh/marksman
     nil # https://github.com/oxalica/nil
-    nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
+    nixfmt-rfc-style # https://github.com/NixOS/nixfmt
     nodePackages_latest."@astrojs/language-server" # https://github.com/withastro/language-tools/tree/main/packages/language-server
     nodePackages_latest.bash-language-server # https://github.com/bash-lsp/bash-language-server
     nodePackages_latest.prettier # https://github.com/prettier/prettier
