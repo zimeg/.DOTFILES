@@ -9,5 +9,13 @@
       tokenFile = "/home/ez/.secrets/gh.dotfiles.token";
       url = "https://github.com/zimeg/.DOTFILES";
     };
+    etime = {
+      enable = true;
+      ephemeral = true;
+      name = "tom";
+      replace = true;
+      tokenFile = "/home/ez/.secrets/gh.etime.token";
+      url = "https://github.com/zimeg/emporia-time";
+    };
   };
 }

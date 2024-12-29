@@ -10,26 +10,6 @@
     };
   };
   systemd.user.services = {
-    "github:etime" = {
-      documentation = [ "https://github.com/zimeg/emporia-time" ];
-      wantedBy = [ "default.target" ];
-      path = [
-        pkgs.git
-        pkgs.nix
-        pkgs.time
-      ];
-      serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix develop .#gh --command bash -c \"run.sh\"";
-        Restart = "always";
-        RestartSec = 2;
-        WorkingDirectory = /home/ez/programming/etime/.github/runners;
-      };
-      unitConfig = {
-        ConditionPathExists = /home/ez/programming/etime/.github/runners/.gitignore;
-        StartLimitBurst = 12;
-        StartLimitIntervalSec = 24;
-      };
-    };
     "minecraft:backup" = {
       documentation = [ "https://github.com/zimeg/minecraft" ];
       wantedBy = [ "default.target" ];
