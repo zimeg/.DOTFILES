@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: reference documentation that sets up workflow run with tom 2024-12-28
 - `nix`: format changes using the unstable but official nixfmt tool 2024-12-27
 - `tailscale`: start services to tunnel towards tom across networks 2024-12-14
 - `nix`: separate configurations of the work machine forced balance 2024-12-14
