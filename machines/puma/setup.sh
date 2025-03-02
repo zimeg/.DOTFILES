@@ -9,6 +9,7 @@ function help {
     echo "     host  configure the machine this runs"
     echo "  install  download tooling for dependencies"
     echo "   switch  change to the latest declarations"
+    echo "uninstall  remove the packages configured"
 }
 
 # Configure the machine this runs
@@ -32,6 +33,12 @@ function install {
 # Change to the latest declarations
 function switch {
     nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#"$(hostname)"
+}
+
+# Remove the packages configured
+function uninstall {
+    nix --extra-experimental-features "nix-command flakes" run nix-darwin#darwin-uninstaller
+    /nix/nix-installer uninstall
 }
 
 # Hint if no command is provided
