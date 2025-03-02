@@ -7,6 +7,7 @@ set -eo pipefail
 function help {
     echo "     help  display this informative message"
     echo "     host  configure the machine this runs"
+    echo "  install  download tooling for dependencies"
     echo "   switch  change to the latest declarations"
 }
 
@@ -20,6 +21,12 @@ function host {
     printf "Request hostname: \x1b[2m%s\x1b[0m\n" "$1"
     scutil --set HostName "$1"
     printf "Changed hostname: \x1b[32m%s\x1b[0m\n" "$(scutil --get HostName)"
+}
+
+# Download tooling for dependencies
+function install {
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
+    nix run nix-darwin/master#darwin-rebuild -- switch --flake .#"$(hostname)"
 }
 
 # Change to the latest declarations
