@@ -19,7 +19,6 @@
     ./hardware/configuration
     ./hardware/graphics
     (import ./hardware/nvidia { config = config; })
-    ./hardware/pulseaudio
     ./programs/gnupg
     ./security/rtkit
     ./services/github-runners
@@ -29,6 +28,7 @@
     ./services/pipewire
     ./services/plasma6
     ./services/printing
+    ./services/pulseaudio
     ./services/sddm
     ./services/tailscale
     ./services/xserver
