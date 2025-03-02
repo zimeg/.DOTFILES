@@ -14,9 +14,6 @@
     hostPlatform = "aarch64-darwin";
   };
   services = {
-    nix-daemon = {
-      enable = true;
-    };
     # https://github.com/tailscale/tailscale
     tailscale = {
       enable = true;

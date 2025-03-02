@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: remove explicit setup of the nix daemon for darwins laptop 2025-02-28
 - `gh`: prefer provided runners instead of systemd setups on repeat 2024-12-28
 - `nix`: reference documentation that sets up workflow run with tom 2024-12-28
 - `nix`: format changes using the unstable but official nixfmt tool 2024-12-27
