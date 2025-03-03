@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: rebuild the darwin machine with an installed switch script 2025-03-03
 - `nix`: setup an installation and teardown script for mac machines 2025-03-02
 - `nix`: avoid global packages while overlayed other packages exist 2025-03-02
 - `nix`: skip specific darwin configurations of the package manager 2025-03-02

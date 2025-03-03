@@ -32,7 +32,7 @@ function install {
 
 # Change to the latest declarations
 function switch {
-    nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#"$(hostname)"
+    darwin-rebuild switch --flake .#"$(hostname)"
 }
 
 # Remove the packages configured
