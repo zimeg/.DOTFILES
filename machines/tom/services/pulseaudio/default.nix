@@ -1,6 +1,6 @@
 # https://github.com/pulseaudio/pulseaudio
 {
-  hardware.pulseaudio = {
+  services.pulseaudio = {
     enable = false;
   };
 }

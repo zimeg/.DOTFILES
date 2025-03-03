@@ -2,21 +2,10 @@
 { self, ... }:
 {
   nix = {
-    settings = {
-      experimental-features = [
-        "flakes"
-        "nix-command"
-      ];
-      sandbox = true;
-    };
+    enable = false; # https://github.com/zimeg/.DOTFILES/issues/28
   };
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
-  };
-  services = {
-    nix-daemon = {
-      enable = true;
-    };
   };
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;

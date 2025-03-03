@@ -8,6 +8,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 - `nix`: rebuild the darwin machine with an installed switch script 2025-03-03
 - `nix`: setup an installation and teardown script for mac machines 2025-03-02
+- `nix`: move pulse audio from hardware to services in toms configs 2025-03-02
 - `nix`: avoid global packages while overlayed other packages exist 2025-03-02
 - `nix`: skip specific darwin configurations of the package manager 2025-03-02
 - `nix`: remove explicit setup of the nix daemon for darwins laptop 2025-02-28
