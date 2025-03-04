@@ -3,12 +3,26 @@
 # Display this informative message
 function help {
     echo "     help  display this informative message"
+    echo "  install  download tooling for dependencies"
     echo "   switch  change to the latest declarations"
+    echo "uninstall  remove the packages configured"
+}
+
+# Download tooling for dependencies
+function install {
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
+    nix run nix-darwin/master#darwin-rebuild -- switch --flake .#"$(hostname)"
 }
 
 # Change to the latest declarations
 function switch {
-    nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake .#"$(hostname)"
+    darwin-rebuild switch --flake .#"$(hostname)"
+}
+
+# Remove the packages configured
+function uninstall {
+    nix --extra-experimental-features "nix-command flakes" run nix-darwin#darwin-uninstaller
+    /nix/nix-installer uninstall
 }
 
 # Hint if no command is provided
