@@ -38,11 +38,11 @@ jobs:
     needs: stablearhtns
     runs-on: self-hosted
     steps:
-      - name: Checkout this repo
+      - name: Checkout the changes
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: update
+          ref: ${{ github.event.pull_request.head.ref || 'update' }}
       - name: Reflect existing Nix
         id: nixos
         continue-on-error: true

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: checkout changes of branches to test with updates in motion 2025-03-04
 - `nix`: move pulse audio from hardware to services in toms configs 2025-03-02
 - `nix`: avoid global packages while overlayed other packages exist 2025-03-02
 - `nix`: skip specific darwin configurations of the package manager 2025-03-02
