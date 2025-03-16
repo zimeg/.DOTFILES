@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `gh`: start a slack github workflow runner for sample app updates 2025-03-15
 - `go`: change the version of golang language to those 1.24 changes 2025-03-06
 - `ci`: checkout changes of branches to test with updates in motion 2025-03-04
 - `nix`: rebuild the darwin machine with an installed switch script 2025-03-03

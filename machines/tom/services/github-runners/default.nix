@@ -17,5 +17,13 @@
       tokenFile = "/home/ez/.secrets/gh.etime.token";
       url = "https://github.com/zimeg/emporia-time";
     };
+    slacks = {
+      enable = true;
+      ephemeral = true;
+      name = "tom";
+      replace = true;
+      tokenFile = "/home/ez/.secrets/gh.slacks.token";
+      url = "https://github.com/zimeg/slack-sandbox";
+    };
   };
 }
