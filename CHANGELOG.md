@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: jump to project make or task files with a project mapping 2025-03-16
 - `gh`: include shared extra packages for mock testing environments 2025-03-15
 - `gh`: start a slack github workflow runner for sample app updates 2025-03-15
 - `go`: change the version of golang language to those 1.24 changes 2025-03-06
