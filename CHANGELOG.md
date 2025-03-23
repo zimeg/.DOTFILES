@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `go`: install an entire suite of gotools for improved development 2025-03-22
 - `ruby`: remove installations and environments from ruby languages 2025-03-22
 - `nvim`: macro common expressions to scaffold error or log or test 2025-03-22
 - `nvim`: jump to project make or task files with a project mapping 2025-03-16

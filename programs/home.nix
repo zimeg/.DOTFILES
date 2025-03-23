@@ -23,7 +23,7 @@ let
     gofumpt # https://github.com/mvdan/gofumpt
     golangci-lint # https://github.com/golangci/golangci-lint
     golangci-lint-langserver # https://github.com/nametake/golangci-lint-langserver
-    gopls # https://github.com/golang/tools/tree/master/gopls
+    gotools # https://github.com/golang/tools
     gradle # https://github.com/gradle/gradle
     groovy # https://github.com/apache/groovy
     htmx-lsp # https://github.com/ThePrimeagen/htmx-lsp
