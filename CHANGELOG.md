@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `systemd`: pull latest changes of sandbox applications on updates 2025-03-22
 - `nvim`: jump to diagnostic information if code raises the warning 2025-03-22
 - `go`: install an entire suite of gotools for improved development 2025-03-22
 - `ruby`: remove installations and environments from ruby languages 2025-03-22

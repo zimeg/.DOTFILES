@@ -44,19 +44,44 @@
         StartLimitIntervalSec = 24;
       };
     };
+    "slack:git" = {
+      documentation = [ "https://github.com/zimeg/slack-sandbox" ];
+      requiredBy = [
+        "slack:snaek.service"
+        "slack:tails.service"
+      ];
+      path = [
+        pkgs.git
+        pkgs.openssh
+      ];
+      serviceConfig = {
+        ExecStart = "${pkgs.git}/bin/git pull origin main";
+        Restart = "on-failure";
+        RestartSec = 2;
+        WorkingDirectory = /home/ez/productions/slack/sandbox;
+      };
+      unitConfig = {
+        ConditionPathExists = /home/ez/productions/slack/sandbox;
+        StartLimitBurst = 12;
+        StartLimitIntervalSec = 24;
+      };
+    };
     "slack:snaek" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
       wantedBy = [ "default.target" ];
-      path = [ pkgs.git ];
+      path = [
+        pkgs.git
+        pkgs.nix
+      ];
       serviceConfig = {
-        EnvironmentFile = /home/ez/programming/slack/sandbox/py.bolt.snaek/.env.production;
+        EnvironmentFile = /home/ez/productions/slack/sandbox/py.bolt.snaek/.env.production;
         ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"python3 app.py\"";
         Restart = "always";
         RestartSec = 2;
-        WorkingDirectory = /home/ez/programming/slack/sandbox/py.bolt.snaek;
+        WorkingDirectory = /home/ez/productions/slack/sandbox/py.bolt.snaek;
       };
       unitConfig = {
-        ConditionPathExists = /home/ez/programming/slack/sandbox/py.bolt.snaek/slack.json;
+        ConditionPathExists = /home/ez/productions/slack/sandbox/py.bolt.snaek/.slack/hooks.json;
         StartLimitBurst = 12;
         StartLimitIntervalSec = 24;
       };
@@ -64,16 +89,20 @@
     "slack:tails" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
       wantedBy = [ "default.target" ];
-      path = [ pkgs.git ];
+      path = [
+        pkgs.git
+        pkgs.nix
+      ];
       serviceConfig = {
-        EnvironmentFile = /home/ez/programming/slack/sandbox/js.bolt.tails/.env.production;
+        EnvironmentFile = /home/ez/productions/slack/sandbox/js.bolt.tails/.env.production;
         ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"npm run start\"";
+        ExecStartPre = "${pkgs.nix}/bin/nix develop --command bash -c \"npm ci --omit=dev --omit=optional\"";
         Restart = "always";
         RestartSec = 2;
-        WorkingDirectory = /home/ez/programming/slack/sandbox/js.bolt.tails;
+        WorkingDirectory = /home/ez/productions/slack/sandbox/js.bolt.tails;
       };
       unitConfig = {
-        ConditionPathExists = /home/ez/programming/slack/sandbox/js.bolt.tails/slack.json;
+        ConditionPathExists = /home/ez/productions/slack/sandbox/js.bolt.tails/.slack/hooks.json;
         StartLimitBurst = 12;
         StartLimitIntervalSec = 24;
       };
