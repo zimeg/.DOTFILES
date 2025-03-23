@@ -43,7 +43,6 @@ let
     nodejs_22 # https://github.com/nodejs/node
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
-    ruby # https://github.com/ruby/ruby
     ruff # https://github.com/astral-sh/ruff
     ruff-lsp # https://github.com/astral-sh/ruff-lsp
     rust-analyzer # https://github.com/rust-lang/rust-analyzer
@@ -81,7 +80,6 @@ in
     ./jq
     ./man
     ./neovim
-    ./rbenv
     ./ripgrep
     ./ssh
     ./tmux
