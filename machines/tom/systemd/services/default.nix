@@ -15,7 +15,6 @@
       wantedBy = [ "default.target" ];
       path = [
         pkgs.git
-        pkgs.nix
       ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix develop .#backup --command bash -c \"./backup/backup.sh\"";
@@ -30,7 +29,6 @@
       wantedBy = [ "default.target" ];
       path = [
         pkgs.git
-        pkgs.nix
       ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"minecraft-server\"";
@@ -51,7 +49,6 @@
         "slack:tails.service"
       ];
       path = [
-        pkgs.git
         pkgs.openssh
       ];
       serviceConfig = {
@@ -71,7 +68,6 @@
       wantedBy = [ "default.target" ];
       path = [
         pkgs.git
-        pkgs.nix
       ];
       serviceConfig = {
         EnvironmentFile = /home/ez/productions/slack/sandbox/py.bolt.snaek/.env.production;
@@ -91,7 +87,6 @@
       wantedBy = [ "default.target" ];
       path = [
         pkgs.git
-        pkgs.nix
       ];
       serviceConfig = {
         EnvironmentFile = /home/ez/productions/slack/sandbox/js.bolt.tails/.env.production;

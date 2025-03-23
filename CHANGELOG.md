@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `systemd`: remove packages from path that are used for exec start 2025-03-23
 - `systemd`: pull latest changes of sandbox applications on updates 2025-03-22
 - `nvim`: jump to diagnostic information if code raises the warning 2025-03-22
 - `go`: install an entire suite of gotools for improved development 2025-03-22
