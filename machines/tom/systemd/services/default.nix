@@ -72,6 +72,7 @@
       serviceConfig = {
         EnvironmentFile = /home/ez/productions/slack/sandbox/py.bolt.snaek/.env.production;
         ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"python3 app.py\"";
+        ExecStartPre = "${pkgs.ollama}/bin/ollama create snaek --file models/Modelfile";
         Restart = "always";
         RestartSec = 2;
         WorkingDirectory = /home/ez/productions/slack/sandbox/py.bolt.snaek;
