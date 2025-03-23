@@ -28,6 +28,11 @@ vim.keymap.set("v", "]h", vim.cmd.GitGutterNextHunk)
 vim.keymap.set("n", "[h", vim.cmd.GitGutterPrevHunk)
 vim.keymap.set("v", "[h", vim.cmd.GitGutterPrevHunk)
 
+vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
+vim.keymap.set("v", "]e", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[e", vim.diagnostic.goto_prev)
+vim.keymap.set("v", "[e", vim.diagnostic.goto_prev)
+
 -- Moveable selections
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
