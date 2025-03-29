@@ -72,6 +72,16 @@ lspconfig.eslint.setup({
 lspconfig.golangci_lint_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	init_options = {
+		command = {
+			"golangci-lint",
+			"run",
+			"--output.json.path",
+			"stdout",
+			"--show-stats=false",
+			"--issues-exit-code=1",
+		},
+	},
 })
 
 lspconfig.gopls.setup({
