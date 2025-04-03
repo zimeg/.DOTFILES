@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: move between wrapped lines with default motions otherwise 2025-04-02
 - `nvim`: initialize the golangci lint language server with outputs 2025-03-29
 - `systemd`: remake the production ollama model for chatbots online 2025-03-23
 - `systemd`: remove packages from path that are used for exec start 2025-03-23
