@@ -20,6 +20,7 @@
       vim-gitgutter # https://github.com/airblade/vim-gitgutter
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
+      pkgs.nur.repos.zimeg.newsflash-nvim # https://github.com/zimeg/newsflash.nvim
       pkgs.nur.repos.zimeg.proximity-nvim # https://github.com/zimeg/proximity.nvim
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (
