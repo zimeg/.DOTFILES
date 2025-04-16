@@ -209,6 +209,9 @@ lspconfig.ts_ls.setup({
 		capabilities.allow_incremental_sync = true
 		capabilities.document_formatting = false
 	end,
+	init_options = {
+		maxTsServerMemory = 16384,
+	},
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
 })

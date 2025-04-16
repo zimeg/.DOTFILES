@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: increase the amount of memories the tsserver keeps record 2025-04-16
 - `nvim`: jump to start of actual lines with a swapped mapped combo 2025-04-05
 - `nvim`: open files in a newsflash and paperesque modal as reading 2025-04-03
 - `nvim`: move between wrapped lines with default motions otherwise 2025-04-02
