@@ -21,6 +21,7 @@
     (import ./hardware/nvidia { config = config; })
     ./programs/gnupg
     ./security/rtkit
+    ./security/sudo
     (import ./services/github-runners { pkgs = pkgs; })
     (import ./services/interception-tools { pkgs = pkgs; })
     ./services/ollama
