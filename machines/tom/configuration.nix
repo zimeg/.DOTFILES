@@ -86,6 +86,19 @@
       ];
     };
   };
+  sops = {
+    defaultSopsFile = ./secrets/vault.yaml;
+    defaultSopsFormat = "yaml";
+    age = {
+      generateKey = false;
+      keyFile = "/home/ez/.config/sops/age/keys.txt";
+    };
+    secrets = {
+      "github/runners/dotfiles" = { };
+      "github/runners/etime" = { };
+      "github/runners/slacks" = { };
+    };
+  };
   time = {
     timeZone = "America/Los_Angeles";
   };

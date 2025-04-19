@@ -15,6 +15,10 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -76,6 +80,7 @@
             nur.modules.nixos.default
             ./machines/tom/configuration.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
             {
               home-manager = {
                 sharedModules = [ nur.modules.homeManager.default ];

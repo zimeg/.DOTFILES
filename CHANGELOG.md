@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: save secrets in an obfuscated text file for safe keepings 2025-04-18
 - `sudo`: remove password prompt when logged in as wheels root user 2025-04-17
 - `nvim`: increase the amount of memories the tsserver keeps record 2025-04-16
 - `nvim`: jump to start of actual lines with a swapped mapped combo 2025-04-05

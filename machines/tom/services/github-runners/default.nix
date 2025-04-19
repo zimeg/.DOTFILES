@@ -7,7 +7,7 @@
       ephemeral = true;
       name = "tom";
       replace = true;
-      tokenFile = "/home/ez/.secrets/gh.dotfiles.token";
+      tokenFile = "/run/secrets/github/runners/dotfiles";
       url = "https://github.com/zimeg/.DOTFILES";
     };
     etime = {
@@ -18,7 +18,7 @@
       ];
       name = "tom";
       replace = true;
-      tokenFile = "/home/ez/.secrets/gh.etime.token";
+      tokenFile = "/run/secrets/github/runners/etime";
       url = "https://github.com/zimeg/emporia-time";
     };
     slacks = {
@@ -29,7 +29,7 @@
       ];
       name = "tom";
       replace = true;
-      tokenFile = "/home/ez/.secrets/gh.slacks.token";
+      tokenFile = "/run/secrets/github/runners/slacks";
       url = "https://github.com/zimeg/slack-sandbox";
     };
   };

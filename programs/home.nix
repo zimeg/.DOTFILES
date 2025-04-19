@@ -2,6 +2,8 @@
 { pkgs, ... }:
 let
   tools = with pkgs; [
+    age # https://github.com/FiloSottile/age
+    bitwarden-cli # https://github.com/bitwarden/clients/tree/main/apps/cli
     cachix # https://github.com/cachix/cachix
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
@@ -10,6 +12,7 @@ let
     gnumake # https://github.com/mirror/make
     gnused # https://git.savannah.gnu.org/cgit/sed.git
     pciutils # https://github.com/pciutils/pciutils
+    sops # https://github.com/getsops/sops
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; [
