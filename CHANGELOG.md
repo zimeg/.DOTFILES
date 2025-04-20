@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `bw`: remove the password management program to build compilation 2025-04-19
 - `sudo`: accept a fingerprint input for sudo passwords with darwin 2025-04-19
 - `sops`: save secrets in an obfuscated text file for safe keepings 2025-04-18
 - `sudo`: remove password prompt when logged in as wheels root user 2025-04-17
