@@ -58,6 +58,7 @@
           modules = [
             ./machines/puma/configuration.nix
             inputs.home-manager.darwinModules.home-manager
+            inputs.sops-nix.darwinModules.sops
             {
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager = {

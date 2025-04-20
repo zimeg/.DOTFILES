@@ -23,6 +23,23 @@
       enable = true;
     };
   };
+  sops = {
+    age = {
+      generateKey = false;
+      keyFile = "/Users/ez/Library/Application Support/sops/age/keys.txt";
+      sshKeyPaths = [ ];
+    };
+    gnupg = {
+      sshKeyPaths = [ ];
+    };
+    defaultSopsFile = ./secrets/vault.yaml;
+    defaultSopsFormat = "yaml";
+    secrets = {
+      openai = {
+        owner = "ez";
+      };
+    };
+  };
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = 5;
