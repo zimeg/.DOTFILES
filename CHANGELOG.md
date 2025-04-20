@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: prefer a variable users users input config name in secret 2025-04-20
 - `sops`: store tokens using a scription for hiding darwin password 2025-04-19
 - `bw`: remove the password management program to build compilation 2025-04-19
 - `sudo`: accept a fingerprint input for sudo passwords with darwin 2025-04-19

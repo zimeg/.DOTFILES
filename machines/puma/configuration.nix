@@ -1,5 +1,5 @@
 # https://github.com/LnL7/nix-darwin
-{ self, ... }:
+{ self, ... }@input:
 {
   nix = {
     enable = false; # https://github.com/zimeg/.DOTFILES/issues/28
@@ -24,6 +24,8 @@
     };
   };
   sops = {
+    defaultSopsFile = ./secrets/vault.yaml;
+    defaultSopsFormat = "yaml";
     age = {
       generateKey = false;
       keyFile = "/Users/ez/Library/Application Support/sops/age/keys.txt";
@@ -32,11 +34,9 @@
     gnupg = {
       sshKeyPaths = [ ];
     };
-    defaultSopsFile = ./secrets/vault.yaml;
-    defaultSopsFormat = "yaml";
     secrets = {
       openai = {
-        owner = "ez";
+        owner = input.config.users.users.ez.name;
       };
     };
   };
