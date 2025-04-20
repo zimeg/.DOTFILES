@@ -7,6 +7,16 @@
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
   };
+  security = {
+    pam = {
+      services = {
+        sudo_local = {
+          reattach = true;
+          touchIdAuth = true;
+        };
+      };
+    };
+  };
   services = {
     # https://github.com/tailscale/tailscale
     tailscale = {
