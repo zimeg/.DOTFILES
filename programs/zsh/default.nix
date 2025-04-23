@@ -21,8 +21,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mfaerevaag";
           repo = "wd";
-          rev = "v0.9.2";
-          hash = "sha256-6/3+FtHGyVmuOtmuKhboiQ40ECini/0OwvKcftIjIIM=";
+          rev = "v0.10.0";
+          hash = "sha256-/xOe7XFzQt+qVGf6kfsOPPM8szWYhnmx5Mq/QIw0y1c=";
         };
       }
     ];
