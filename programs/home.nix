@@ -46,7 +46,6 @@ let
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
-    ruff-lsp # https://github.com/astral-sh/ruff-lsp
     rust-analyzer # https://github.com/rust-lang/rust-analyzer
     rustc # https://github.com/rust-lang/rust
     rustfmt # https://github.com/rust-lang/rustfmt
