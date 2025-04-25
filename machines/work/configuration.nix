@@ -12,6 +12,16 @@
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
   };
+  security = {
+    pam = {
+      services = {
+        sudo_local = {
+          reattach = true;
+          touchIdAuth = true;
+        };
+      };
+    };
+  };
   sops = {
     defaultSopsFile = ./secrets/vault.yaml;
     defaultSopsFormat = "yaml";

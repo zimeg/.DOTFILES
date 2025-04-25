@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sudo`: touch identification as a super user with the laptop open 2025-04-25
 - `sops`: collect variables for artificial intelligence when at job 2025-04-25
 - `zsh`: replace extra initializations with content on shell starts 2025-04-25
 - `ssh`: swap host configuration before rebuilding the work machine 2025-04-25
