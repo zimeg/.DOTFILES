@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ssh`: swap host configuration before rebuilding the work machine 2025-04-25
 - `wd`: bump to the latest feature release version of found v0.10.0 2025-04-23
 - `ruff`: remove separate installations of language server protocol 2025-04-23
 - `sops`: prefer a variable users users input config name in secret 2025-04-20
