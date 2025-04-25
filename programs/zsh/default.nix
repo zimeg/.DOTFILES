@@ -12,7 +12,7 @@
       bindkey '^N' history-beginning-search-forward
       PROMPT='%B%F{black}%(!.#.$)%b%f '
       ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=0
-      export OPENAI_API_KEY="$(</run/secrets/openai)"
+      export OPENAI_API_KEY="$(</run/secrets/ai/openai)"
     '';
     plugins = [
       {
