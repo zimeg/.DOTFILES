@@ -5,7 +5,7 @@
     autosuggestion.enable = true;
     enable = true;
     enableCompletion = true;
-    initExtra = ''
+    initContent = ''
       bindkey '^Y' autosuggest-accept
       bindkey '^ ' autosuggest-toggle
       bindkey '^P' history-beginning-search-backward
