@@ -46,6 +46,9 @@
       init = {
         defaultBranch = "main";
       };
+      mailmap = {
+        file = "~/.config/git/mailmap";
+      };
       pull = {
         rebase = false;
       };
@@ -61,6 +64,9 @@
     };
     userEmail = "zim@o526.net";
     userName = "@zimeg";
+  };
+  home.file.".config/git/mailmap" = {
+    source = ./.mailmap;
   };
   home.packages = [
     pkgs.git-open # https://github.com/paulirish/git-open
