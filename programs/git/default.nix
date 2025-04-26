@@ -5,7 +5,7 @@
     enable = true;
     aliases = {
       last = "log -1 HEAD";
-      list = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+      list = "log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(dim white)-%C(reset) %s %C(dim white)(%cr)%C(reset) %C(cyan)<%aN>%C(reset)%C(bold)%d%C(reset)' --abbrev-commit --date=relative";
       staged = "diff --staged";
       unstage = "restore --staged";
       update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'";
