@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: print who tallied contribution from historical information 2025-04-26
 - `git`: list commits postfixed branches and tags with the mailmaps 2025-04-26
 - `git`: substitute past email addresses with more current mailmaps 2025-04-26
 - `git`: move configuration files into directories of configuration 2025-04-26

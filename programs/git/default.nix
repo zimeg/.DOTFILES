@@ -70,5 +70,6 @@
   };
   home.packages = [
     pkgs.git-open # https://github.com/paulirish/git-open
+    pkgs.git-who # https://github.com/sinclairtarget/git-who
   ];
 }
