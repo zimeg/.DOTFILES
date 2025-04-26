@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: move configuration files into directories of configuration 2025-04-26
 - `sudo`: touch identification as a super user with the laptop open 2025-04-25
 - `sops`: collect variables for artificial intelligence when at job 2025-04-25
 - `zsh`: replace extra initializations with content on shell starts 2025-04-25
