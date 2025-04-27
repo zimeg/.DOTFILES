@@ -35,7 +35,7 @@
       sshKeyPaths = [ ];
     };
     secrets = {
-      openai = {
+      "ai/openai" = {
         owner = input.config.users.users.ez.name;
       };
     };
