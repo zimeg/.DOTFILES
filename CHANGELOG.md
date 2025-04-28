@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `gh`: start caffeinated computations that cache packaged workflow 2025-04-27
 - `sops`: nest secrets of common group for intelligent path finding 2025-04-27
 - `git`: print who tallied contribution from historical information 2025-04-26
 - `git`: list commits postfixed branches and tags with the mailmaps 2025-04-26

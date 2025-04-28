@@ -2,6 +2,14 @@
 { pkgs }:
 {
   services.github-runners = {
+    coffee = {
+      enable = true;
+      ephemeral = true;
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee";
+      url = "https://github.com/zimeg/maintainers.coffee";
+    };
     dotfiles = {
       enable = true;
       ephemeral = true;

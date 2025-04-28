@@ -94,6 +94,7 @@
       keyFile = "/home/ez/.config/sops/age/keys.txt";
     };
     secrets = {
+      "github/runners/coffee" = { };
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
       "github/runners/slacks" = { };
