@@ -94,6 +94,10 @@
       keyFile = "/home/ez/.config/sops/age/keys.txt";
     };
     secrets = {
+      "ai/openai" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+      };
       "github/runners/coffee" = { };
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
