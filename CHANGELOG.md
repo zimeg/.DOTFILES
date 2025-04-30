@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `less`: prefer the updated simple pager quoted with more advanced 2025-04-29
 - `alacritty`: unlock a more complete color palette for output code 2025-04-29
 - `sops`: include a token for tom to think or at least predict word 2025-04-27
 - `gh`: start caffeinated computations that cache packaged workflow 2025-04-27
