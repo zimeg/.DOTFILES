@@ -56,6 +56,12 @@
         default = "simple";
       };
     };
+    delta = {
+      enable = true;
+      options = {
+        syntax-theme = "ansi";
+      };
+    };
     ignores = [
       ".DS_Store"
     ];
