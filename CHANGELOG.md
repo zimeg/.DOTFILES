@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `man`: read the fun manual pages using editor movements of choice 2025-04-29
 - `delta`: find file differences between commits using highlighting 2025-04-29
 - `less`: prefer the updated simple pager quoted with more advanced 2025-04-29
 - `alacritty`: unlock a more complete color palette for output code 2025-04-29
