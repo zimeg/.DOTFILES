@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cursor`: install experimental editor with budget as work expense 2025-04-30
 - `man`: read the fun manual pages using editor movements of choice 2025-04-29
 - `delta`: find file differences between commits using highlighting 2025-04-29
 - `less`: prefer the updated simple pager quoted with more advanced 2025-04-29
