@@ -42,6 +42,9 @@
       "ai/anthropic" = {
         owner = input.config.users.users."eden.zimbelman".name;
       };
+      "ai/huggingface" = {
+        owner = input.config.users.users."eden.zimbelman".name;
+      };
       "ai/openai" = {
         owner = input.config.users.users."eden.zimbelman".name;
       };
