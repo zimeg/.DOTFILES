@@ -61,6 +61,7 @@ let
     vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
     yaml-language-server # https://github.com/redhat-developer/yaml-language-server
     yamllint # https://github.com/adrienverge/yamllint
+    zls # https://github.com/zigtools/zls
   ];
 in
 {

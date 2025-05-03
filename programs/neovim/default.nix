@@ -76,6 +76,7 @@
           vimdoc # https://github.com/neovim/tree-sitter-vimdoc
           xml # https://github.com/tree-sitter-grammars/tree-sitter-xml
           yaml # https://github.com/tree-sitter-grammars/tree-sitter-yaml
+          zig # https://github.com/tree-sitter-grammars/tree-sitter-zig
         ]
       ))
       nvim-treesitter-context # https://github.com/nvim-treesitter/nvim-treesitter-context
