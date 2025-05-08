@@ -16,3 +16,5 @@ configs.setup({
 context.setup({
 	mode = "topline",
 })
+
+vim.treesitter.language.register("markdown", "mdx")

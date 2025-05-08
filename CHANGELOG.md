@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: recognize markdown component extensions with a treesitter 2025-05-08
 - `nvim`: setup tooling of modern low level general purpose ziglang 2025-05-02
 - `sops`: include a hugging face token for conversations with model 2025-05-01
 - `cursor`: install experimental editor with budget as work expense 2025-04-30
