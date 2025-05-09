@@ -32,6 +32,10 @@ proximity.setup({
 			"src/index.js",
 			"src/index.ts",
 		},
+		["<leader>ppm"] = {
+			"Makefile",
+			"Taskfile.yml",
+		},
 		["<leader>pr"] = {
 			"README.md",
 		},

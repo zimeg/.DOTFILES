@@ -3,9 +3,10 @@
   services.openssh = {
     enable = true;
     settings = {
+      AllowUsers = [ "ez" ];
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
-      PermitRootLogin = "prohibit-password";
+      PermitRootLogin = "no";
     };
   };
 }

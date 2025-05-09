@@ -6,7 +6,50 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `ci`: replace a deprecated cache action with the latest releasing 2025-03-04
+- `ci`: remove a deprecated cache store action for latest releasing 2025-05-08
+- `nvim`: recognize markdown component extensions with a treesitter 2025-05-08
+- `nvim`: setup tooling of modern low level general purpose ziglang 2025-05-02
+- `sops`: include a hugging face token for conversations with model 2025-05-01
+- `cursor`: install experimental editor with budget as work expense 2025-04-30
+- `man`: read the fun manual pages using editor movements of choice 2025-04-29
+- `delta`: find file differences between commits using highlighting 2025-04-29
+- `less`: prefer the updated simple pager quoted with more advanced 2025-04-29
+- `alacritty`: unlock a more complete color palette for output code 2025-04-29
+- `sops`: include a token for tom to think or at least predict word 2025-04-27
+- `gh`: start caffeinated computations that cache packaged workflow 2025-04-27
+- `sops`: nest secrets of common group for intelligent path finding 2025-04-27
+- `git`: print who tallied contribution from historical information 2025-04-26
+- `git`: list commits postfixed branches and tags with the mailmaps 2025-04-26
+- `git`: substitute past email addresses with more current mailmaps 2025-04-26
+- `git`: move configuration files into directories of configuration 2025-04-26
+- `sudo`: touch identification as a super user with the laptop open 2025-04-25
+- `sops`: collect variables for artificial intelligence when at job 2025-04-25
+- `zsh`: replace extra initializations with content on shell starts 2025-04-25
+- `ssh`: swap host configuration before rebuilding the work machine 2025-04-25
+- `wd`: bump to the latest feature release version of found v0.10.0 2025-04-23
+- `ruff`: remove separate installations of language server protocol 2025-04-23
+- `sops`: prefer a variable users users input config name in secret 2025-04-20
+- `sops`: store tokens using a scription for hiding darwin password 2025-04-19
+- `bw`: remove the password management program to build compilation 2025-04-19
+- `sudo`: accept a fingerprint input for sudo passwords with darwin 2025-04-19
+- `sops`: save secrets in an obfuscated text file for safe keepings 2025-04-18
+- `sudo`: remove password prompt when logged in as wheels root user 2025-04-17
+- `nvim`: increase the amount of memories the tsserver keeps record 2025-04-16
+- `nvim`: jump to start of actual lines with a swapped mapped combo 2025-04-05
+- `nvim`: open files in a newsflash and paperesque modal as reading 2025-04-03
+- `nvim`: move between wrapped lines with default motions otherwise 2025-04-02
+- `nvim`: initialize the golangci lint language server with outputs 2025-03-29
+- `systemd`: remake the production ollama model for chatbots online 2025-03-23
+- `systemd`: remove packages from path that are used for exec start 2025-03-23
+- `systemd`: pull latest changes of sandbox applications on updates 2025-03-22
+- `nvim`: jump to diagnostic information if code raises the warning 2025-03-22
+- `go`: install an entire suite of gotools for improved development 2025-03-22
+- `ruby`: remove installations and environments from ruby languages 2025-03-22
+- `nvim`: macro common expressions to scaffold error or log or test 2025-03-22
+- `nvim`: jump to project make or task files with a project mapping 2025-03-16
+- `gh`: include shared extra packages for mock testing environments 2025-03-15
+- `gh`: start a slack github workflow runner for sample app updates 2025-03-15
+- `go`: change the version of golang language to those 1.24 changes 2025-03-06
 - `ci`: checkout changes of branches to test with updates in motion 2025-03-04
 - `nix`: rebuild the darwin machine with an installed switch script 2025-03-03
 - `nix`: setup an installation and teardown script for mac machines 2025-03-02

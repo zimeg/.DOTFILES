@@ -21,7 +21,8 @@
     (import ./hardware/nvidia { config = config; })
     ./programs/gnupg
     ./security/rtkit
-    ./services/github-runners
+    ./security/sudo
+    (import ./services/github-runners { pkgs = pkgs; })
     (import ./services/interception-tools { pkgs = pkgs; })
     ./services/ollama
     ./services/openssh
@@ -83,6 +84,24 @@
         3000
         25565
       ];
+    };
+  };
+  sops = {
+    defaultSopsFile = ./secrets/vault.yaml;
+    defaultSopsFormat = "yaml";
+    age = {
+      generateKey = false;
+      keyFile = "/home/ez/.config/sops/age/keys.txt";
+    };
+    secrets = {
+      "ai/openai" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+      };
+      "github/runners/coffee" = { };
+      "github/runners/dotfiles" = { };
+      "github/runners/etime" = { };
+      "github/runners/slacks" = { };
     };
   };
   time = {

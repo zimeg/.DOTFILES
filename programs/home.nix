@@ -2,6 +2,7 @@
 { pkgs, ... }:
 let
   tools = with pkgs; [
+    age # https://github.com/FiloSottile/age
     cachix # https://github.com/cachix/cachix
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
@@ -9,7 +10,9 @@ let
     gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
     gnused # https://git.savannah.gnu.org/cgit/sed.git
+    less # https://github.com/gwsw/less
     pciutils # https://github.com/pciutils/pciutils
+    sops # https://github.com/getsops/sops
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; [
@@ -19,11 +22,11 @@ let
     delve # https://github.com/go-delve/delve
     deno # https://github.com/denoland/deno
     dockerfile-language-server-nodejs # https://github.com/rcjsuen/dockerfile-language-server
-    go_1_23 # https://github.com/golang/go
+    go_1_24 # https://github.com/golang/go
     gofumpt # https://github.com/mvdan/gofumpt
     golangci-lint # https://github.com/golangci/golangci-lint
     golangci-lint-langserver # https://github.com/nametake/golangci-lint-langserver
-    gopls # https://github.com/golang/tools/tree/master/gopls
+    gotools # https://github.com/golang/tools
     gradle # https://github.com/gradle/gradle
     groovy # https://github.com/apache/groovy
     htmx-lsp # https://github.com/ThePrimeagen/htmx-lsp
@@ -43,9 +46,7 @@ let
     nodejs_22 # https://github.com/nodejs/node
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
-    ruby # https://github.com/ruby/ruby
     ruff # https://github.com/astral-sh/ruff
-    ruff-lsp # https://github.com/astral-sh/ruff-lsp
     rust-analyzer # https://github.com/rust-lang/rust-analyzer
     rustc # https://github.com/rust-lang/rust
     rustfmt # https://github.com/rust-lang/rustfmt
@@ -60,6 +61,7 @@ let
     vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
     yaml-language-server # https://github.com/redhat-developer/yaml-language-server
     yamllint # https://github.com/adrienverge/yamllint
+    zls # https://github.com/zigtools/zls
   ];
 in
 {
@@ -81,7 +83,6 @@ in
     ./jq
     ./man
     ./neovim
-    ./rbenv
     ./ripgrep
     ./ssh
     ./tmux

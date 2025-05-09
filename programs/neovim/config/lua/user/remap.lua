@@ -23,10 +23,29 @@ vim.keymap.set("n", "LL", ":lua vim.wo.list = not vim.wo.list<CR>", { noremap = 
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
+vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
+vim.keymap.set("v", "]e", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[e", vim.diagnostic.goto_prev)
+vim.keymap.set("v", "[e", vim.diagnostic.goto_prev)
+
 vim.keymap.set("n", "]h", vim.cmd.GitGutterNextHunk)
 vim.keymap.set("v", "]h", vim.cmd.GitGutterNextHunk)
 vim.keymap.set("n", "[h", vim.cmd.GitGutterPrevHunk)
 vim.keymap.set("v", "[h", vim.cmd.GitGutterPrevHunk)
+
+-- Wrapped movements
+vim.keymap.set("n", "$", "g$")
+vim.keymap.set("v", "$", "g$")
+vim.keymap.set("n", "0", "g0")
+vim.keymap.set("v", "0", "g0")
+vim.keymap.set("n", "g$", "$")
+vim.keymap.set("v", "g$", "$")
+vim.keymap.set("n", "g0", "0")
+vim.keymap.set("v", "g0", "0")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("v", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("v", "k", "gk")
 
 -- Moveable selections
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

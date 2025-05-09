@@ -15,6 +15,10 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -32,6 +36,7 @@
           modules = [
             ./machines/work/configuration.nix
             inputs.home-manager.darwinModules.home-manager
+            inputs.sops-nix.darwinModules.sops
             {
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager = {
@@ -54,6 +59,7 @@
           modules = [
             ./machines/puma/configuration.nix
             inputs.home-manager.darwinModules.home-manager
+            inputs.sops-nix.darwinModules.sops
             {
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager = {
@@ -76,6 +82,7 @@
             nur.modules.nixos.default
             ./machines/tom/configuration.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
             {
               home-manager = {
                 sharedModules = [ nur.modules.homeManager.default ];

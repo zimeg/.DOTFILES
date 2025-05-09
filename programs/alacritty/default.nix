@@ -9,6 +9,9 @@
           background = "#000000";
         };
       };
+      env = {
+        TERM = "xterm-256color";
+      };
       mouse = {
         hide_when_typing = true;
       };

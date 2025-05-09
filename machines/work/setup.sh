@@ -16,6 +16,12 @@ function install {
 
 # Change to the latest declarations
 function switch {
+    mv ~/.ssh/config ~/.ssh/config.ts
+    mv ~/.ssh/config.hm ~/.ssh/config
+    trap '
+        mv ~/.ssh/config ~/.ssh/config.hm
+        mv ~/.ssh/config.ts ~/.ssh/config
+    ' EXIT
     darwin-rebuild switch --flake .#"$(hostname)"
 }
 

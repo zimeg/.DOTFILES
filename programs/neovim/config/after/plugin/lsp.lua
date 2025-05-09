@@ -72,6 +72,16 @@ lspconfig.eslint.setup({
 lspconfig.golangci_lint_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	init_options = {
+		command = {
+			"golangci-lint",
+			"run",
+			"--output.json.path",
+			"stdout",
+			"--show-stats=false",
+			"--issues-exit-code=1",
+		},
+	},
 })
 
 lspconfig.gopls.setup({
@@ -199,6 +209,9 @@ lspconfig.ts_ls.setup({
 		capabilities.allow_incremental_sync = true
 		capabilities.document_formatting = false
 	end,
+	init_options = {
+		maxTsServerMemory = 16384,
+	},
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
 })
@@ -214,4 +227,9 @@ lspconfig.yamlls.setup({
 			},
 		},
 	},
+})
+
+lspconfig.zls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
