@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `zsh`: jump between words with vim motions and past commands fast 2025-05-09
 - `ci`: remove a deprecated cache store action for latest releasing 2025-05-08
 - `nvim`: recognize markdown component extensions with a treesitter 2025-05-08
 - `nvim`: setup tooling of modern low level general purpose ziglang 2025-05-02

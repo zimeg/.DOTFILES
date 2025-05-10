@@ -2,9 +2,20 @@
 { pkgs, ... }:
 {
   programs.zsh = {
-    autosuggestion.enable = true;
     enable = true;
+    autosuggestion = {
+      enable = true;
+    };
+    defaultKeymap = "viins";
+    dotDir = ".config/zsh";
     enableCompletion = true;
+    history = {
+      extended = true;
+      ignoreAllDups = true;
+      path = "$HOME/.config/zsh/.zsh_history";
+      save = 1010101;
+      saveNoDups = true;
+    };
     initContent = ''
       bindkey '^Y' autosuggest-accept
       bindkey '^ ' autosuggest-toggle
