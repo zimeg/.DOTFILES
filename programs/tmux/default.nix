@@ -3,6 +3,7 @@
 {
   programs.tmux = {
     enable = true;
+    historyLimit = 101010101;
     newSession = true;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "xterm-256color";
