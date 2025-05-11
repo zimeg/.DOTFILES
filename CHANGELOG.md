@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `aerospace`: tile windows and spaces to make navigation more fast 2025-05-11
 - `tmux`: avoid lost scrolls of outputs with significant line count 2025-05-09
 - `zsh`: jump between words with vim motions and past commands fast 2025-05-09
 - `ci`: remove a deprecated cache store action for latest releasing 2025-05-08

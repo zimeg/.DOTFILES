@@ -72,6 +72,7 @@ in
   };
   programs.home-manager.enable = true;
   imports = [
+    ./aerospace
     ./alacritty
     ./dircolors
     ./direnv
