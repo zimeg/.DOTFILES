@@ -6,6 +6,7 @@
       pkgs.code-cursor # https://github.com/getcursor/cursor
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.vscode # https://github.com/microsoft/vscode
+      pkgs.zizmor # https://github.com/zizmorcore/zizmor
     ];
   };
   nix = {
