@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `pinact`: pin versions of github actions to commit hashes in tool 2025-05-14
 - `zizmor`: perform static checks of github actions for work duties 2025-05-14
 - `tmux`: source config file with a shorthand binding for reloading 2025-05-13
 - `aerospace`: tile windows and spaces to make navigation more fast 2025-05-11
