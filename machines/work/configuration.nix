@@ -3,6 +3,7 @@
 {
   environment = {
     systemPackages = [
+      pkgs.act # https://github.com/nektos/act
       pkgs.code-cursor # https://github.com/getcursor/cursor
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
