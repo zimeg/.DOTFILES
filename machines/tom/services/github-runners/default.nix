@@ -33,12 +33,16 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
-        pkgs.rsync
+        pkgs.codecov-cli # https://github.com/codecov/codecov-cli
+        pkgs.rsync # https://github.com/rsyncproject/rsync
+        pkgs.which # https://git.savannah.gnu.org/cgit/which.git
       ];
+      group = "wheel";
       name = "tom";
       replace = true;
       tokenFile = "/run/secrets/github/runners/slacks";
       url = "https://github.com/zimeg/slack-sandbox";
+      user = "root";
     };
   };
 }

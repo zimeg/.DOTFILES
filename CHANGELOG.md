@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: slack packagings and permissions for production 2025-05-18
 - `nix`: reduce the amount of previous boot generation builds saved 2025-05-17
 - `act`: install matching github action runner for the work machine 2025-05-15
 - `pinact`: pin versions of github actions to commit hashes in tool 2025-05-14
