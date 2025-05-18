@@ -8,16 +8,20 @@ jobs:
   stablearhtns:
     name: Check for broken evolutions
     runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout this repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: true
       - name: Configure git credentials
         if: github.event_name != 'pull_request'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Install a flaked Nix
-        uses: DeterminateSystems/nix-installer-action@v17
+        uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v17
       - name: Update to the latest
         if: github.event_name != 'pull_request'
         run: |
@@ -35,11 +39,14 @@ jobs:
     name: Snapshot upstream releases
     needs: stablearhtns
     runs-on: self-hosted
+    permissions:
+      contents: write
     steps:
       - name: Checkout the changes
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+          persist-credentials: true
           ref: ${{ github.event.pull_request.head.ref || 'update' }}
       - name: Reflect existing Nix
         id: nixos
@@ -47,7 +54,7 @@ jobs:
         run: uname -a | grep NixOS
       - name: Install a flaked Nix
         if: steps.nixos.outcome != 'success'
-        uses: DeterminateSystems/nix-installer-action@v17
+        uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v17
       - name: Write remembered commit
         run: |
           cat flake.lock
