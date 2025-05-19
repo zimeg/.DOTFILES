@@ -32,7 +32,7 @@ function install {
 
 # Change to the latest declarations
 function switch {
-    darwin-rebuild switch --flake .#"$(hostname)"
+    sudo darwin-rebuild switch --flake .#"$(hostname)"
 }
 
 # Remove the packages configured

@@ -22,7 +22,7 @@ function switch {
         mv ~/.ssh/config ~/.ssh/config.hm
         mv ~/.ssh/config.ts ~/.ssh/config
     ' EXIT
-    darwin-rebuild switch --flake .#"$(hostname)"
+    sudo darwin-rebuild switch --flake .#"$(hostname)"
 }
 
 # Remove the packages configured
