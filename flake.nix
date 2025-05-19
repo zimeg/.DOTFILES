@@ -44,6 +44,9 @@
             {
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager = {
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
                 sharedModules = [ nur.modules.homeManager.default ];
                 useGlobalPkgs = false; # https://github.com/zimeg/.DOTFILES/issues/29
                 useUserPackages = false;
