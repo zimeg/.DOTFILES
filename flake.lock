@@ -113,12 +113,34 @@
         "type": "github"
       }
     },
+    "proximity-nvim": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747624907,
+        "narHash": "sha256-Hm0Yk9ZnXR1mZ7rzf0dcS1R6O2sEZHJq/LeTgQRWZ7Q=",
+        "owner": "zimeg",
+        "repo": "proximity.nvim",
+        "rev": "3f6c5e33d3e52f86563233115c1c9407fc4e53bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zimeg",
+        "repo": "proximity.nvim",
+        "rev": "3f6c5e33d3e52f86563233115c1c9407fc4e53bd",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "proximity-nvim": "proximity-nvim",
         "sops-nix": "sops-nix"
       }
     },

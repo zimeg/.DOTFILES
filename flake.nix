@@ -15,6 +15,10 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+    proximity-nvim = {
+      url = "github:zimeg/proximity.nvim/3f6c5e33d3e52f86563233115c1c9407fc4e53bd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +67,9 @@
             {
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager = {
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
                 sharedModules = [ nur.modules.homeManager.default ];
                 useGlobalPkgs = false; # https://github.com/zimeg/.DOTFILES/issues/29
                 useUserPackages = false;

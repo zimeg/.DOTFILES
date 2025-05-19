@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: install a version of proximity packaged with the upstream 2025-05-18
 - `darwin`: rebuild with permissions of super user before switching 2025-05-18
 - `ci`: set action steps to pinned versions with reduced permission 2025-05-18
 - `github-runners`: slack packagings and permissions for production 2025-05-18
