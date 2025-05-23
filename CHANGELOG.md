@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `alacritty`: stop opening new windows in complete fullscreen mode 2025-05-23
 - `sops`: translate languages using a token to magic wordsmith bots 2025-05-21
 - `nvim`: install a version of proximity packaged with the upstream 2025-05-18
 - `darwin`: rebuild with permissions of super user before switching 2025-05-18

@@ -21,7 +21,7 @@
           lines = 24;
         };
         resize_increments = true;
-        startup_mode = "Fullscreen";
+        startup_mode = "Maximized";
         title = "term";
       };
     };
