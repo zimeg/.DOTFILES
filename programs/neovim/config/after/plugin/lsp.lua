@@ -4,6 +4,32 @@ local windows = require("lspconfig.ui.windows")
 
 windows.default_options.border = "rounded"
 
+vim.lsp.enable("astro")
+vim.lsp.enable("bashls")
+vim.lsp.enable("biome")
+vim.lsp.enable("cssls")
+vim.lsp.enable("denols")
+vim.lsp.enable("dockerls")
+vim.lsp.enable("eslint")
+vim.lsp.enable("golangci_lint_ls")
+vim.lsp.enable("gopls")
+vim.lsp.enable("html")
+vim.lsp.enable("htmx")
+vim.lsp.enable("jqls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("marksman")
+vim.lsp.enable("nil_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("ruff")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("tailwindcss")
+vim.lsp.enable("terraformls")
+vim.lsp.enable("tflint")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("zls")
+
 --- Available LSP possibilities
 ---@class lsp.ClientCapabilities
 local capabilities =
@@ -32,44 +58,57 @@ local on_attach = function(client, bufnr)
 	keymap("crn", vim.lsp.buf.rename, bufnr)
 end
 
-lspconfig.astro.setup({
+--- Start the LSP for matching project files
+---@param files any Searched files
+---@return function function Comparator
+local matches = function(files)
+	local find = lspconfig.util.root_pattern(unpack(files))
+	return function(buffer, start)
+		local filename = vim.api.nvim_buf_get_name(buffer)
+		if find(filename) then
+			start()
+		end
+	end
+end
+
+vim.lsp.config["astro"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.bashls.setup({
+vim.lsp.config["bashls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.biome.setup({
+vim.lsp.config["biome"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.cssls.setup({
+vim.lsp.config["cssls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.denols.setup({
+vim.lsp.config["denols"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-})
+	root_dir = matches({ "deno.json", "deno.jsonc" }),
+}
 
-lspconfig.dockerls.setup({
+vim.lsp.config["dockerls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.eslint.setup({
+vim.lsp.config["eslint"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	format = false,
-})
+}
 
-lspconfig.golangci_lint_ls.setup({
+vim.lsp.config["golangci_lint_ls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = {
@@ -82,9 +121,9 @@ lspconfig.golangci_lint_ls.setup({
 			"--issues-exit-code=1",
 		},
 	},
-})
+}
 
-lspconfig.gopls.setup({
+vim.lsp.config["gopls"] = {
 	settings = {
 		gopls = {
 			analyses = {
@@ -98,34 +137,30 @@ lspconfig.gopls.setup({
 			staticcheck = true,
 		},
 	},
-})
+}
 
-lspconfig.html.setup({
+vim.lsp.config["html"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.htmx.setup({
+vim.lsp.config["htmx"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+	filetypes = { "html" },
+}
 
-lspconfig.gopls.setup({
+vim.lsp.config["jqls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.jqls.setup({
+vim.lsp.config["jsonls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.jsonls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.lua_ls.setup({
+vim.lsp.config["lua_ls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -147,14 +182,14 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
-})
+}
 
-lspconfig.marksman.setup({
+vim.lsp.config["marksman"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.nil_ls.setup({
+vim.lsp.config["nil_ls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -164,45 +199,45 @@ lspconfig.nil_ls.setup({
 			},
 		},
 	},
-})
+}
 
-lspconfig.pyright.setup({
+vim.lsp.config["pyright"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.ruff.setup({
+vim.lsp.config["ruff"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config["rust_analyzer"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config["tailwindcss"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	root_dir = lspconfig.util.root_pattern(
+	root_markers = {
 		"tailwind.config.cjs",
 		"tailwind.config.js",
 		"tailwind.config.mjs",
-		"tailwind.config.ts"
-	),
-})
+		"tailwind.config.ts",
+	},
+}
 
-lspconfig.terraformls.setup({
+vim.lsp.config["terraformls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.tflint.setup({
+vim.lsp.config["tflint"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-lspconfig.ts_ls.setup({
+vim.lsp.config["ts_ls"] = {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
@@ -212,11 +247,11 @@ lspconfig.ts_ls.setup({
 	init_options = {
 		maxTsServerMemory = 16384,
 	},
-	root_dir = lspconfig.util.root_pattern("package.json"),
+	root_dir = matches({ "package.json" }),
 	single_file_support = false,
-})
+}
 
-lspconfig.yamlls.setup({
+vim.lsp.config["yamlls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -227,9 +262,9 @@ lspconfig.yamlls.setup({
 			},
 		},
 	},
-})
+}
 
-lspconfig.zls.setup({
+vim.lsp.config["zls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
