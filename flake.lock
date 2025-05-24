@@ -41,6 +41,26 @@
         "type": "github"
       }
     },
+    "newsflash-nvim": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748101220,
+        "narHash": "sha256-P7ApoS1ipJqDUS/U/dimKKGljTz4JRXeH7L8mgHNDYo=",
+        "owner": "zimeg",
+        "repo": "newsflash.nvim",
+        "rev": "bc8d54d698f9b46611c6faac8da8e417c3f05b19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zimeg",
+        "repo": "newsflash.nvim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -136,6 +156,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "newsflash-nvim": "newsflash-nvim",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
