@@ -21,6 +21,26 @@
         "type": "github"
       }
     },
+    "git-coverage": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748107260,
+        "narHash": "sha256-mn4+mOrHIV+Bh6EtGbEcyCcePm9fBbtEVAj+8pgpi2k=",
+        "owner": "zimeg",
+        "repo": "git-coverage",
+        "rev": "cfc260aeb43a9f59300493378e6b0af1dd4a15bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zimeg",
+        "repo": "git-coverage",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -141,6 +161,7 @@
     },
     "root": {
       "inputs": {
+        "git-coverage": "git-coverage",
         "home-manager": "home-manager",
         "newsflash-nvim": "newsflash-nvim",
         "nix-darwin": "nix-darwin",
