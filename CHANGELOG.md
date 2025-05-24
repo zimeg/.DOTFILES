@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: follow the unstable nixpkgs for nur projects for buildings 2025-05-24
 - `nvim`: newsflash inputs from a now upstream flake default output 2025-05-24
 - `nvim`: shortcut tests and debug logging when writing zig program 2025-05-23
 - `nvim`: translate lsp configuration to recent formatting supports 2025-05-23
