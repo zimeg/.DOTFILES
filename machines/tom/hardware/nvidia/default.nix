@@ -1,5 +1,5 @@
 # https://nixos.wiki/wiki/Nvidia
-{ config }:
+{ config, ... }:
 {
   hardware.nvidia = {
     modesetting.enable = true;

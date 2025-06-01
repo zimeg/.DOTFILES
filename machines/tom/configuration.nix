@@ -18,12 +18,12 @@
   imports = [
     ./hardware/configuration
     ./hardware/graphics
-    (import ./hardware/nvidia { config = config; })
+    ./hardware/nvidia
     ./programs/gnupg
     ./security/rtkit
     ./security/sudo
-    (import ./services/github-runners { pkgs = pkgs; })
-    (import ./services/interception-tools { pkgs = pkgs; })
+    ./services/github-runners
+    ./services/interception-tools
     ./services/ollama
     ./services/openssh
     ./services/pipewire
@@ -33,7 +33,7 @@
     ./services/sddm
     ./services/tailscale
     ./services/xserver
-    (import ./systemd/services { pkgs = pkgs; })
+    ./systemd/services
     ./systemd/targets
     ./systemd/timers
   ];

@@ -1,5 +1,5 @@
 # https://docs.github.com/actions
-{ pkgs }:
+{ pkgs, ... }:
 {
   services.github-runners = {
     coffee = {

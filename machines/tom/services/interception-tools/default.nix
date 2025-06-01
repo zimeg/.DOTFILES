@@ -1,5 +1,5 @@
 # https://gitlab.com/interception/linux/tools
-{ pkgs }:
+{ pkgs, ... }:
 {
   services.interception-tools =
     let

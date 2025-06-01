@@ -1,5 +1,5 @@
 # https://github.com/systemd/systemd
-{ pkgs }:
+{ pkgs, ... }:
 {
   systemd.services = {
     nvidia-control-devices = {

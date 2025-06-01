@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: passthrough inputs to nested configurations for preference 2025-06-01
 - `git`: open test coverage in a web browser for fast codecov views 2025-05-24
 - `nix`: follow the unstable nixpkgs for nur projects for buildings 2025-05-24
 - `nvim`: newsflash inputs from a now upstream flake default output 2025-05-24
