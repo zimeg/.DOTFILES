@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: find strategies to unlock user secrets in shared filepath 2025-06-01
 - `tom`: hash a personal user password to login via obfuscated file 2025-06-01
 - `nix`: passthrough inputs to nested configurations for preference 2025-06-01
 - `git`: open test coverage in a web browser for fast codecov views 2025-05-24

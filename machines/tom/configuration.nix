@@ -92,7 +92,7 @@
     defaultSopsFormat = "yaml";
     age = {
       generateKey = false;
-      keyFile = "/home/ez/.config/sops/age/keys.txt";
+      keyFile = "/var/lib/sops-nix/key.txt";
     };
     secrets = {
       "ai/openai" = {
