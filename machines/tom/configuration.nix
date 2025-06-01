@@ -103,6 +103,9 @@
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
       "github/runners/slacks" = { };
+      "tom/password" = {
+        neededForUsers = true;
+      };
     };
   };
   time = {
@@ -116,6 +119,7 @@
       "networkmanager"
       "wheel"
     ];
+    hashedPasswordFile = config.sops.secrets."tom/password".path;
     linger = true;
     packages = with pkgs; [
       thunderbird
