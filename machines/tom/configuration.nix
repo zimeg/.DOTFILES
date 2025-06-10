@@ -48,6 +48,56 @@
       };
     };
   };
+  environment.persistence."/persistent" = {
+    hideMounts = true;
+    directories = [
+      "/etc/ssh"
+      "/var/lib/minecraft"
+      "/var/lib/nixos"
+      # "/var/lib/sops-nix"
+      "/var/lib/systemd/coredump"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+      "/etc/nixos/configuration.nix"
+      {
+        file = "/var/lib/sops-nix/key.txt";
+        parentDirectory = {
+          mode = "0700";
+        };
+      }
+    ];
+    users.default = {
+      home = "/home/ez";
+      directories = [
+        ".DOTFILES"
+        ".local/share/direnv"
+
+        "games" # temp
+
+        "productions"
+        "programming"
+        {
+          directory = ".aws";
+          mode = "0700";
+        }
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+        {
+          directory = ".local/share/keyrings";
+          mode = "0700";
+        }
+      ];
+      files = [
+        ".config/sops/age/keys.txt" # ln -s /var/lib/sops-nix/key.txt ~/.config/sops/age/keys.txt
+        ".config/zsh/.zsh_history"
+        ".warprc"
+      ];
+    };
+  };
   environment.systemPackages = with pkgs; [
     addDriverRunpath
     parted

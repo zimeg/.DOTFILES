@@ -26,9 +26,18 @@
   };
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/925e1fcc-2949-4446-8ee9-74ca13363858";
-      fsType = "ext4";
+      device = "none";
+      fsType = "tmpfs";
+      options = [
+        "defaults"
+        "size=25%"
+        "mode=755"
+      ];
     };
+    # "/" = {
+    #   device = "/dev/disk/by-uuid/925e1fcc-2949-4446-8ee9-74ca13363858";
+    #   fsType = "ext4";
+    # };
     "/boot" = {
       device = "/dev/disk/by-uuid/205C-364C";
       fsType = "vfat";
@@ -37,10 +46,20 @@
         "fmask=0022"
       ];
     };
-    "/home" = {
+    "/nix" = {
+      device = "/dev/disk/by-uuid/925e1fcc-2949-4446-8ee9-74ca13363858";
+      fsType = "ext4";
+      neededForBoot = true;
+    };
+    "/persistent" = {
       device = "/dev/disk/by-uuid/30535ff2-b087-45ac-a9cd-cc198dbe7f81";
       fsType = "ext4";
+      neededForBoot = true;
     };
+    # "/home" = {
+    #   device = "/dev/disk/by-uuid/30535ff2-b087-45ac-a9cd-cc198dbe7f81";
+    #   fsType = "ext4";
+    # };
   };
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

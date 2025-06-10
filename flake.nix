@@ -9,6 +9,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
     newsflash-nvim = {
       url = "github:zimeg/newsflash.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,6 +104,7 @@
             nur.modules.nixos.default
             ./machines/tom/configuration.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.impermanence.nixosModules.impermanence
             inputs.sops-nix.nixosModules.sops
             {
               home-manager = {
