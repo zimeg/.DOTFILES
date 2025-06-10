@@ -106,6 +106,16 @@
       "tom/password" = {
         neededForUsers = true;
       };
+      "tom/ssh/public" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+        path = "${config.users.users.default.home}/.ssh/id_ed25519.pub";
+      };
+      "tom/ssh/private" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+        path = "${config.users.users.default.home}/.ssh/id_ed25519";
+      };
     };
   };
   time = {
