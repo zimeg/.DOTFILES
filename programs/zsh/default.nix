@@ -29,12 +29,9 @@
       {
         # https://github.com/mfaerevaag/wd
         name = "wd";
-        src = pkgs.fetchFromGitHub {
-          owner = "mfaerevaag";
-          repo = "wd";
-          rev = "v0.10.0";
-          hash = "sha256-/xOe7XFzQt+qVGf6kfsOPPM8szWYhnmx5Mq/QIw0y1c=";
-        };
+        src = pkgs.zsh-wd;
+        file = "share/wd/wd.plugin.zsh";
+        completions = [ "share/zsh/site-functions" ];
       }
     ];
   };
