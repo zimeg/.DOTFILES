@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ssh`: write public and private secure shell personal connections 2025-06-16
 - `zsh`: source a warping plugin using updated home manager install 2025-06-13
 - `ssh`: unlock authorized users and known hosts for server connect 2025-06-09
 - `sops`: find strategies to unlock user secrets in shared filepath 2025-06-01

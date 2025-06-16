@@ -38,6 +38,14 @@
       "ai/openai" = {
         owner = input.config.users.users.ez.name;
       };
+      "puma/ssh/public" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519.pub";
+      };
+      "puma/ssh/private" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519";
+      };
     };
   };
   system = {
