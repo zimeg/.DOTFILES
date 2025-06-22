@@ -106,6 +106,11 @@
       "tom/password" = {
         neededForUsers = true;
       };
+      "tom/sops/private" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+        path = "${config.users.users.default.home}/.config/sops/age/keys.txt";
+      };
       "tom/ssh/public" = {
         owner = config.users.users.default.name;
         group = "wheel";
