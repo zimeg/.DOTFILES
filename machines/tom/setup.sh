@@ -22,6 +22,7 @@ function link {
 # Build a boot sequence and restart
 function reboot {
     sudo nixos-rebuild boot --flake .#
+    sudo sh -c reboot
 }
 
 # Change to the latest declarations
