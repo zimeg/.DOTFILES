@@ -77,6 +77,7 @@
       directories = [
         ".DOTFILES"
         ".local/share/direnv"
+        ".ssh"
         "productions"
         "programming"
       ];
