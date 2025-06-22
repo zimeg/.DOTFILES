@@ -8,7 +8,7 @@
         identityFile = "~/.ssh/id_ed25519";
       };
       tom = {
-        hostname = "100.76.34.103";
+        hostname = "100.111.80.23";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
         extraOptions = {
