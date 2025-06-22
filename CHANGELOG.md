@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tom`: swap format of hard drives to btrfs and a new installation 2025-06-21
 - `ssh`: write public and private secure shell personal connections 2025-06-16
 - `zsh`: source a warping plugin using updated home manager install 2025-06-13
 - `ssh`: unlock authorized users and known hosts for server connect 2025-06-09

@@ -26,20 +26,27 @@
   };
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/925e1fcc-2949-4446-8ee9-74ca13363858";
-      fsType = "ext4";
+      device = "/dev/disk/by-uuid/dbdc1b92-41ef-40f3-9182-b8b6d591b5eb";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/dbdc1b92-41ef-40f3-9182-b8b6d591b5eb";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+    "/persistent" = {
+      device = "/dev/disk/by-uuid/dbdc1b92-41ef-40f3-9182-b8b6d591b5eb";
+      fsType = "btrfs";
+      options = [ "subvol=persistent" ];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/205C-364C";
+      device = "/dev/disk/by-uuid/FC97-97E8";
       fsType = "vfat";
       options = [
         "dmask=0022"
         "fmask=0022"
       ];
-    };
-    "/home" = {
-      device = "/dev/disk/by-uuid/30535ff2-b087-45ac-a9cd-cc198dbe7f81";
-      fsType = "ext4";
     };
   };
   hardware = {
@@ -53,7 +60,7 @@
   };
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/7d04936f-cc03-4608-980a-fefb503deb6e";
+      device = "/dev/disk/by-uuid/7e2ef539-f5a8-4ad4-aee0-f8b80121647b";
     }
   ];
 }
