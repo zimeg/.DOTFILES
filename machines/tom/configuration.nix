@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   system.stateVersion = "25.05";
   nix = {
@@ -47,7 +52,7 @@
         configurationLimit = 12;
       };
     };
-    initrd.postResumeCommands = config.lib.mkAfter ''
+    initrd.postResumeCommands = lib.mkAfter ''
       mkdir -p /mnt/btrfs/backups
 
       mount /dev/root_vg/root /mnt/btrfs
