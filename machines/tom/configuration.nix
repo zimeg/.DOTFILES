@@ -143,6 +143,7 @@
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
       "github/runners/slacks" = { };
+      "tailscale/auth" = { };
       "tom/password" = {
         neededForUsers = true;
       };
