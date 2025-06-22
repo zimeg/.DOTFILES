@@ -48,6 +48,37 @@
       };
     };
   };
+  environment.persistence."/persistent" = {
+    hideMounts = true;
+    directories = [
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+      {
+        file = "/var/lib/sops-nix/key.txt";
+        parentDirectory = {
+          mode = "0700";
+        };
+      }
+    ];
+    users.default = {
+      home = "/home/ez";
+      directories = [
+        ".DOTFILES"
+        ".local/share/direnv"
+        "productions"
+        "programming"
+      ];
+      files = [
+        ".config/gh/hosts.yml"
+        ".config/zsh/.zsh_history"
+        ".warprc"
+      ];
+    };
+  };
   environment.systemPackages = with pkgs; [
     addDriverRunpath
     parted
