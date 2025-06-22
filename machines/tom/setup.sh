@@ -4,7 +4,7 @@
 function help {
     echo "    clean  remove files updated from changes"
     echo "     help  display this informative message"
-    echo "     link  use the contained configurations"
+    echo "   reboot  build a boot sequence and restart"
     echo "   switch  change to the latest declarations"
 }
 
@@ -17,6 +17,11 @@ function clean {
 function link {
     sudo ln -s "$HOME/.DOTFILES/machines/tom/configuration.nix" /etc/nixos/configuration.nix
     switch
+}
+
+# Build a boot sequence and restart
+function reboot {
+    sudo nixos-rebuild boot --flake .#
 }
 
 # Change to the latest declarations

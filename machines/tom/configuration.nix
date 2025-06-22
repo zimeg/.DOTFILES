@@ -52,30 +52,9 @@
         configurationLimit = 12;
       };
     };
-    initrd.postResumeCommands = lib.mkAfter ''
-      mkdir -p /mnt/btrfs/backups
-
-      mount /dev/root_vg/root /mnt/btrfs
-      if [[ -e /mnt/btrfs/root ]]; then
-          timestamp=$(date --date="@$(stat -c %Y /mnt/btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
-          mv /mnt/btrfs/root "/mnt/btrfs/backups/$timestamp"
-      fi
-
-      delete_subvolume_recursively() {
-          IFS=$'\n'
-          for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-              delete_subvolume_recursively "/mnt/btrfs/$i"
-          done
-          btrfs subvolume delete "$1"
-      }
-
-      for i in $(find /mnt/btrfs/backups/ -maxdepth 1 -mtime +30); do
-          delete_subvolume_recursively "$i"
-      done
-
-      btrfs subvolume create /mnt/btrfs/root
-      umount /mnt/btrfs
-    '';
+    initrd = {
+      postResumeCommands = builtins.readFile ./start.sh;
+    };
   };
   environment.persistence."/persistent" = {
     hideMounts = true;
