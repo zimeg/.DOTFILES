@@ -121,6 +121,18 @@
         group = "wheel";
         path = "${config.users.users.default.home}/.ssh/id_ed25519";
       };
+      "tom/ssh/host/ed25519/public" = {
+        path = "/etc/ssh/ssh_host_ed25519_key.pub";
+      };
+      "tom/ssh/host/ed25519/private" = {
+        path = "/etc/ssh/ssh_host_ed25519_key";
+      };
+      "tom/ssh/host/rsa/public" = {
+        path = "/etc/ssh/ssh_host_rsa_key.pub";
+      };
+      "tom/ssh/host/rsa/private" = {
+        path = "/etc/ssh/ssh_host_rsa_key";
+      };
     };
   };
   time = {

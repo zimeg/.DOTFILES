@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: store public and private details for tom the openssh host 2025-06-21
 - `sops`: unlock home configurations with a self referencing secret 2025-06-21
 - `tom`: swap format of hard drives to btrfs and a new installation 2025-06-21
 - `ssh`: write public and private secure shell personal connections 2025-06-16
