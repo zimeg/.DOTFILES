@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   system.stateVersion = "25.05";
   nix = {
@@ -83,8 +78,8 @@
       ];
       files = [
         ".config/gh/hosts.yml"
+        ".config/wd/.warprc"
         ".config/zsh/.zsh_history"
-        ".warprc"
       ];
     };
   };
