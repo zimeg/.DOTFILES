@@ -19,6 +19,7 @@
     ./hardware/configuration
     ./hardware/graphics
     ./hardware/nvidia
+    ./programs/git
     ./programs/gnupg
     ./security/rtkit
     ./security/sudo
@@ -54,6 +55,7 @@
   environment.persistence."/persistent" = {
     hideMounts = true;
     directories = [
+      "/srv/slack"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/var/log"
@@ -73,7 +75,6 @@
         ".DOTFILES"
         ".local/share/direnv"
         ".ssh"
-        "productions"
         "programming"
       ];
       files = [
