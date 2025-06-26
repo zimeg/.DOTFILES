@@ -55,6 +55,7 @@
   environment.persistence."/persistent" = {
     hideMounts = true;
     directories = [
+      "/etc/ollama/models"
       "/srv/slack"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
