@@ -10,6 +10,12 @@
     };
     "slack:git" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
+      wants = [
+        "network-online.target"
+      ];
+      after = [
+        "network-online.target"
+      ];
       requiredBy = [
         "slack:snaek.service"
         "slack:tails.service"
@@ -32,6 +38,12 @@
     "slack:snaek" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
       wantedBy = [ "default.target" ];
+      wants = [
+        "network-online.target"
+      ];
+      after = [
+        "network-online.target"
+      ];
       path = [
         pkgs.git
       ];
@@ -53,6 +65,12 @@
     "slack:tails" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
       wantedBy = [ "default.target" ];
+      wants = [
+        "network-online.target"
+      ];
+      after = [
+        "network-online.target"
+      ];
       path = [
         pkgs.git
       ];
