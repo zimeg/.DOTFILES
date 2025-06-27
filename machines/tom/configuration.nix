@@ -79,7 +79,6 @@
         "programming"
       ];
       files = [
-        ".config/gh/hosts.yml"
         ".config/zsh/.zsh_history"
       ];
     };
@@ -132,6 +131,10 @@
     };
     secrets = {
       "ai/openai" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+      };
+      "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";
       };
