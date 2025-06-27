@@ -80,7 +80,6 @@
       ];
       files = [
         ".config/gh/hosts.yml"
-        ".config/wd/.warprc"
         ".config/zsh/.zsh_history"
       ];
     };

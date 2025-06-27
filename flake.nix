@@ -116,7 +116,10 @@
                 useUserPackages = true;
                 users = {
                   default = {
-                    imports = [ ./programs/home.nix ];
+                    imports = [
+                      ./machines/tom/home.nix
+                      ./programs/home.nix
+                    ];
                   };
                 };
               };
