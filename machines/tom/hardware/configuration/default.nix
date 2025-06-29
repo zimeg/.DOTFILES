@@ -38,6 +38,7 @@
     "/persistent" = {
       device = "/dev/disk/by-uuid/dbdc1b92-41ef-40f3-9182-b8b6d591b5eb";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [ "subvol=persistent" ];
     };
     "/boot" = {

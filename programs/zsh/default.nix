@@ -35,4 +35,7 @@
       }
     ];
   };
+  home.sessionVariables = {
+    WD_CONFIG = "$HOME/.config/wd/.warprc";
+  };
 }

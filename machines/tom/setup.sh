@@ -4,7 +4,7 @@
 function help {
     echo "    clean  remove files updated from changes"
     echo "     help  display this informative message"
-    echo "     link  use the contained configurations"
+    echo "   reboot  build a boot sequence and restart"
     echo "   switch  change to the latest declarations"
 }
 
@@ -13,10 +13,10 @@ function clean {
     sudo rm -f /etc/nixos/configuration.nix
 }
 
-# Use the contained configurations
-function link {
-    sudo ln -s "$HOME/.DOTFILES/machines/tom/configuration.nix" /etc/nixos/configuration.nix
-    switch
+# Build a boot sequence and restart
+function reboot {
+    sudo nixos-rebuild boot --flake .#
+    sudo sh -c reboot
 }
 
 # Change to the latest declarations
@@ -26,7 +26,7 @@ function switch {
 
 # Hint if no command is provided
 if [ -z "$1" ]; then
-    printf "\x1b[1mEnter a command!\x1b[0;2m $ bash setup.sh link\x1b[0m\n"
+    printf "\x1b[1mEnter a command!\x1b[0;2m $ bash setup.sh switch\x1b[0m\n"
     help
     return 2>/dev/null
     exit 0

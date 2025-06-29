@@ -7,6 +7,7 @@
     newSession = true;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "xterm-256color";
+    extraConfig = builtins.readFile ./.tmux.conf;
     plugins = with pkgs; [
       {
         # https://github.com/tmux-plugins/tmux-resurrect
@@ -45,8 +46,5 @@
         plugin = tmuxPlugins.sessionist;
       }
     ];
-  };
-  home.file.".tmux.conf" = {
-    source = ./.tmux.conf;
   };
 }

@@ -19,6 +19,7 @@
     ./hardware/configuration
     ./hardware/graphics
     ./hardware/nvidia
+    ./programs/git
     ./programs/gnupg
     ./security/rtkit
     ./security/sudo
@@ -46,6 +47,40 @@
         enable = true;
         configurationLimit = 12;
       };
+    };
+    initrd = {
+      postResumeCommands = builtins.readFile ./start.sh;
+    };
+  };
+  environment.persistence."/persistent" = {
+    hideMounts = true;
+    directories = [
+      "/etc/ollama/models"
+      "/srv/slack"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+      {
+        file = "/var/lib/sops-nix/key.txt";
+        parentDirectory = {
+          mode = "0700";
+        };
+      }
+    ];
+    users.default = {
+      home = "/home/ez";
+      directories = [
+        ".DOTFILES"
+        ".local/share/direnv"
+        ".ssh"
+        "programming"
+      ];
+      files = [
+        ".config/zsh/.zsh_history"
+      ];
     };
   };
   environment.systemPackages = with pkgs; [
@@ -99,10 +134,15 @@
         owner = config.users.users.default.name;
         group = "wheel";
       };
+      "github/oauth" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+      };
       "github/runners/coffee" = { };
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
       "github/runners/slacks" = { };
+      "tailscale/auth" = { };
       "tom/password" = {
         neededForUsers = true;
       };
