@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: find the nearest file with exported environment variables 2025-06-29
 - `impermanence`: remove unknown files after rebooting tom computer 2025-06-21
 - `sops`: store public and private details for tom the openssh host 2025-06-21
 - `sops`: unlock home configurations with a self referencing secret 2025-06-21

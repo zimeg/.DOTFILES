@@ -6,6 +6,9 @@ proximity.setup({
 			"CHANGE.log",
 			"CHANGELOG.md",
 		},
+		["<leader>pe"] = {
+			".env",
+		},
 		["<leader>pf"] = {
 			"flake.nix",
 		},
