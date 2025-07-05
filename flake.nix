@@ -90,7 +90,10 @@
                 useUserPackages = false;
                 users = {
                   "ez" = {
-                    imports = [ ./programs/home.nix ];
+                    imports = [
+                      ./machines/puma/home.nix
+                      ./programs/home.nix
+                    ];
                   };
                 };
               };
