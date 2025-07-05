@@ -64,7 +64,10 @@
                 useUserPackages = false;
                 users = {
                   "eden.zimbelman" = {
-                    imports = [ ./programs/home.nix ];
+                    imports = [
+                      ./machines/work/home.nix
+                      ./programs/home.nix
+                    ];
                   };
                 };
               };
