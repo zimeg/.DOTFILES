@@ -4,9 +4,13 @@
     hosts = {
       "github.com" = {
         git_protocol = "ssh";
-        user = "zimeg";
+        user = "theorderingmachine";
       };
     };
+  };
+  programs.git = {
+    userEmail = "tom@deorr.co";
+    userName = "@theorderingmachine";
   };
   home.sessionVariables = {
     GITHUB_TOKEN = "$(</run/secrets/github/oauth)";
