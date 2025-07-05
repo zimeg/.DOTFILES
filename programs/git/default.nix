@@ -68,8 +68,6 @@
     lfs = {
       enable = true;
     };
-    userEmail = "zim@o526.net";
-    userName = "@zimeg";
   };
   home.file.".config/git/mailmap" = {
     source = ./.mailmap;

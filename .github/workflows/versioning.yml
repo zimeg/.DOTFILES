@@ -18,8 +18,8 @@ jobs:
       - name: Configure git credentials
         if: github.event_name != 'pull_request'
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name '@theorderingmachine'
+          git config user.email 'tom@deorr.co'
       - name: Install a flaked Nix
         uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v17
       - name: Update to the latest
