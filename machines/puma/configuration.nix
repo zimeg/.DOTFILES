@@ -35,6 +35,9 @@
       sshKeyPaths = [ ];
     };
     secrets = {
+      "ai/huggingface" = {
+        owner = input.config.users.users.ez.name;
+      };
       "ai/openai" = {
         owner = input.config.users.users.ez.name;
       };
