@@ -25,18 +25,19 @@
     ./security/sudo
     ./services/github-runners
     ./services/interception-tools
+    ./services/minecraft-server
     ./services/ollama
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
     ./services/printing
     ./services/pulseaudio
+    ./services/restic
     ./services/sddm
     ./services/tailscale
     ./services/xserver
     ./systemd/services
     ./systemd/targets
-    ./systemd/timers
   ];
   boot = {
     loader = {
@@ -56,6 +57,7 @@
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
+      "/srv/minecraft/world"
       "/srv/slack"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
@@ -86,6 +88,7 @@
   environment.systemPackages = with pkgs; [
     addDriverRunpath
     parted
+    restic
     cudaPackages.cuda_cudart
     cudaPackages.cudatoolkit
     linuxPackages.nvidia_x11
@@ -118,7 +121,6 @@
         80
         443
         3000
-        25565
       ];
     };
   };
@@ -134,6 +136,17 @@
         owner = config.users.users.default.name;
         group = "wheel";
       };
+      "aws/credentials" = {
+        owner = config.users.users.default.name;
+        group = "wheel";
+        format = "json";
+        key = "";
+        sopsFile = ./programs/awscli/vault.json;
+      };
+      "aws/iam/minecraft" = {
+        format = "dotenv";
+        sopsFile = ./services/minecraft-server/vault.env;
+      };
       "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";
@@ -142,6 +155,7 @@
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
       "github/runners/slacks" = { };
+      "restic/minecraft" = { };
       "tailscale/auth" = { };
       "tom/password" = {
         neededForUsers = true;

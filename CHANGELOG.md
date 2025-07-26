@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `minecraft-server`: perform backups with declarative server setup 2025-07-26
 - `sops`: inference the hugging face provider secret variable token 2025-07-09
 - `tom`: bots take over a home server known as the ordering machine 2025-07-04
 - `nvim`: find the nearest file with exported environment variables 2025-06-29

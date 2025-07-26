@@ -1,0 +1,7 @@
+keys:
+  - &tom age1dujf55uzev2nnpq6c2drn0e8pmpxay22qqfsavwaxqakwn9se5hsputgx4
+creation_rules:
+  - path_regex: vault.json
+    key_groups:
+      - age:
+          - *tom

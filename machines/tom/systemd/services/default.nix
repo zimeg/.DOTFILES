@@ -90,38 +90,4 @@
       };
     };
   };
-  systemd.user.services = {
-    "minecraft:backup" = {
-      documentation = [ "https://github.com/zimeg/minecraft" ];
-      wantedBy = [ "default.target" ];
-      path = [
-        pkgs.git
-      ];
-      serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix develop .#backup --command bash -c \"./backup/backup.sh\"";
-        WorkingDirectory = /home/ez/games/minecraft/server;
-      };
-      unitConfig = {
-        ConditionPathExists = /home/ez/games/minecraft/server/backup/backup.sh;
-      };
-    };
-    "minecraft:server" = {
-      documentation = [ "https://github.com/zimeg/minecraft" ];
-      wantedBy = [ "default.target" ];
-      path = [
-        pkgs.git
-      ];
-      serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"minecraft-server\"";
-        Restart = "always";
-        RestartSec = 2;
-        WorkingDirectory = /home/ez/games/minecraft/server;
-      };
-      unitConfig = {
-        ConditionPathExists = /home/ez/games/minecraft/server/server.properties;
-        StartLimitBurst = 12;
-        StartLimitIntervalSec = 24;
-      };
-    };
-  };
 }
