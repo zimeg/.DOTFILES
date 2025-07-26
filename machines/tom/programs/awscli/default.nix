@@ -5,8 +5,7 @@
     enable = true;
     credentials = {
       "default" = {
-        "credential_process" =
-          "${pkgs.sudo}/bin/sudo ${pkgs.coreutils}/bin/cat /run/secrets/aws/credentials";
+        "credential_process" = "${pkgs.coreutils}/bin/cat /run/secrets/aws/credentials";
       };
     };
     settings = {
