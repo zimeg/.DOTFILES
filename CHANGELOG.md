@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `opencode`: add ai agents to the development toolset to go faster 2025-07-26
 - `awscli`: gather user credentials using permissions of an account 2025-07-26
 - `minecraft-server`: perform backups with declarative server setup 2025-07-26
 - `sops`: inference the hugging face provider secret variable token 2025-07-09

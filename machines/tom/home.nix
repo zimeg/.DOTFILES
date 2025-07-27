@@ -3,6 +3,7 @@
   imports = [
     ./programs/awscli
     ./programs/gh
+    ./programs/opencode
     ./programs/wd
   ];
 }
