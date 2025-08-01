@@ -3,12 +3,12 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "daily"
     commit-message:
       prefix: "build(ci)"
   - package-ecosystem: "terraform"
     directory: "cloud"
     schedule:
-      interval: "monthly"
+      interval: "daily"
     commit-message:
       prefix: "build(cloud)"

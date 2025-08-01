@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: bump dependencies as often as possible with kind dependabot 2025-07-31
 - `github-runners`: rotate tokens for various runners on expiration 2025-07-29
 - `opencode`: add ai agents to the development toolset to go faster 2025-07-26
 - `awscli`: gather user credentials using permissions of an account 2025-07-26
