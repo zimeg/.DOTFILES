@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: alias whereami to show the current project branch and path 2025-07-31
 - `ci`: confirm dependabot configs match expected json schema files 2025-07-31
 - `ci`: bump dependencies as often as possible with kind dependabot 2025-07-31
 - `github-runners`: rotate tokens for various runners on expiration 2025-07-29

@@ -10,6 +10,7 @@
       unstage = "restore --staged";
       update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'";
       whatsnew = "diff HEAD@{1} HEAD";
+      whereami = "!pwd && git branch --show-current";
       whoami = "!git config user.name && git config user.email";
     };
     extraConfig = {
