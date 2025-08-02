@@ -1,5 +1,5 @@
 # https://sourceforge.net/p/zsh/code/ci/master/tree
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -7,7 +7,7 @@
       enable = true;
     };
     defaultKeymap = "viins";
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
     history = {
       extended = true;
