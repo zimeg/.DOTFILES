@@ -10,6 +10,7 @@ let
     gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
     gnused # https://git.savannah.gnu.org/cgit/sed.git
+    heroku # https://github.com/heroku/cli
     less # https://github.com/gwsw/less
     pciutils # https://github.com/pciutils/pciutils
     sops # https://github.com/getsops/sops
