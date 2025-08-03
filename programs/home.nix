@@ -60,6 +60,7 @@ let
     terraform-ls # https://github.com/hashicorp/terraform-ls
     tflint # https://github.com/terraform-linters/tflint
     tree-sitter # https://github.com/tree-sitter/tree-sitter
+    uv # https://github.com/astral-sh/uv
     vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
     yaml-language-server # https://github.com/redhat-developer/yaml-language-server
     yamllint # https://github.com/adrienverge/yamllint
