@@ -43,12 +43,6 @@
         path = "/Users/ez/.local/share/crush/crush.json";
         sopsFile = ./programs/crush/credentials.json;
       };
-      "ai/huggingface" = {
-        owner = input.config.users.users.ez.name;
-      };
-      "ai/openai" = {
-        owner = input.config.users.users.ez.name;
-      };
       "netrc" = {
         owner = input.config.users.users.ez.name;
         group = "wheel";
