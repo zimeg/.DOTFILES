@@ -41,6 +41,14 @@
       "ai/openai" = {
         owner = input.config.users.users.ez.name;
       };
+      "netrc" = {
+        owner = input.config.users.users.ez.name;
+        group = "wheel";
+        format = "binary";
+        key = "";
+        path = "/Users/ez/.netrc";
+        sopsFile = ./programs/netrc/.netrc;
+      };
       "puma/ssh/public" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/id_ed25519.pub";
