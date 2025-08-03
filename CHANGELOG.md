@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: remove eslint lsp configurations without the installation 2025-08-03
 - `heroku`: run server related tasks with program set for the cloud 2025-08-03
 - `netrc`: write hosted credentials for established network tooling 2025-08-03
 - `zsh`: use an absolute path to configurations in the config paths 2025-08-02

@@ -10,7 +10,6 @@ vim.lsp.enable("biome")
 vim.lsp.enable("cssls")
 vim.lsp.enable("denols")
 vim.lsp.enable("dockerls")
-vim.lsp.enable("eslint")
 vim.lsp.enable("golangci_lint_ls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("html")
@@ -100,12 +99,6 @@ vim.lsp.config["denols"] = {
 vim.lsp.config["dockerls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
-
-vim.lsp.config["eslint"] = {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	format = false,
 }
 
 vim.lsp.config["golangci_lint_ls"] = {
