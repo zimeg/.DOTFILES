@@ -12,6 +12,11 @@
       env = {
         TERM = "xterm-256color";
       };
+      font = {
+        normal = {
+          family = "0xProto Nerd Font Mono";
+        };
+      };
       mouse = {
         hide_when_typing = true;
       };

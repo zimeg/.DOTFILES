@@ -1,5 +1,5 @@
 # https://github.com/LnL7/nix-darwin
-{ self, pkgs, ... }@input:
+{ pkgs, self, ... }@input:
 {
   environment = {
     systemPackages = [
@@ -9,6 +9,11 @@
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
       pkgs.vscode # https://github.com/microsoft/vscode
       pkgs.zizmor # https://github.com/zizmorcore/zizmor
+    ];
+  };
+  fonts = {
+    packages = [
+      pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto
     ];
   };
   nix = {

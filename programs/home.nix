@@ -8,6 +8,7 @@ let
     nur.repos.charmbracelet.crush # https://github.com/charmbracelet/crush
     curl # https://github.com/curl/curl
     file # https://github.com/file/file
+    fontconfig # https://gitlab.freedesktop.org/fontconfig/fontconfig
     gimp # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
     gnused # https://git.savannah.gnu.org/cgit/sed.git

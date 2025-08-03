@@ -1,6 +1,11 @@
 # https://github.com/LnL7/nix-darwin
-{ self, ... }@input:
+{ pkgs, self, ... }@input:
 {
+  fonts = {
+    packages = [
+      pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto
+    ];
+  };
   nix = {
     enable = false; # https://github.com/zimeg/.DOTFILES/issues/28
   };
