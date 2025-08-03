@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `crush`: charm terminal experience with ai that calls out to tool 2025-08-03
 - `python`: use uv package and project mananager with blazing speed 2025-08-03
 - `go`: configure profile setups with official lsp program packages 2025-08-03
 - `nvim`: remove eslint lsp configurations without the installation 2025-08-03
