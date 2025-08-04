@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `gh`: dashboard of filtered searchs with issues and pull requests 2025-08-03
 - `font`: use the first nerd font shown on site previews in editing 2025-08-03
 - `sops`: prefer ai provider credential writings in a single config 2025-08-03
 - `crush`: charm terminal experience with ai that calls out to tool 2025-08-03
