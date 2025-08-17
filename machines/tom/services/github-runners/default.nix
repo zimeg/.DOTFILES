@@ -8,7 +8,7 @@
       name = "tom";
       replace = true;
       tokenFile = "/run/secrets/github/runners/coffee";
-      url = "https://github.com/zimeg/maintainers.coffee";
+      url = "https://github.com/maintainersdotcoffee/shop";
     };
     dotfiles = {
       enable = true;
