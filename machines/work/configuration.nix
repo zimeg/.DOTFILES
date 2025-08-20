@@ -1,11 +1,17 @@
 # https://github.com/LnL7/nix-darwin
-{ pkgs, self, ... }@input:
+{
+  lib,
+  pkgs,
+  self,
+  ...
+}@input:
 {
   environment = {
     systemPackages = [
       pkgs.act # https://github.com/nektos/act
       pkgs.code-cursor # https://github.com/getcursor/cursor
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
+      pkgs.ngrok # https://github.com/ngrok/ngrok
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
       pkgs.vscode # https://github.com/microsoft/vscode
       pkgs.zizmor # https://github.com/zizmorcore/zizmor
@@ -22,7 +28,13 @@
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
     config = {
-      allowUnfree = true;
+      allowUnfreePredicate =
+        pkg:
+        builtins.elem (lib.getName pkg) [
+          "cursor"
+          "ngrok"
+          "vscode"
+        ];
     };
   };
   security = {
