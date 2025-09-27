@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nix`: change package path found for docker language server build 2025-09-27
 - `nvim`: find configuration files to start the zig language server 2025-09-27
 - `ngrok`: setup http tunneling program to make conncetions at work 2025-08-20
 - `github-runners`: swap the token for coffee machine paths sourced 2025-08-16
