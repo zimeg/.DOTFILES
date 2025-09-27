@@ -260,4 +260,5 @@ vim.lsp.config["yamlls"] = {
 vim.lsp.config["zls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
+	root_dir = matches({ "build.zig" }),
 }

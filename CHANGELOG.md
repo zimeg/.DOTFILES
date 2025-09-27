@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: find configuration files to start the zig language server 2025-09-27
 - `ngrok`: setup http tunneling program to make conncetions at work 2025-08-20
 - `github-runners`: swap the token for coffee machine paths sourced 2025-08-16
 - `etime`: save runners release and testing secrets files passwords 2025-08-16
