@@ -40,9 +40,11 @@
       wantedBy = [ "default.target" ];
       wants = [
         "network-online.target"
+        "ollama.service"
       ];
       after = [
         "network-online.target"
+        "ollama.service"
       ];
       path = [
         pkgs.git
