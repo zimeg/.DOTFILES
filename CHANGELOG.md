@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: add dependencies for slack sandbox codecov jobs 2025-10-08
 - `systemd`: start snaek after ollama serverice has started to want 2025-10-04
 - `github-runners`: rotate a dotfiles token for tom machine runners 2025-09-28
 - `nix`: change package path found for docker language server build 2025-09-27
