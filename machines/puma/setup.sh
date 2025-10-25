@@ -27,7 +27,8 @@ function host {
 # Download tooling for dependencies
 function install {
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
-    nix run nix-darwin/master#darwin-rebuild -- switch --flake .#"$(hostname)"
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#"$(hostname)"
 }
 
 # Change to the latest declarations
