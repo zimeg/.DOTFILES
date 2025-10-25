@@ -1,7 +1,11 @@
 # https://github.com/git/git
 {
   programs.git = {
-    userEmail = "eden.zimbelman@salesforce.com";
-    userName = "Eden Zimbelman";
+    settings = {
+      user = {
+        email = "eden.zimbelman@salesforce.com";
+        name = "Eden Zimbelman";
+      };
+    };
   };
 }

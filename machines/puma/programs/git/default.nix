@@ -1,7 +1,11 @@
 # https://github.com/git/git
 {
   programs.git = {
-    userEmail = "zim@o526.net";
-    userName = "@zimeg";
+    settings = {
+      user = {
+        email = "zim@o526.net";
+        name = "@zimeg";
+      };
+    };
   };
 }

@@ -3,19 +3,19 @@
 {
   programs.git = {
     enable = true;
-    aliases = {
-      last = "log -1 HEAD";
-      list = "log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(dim white)-%C(reset) %s %C(dim white)(%cr)%C(reset) %C(cyan)<%aN>%C(reset)%C(bold)%d%C(reset)' --abbrev-commit --date=relative";
-      staged = "diff --staged";
-      unstage = "restore --staged";
-      update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'";
-      whatsnew = "diff HEAD@{1} HEAD";
-      whereami = "!pwd && git branch --show-current";
-      whoami = "!git config user.name && git config user.email";
-    };
-    extraConfig = {
+    settings = {
       advice = {
         addEmptyPathspec = false;
+      };
+      alias = {
+        last = "log -1 HEAD";
+        list = "log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(dim white)-%C(reset) %s %C(dim white)(%cr)%C(reset) %C(cyan)<%aN>%C(reset)%C(bold)%d%C(reset)' --abbrev-commit --date=relative";
+        staged = "diff --staged";
+        unstage = "restore --staged";
+        update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'";
+        whatsnew = "diff HEAD@{1} HEAD";
+        whereami = "!pwd && git branch --show-current";
+        whoami = "!git config user.name && git config user.email";
       };
       color = {
         ui = "auto";
@@ -55,12 +55,6 @@
       };
       push = {
         default = "simple";
-      };
-    };
-    delta = {
-      enable = true;
-      options = {
-        syntax-theme = "ansi";
       };
     };
     ignores = [

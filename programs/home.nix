@@ -84,6 +84,7 @@ in
   imports = [
     ./aerospace
     ./alacritty
+    ./delta
     ./dircolors
     ./direnv
     ./eza

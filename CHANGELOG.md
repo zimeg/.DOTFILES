@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: configure settings in configuration inline for deprecation 2025-10-25
 - `gimp`: pin the installed release to stable second version builds 2025-10-25
 - `github-runners`: add dependencies for slack sandbox codecov jobs 2025-10-08
 - `systemd`: start snaek after ollama serverice has started to want 2025-10-04
