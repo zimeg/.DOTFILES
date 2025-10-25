@@ -122,6 +122,7 @@
                 users = {
                   "ez" = {
                     imports = [
+                      ./machines/tim/home.nix
                       ./programs/home.nix
                     ];
                   };
