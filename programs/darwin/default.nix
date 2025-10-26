@@ -8,6 +8,14 @@
       "com.apple.dock" = {
         "size-immutable" = true;
       };
+      "com.apple.Safari" = {
+        AutoFillCreditCardData = false;
+        AutoFillPasswords = false;
+        AutoOpenSafeDownloads = false;
+        IncludeDevelopMenu = true;
+        SearchProviderShortName = "DuckDuckGo";
+        ShowOverlayStatusBar = true;
+      };
     };
     LaunchServices = {
       LSQuarantine = false;
