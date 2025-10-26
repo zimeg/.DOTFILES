@@ -4,6 +4,11 @@
     ".GlobalPreferences" = {
       "com.apple.sound.beep.sound" = "/System/Library/Sounds/Pop.aiff";
     };
+    CustomSystemPreferences = {
+      "com.apple.dock" = {
+        "size-immutable" = true;
+      };
+    };
     LaunchServices = {
       LSQuarantine = false;
     };
