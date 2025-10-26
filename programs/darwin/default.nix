@@ -4,7 +4,7 @@
     ".GlobalPreferences" = {
       "com.apple.sound.beep.sound" = "/System/Library/Sounds/Pop.aiff";
     };
-    CustomSystemPreferences = {
+    CustomUserPreferences = {
       "com.apple.dock" = {
         "size-immutable" = true;
       };
