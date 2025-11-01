@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: regenerate expired token for slack sandbox repo 2025-11-01
 - `ssh`: match default values as explicit setting for future change 2025-10-25
 - `git`: remap the whereami alias to find the present working paths 2025-10-25
 - `git`: configure settings in configuration inline for deprecation 2025-10-25
