@@ -21,10 +21,10 @@
       vim-obsession # https://github.com/tpope/vim-obsession
       vim-signature # https://github.com/kshenoy/vim-signature
       {
-        plugin = inputs.newsflash-nvim.packages.${pkgs.system}.default; # https://github.com/zimeg/newsflash.nvim
+        plugin = inputs.newsflash-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default; # https://github.com/zimeg/newsflash.nvim
       }
       {
-        plugin = inputs.proximity-nvim.packages.${pkgs.system}.default; # https://github.com/zimeg/proximity.nvim
+        plugin = inputs.proximity-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default; # https://github.com/zimeg/proximity.nvim
       }
       # https://github.com/tree-sitter/tree-sitter
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (

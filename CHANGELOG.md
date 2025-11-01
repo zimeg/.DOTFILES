@@ -6,6 +6,8 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cuda`: compile packages with explicit settings for graphics card 2025-11-01
+- `nix`: update flake package reference to a standard host platform 2025-11-01
 - `git`: mirror inline changes to the configured user matching info 2025-11-01
 - `github-runners`: regenerate expired token for slack sandbox repo 2025-11-01
 - `ssh`: match default values as explicit setting for future change 2025-10-25

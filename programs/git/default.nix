@@ -69,7 +69,7 @@
     source = ./.mailmap;
   };
   home.packages = [
-    inputs.git-coverage.packages.${pkgs.system}.default # https://github.com/zimeg/git-coverage
+    inputs.git-coverage.packages.${pkgs.stdenv.hostPlatform.system}.default # https://github.com/zimeg/git-coverage
     pkgs.git-open # https://github.com/paulirish/git-open
     pkgs.git-who # https://github.com/sinclairtarget/git-who
   ];

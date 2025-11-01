@@ -13,7 +13,40 @@
     };
   };
   nixpkgs.config = {
-    allowUnfree = true;
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (pkgs.lib.getName pkg) [
+        "cuda_cccl"
+        "cuda_cudart"
+        "cuda_cuobjdump"
+        "cuda_cupti"
+        "cuda_cuxxfilt"
+        "cuda_gdb"
+        "cuda_nvcc"
+        "cuda_nvdisasm"
+        "cuda_nvml_dev"
+        "cuda_nvprune"
+        "cuda_nvrtc"
+        "cuda_nvtx"
+        "cuda_profiler_api"
+        "cuda_sanitizer_api"
+        "cuda-merged"
+        "cudnn"
+        "libcublas"
+        "libcufft"
+        "libcusparse"
+        "libcurand"
+        "libcusolver"
+        "libnpp"
+        "libnvjitlink"
+        "minecraft-server"
+        "nvidia-settings"
+        "nvidia-x11"
+        "test-results-parser"
+      ];
+    cudaCapabilities = [ "8.6" ];
+    cudaForwardCompat = true;
+    cudaSupport = true;
   };
   imports = [
     ./hardware/configuration
