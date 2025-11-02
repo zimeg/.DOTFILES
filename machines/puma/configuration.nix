@@ -1,6 +1,10 @@
 # https://github.com/LnL7/nix-darwin
 { pkgs, self, ... }@input:
 {
+  imports = [
+    ../../programs/darwin
+    ./programs/darwin
+  ];
   fonts = {
     packages = [
       pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto

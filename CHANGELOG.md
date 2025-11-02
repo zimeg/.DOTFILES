@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `darwin`: set default for mac machines so different computer same 2025-11-02
 - `cuda`: compile packages with explicit settings for graphics card 2025-11-01
 - `nix`: update flake package reference to a standard host platform 2025-11-01
 - `git`: mirror inline changes to the configured user matching info 2025-11-01
