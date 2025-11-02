@@ -103,6 +103,34 @@
             }
           ];
         };
+        eztim25.local = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs self;
+          };
+          modules = [
+            ./machines/tim/configuration.nix
+            inputs.home-manager.darwinModules.home-manager
+            {
+              nixpkgs.overlays = [ nur.overlays.default ];
+              home-manager = {
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                sharedModules = [ nur.modules.homeManager.default ];
+                useGlobalPkgs = false; # https://github.com/zimeg/.DOTFILES/issues/29
+                useUserPackages = false;
+                users = {
+                  "ez" = {
+                    imports = [
+                      ./machines/tim/home.nix
+                      ./programs/home.nix
+                    ];
+                  };
+                };
+              };
+            }
+          ];
+        };
       };
       nixosConfigurations = {
         tom = nixpkgs.lib.nixosSystem {
