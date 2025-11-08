@@ -240,7 +240,7 @@
     hashedPasswordFile = config.sops.secrets."tom/password".path;
     linger = true;
     packages = with pkgs; [
-      thunderbird
+      fastfetch # https://github.com/fastfetch-cli/fastfetch
     ];
   };
 }

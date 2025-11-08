@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `fastfetch`: replace a thunderbird stalling build with setup info 2025-11-07
 - `tim`: introduce an apple server to home network that also sounds 2025-11-02
 - `darwin`: set default for mac machines so different computer same 2025-11-02
 - `cuda`: compile packages with explicit settings for graphics card 2025-11-01
