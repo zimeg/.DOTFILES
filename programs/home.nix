@@ -35,7 +35,7 @@ let
     groovy # https://github.com/apache/groovy
     htmx-lsp # https://github.com/ThePrimeagen/htmx-lsp
     isort # https://github.com/PyCQA/isort
-    jdk23 # https://github.com/openjdk/jdk/releases/tag/jdk-23-ga
+    jdk25 # https://github.com/openjdk/jdk/releases/tag/jdk-25-ga
     jdt-language-server # https://github.com/eclipse-jdtls/eclipse.jdt.ls
     jq-lsp # https://github.com/wader/jq-lsp
     lua-language-server # https://github.com/LuaLS/lua-language-server
