@@ -6,7 +6,8 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `java`: bump the jdk to the latest stable supported build release 2024-11-24
+- `aerospace`: start at login with settings to match a launch demon 2025-11-28
+- `java`: bump the jdk to the latest stable supported build release 2025-11-24
 - `fastfetch`: replace a thunderbird stalling build with setup info 2025-11-07
 - `tim`: introduce an apple server to home network that also sounds 2025-11-02
 - `darwin`: set default for mac machines so different computer same 2025-11-02

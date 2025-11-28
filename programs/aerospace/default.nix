@@ -3,7 +3,10 @@
 {
   programs.aerospace = {
     enable = pkgs.stdenv.isDarwin;
-    userSettings = {
+    launchd = {
+      enable = true;
+    };
+    settings = {
       automatically-unhide-macos-hidden-apps = false;
       gaps = {
         outer = {
@@ -74,7 +77,6 @@
           };
         };
       };
-      start-at-login = true;
     };
   };
 }
