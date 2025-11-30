@@ -30,7 +30,7 @@ jobs:
       - name: Save the flake locks
         if: github.event_name != 'pull_request'
         run: |
-          git checkout -B update
+          git switch update 2>/dev/null || git switch -c update
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           if [ "$(git rev-list --count main..update)" -ne 1 ]; then
             exit 1
