@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: continue the update workflow if fail past automatic version 2025-11-29
 - `aerospace`: start at login with settings to match a launch demon 2025-11-28
 - `java`: bump the jdk to the latest stable supported build release 2025-11-24
 - `fastfetch`: replace a thunderbird stalling build with setup info 2025-11-07

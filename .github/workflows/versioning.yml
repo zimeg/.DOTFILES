@@ -29,9 +29,12 @@ jobs:
       - name: Save the flake locks
         if: github.event_name != 'pull_request'
         run: |
-          git checkout -b update
+          git checkout -B update
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
-          git push -u origin update
+          if [ "$(git rev-list --count main..update)" -ne 1 ]; then
+            exit 1
+          fi
+          git push -f origin update
       - name: Confirm darwin builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
