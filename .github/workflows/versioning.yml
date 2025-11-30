@@ -14,6 +14,7 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
+          fetch-depth: 0
           persist-credentials: true
       - name: Configure git credentials
         if: github.event_name != 'pull_request'
