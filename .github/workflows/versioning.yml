@@ -30,12 +30,11 @@ jobs:
       - name: Save the flake locks
         if: github.event_name != 'pull_request'
         run: |
-          git switch update 2>/dev/null || git switch -c update
-          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
-          git fetch origin main
-          if [ "$(git rev-list --count origin/main..update)" -ne 1 ]; then
+          git rev-parse --verify --quiet origin/update >/dev/null &&
+            [ "$(git rev-list --count origin/main..origin/update 2>/dev/null)" -ne 1 ] &&
             exit 1
-          fi
+          git switch --force-create update origin/main
+          git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           git push -f origin update
       - name: Confirm darwin builds
         run: |
