@@ -13,6 +13,9 @@
     dotfiles = {
       enable = true;
       ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
       name = "tom";
       replace = true;
       tokenFile = "/run/secrets/github/runners/dotfiles";
