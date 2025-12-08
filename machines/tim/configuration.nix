@@ -8,6 +8,11 @@
     ./services/openssh
     ./services/tailscale
   ];
+  environment = {
+    systemPackages = [
+      pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
+    ];
+  };
   fonts = {
     packages = [
       pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto
