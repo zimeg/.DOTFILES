@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ci`: include the fast fetch package alongside a runners packages 2025-12-07
 - `fastfetch`: print specs of the setup running the self hosted job 2025-12-07
 - `ssh`: create private and public pairings for authenticated magic 2025-12-07
 - `github-runners`: add a macintosh apple computer hardware machine 2025-12-07
