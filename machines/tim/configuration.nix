@@ -46,6 +46,10 @@
         owner = "_github-runner";
         group = "_github-runner";
       };
+      "github/ssh" = {
+        key = "ssh/private";
+        owner = "_github-runner";
+      };
       "ssh/public" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/id_ed25519.pub";
