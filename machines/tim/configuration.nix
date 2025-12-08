@@ -4,6 +4,7 @@
   imports = [
     ../../programs/darwin
     ./programs/darwin
+    ./services/github-runners
   ];
   fonts = {
     packages = [
@@ -11,10 +12,34 @@
     ];
   };
   nix = {
-    enable = false; # https://github.com/zimeg/.DOTFILES/issues/28
+    enable = true; # https://github.com/zimeg/.DOTFILES/issues/28
+    settings = {
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+    };
   };
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
+  };
+  sops = {
+    defaultSopsFile = ./secrets/vault.yaml;
+    defaultSopsFormat = "yaml";
+    age = {
+      generateKey = false;
+      keyFile = "/Users/ez/Library/Application Support/sops/age/keys.txt";
+      sshKeyPaths = [ ];
+    };
+    gnupg = {
+      sshKeyPaths = [ ];
+    };
+    secrets = {
+      "github/runners/dotfiles" = {
+        owner = "_github-runner";
+        group = "_github-runner";
+      };
+    };
   };
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;

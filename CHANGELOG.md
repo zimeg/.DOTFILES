@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: add a macintosh apple computer hardware machine 2025-12-07
 - `ci`: fix logic meant to override failed automatic veresion bumps 2025-12-01
 - `ci`: continue the update workflow if fail past automatic version 2025-11-29
 - `aerospace`: start at login with settings to match a launch demon 2025-11-28

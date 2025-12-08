@@ -7,7 +7,7 @@ on:
 jobs:
   stablearhtns:
     name: Check for broken evolutions
-    runs-on: macos-latest
+    runs-on: tim
     permissions:
       contents: write
     steps:
@@ -21,7 +21,13 @@ jobs:
         run: |
           git config user.name '@theorderingmachine'
           git config user.email 'tom@deorr.co'
+      - name: Reflect existing Nix
+        id: darwin
+        continue-on-error: true
+        run: |
+          nix --version
       - name: Install a flaked Nix
+        if: steps.darwin.outcome != 'success'
         uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
       - name: Update to the latest
         if: github.event_name != 'pull_request'
@@ -36,13 +42,19 @@ jobs:
           git switch --force-create update origin/main
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           git push -f origin update
-      - name: Confirm darwin builds
+      - name: Confirm darwin server builds
+        run: |
+          nix build .#darwinConfigurations.eztim25.local.system
+      - name: Confirm darwin laptop builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Confirm darwin workstation builds
+        run: |
+          nix build .#darwinConfigurations.edenzim-ltmbn8v.internal.salesforce.com.system
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
-    runs-on: self-hosted
+    runs-on: tom
     permissions:
       contents: write
     steps:
