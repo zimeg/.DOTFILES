@@ -20,6 +20,15 @@
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };
+      tim = {
+        hostname = "eztim25";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+        extraOptions = {
+          RemoteCommand = "tmux attach";
+          RequestTTY = "true";
+        };
+      };
       tom = {
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";

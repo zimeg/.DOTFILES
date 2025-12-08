@@ -1,10 +1,12 @@
 # https://github.com/LnL7/nix-darwin
-{ pkgs, self, ... }:
+{ pkgs, self, ... }@input:
 {
   imports = [
     ../../programs/darwin
     ./programs/darwin
     ./services/github-runners
+    ./services/openssh
+    ./services/tailscale
   ];
   fonts = {
     packages = [
@@ -38,6 +40,14 @@
       "github/runners/dotfiles" = {
         owner = "_github-runner";
         group = "_github-runner";
+      };
+      "ssh/public" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519.pub";
+      };
+      "ssh/private" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519";
       };
     };
   };
