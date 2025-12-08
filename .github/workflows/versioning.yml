@@ -42,9 +42,15 @@ jobs:
           git switch --force-create update origin/main
           git commit --all --message "chore(deps): automatic version bump to the most recent packages"
           git push -f origin update
-      - name: Confirm darwin builds
+      - name: Confirm darwin server builds
+        run: |
+          nix build .#darwinConfigurations.eztim25.local.system
+      - name: Confirm darwin laptop builds
         run: |
           nix build .#darwinConfigurations.ezmbp24.local.system
+      - name: Confirm darwin workstation builds
+        run: |
+          nix build .#darwinConfigurations.edenzim-ltmbn8v.internal.salesforce.com.system
   updateronimo:
     name: Snapshot upstream releases
     needs: stablearhtns
