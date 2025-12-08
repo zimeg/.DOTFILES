@@ -8,7 +8,11 @@
       extraLabels = [
         "tim"
       ];
+      extraEnvironment = {
+        GIT_SSH_COMMAND = "ssh -i /run/secrets/github/ssh -o StrictHostKeyChecking=accept-new";
+      };
       extraPackages = [
+        pkgs.openssh # https://github.com/openssh/openssh-portable
         pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
       ];
       name = "tim";

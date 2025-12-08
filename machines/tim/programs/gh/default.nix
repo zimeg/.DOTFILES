@@ -4,15 +4,15 @@
     hosts = {
       "github.com" = {
         git_protocol = "ssh";
-        user = "zimeg";
+        user = "theorderingmachine";
       };
     };
   };
   programs.git = {
     settings = {
       user = {
-        email = "zim@o526.net";
-        name = "@zimeg";
+        email = "tom@deorr.co";
+        name = "@theorderingmachine";
       };
     };
   };
