@@ -17,7 +17,7 @@
         "tom"
       ];
       extraPackages = [
-        pkgs.fastfetch
+        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
       ];
       name = "tom";
       replace = true;
