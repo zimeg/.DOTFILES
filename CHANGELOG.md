@@ -7,6 +7,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 ## patches
 
 - `ci`: use credentials of a service account for making new commits 2025-12-07
+- `ollama`: split the cuda configurations into separate compilation 2025-12-07
 - `ci`: include the fast fetch package alongside a runners packages 2025-12-07
 - `fastfetch`: print specs of the setup running the self hosted job 2025-12-07
 - `ssh`: create private and public pairings for authenticated magic 2025-12-07
