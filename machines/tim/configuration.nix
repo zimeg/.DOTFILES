@@ -30,6 +30,16 @@
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
   };
+  power = {
+    restartAfterFreeze = true;
+    restartAfterPowerFailure = true;
+    sleep = {
+      allowSleepByPowerButton = false;
+      computer = "never";
+      display = "never";
+      harddisk = "never";
+    };
+  };
   sops = {
     defaultSopsFile = ./secrets/vault.yaml;
     defaultSopsFormat = "yaml";
