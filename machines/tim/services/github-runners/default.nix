@@ -1,4 +1,5 @@
 # https://docs.github.com/actions
+{ pkgs, ... }:
 {
   services.github-runners = {
     dotfiles = {
@@ -6,6 +7,9 @@
       ephemeral = true;
       extraLabels = [
         "tim"
+      ];
+      extraPackages = [
+        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
       ];
       name = "tim";
       replace = true;

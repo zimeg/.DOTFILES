@@ -16,6 +16,9 @@
       extraLabels = [
         "tom"
       ];
+      extraPackages = [
+        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
+      ];
       name = "tom";
       replace = true;
       tokenFile = "/run/secrets/github/runners/dotfiles";
