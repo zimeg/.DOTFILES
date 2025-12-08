@@ -21,6 +21,7 @@ jobs:
         run: |
           git config user.name '@theorderingmachine'
           git config user.email 'tom@deorr.co'
+          git remote set-url origin git@github.com:zimeg/.DOTFILES.git
       - name: Reflect existing Nix
         id: darwin
         continue-on-error: true
