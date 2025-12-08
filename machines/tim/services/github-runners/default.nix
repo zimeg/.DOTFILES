@@ -9,6 +9,7 @@
         "tim"
       ];
       extraPackages = [
+        pkgs.openssh # https://github.com/openssh/openssh-portable
         pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
       ];
       name = "tim";
