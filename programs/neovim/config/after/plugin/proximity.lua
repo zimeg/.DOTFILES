@@ -12,6 +12,9 @@ proximity.setup({
 		["<leader>pf"] = {
 			"flake.nix",
 		},
+		["<leader>pga"] = {
+			".github",
+		},
 		["<leader>pgi"] = {
 			".gitignore",
 		},

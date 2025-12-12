@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: quickjump to the code hosting platform with golfing triad 2025-12-11
 - `tim`: prevent sleeping and restart after power glitch for uptime 2025-12-07
 - `ci`: use credentials of a service account for making new commits 2025-12-07
 - `ollama`: split the cuda configurations into separate compilation 2025-12-07
