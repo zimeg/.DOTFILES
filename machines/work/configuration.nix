@@ -13,6 +13,7 @@
   environment = {
     systemPackages = [
       pkgs.act # https://github.com/nektos/act
+      pkgs.claude-code # https://github.com/anthropics/claude-code
       pkgs.code-cursor # https://github.com/getcursor/cursor
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.ngrok # https://github.com/ngrok/ngrok
@@ -35,6 +36,7 @@
       allowUnfreePredicate =
         pkg:
         builtins.elem (lib.getName pkg) [
+          "claude-code"
           "cursor"
           "ngrok"
           "vscode"
