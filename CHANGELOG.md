@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tmux`: remove continuous and resurrecting sessions with accident 2025-12-16
 - `claude`: include the anthropic coding assistants in current work 2025-12-16
 - `darwin`: setup work computer with shared defaults and dock setup 2025-12-16
 - `nvim`: quickjump to the code hosting platform with golfing triad 2025-12-11

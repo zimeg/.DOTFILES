@@ -10,21 +10,6 @@
     extraConfig = builtins.readFile ./.tmux.conf;
     plugins = with pkgs; [
       {
-        # https://github.com/tmux-plugins/tmux-resurrect
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = ''
-          set -g @resurrect-capture-pane-contents 'on'
-          set -g @resurrect-strategy-nvim 'session'
-        '';
-      }
-      {
-        # https://github.com/tmux-plugins/tmux-continuum
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-        '';
-      }
-      {
         # https://github.com/tmux-plugins/tmux-cowboy
         plugin = tmuxPlugins.mkTmuxPlugin {
           pluginName = "cowboy";
