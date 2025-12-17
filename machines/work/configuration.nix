@@ -6,6 +6,10 @@
   ...
 }@input:
 {
+  imports = [
+    ../../programs/darwin
+    ./programs/darwin
+  ];
   environment = {
     systemPackages = [
       pkgs.act # https://github.com/nektos/act
