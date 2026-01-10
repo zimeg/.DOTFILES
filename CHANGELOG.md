@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: update language servers for current available formattings 2026-01-10
 - `nvim`: offer shortform pasted printings of the selected variable 2025-12-16
 - `tmux`: remove continuous and resurrecting sessions with accident 2025-12-16
 - `claude`: include the anthropic coding assistants in current work 2025-12-16
