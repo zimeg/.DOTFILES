@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: rotate github runners secrets and as tailscale connection 2026-01-10
 - `impermanence`: remove some known home path from the default user 2026-01-10
 - `nvim`: update language servers for current available formattings 2026-01-10
 - `nvim`: offer shortform pasted printings of the selected variable 2025-12-16
