@@ -12,6 +12,7 @@
       nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
       nvim-jdtls # https://github.com/mfussenegger/nvim-jdtls
+      nvim-treesitter # https://github.com/tree-sitter/tree-sitter
       telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
       telescope-git-conflicts-nvim # https://github.com/Snikimonkd/telescope-git-conflicts.nvim
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim

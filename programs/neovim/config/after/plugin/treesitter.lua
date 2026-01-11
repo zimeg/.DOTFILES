@@ -1,7 +1,7 @@
-local configs = require("nvim-treesitter.configs")
+local config = require("nvim-treesitter.config")
 local context = require("treesitter-context")
 
-configs.setup({
+config.setup({
 	modules = {},
 	ensure_installed = {},
 	ignore_install = {},
