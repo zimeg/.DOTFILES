@@ -1,6 +1,3 @@
 # Infrastructural remnants
 .terraform
 terraform.tfstate*
-
-# Developmenting details
-.direnv

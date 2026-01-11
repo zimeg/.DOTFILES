@@ -8,6 +8,13 @@ projects.
 
 ## getting started
 
+load the [opentofu](https://github.com/opentofu/opentofu) command for scripts
+ahead:
+
+```sh
+$ nix develop
+```
+
 to quickly synchronize and verify state, try:
 
 ```sh
@@ -31,14 +38,6 @@ machines by exchanging the most recent state.
 
 specifics of the implementation is contained in `state.tf`.
 
-### command setup
-
-a stable version of [opentofu][opentofu] can be tried as a nix package with:
-
-```sh
-$ nix shell nixpkgs#opentofu
-```
-
 ### collecting state
 
 projects using a managed infrastructure can connect to this backend by adding
@@ -55,5 +54,3 @@ terraform {
   }
 }
 ```
-
-[opentofu]: https://github.com/opentofu/opentofu

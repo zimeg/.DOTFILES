@@ -43,7 +43,24 @@
       nur,
       ...
     }@inputs:
+    let
+      each =
+        function:
+        nixpkgs.lib.genAttrs [
+          "x86_64-darwin"
+          "x86_64-linux"
+          "aarch64-darwin"
+          "aarch64-linux"
+        ] (system: function nixpkgs.legacyPackages.${system});
+    in
     {
+      devShells = each (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.opentofu # https://github.com/opentofu/opentofu
+          ];
+        };
+      });
       darwinConfigurations = {
         edenzim-ltmbn8v.internal.salesforce.com = inputs.nix-darwin.lib.darwinSystem {
           specialArgs = {
