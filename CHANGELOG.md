@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: remove code coverage and test results from jobs 2026-01-10
 - `nvim`: import tree sitter configurations as one singles variable 2026-01-10
 - `sops`: rotate github runners secrets and as tailscale connection 2026-01-10
 - `impermanence`: remove some known home path from the default user 2026-01-10

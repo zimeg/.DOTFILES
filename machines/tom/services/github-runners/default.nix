@@ -39,7 +39,6 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
-        pkgs.codecov-cli # https://github.com/codecov/codecov-cli
         pkgs.curl # https://github.com/curl/curl
         pkgs.gnupg # https://github.com/gpg/gnupg
         pkgs.rsync # https://github.com/rsyncproject/rsync

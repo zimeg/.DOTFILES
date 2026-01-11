@@ -42,7 +42,6 @@
         "minecraft-server"
         "nvidia-settings"
         "nvidia-x11"
-        "test-results-parser"
       ];
     cudaCapabilities = [ "8.6" ];
     cudaForwardCompat = true;
