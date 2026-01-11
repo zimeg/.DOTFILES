@@ -106,7 +106,6 @@
       }
     ];
     users.default = {
-      home = "/home/ez";
       directories = [
         ".DOTFILES"
         ".local/share/direnv"
