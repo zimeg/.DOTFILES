@@ -61,6 +61,7 @@
       devShells = each (pkgs: {
         default = pkgs.mkShell {
           packages = [
+            pkgs.jq # https://github.com/jqlang/jq
             pkgs.opentofu # https://github.com/opentofu/opentofu
           ];
         };
