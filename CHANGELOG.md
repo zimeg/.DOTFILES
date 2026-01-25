@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cloud`: reverse proxided connection from internet to tom as host 2026-01-24
 - `cloud`: remove separate development environment package settings 2026-01-10
 - `github-runners`: remove code coverage and test results from jobs 2026-01-10
 - `nvim`: import tree sitter configurations as one singles variable 2026-01-10

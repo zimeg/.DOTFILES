@@ -54,3 +54,7 @@ terraform {
   }
 }
 ```
+
+## reversed proxies
+
+inbound connections are forwarded from the internet to particular ports of TOM.

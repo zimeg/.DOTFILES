@@ -89,6 +89,8 @@
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
+      "/srv/blog"
+      "/srv/development"
       "/srv/minecraft/world"
       "/srv/slack"
       "/var/lib/nixos"
@@ -146,13 +148,30 @@
     firewall = {
       enable = true;
       allowedUDPPorts = [
-        123
+        123 # NTP
+        51820 # Wireguard
       ];
       allowedTCPPorts = [
-        80
-        443
-        3000
+        80 # HTTP
+        443 # HTTPS
+        3000 # Development
+        4321 # Blog
       ];
+    };
+    wireguard = {
+      interfaces.wg0 = {
+        ips = [ "10.100.0.2/32" ];
+        listenPort = 51820;
+        privateKeyFile = config.sops.secrets."tom/wireguard/private".path;
+        peers = [
+          {
+            publicKey = "welnsS1YyVGjciqlyx8w5GlmTz/x25LQlVkQMFzr6zE=";
+            allowedIPs = [ "10.100.0.1/32" ];
+            endpoint = "tom.o526.net:51820";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
     };
   };
   sops = {
@@ -186,6 +205,7 @@
         owner = config.users.users.default.name;
         group = "wheel";
       };
+      "github/runners/blog" = { };
       "github/runners/coffee" = { };
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
@@ -222,6 +242,12 @@
       "tom/ssh/host/rsa/private" = {
         path = "/etc/ssh/ssh_host_rsa_key";
       };
+      "tom/wireguard/private" = {
+        mode = "0400";
+        owner = "root";
+        group = "root";
+        path = "/run/secrets/wg.key";
+      };
     };
   };
   time = {
@@ -239,6 +265,7 @@
     linger = true;
     packages = with pkgs; [
       fastfetch # https://github.com/fastfetch-cli/fastfetch
+      wireguard-tools # https://git.zx2c4.com/wireguard-tools
     ];
   };
 }

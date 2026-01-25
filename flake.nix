@@ -20,6 +20,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -61,6 +65,10 @@
           ];
         };
       });
+      packages = import ./cloud/configuration.nix {
+        inherit nixpkgs self;
+        inherit (inputs) nixos-generators;
+      };
       darwinConfigurations = {
         edenzim-ltmbn8v.internal.salesforce.com = inputs.nix-darwin.lib.darwinSystem {
           specialArgs = {
