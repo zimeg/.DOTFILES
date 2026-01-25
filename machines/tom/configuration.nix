@@ -147,15 +147,15 @@
     };
     firewall = {
       enable = true;
-      allowedUDPPorts = [
-        123 # NTP
-        51820 # Wireguard
-      ];
       allowedTCPPorts = [
         80 # HTTP
         443 # HTTPS
         3000 # Development
         4321 # Blog
+      ];
+      allowedUDPPorts = [
+        123 # NTP
+        51820 # Wireguard
       ];
     };
     wireguard = {
