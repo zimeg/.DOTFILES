@@ -26,24 +26,20 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: Setup tofu tooling
-        uses: opentofu/setup-opentofu@e95ccdd20623115bfd7d47df14a3250d6066a9d0 # v1.0.7
-      - name: Prepare the cloud directory
-        working-directory: ./cloud
-        run: tofu init
-      - name: Ensure sensible setups
-        working-directory: ./cloud
-        run: |
-          tofu fmt -check
-          tofu validate
       - name: Synchronize existing resources
         working-directory: ./cloud
-        run: ./cloud.sh sync
+        run: |
+          nix develop -c tofu init
+          nix develop -c tofu fmt -check
+          nix develop -c tofu validate
+          nix develop -c ./cloud.sh sync
       - name: Plan the upcoming change
         if: github.event_name == 'pull_request'
         working-directory: ./cloud
-        run: tofu plan
+        run: |
+          nix develop -c tofu plan
       - name: Actually apply the change
         if: github.ref == 'refs/heads/main'
         working-directory: ./cloud
-        run: tofu apply -auto-approve
+        run: |
+          nix develop -c tofu apply -auto-approve
