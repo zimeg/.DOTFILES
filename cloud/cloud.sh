@@ -47,14 +47,14 @@ function sync {
 
     tofu init
 
-    tofu import aws_s3_bucket.tf_state "$TF_STATE_BUCKET"
-    tofu import aws_s3_bucket_ownership_controls.tf_state_controls "$TF_STATE_BUCKET"
-    tofu import aws_s3_bucket_versioning.tf_state_versioning "$TF_STATE_BUCKET"
-    tofu import aws_s3_bucket_acl.tf_state_acl "$TF_STATE_BUCKET"
+    nix run .# import aws_s3_bucket.tf_state "$TF_STATE_BUCKET"
+    nix run .# import aws_s3_bucket_ownership_controls.tf_state_controls "$TF_STATE_BUCKET"
+    nix run .# import aws_s3_bucket_versioning.tf_state_versioning "$TF_STATE_BUCKET"
+    nix run .# import aws_s3_bucket_acl.tf_state_acl "$TF_STATE_BUCKET"
 
-    tofu import aws_dynamodb_table.dynamodb_tf_state_lock "$TF_STATE_TABLE"
+    nix run .# import aws_dynamodb_table.dynamodb_tf_state_lock "$TF_STATE_TABLE"
 
-    tofu import aws_iam_policy.tofu_grocer "$TF_STATE_POLICY"
+    nix run .# import aws_iam_policy.tofu_grocer "$TF_STATE_POLICY"
 }
 
 # Hint if no command is provided
