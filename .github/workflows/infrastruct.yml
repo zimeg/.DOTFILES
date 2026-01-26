@@ -30,7 +30,7 @@ jobs:
         working-directory: ./cloud
         run: |
           nix run .# init
-          nix run .# fmt -check
+          nix run .# fmt -- -check
           nix run .# validate
       - name: Plan the upcoming change
         if: github.event_name == 'pull_request'
@@ -41,4 +41,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
         working-directory: ./cloud
         run: |
-          nix run .# apply -auto-approve
+          nix run .# apply -- -auto-approve
