@@ -29,10 +29,9 @@ jobs:
       - name: Synchronize existing resources
         working-directory: ./cloud
         run: |
-          nix develop -c tofu init
-          nix develop -c tofu fmt -check
-          nix develop -c tofu validate
-          nix develop -c ./cloud.sh sync
+          nix run .# init
+          nix run .# fmt -check
+          nix run .# validate
       - name: Plan the upcoming change
         if: github.event_name == 'pull_request'
         working-directory: ./cloud

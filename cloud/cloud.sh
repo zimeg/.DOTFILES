@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-TF_STATE_BUCKET=$(jq -r .state_bucket tofu.auto.tfvars.json)
-TF_STATE_TABLE=$(jq -r .state_lock_table tofu.auto.tfvars.json)
-TF_STATE_POLICY=$(jq -r .state_policy tofu.auto.tfvars.json)
-
 TF_VAR_hosted_zone_id=$(jq -r .hosted_zone_id tofu.auto.tfvars.json)
 
 # Display an informative message
@@ -12,8 +8,8 @@ function help {
     echo "    check  verify formatting meets standards"
     echo "    clean  reset the working file directory"
     echo "     help  display this informative message"
+    echo "     init  setup existing cloud configurations"
     echo "     plan  preview any configuration changes"
-    echo "     sync  collect current cloud configurations"
 }
 
 # Update infrastructure with any state changes
@@ -36,25 +32,15 @@ function clean {
     echo "  carefully remove these with \`tofu destroy\`"
 }
 
+# Setup the current state
+function init {
+    rm -f terraform.tfstate terraform.tfstate.backup
+    nix run .# init
+}
+
 # Preview any changes to the configurations
 function plan {
     nix run .# plan
-}
-
-# Collect the current state
-function sync {
-    rm -f terraform.tfstate terraform.tfstate.backup
-
-    nix run .# init
-
-    nix run .# import aws_s3_bucket.tf_state "$TF_STATE_BUCKET"
-    nix run .# import aws_s3_bucket_ownership_controls.tf_state_controls "$TF_STATE_BUCKET"
-    nix run .# import aws_s3_bucket_versioning.tf_state_versioning "$TF_STATE_BUCKET"
-    nix run .# import aws_s3_bucket_acl.tf_state_acl "$TF_STATE_BUCKET"
-
-    nix run .# import aws_dynamodb_table.dynamodb_tf_state_lock "$TF_STATE_TABLE"
-
-    nix run .# import aws_iam_policy.tofu_grocer "$TF_STATE_POLICY"
 }
 
 # Hint if no command is provided
