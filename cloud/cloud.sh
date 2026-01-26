@@ -18,13 +18,13 @@ function help {
 
 # Update infrastructure with any state changes
 function apply {
-    tofu apply
+    nix run .# apply
 }
 
 # Ensure formatting matches a statand
 function check {
-    tofu fmt -check
-    tofu validate
+    nix run .# fmt -check
+    nix run .# validate
 }
 
 # Reset back to a clean directory
@@ -38,14 +38,14 @@ function clean {
 
 # Preview any changes to the configurations
 function plan {
-    tofu plan
+    nix run .# plan
 }
 
 # Collect the current state
 function sync {
     rm -f terraform.tfstate terraform.tfstate.backup
 
-    tofu init
+    nix run .# init
 
     nix run .# import aws_s3_bucket.tf_state "$TF_STATE_BUCKET"
     nix run .# import aws_s3_bucket_ownership_controls.tf_state_controls "$TF_STATE_BUCKET"

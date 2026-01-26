@@ -37,9 +37,9 @@ jobs:
         if: github.event_name == 'pull_request'
         working-directory: ./cloud
         run: |
-          nix develop -c tofu plan
+          nix run .# plan
       - name: Actually apply the change
         if: github.ref == 'refs/heads/main'
         working-directory: ./cloud
         run: |
-          nix develop -c tofu apply -auto-approve
+          nix run .# apply -auto-approve
