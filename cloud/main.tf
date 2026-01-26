@@ -12,9 +12,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "architectf"
-    key    = "dotfiles"
-    region = "us-east-1"
+    bucket         = "architectf"
+    key            = "dotfiles"
+    region         = "us-east-1"
     dynamodb_table = "architectf-timeline"
   }
   required_version = "~> 1.1"
