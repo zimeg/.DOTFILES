@@ -1,3 +1,6 @@
 # Infrastructural remnants
 .terraform
 terraform.tfstate*
+
+# Packaged outputs
+result

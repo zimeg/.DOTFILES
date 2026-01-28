@@ -23,14 +23,9 @@ jobs:
           git config user.email 'tom@deorr.co'
           git remote set-url origin git@github.com:zimeg/.DOTFILES.git
       - name: Reflect existing Nix
-        id: darwin
-        continue-on-error: true
         run: |
           nix --version
           fastfetch
-      - name: Install a flaked Nix
-        if: steps.darwin.outcome != 'success'
-        uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
       - name: Update to the latest
         if: github.event_name != 'pull_request'
         run: |
@@ -67,14 +62,9 @@ jobs:
           persist-credentials: true
           ref: ${{ github.event.pull_request.head.ref || 'update' }}
       - name: Reflect existing Nix
-        id: nixos
-        continue-on-error: true
         run: |
           uname -a | grep NixOS
           fastfetch
-      - name: Install a flaked Nix
-        if: steps.nixos.outcome != 'success'
-        uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a # v21
       - name: Write remembered commit
         run: |
           cat flake.lock

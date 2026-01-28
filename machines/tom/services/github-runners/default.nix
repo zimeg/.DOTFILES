@@ -2,6 +2,19 @@
 { pkgs, ... }:
 {
   services.github-runners = {
+    blog = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "wheel";
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/blog";
+      url = "https://github.com/zimeg/blog";
+      user = "root";
+    };
     coffee = {
       enable = true;
       ephemeral = true;

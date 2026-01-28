@@ -18,7 +18,7 @@ $ nix develop
 to quickly synchronize and verify state, try:
 
 ```sh
-$ ./cloud.sh sync
+$ ./cloud.sh init
 $ ./cloud.sh plan
 ```
 
@@ -53,4 +53,19 @@ terraform {
     dynamodb_table = "architectf-timeline"
   }
 }
+```
+
+## reversed proxies
+
+inbound connections are forwarded from the internet to particular ports of
+[@tom](https://github.com/theorderingmachine) with a wireguarded connection.
+
+the public machine has build settings saved to `configuration.nix` and network
+details in `proxy.tf`.
+
+connections from a home server to a changing ip might require rebuilds between
+updates to refresh an ip:
+
+```
+tom.o526.net
 ```

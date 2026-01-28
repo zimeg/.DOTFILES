@@ -8,4 +8,4 @@ tom finds a [pat] octocat with a token:
 - `metadata`: read
 - `workflows`: read and write
 
-[pat]: https://github.com/settings/tokens?type=beta
+[pat]: https://github.com/settings/personal-access-tokens
