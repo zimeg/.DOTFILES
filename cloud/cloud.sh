@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-TF_VAR_hosted_zone_id=$(jq -r .hosted_zone_id tofu.auto.tfvars.json)
-
 # Display an informative message
 function help {
     echo "    apply  update any changed infrastructure"
