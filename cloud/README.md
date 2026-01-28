@@ -57,8 +57,8 @@ terraform {
 
 ## reversed proxies
 
-inbound connections are forwarded from the internet to particular ports of @tom
-with a wireguarded connection.
+inbound connections are forwarded from the internet to particular ports of
+[@tom](https://github.com/theorderingmachine) with a wireguarded connection.
 
 the public machine has build settings saved to `configuration.nix` and network
 details in `proxy.tf`.
