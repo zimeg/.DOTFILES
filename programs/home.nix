@@ -5,6 +5,7 @@ let
     age # https://github.com/FiloSottile/age
     cachix # https://github.com/cachix/cachix
     nur.repos.zimeg.changesets # https://github.com/changesets/changesets
+    claude-code # https://github.com/anthropics/claude-code
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
     file # https://github.com/file/file
@@ -75,6 +76,11 @@ in
   home.sessionVariables = {
     JDTLS_PATH = "${pkgs.jdt-language-server}/bin/jdtls";
   };
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code" # https://github.com/anthropics/claude-code/blob/main/LICENSE.md
+    ];
   programs.home-manager.enable = true;
   imports = [
     ./aerospace
