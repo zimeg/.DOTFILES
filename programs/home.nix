@@ -4,6 +4,7 @@ let
   tools = with pkgs; [
     age # https://github.com/FiloSottile/age
     cachix # https://github.com/cachix/cachix
+    nur.repos.zimeg.changesets # https://github.com/changesets/changesets
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
     file # https://github.com/file/file

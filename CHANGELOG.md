@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `changesets`: save a package to package package changelog entries 2026-01-31
 - `crush`: uninstall the beautiful promptful prompting terminal app 2026-01-31
 - `cloud`: reverse proxided connection from internet to tom as host 2026-01-24
 - `cloud`: remove separate development environment package settings 2026-01-10
