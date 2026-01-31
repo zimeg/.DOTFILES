@@ -5,7 +5,6 @@ let
     age # https://github.com/FiloSottile/age
     cachix # https://github.com/cachix/cachix
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
-    nur.repos.charmbracelet.crush # https://github.com/charmbracelet/crush
     curl # https://github.com/curl/curl
     file # https://github.com/file/file
     fontconfig # https://gitlab.freedesktop.org/fontconfig/fontconfig
@@ -75,11 +74,6 @@ in
   home.sessionVariables = {
     JDTLS_PATH = "${pkgs.jdt-language-server}/bin/jdtls";
   };
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "crush" # https://github.com/charmbracelet/crush/blob/main/LICENSE
-    ];
   programs.home-manager.enable = true;
   imports = [
     ./aerospace

@@ -44,14 +44,6 @@
       sshKeyPaths = [ ];
     };
     secrets = {
-      "ai/credentials" = {
-        owner = input.config.users.users.ez.name;
-        group = "wheel";
-        format = "json";
-        key = "";
-        path = "/Users/ez/.local/share/crush/crush.json";
-        sopsFile = ./programs/crush/credentials.json;
-      };
       "netrc" = {
         owner = input.config.users.users.ez.name;
         group = "wheel";

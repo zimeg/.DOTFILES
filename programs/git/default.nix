@@ -59,7 +59,6 @@
     };
     ignores = [
       ".DS_Store"
-      ".crush"
     ];
     lfs = {
       enable = true;
