@@ -32,6 +32,7 @@
                 443 # HTTPS
               ];
               allowedUDPPorts = [
+                123 # NTP
                 51820 # WireGuard
               ];
             };
@@ -71,6 +72,15 @@
           };
           services.nginx = {
             enable = true;
+            streamConfig = ''
+              upstream ntp {
+                server 10.100.0.2:123;
+              }
+              server {
+                listen 123 udp;
+                proxy_pass ntp;
+              }
+            '';
             virtualHosts = {
               "o526.net" = {
                 enableACME = true;
