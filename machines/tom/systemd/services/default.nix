@@ -1,5 +1,5 @@
 # https://github.com/systemd/systemd
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   systemd.services = {
     nvidia-control-devices = {
@@ -148,7 +148,7 @@
         "network-online.target"
       ];
       serviceConfig = {
-        ExecStart = "${inputs.quintus.packages.${pkgs.system}.default}/bin/quintus";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/quintus/selfhost --refresh";
         Restart = "always";
         RestartSec = 2;
         User = "root";

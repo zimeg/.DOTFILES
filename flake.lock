@@ -250,27 +250,6 @@
         "type": "github"
       }
     },
-    "quintus": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1769929931,
-        "narHash": "sha256-JPsRFBjPUQAZ2ld2jTXCDneZJZigYU5PdNN2zxGMMlg=",
-        "owner": "zimeg",
-        "repo": "quintus",
-        "rev": "de64462ae199fd36172863567518098b13309587",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zimeg",
-        "ref": "selfhost",
-        "repo": "quintus",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "git-coverage": "git-coverage",
@@ -282,7 +261,6 @@
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "proximity-nvim": "proximity-nvim",
-        "quintus": "quintus",
         "sops-nix": "sops-nix"
       }
     },

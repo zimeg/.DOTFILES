@@ -35,10 +35,6 @@
       url = "github:zimeg/proximity.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quintus = {
-      url = "github:zimeg/quintus/selfhost";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -164,9 +160,6 @@
       };
       nixosConfigurations = {
         tom = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs self;
-          };
           modules = [
             nur.modules.nixos.default
             ./machines/tom/configuration.nix
