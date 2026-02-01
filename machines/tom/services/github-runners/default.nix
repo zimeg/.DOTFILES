@@ -71,6 +71,7 @@
       replace = true;
       tokenFile = "/run/secrets/github/runners/quintus";
       url = "https://github.com/zimeg/quintus";
+      user = "root";
     };
   };
 }
