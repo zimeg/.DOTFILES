@@ -11,7 +11,7 @@
         "network-online.target"
       ];
       serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/quintus/selfhost --refresh";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/quintus --refresh";
         Restart = "always";
         RestartSec = 2;
         User = "root";
