@@ -1,7 +1,6 @@
-variable "hosted_zone_id" {
+variable "proxy_hosted_zones" {
   description = "An online placeholer"
-  type        = string
-  sensitive   = true
+  type        = map(string)
 }
 
 variable "image" {
@@ -240,6 +239,16 @@ resource "aws_vpc_security_group_ingress_rule" "https" {
 }
 
 # https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
+resource "aws_vpc_security_group_ingress_rule" "ntp" {
+  security_group_id = aws_security_group.network.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "udp"
+  from_port   = 123
+  to_port     = 123
+}
+
+# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
 resource "aws_vpc_security_group_ingress_rule" "wireguard" {
   security_group_id = aws_security_group.network.id
 
@@ -253,7 +262,7 @@ resource "aws_vpc_security_group_ingress_rule" "wireguard" {
 resource "aws_route53_record" "root" {
   name    = "o526.net"
   type    = "A"
-  zone_id = var.hosted_zone_id
+  zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
   records = [aws_instance.redirect.public_ip]
 }
@@ -262,7 +271,7 @@ resource "aws_route53_record" "root" {
 resource "aws_route53_record" "dev" {
   name    = "dev.o526.net"
   type    = "A"
-  zone_id = var.hosted_zone_id
+  zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
   records = [aws_instance.redirect.public_ip]
 }
@@ -271,7 +280,16 @@ resource "aws_route53_record" "dev" {
 resource "aws_route53_record" "tom" {
   name    = "tom.o526.net"
   type    = "A"
-  zone_id = var.hosted_zone_id
+  zone_id = var.proxy_hosted_zones["o526.net"]
+  ttl     = 300
+  records = [aws_instance.redirect.public_ip]
+}
+
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "quintus" {
+  name    = "quintus.sh"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["quintus.sh"]
   ttl     = 300
   records = [aws_instance.redirect.public_ip]
 }

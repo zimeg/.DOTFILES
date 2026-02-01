@@ -152,6 +152,7 @@
         443 # HTTPS
         3000 # Development
         4321 # Blog
+        5000 # Quintus
       ];
       allowedUDPPorts = [
         123 # NTP
@@ -209,6 +210,7 @@
       "github/runners/coffee" = { };
       "github/runners/dotfiles" = { };
       "github/runners/etime" = { };
+      "github/runners/quintus" = { };
       "github/runners/slacks" = { };
       "restic/minecraft" = { };
       "tailscale/auth" = { };

@@ -32,6 +32,7 @@
                 443 # HTTPS
               ];
               allowedUDPPorts = [
+                123 # NTP
                 51820 # WireGuard
               ];
             };
@@ -63,10 +64,25 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
+              "quintus.sh" = {
+                email = "calendar@quintus.sh";
+                group = "nginx";
+              };
             };
           };
           services.nginx = {
             enable = true;
+            streamConfig = ''
+              upstream ntp {
+                server 10.100.0.2:123;
+              }
+              server {
+                listen 123 udp;
+                proxy_pass ntp;
+                proxy_responses 1;
+                proxy_timeout 3s;
+              }
+            '';
             virtualHosts = {
               "o526.net" = {
                 enableACME = true;
@@ -82,6 +98,14 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:3000";
                   proxyWebsockets = true;
+                };
+              };
+              "quintus.sh" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:5000";
+                  proxyWebsockets = false;
                 };
               };
             };
