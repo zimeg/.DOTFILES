@@ -64,5 +64,13 @@
       url = "https://github.com/zimeg/slack-sandbox";
       user = "root";
     };
+    quintus = {
+      enable = true;
+      ephemeral = true;
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/quintus";
+      url = "https://github.com/zimeg/quintus";
+    };
   };
 }

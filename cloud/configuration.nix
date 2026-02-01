@@ -63,6 +63,10 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
+              "quintus.sh" = {
+                email = "calendar@quintus.sh";
+                group = "nginx";
+              };
             };
           };
           services.nginx = {
@@ -82,6 +86,14 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:3000";
                   proxyWebsockets = true;
+                };
+              };
+              "quintus.sh" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:5000";
+                  proxyWebsockets = false;
                 };
               };
             };

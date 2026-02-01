@@ -1,5 +1,5 @@
 # https://github.com/systemd/systemd
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   systemd.services = {
     nvidia-control-devices = {
@@ -137,6 +137,21 @@
         ConditionPathExists = /srv/slack/js.bolt.tails/.slack/hooks.json;
         StartLimitBurst = 12;
         StartLimitIntervalSec = 24;
+      };
+    };
+    "quintus" = {
+      documentation = [ "https://github.com/zimeg/quintus" ];
+      wants = [
+        "network-online.target"
+      ];
+      after = [
+        "network-online.target"
+      ];
+      serviceConfig = {
+        ExecStart = "${inputs.quintus.packages.${pkgs.system}.default}/bin/quintus";
+        Restart = "always";
+        RestartSec = 2;
+        User = "root";
       };
     };
   };
