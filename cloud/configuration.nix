@@ -79,6 +79,8 @@
               server {
                 listen 123 udp;
                 proxy_pass ntp;
+                proxy_responses 1;
+                proxy_timeout 3s;
               }
             '';
             virtualHosts = {
