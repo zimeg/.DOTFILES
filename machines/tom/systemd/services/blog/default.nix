@@ -10,20 +10,14 @@
       after = [
         "network-online.target"
       ];
-      path = [
-        pkgs.git
+      wantedBy = [
+        "multi-user.target"
       ];
       serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"npm run host\"";
-        ExecStartPre = [
-          "${pkgs.git}/bin/git pull origin main"
-          "${pkgs.nix}/bin/nix develop --command bash -c \"npm ci --omit=dev\""
-          "${pkgs.nix}/bin/nix develop --command bash -c \"npm run build\""
-        ];
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog --refresh";
         Restart = "always";
         RestartSec = 2;
         User = "root";
-        WorkingDirectory = /srv/blog;
       };
     };
     "blog:preview" = {
@@ -34,20 +28,9 @@
       after = [
         "network-online.target"
       ];
-      path = [
-        pkgs.git
-      ];
       serviceConfig = {
-        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"npm run host -- --port 3000\"";
-        ExecStartPre = [
-          "${pkgs.git}/bin/git fetch blog"
-          "${pkgs.git}/bin/git checkout blog/dev"
-          "${pkgs.git}/bin/git reset --hard blog/dev"
-          "${pkgs.nix}/bin/nix develop --command bash -c \"npm ci --omit=dev\""
-          "${pkgs.nix}/bin/nix develop --command bash -c \"npm run build\""
-        ];
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog/dev --refresh -- --port 3000";
         User = "root";
-        WorkingDirectory = /srv/development;
       };
     };
   };
