@@ -10,6 +10,9 @@
       after = [
         "network-online.target"
       ];
+      wantedBy = [
+        "multi-user.target"
+      ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/quintus --refresh";
         Restart = "always";

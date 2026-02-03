@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `blog`: run pages and app immediate after restarted server is set 2026-02-02
 - `quintus`: host a calendar service with the kind ordering machine 2026-01-31
 - `claude`: praise agentic developments within emergent code change 2026-01-31
 - `changesets`: save a package to package package changelog entries 2026-01-31
