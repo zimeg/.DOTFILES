@@ -107,7 +107,6 @@
     users.default = {
       directories = [
         ".DOTFILES"
-        ".claude"
         ".local/share/direnv"
         ".ssh"
         "programming"
