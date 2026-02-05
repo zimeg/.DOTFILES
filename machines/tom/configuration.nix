@@ -198,21 +198,49 @@
       };
       "aws/iam/minecraft" = {
         format = "dotenv";
+        owner = "minecraft";
+        group = "minecraft";
         sopsFile = ./services/minecraft-server/vault.env;
       };
       "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";
       };
-      "github/runners/blog" = { };
-      "github/runners/coffee" = { };
-      "github/runners/dotfiles" = { };
-      "github/runners/etime" = { };
-      "github/runners/quintus" = { };
-      "github/runners/slacks" = { };
-      "restic/minecraft" = { };
-      "tailscale/auth" = { };
+      "github/runners/blog" = {
+        owner = "blog";
+        group = "blog";
+      };
+      "github/runners/coffee" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/dotfiles" = {
+        owner = "dotfiles";
+        group = "dotfiles";
+      };
+      "github/runners/etime" = {
+        owner = "etime";
+        group = "etime";
+      };
+      "github/runners/quintus" = {
+        owner = "quintus";
+        group = "quintus";
+      };
+      "github/runners/slacks" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "restic/minecraft" = {
+        owner = "minecraft";
+        group = "minecraft";
+      };
+      "tailscale/auth" = {
+        owner = "root";
+        group = "root";
+      };
       "tom/password" = {
+        owner = "root";
+        group = "root";
         neededForUsers = true;
       };
       "tom/sops/private" = {
@@ -223,6 +251,7 @@
       "tom/ssh/public" = {
         owner = config.users.users.default.name;
         group = "wheel";
+        mode = "0644";
         path = "${config.users.users.default.home}/.ssh/id_ed25519.pub";
       };
       "tom/ssh/private" = {
@@ -231,15 +260,25 @@
         path = "${config.users.users.default.home}/.ssh/id_ed25519";
       };
       "tom/ssh/host/ed25519/public" = {
+        owner = "root";
+        group = "root";
+        mode = "0644";
         path = "/etc/ssh/ssh_host_ed25519_key.pub";
       };
       "tom/ssh/host/ed25519/private" = {
+        owner = "root";
+        group = "root";
         path = "/etc/ssh/ssh_host_ed25519_key";
       };
       "tom/ssh/host/rsa/public" = {
+        owner = "root";
+        group = "root";
+        mode = "0644";
         path = "/etc/ssh/ssh_host_rsa_key.pub";
       };
       "tom/ssh/host/rsa/private" = {
+        owner = "root";
+        group = "root";
         path = "/etc/ssh/ssh_host_rsa_key";
       };
       "tom/wireguard/private" = {

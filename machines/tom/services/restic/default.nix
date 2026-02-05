@@ -3,6 +3,7 @@
   services.restic.backups = {
     minecraft = {
       initialize = true;
+      user = "minecraft";
       environmentFile = "/run/secrets/aws/iam/minecraft";
       passwordFile = "/run/secrets/restic/minecraft";
       repository = "s3:s3.us-east-1.amazonaws.com/tom.25565";
