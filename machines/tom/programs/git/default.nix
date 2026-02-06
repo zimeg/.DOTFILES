@@ -2,12 +2,5 @@
 {
   programs.git = {
     enable = true;
-    config = {
-      safe = {
-        directory = [
-          "/srv/slack"
-        ];
-      };
-    };
   };
 }

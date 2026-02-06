@@ -2,36 +2,9 @@
 { pkgs, ... }:
 {
   systemd.services = {
-    "slack:git" = {
+    "snaek" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
-      wants = [
-        "network-online.target"
-      ];
-      after = [
-        "network-online.target"
-      ];
-      requiredBy = [
-        "slack:snaek.service"
-        "slack:tails.service"
-      ];
-      path = [
-        pkgs.openssh
-      ];
-      serviceConfig = {
-        ExecStart = "${pkgs.git}/bin/git pull origin main";
-        Restart = "on-failure";
-        User = "root";
-        WorkingDirectory = /srv/slack;
-      };
-      unitConfig = {
-        ConditionPathExists = /srv/slack;
-        StartLimitBurst = 12;
-        StartLimitIntervalSec = 24;
-      };
-    };
-    "slack:snaek" = {
-      documentation = [ "https://github.com/zimeg/slack-sandbox" ];
-      wantedBy = [ "default.target" ];
+      wantedBy = [ "multi-user.target" ];
       wants = [
         "network-online.target"
         "ollama.service"
@@ -40,47 +13,51 @@
         "network-online.target"
         "ollama.service"
       ];
-      path = [
-        pkgs.git
-      ];
+      environment = {
+        DATABASE_PATH = "/var/lib/slack/snaek/caduceus.db";
+        HOME = "/var/cache/snaek";
+        XDG_CACHE_HOME = "/var/cache/snaek";
+      };
       serviceConfig = {
-        EnvironmentFile = /srv/slack/py.bolt.snaek/.env;
-        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"python3 app.py\"";
-        ExecStartPre = "${pkgs.ollama}/bin/ollama create snaek --file models/Modelfile";
+        CacheDirectory = "snaek";
+        EnvironmentFile = "/run/secrets/slack/snaek";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/py.bolt.snaek --refresh";
         Restart = "always";
-        RestartSec = 2;
-        User = "root";
-        WorkingDirectory = /srv/slack/py.bolt.snaek;
+        RestartSec = 120;
+        StateDirectory = "slack/snaek";
+        User = "snaek";
+        WorkingDirectory = "/var/lib/slack/snaek";
       };
       unitConfig = {
-        ConditionPathExists = /srv/slack/py.bolt.snaek/.slack/hooks.json;
         StartLimitBurst = 12;
         StartLimitIntervalSec = 24;
       };
     };
-    "slack:tails" = {
+    "tails" = {
       documentation = [ "https://github.com/zimeg/slack-sandbox" ];
-      wantedBy = [ "default.target" ];
+      wantedBy = [ "multi-user.target" ];
       wants = [
         "network-online.target"
       ];
       after = [
         "network-online.target"
       ];
-      path = [
-        pkgs.git
-      ];
+      path = [ pkgs.bash pkgs.nodejs ];
+      environment = {
+        HOME = "/var/cache/tails";
+        XDG_CACHE_HOME = "/var/cache/tails";
+      };
       serviceConfig = {
-        EnvironmentFile = /srv/slack/js.bolt.tails/.env;
-        ExecStart = "${pkgs.nix}/bin/nix develop --command bash -c \"npm run start\"";
-        ExecStartPre = "${pkgs.nix}/bin/nix develop --command bash -c \"npm ci --omit=dev --omit=optional\"";
+        CacheDirectory = "tails";
+        EnvironmentFile = "/run/secrets/slack/tails";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/js.bolt.tails --refresh";
         Restart = "always";
-        RestartSec = 2;
-        User = "root";
-        WorkingDirectory = /srv/slack/js.bolt.tails;
+        RestartSec = 120;
+        StateDirectory = "slack/tails";
+        User = "tails";
+        WorkingDirectory = "/var/lib/slack/tails";
       };
       unitConfig = {
-        ConditionPathExists = /srv/slack/js.bolt.tails/.slack/hooks.json;
         StartLimitBurst = 12;
         StartLimitIntervalSec = 24;
       };

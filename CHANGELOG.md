@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tom`: run runners as separate user with permission to resart app 2026-02-06
 - `tom`: separate service permissions to prefer shared access ports 2026-02-05
 - `claude`: avoid resetting memories of past conversations on start 2026-02-05
 - `blog`: run pages and app immediate after restarted server is set 2026-02-02

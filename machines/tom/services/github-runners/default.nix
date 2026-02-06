@@ -1,42 +1,6 @@
 # https://docs.github.com/actions
 { pkgs, ... }:
 {
-  users = {
-    users = {
-      blog = {
-        isSystemUser = true;
-        group = "blog";
-      };
-      coffee = {
-        isSystemUser = true;
-        group = "coffee";
-      };
-      dotfiles = {
-        isSystemUser = true;
-        group = "dotfiles";
-      };
-      etime = {
-        isSystemUser = true;
-        group = "etime";
-      };
-      quintus = {
-        isSystemUser = true;
-        group = "quintus";
-      };
-      slacks = {
-        isSystemUser = true;
-        group = "slacks";
-      };
-    };
-    groups = {
-      blog = { };
-      coffee = { };
-      dotfiles = { };
-      etime = { };
-      quintus = { };
-      slacks = { };
-    };
-  };
   services.github-runners = {
     blog = {
       enable = true;

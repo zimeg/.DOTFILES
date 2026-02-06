@@ -53,6 +53,7 @@
     ./hardware/nvidia
     ./programs/git
     ./programs/gnupg
+    ./security/polkit
     ./security/rtkit
     ./security/sudo
     ./services/github-runners
@@ -90,8 +91,8 @@
     directories = [
       "/etc/ollama/models"
       "/srv/minecraft/world"
-      "/srv/slack"
       "/var/lib/nixos"
+      "/var/lib/slack"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
@@ -234,6 +235,18 @@
         owner = "minecraft";
         group = "minecraft";
       };
+      "slack/snaek" = {
+        format = "dotenv";
+        owner = "snaek";
+        group = "snaek";
+        sopsFile = ./systemd/services/slack/snaek.env;
+      };
+      "slack/tails" = {
+        format = "dotenv";
+        owner = "tails";
+        group = "tails";
+        sopsFile = ./systemd/services/slack/tails.env;
+      };
       "tailscale/auth" = {
         owner = "root";
         group = "root";
@@ -292,19 +305,67 @@
   time = {
     timeZone = "America/Los_Angeles";
   };
-  users.users.default = {
-    isNormalUser = true;
-    name = "ez";
-    description = "eden";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    hashedPasswordFile = config.sops.secrets."tom/password".path;
-    linger = true;
-    packages = with pkgs; [
-      fastfetch # https://github.com/fastfetch-cli/fastfetch
-      wireguard-tools # https://git.zx2c4.com/wireguard-tools
-    ];
+  users = {
+    users = {
+      default = {
+        isNormalUser = true;
+        name = "ez";
+        description = "eden";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+        ];
+        hashedPasswordFile = config.sops.secrets."tom/password".path;
+        linger = true;
+        packages = with pkgs; [
+          fastfetch # https://github.com/fastfetch-cli/fastfetch
+          wireguard-tools # https://git.zx2c4.com/wireguard-tools
+        ];
+      };
+      blog = {
+        isSystemUser = true;
+        group = "blog";
+      };
+      coffee = {
+        isSystemUser = true;
+        group = "coffee";
+      };
+      dotfiles = {
+        isSystemUser = true;
+        group = "dotfiles";
+      };
+      etime = {
+        isSystemUser = true;
+        group = "etime";
+      };
+      quintus = {
+        isSystemUser = true;
+        group = "quintus";
+      };
+      slacks = {
+        isSystemUser = true;
+        group = "slacks";
+      };
+      snaek = {
+        isSystemUser = true;
+        group = "snaek";
+        home = "/var/cache/snaek";
+      };
+      tails = {
+        isSystemUser = true;
+        group = "tails";
+        home = "/var/cache/tails";
+      };
+    };
+    groups = {
+      blog = { };
+      coffee = { };
+      dotfiles = { };
+      etime = { };
+      quintus = { };
+      slacks = { };
+      snaek = { };
+      tails = { };
+    };
   };
 }
