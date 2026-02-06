@@ -1,0 +1,14 @@
+polkit.addRule(function(action, subject) {
+  if (action.id == "org.freedesktop.systemd1.manage-units") {
+    var unit = action.lookup("unit");
+    if (subject.user == "blog" && unit == "blog.service") {
+      return polkit.Result.YES;
+    }
+    if (subject.user == "quintus" && unit == "quintus.service") {
+      return polkit.Result.YES;
+    }
+    if (subject.user == "slacks" && (unit == "snaek.service" || unit == "tails.service")) {
+      return polkit.Result.YES;
+    }
+  }
+});
