@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nvim`: support highlighting an html templating engine called eta 2026-02-07
 - `zsh`: alias zips to worktrees matching alphabetic alias creation 2026-02-07
 - `nvim`: remove black linting and formatting to replace with ruffs 2026-02-07
 - `github-runners`: return rsync for updating a mirror of slack app 2026-02-06
