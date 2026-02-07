@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: return rsync for updating a mirror of slack app 2026-02-06
 - `claude`: add permissed commands and instructions of this project 2026-02-06
 - `chore`: ignore build results for testing changes in progress now 2026-02-06
 - `github-runners`: follow the stars to runners name of the planets 2026-02-06

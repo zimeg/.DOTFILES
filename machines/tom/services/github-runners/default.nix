@@ -59,6 +59,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "mercury";
@@ -72,6 +73,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "venus";
@@ -85,6 +87,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "earth";
@@ -98,6 +101,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "mars";
@@ -111,6 +115,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "jupiter";
@@ -124,6 +129,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "saturn";
@@ -137,6 +143,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "uranus";
@@ -150,6 +157,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "neptune";
@@ -163,6 +171,7 @@
       ephemeral = true;
       extraPackages = [
         pkgs.gh # https://github.com/cli/cli
+        pkgs.rsync # https://rsync.samba.org
       ];
       group = "slacks";
       name = "pluto";
