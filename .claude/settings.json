@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(MANPAGER=cat man:*)",
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(gh api:*)",
+      "Bash(gh label list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr view:*)",
+      "Bash(git branch:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git log:*)",
+      "Bash(git pull:*)",
+      "Bash(git reset:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(journalctl:*)",
+      "Bash(ls:*)",
+      "Bash(nix develop:*)",
+      "Bash(nix eval:*)",
+      "Bash(nix flake show:*)",
+      "Bash(sudo wg show:*)",
+      "Bash(systemctl cat:*)",
+      "Bash(systemctl show:*)",
+      "Bash(systemctl status:*)",
+      "Bash(tee:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}
