@@ -21,7 +21,6 @@ let
   ];
   languages = with pkgs; [
     biome # https://github.com/biomejs/biome
-    black # https://github.com/psf/black
     cargo # https://github.com/rust-lang/cargo
     delve # https://github.com/go-delve/delve
     deno # https://github.com/denoland/deno

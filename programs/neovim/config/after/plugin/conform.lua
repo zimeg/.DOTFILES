@@ -13,7 +13,7 @@ conform.setup({
 		lua = { "stylua" },
 		markdown = { "prettier" },
 		nix = { "nixpkgs_fmt" },
-		python = { "isort", "black", "ruff" },
+		python = { "isort", "ruff" },
 		rust = { "rustfmt" },
 		sh = { "shfmt" },
 		sql = { "pg_format", "sql_formatter" },
