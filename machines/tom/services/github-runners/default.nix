@@ -54,19 +54,120 @@
       url = "https://github.com/zimeg/emporia-time";
       user = "etime";
     };
-    slacks = {
+    slacks-mercury = {
       enable = true;
       ephemeral = true;
       extraPackages = [
-        pkgs.curl # https://github.com/curl/curl
-        pkgs.gnupg # https://github.com/gpg/gnupg
-        pkgs.rsync # https://github.com/rsyncproject/rsync
-        pkgs.which # https://git.savannah.gnu.org/cgit/which.git
+        pkgs.gh # https://github.com/cli/cli
       ];
       group = "slacks";
-      name = "tom";
+      name = "mercury";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/slacks";
+      tokenFile = "/run/secrets/github/runners/slacks/mercury";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-venus = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "venus";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/venus";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-earth = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "earth";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/earth";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-mars = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "mars";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/mars";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-jupiter = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "jupiter";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/jupiter";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-saturn = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "saturn";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/saturn";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-uranus = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "uranus";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/uranus";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-neptune = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "neptune";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/neptune";
+      url = "https://github.com/zimeg/slack-sandbox";
+      user = "slacks";
+    };
+    slacks-pluto = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "slacks";
+      name = "pluto";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/slacks/pluto";
       url = "https://github.com/zimeg/slack-sandbox";
       user = "slacks";
     };

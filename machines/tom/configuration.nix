@@ -227,7 +227,39 @@
         owner = "quintus";
         group = "quintus";
       };
-      "github/runners/slacks" = {
+      "github/runners/slacks/mercury" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/venus" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/earth" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/mars" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/jupiter" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/saturn" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/uranus" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/neptune" = {
+        owner = "slacks";
+        group = "slacks";
+      };
+      "github/runners/slacks/pluto" = {
         owner = "slacks";
         group = "slacks";
       };
