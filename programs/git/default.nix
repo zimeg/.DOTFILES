@@ -13,7 +13,7 @@
         pwd = "!pwd && git branch --show-current";
         staged = "diff --staged";
         unstage = "restore --staged";
-        update = "!git checkout main && git pull && git checkout - && git merge main --message 'chore: merge w main'";
+        update = "!git fetch origin && git merge origin/main --message 'chore: merge w main'";
         whatsnew = "diff HEAD@{1} HEAD";
         whoami = "!git config user.name && git config user.email";
       };

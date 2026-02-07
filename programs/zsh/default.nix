@@ -1,6 +1,9 @@
 # https://sourceforge.net/p/zsh/code/ci/master/tree
 { config, pkgs, ... }:
 {
+  imports = [
+    ./worktrees.nix
+  ];
   programs.zsh = {
     enable = true;
     autosuggestion = {
