@@ -121,6 +121,8 @@
     addDriverRunpath
     parted
     restic
+    unzip
+    zip
     cudaPackages.cuda_cudart
     cudaPackages.cudatoolkit
     linuxPackages.nvidia_x11
