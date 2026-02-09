@@ -294,6 +294,15 @@ resource "aws_route53_record" "quintus" {
   records = [aws_instance.redirect.public_ip]
 }
 
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "todos" {
+  name    = "todos.guide"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["todos.guide"]
+  ttl     = 300
+  records = [aws_instance.redirect.public_ip]
+}
+
 output "public_dns" {
   value = aws_instance.redirect.public_dns
 }

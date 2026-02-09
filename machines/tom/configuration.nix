@@ -154,6 +154,7 @@
         3000 # Development
         4321 # Blog
         5000 # Quintus
+        8082 # Todo's Guide
       ];
       allowedUDPPorts = [
         123 # NTP
@@ -273,13 +274,19 @@
         format = "dotenv";
         owner = "snaek";
         group = "snaek";
-        sopsFile = ./systemd/services/slack/snaek.env;
+        sopsFile = ./systemd/services/slack/snaek/vault.env;
       };
       "slack/tails" = {
         format = "dotenv";
         owner = "tails";
         group = "tails";
-        sopsFile = ./systemd/services/slack/tails.env;
+        sopsFile = ./systemd/services/slack/tails/vault.env;
+      };
+      "slack/todos" = {
+        format = "dotenv";
+        owner = "todos";
+        group = "todos";
+        sopsFile = ./systemd/services/slack/todos/vault.env;
       };
       "tailscale/auth" = {
         owner = "root";
@@ -390,6 +397,11 @@
         group = "tails";
         home = "/var/cache/tails";
       };
+      todos = {
+        isSystemUser = true;
+        group = "todos";
+        home = "/var/cache/todos";
+      };
     };
     groups = {
       blog = { };
@@ -400,6 +412,7 @@
       slacks = { };
       snaek = { };
       tails = { };
+      todos = { };
     };
   };
 }

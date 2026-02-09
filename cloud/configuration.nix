@@ -68,6 +68,10 @@
                 email = "calendar@quintus.sh";
                 group = "nginx";
               };
+              "todos.guide" = {
+                email = "hello@todos.guide";
+                group = "nginx";
+              };
             };
           };
           services.nginx = {
@@ -105,6 +109,14 @@
                 forceSSL = true;
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:5000";
+                  proxyWebsockets = false;
+                };
+              };
+              "todos.guide" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:8082";
                   proxyWebsockets = false;
                 };
               };

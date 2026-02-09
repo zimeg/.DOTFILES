@@ -84,6 +84,10 @@ Runner configuration lives in `machines/tom/services/github-runners/default.nix`
 
 **extraPackages:** Adds tools to the runner environment. Use this for CLI tools needed by workflows (e.g., `pkgs.gh` for GitHub CLI). The "self-hosted" label is added automatically.
 
+### Systemd Services (tom)
+
+Custom systemd services live in `machines/tom/systemd/services/`. Each service requires a corresponding user and group declared in `machines/tom/configuration.nix` under `users.users` and `users.groups`. Services with secrets also need sops declarations in the same file. Follow the pattern of existing services (snaek, tails, todos) when adding new ones.
+
 ### Polkit
 
 Use polkit (not sudo) when services need to restart other services. GitHub runners set `NoNewPrivileges` internally via prctl, which blocks sudo regardless of systemd overrides. Polkit rules in `machines/tom/security/polkit/` grant specific users permission to manage specific units without privilege escalation.
