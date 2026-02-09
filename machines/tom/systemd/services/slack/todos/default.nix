@@ -4,19 +4,26 @@
   systemd.services = {
     "todos:production" = {
       documentation = [ "https://todos.guide" ];
-      wantedBy = [ "default.target" ];
+      wantedBy = [ "multi-user.target" ];
       wants = [
         "network-online.target"
       ];
       after = [
         "network-online.target"
       ];
+      environment = {
+        HOME = "/var/cache/todos";
+        XDG_CACHE_HOME = "/var/cache/todos";
+      };
       serviceConfig = {
+        CacheDirectory = "todos";
         EnvironmentFile = config.sops.secrets."slack/todos".path;
-        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slack-sandbox/a#server --refresh";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slack-sandbox/a?dir=py.sdk.todos#server --refresh";
         Restart = "always";
-        RestartSec = 2;
+        RestartSec = 120;
+        StateDirectory = "slack/todos";
         User = "todos";
+        WorkingDirectory = "/var/lib/slack/todos";
       };
       unitConfig = {
         StartLimitBurst = 12;
