@@ -20,6 +20,7 @@
       saveNoDups = true;
     };
     initContent = ''
+      export PATH="$HOME/.local/bin:$PATH"
       bindkey '^Y' autosuggest-accept
       bindkey '^ ' autosuggest-toggle
       bindkey '^P' history-beginning-search-backward
