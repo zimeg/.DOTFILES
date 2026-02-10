@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 {
   systemd.services = {
-    "todos:production" = {
+    "todos" = {
       documentation = [ "https://todos.guide" ];
       wantedBy = [ "multi-user.target" ];
       wants = [
@@ -18,7 +18,7 @@
       serviceConfig = {
         CacheDirectory = "todos";
         EnvironmentFile = config.sops.secrets."slack/todos".path;
-        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/py.sdk.todos#server --refresh";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/todos#server --refresh";
         Restart = "always";
         RestartSec = 120;
         StateDirectory = "slack/todos";

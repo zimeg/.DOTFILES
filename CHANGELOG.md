@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `systemd`: serve slack apps with most dedicated application names 2026-02-09
 - `zsh`: add home local bin to path for userspaced command installs 2026-02-09
 - `systemd`: keep track of tasks or at least todos of the slack app 2026-02-09
 - `zip`: add zipping and unzipping programs to tom for vim viewings 2026-02-07

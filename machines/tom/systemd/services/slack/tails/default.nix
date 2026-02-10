@@ -19,7 +19,7 @@
       serviceConfig = {
         CacheDirectory = "tails";
         EnvironmentFile = config.sops.secrets."slack/tails".path;
-        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/js.bolt.tails --refresh";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/tails --refresh";
         Restart = "always";
         RestartSec = 120;
         StateDirectory = "slack/tails";

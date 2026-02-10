@@ -21,7 +21,7 @@
       serviceConfig = {
         CacheDirectory = "snaek";
         EnvironmentFile = config.sops.secrets."slack/snaek".path;
-        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/py.bolt.snaek --refresh";
+        ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slacks/snaek --refresh";
         Restart = "always";
         RestartSec = 120;
         StateDirectory = "slack/snaek";
