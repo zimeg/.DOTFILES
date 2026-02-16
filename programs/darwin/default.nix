@@ -24,7 +24,7 @@
       AppleEnableSwipeNavigateWithScrolls = true;
       AppleFontSmoothing = 2;
       AppleICUForce24HourTime = true;
-      AppleIconAppearanceTheme = "TintedDark";
+      AppleIconAppearanceTheme = "ClearDark";
       AppleInterfaceStyle = "Dark";
       AppleKeyboardUIMode = 2;
       AppleMeasurementUnits = "Centimeters";
