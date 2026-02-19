@@ -171,6 +171,7 @@
             publicKey = "welnsS1YyVGjciqlyx8w5GlmTz/x25LQlVkQMFzr6zE=";
             allowedIPs = [ "10.100.0.1/32" ];
             endpoint = "tom.o526.net:51820";
+            dynamicEndpointRefreshSeconds = 25;
             persistentKeepalive = 25;
           }
         ];
