@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `polkit`: preview changes to blog with development branch changes 2025-02-18
 - `wireguard`: resolve the present location of tom upstream proxies 2026-02-18
 - `darwin`: set the apple icon appearance docks theme to clear dark 2026-02-15
 - `systemd`: serve slack apps with most dedicated application names 2026-02-09
