@@ -108,6 +108,10 @@ Runner configuration lives in `machines/tom/services/github-runners/default.nix`
 
 Custom systemd services live in `machines/tom/systemd/services/`. Each service requires a corresponding user and group declared in `machines/tom/configuration.nix` under `users.users` and `users.groups`. Services with secrets also need sops declarations in the same file. Follow the pattern of existing services (snaek, tails, todos) when adding new ones.
 
+**Non-root services using `nix run`** need a writable cache directory. Set `CacheDirectory = "{service}"` in `serviceConfig` and `HOME`/`XDG_CACHE_HOME` to `/var/cache/{service}` in `environment`. Without this, `nix run` fails because the user has no home or cache path.
+
+**Privileged ports** (below 1024) require `AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ]` in `serviceConfig` when the service runs as a non-root user.
+
 ### Polkit
 
 Use polkit (not sudo) when services need to restart other services. GitHub runners set `NoNewPrivileges` internally via prctl, which blocks sudo regardless of systemd overrides. Polkit rules in `machines/tom/security/polkit/` grant specific users permission to manage specific units without privilege escalation.
