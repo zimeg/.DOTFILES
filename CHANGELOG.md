@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: refresh todos authorization callback url towards verified 2025-02-22
 - `endpoints`: productionize personal api method on self hosted tom 2025-02-22
 - `polkit`: preview changes to blog with development branch changes 2025-02-18
 - `wireguard`: resolve the present location of tom upstream proxies 2026-02-18
