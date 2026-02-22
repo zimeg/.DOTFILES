@@ -56,11 +56,15 @@
           security.acme = {
             acceptTerms = true;
             certs = {
-              "o526.net" = {
+              "api.o526.net" = {
                 email = "zim@o526.net";
                 group = "nginx";
               };
               "dev.o526.net" = {
+                email = "zim@o526.net";
+                group = "nginx";
+              };
+              "o526.net" = {
                 email = "zim@o526.net";
                 group = "nginx";
               };
@@ -88,11 +92,11 @@
               }
             '';
             virtualHosts = {
-              "o526.net" = {
+              "api.o526.net" = {
                 enableACME = true;
                 forceSSL = true;
                 locations."/" = {
-                  proxyPass = "http://10.100.0.2:4321";
+                  proxyPass = "http://10.100.0.2:8083";
                   proxyWebsockets = false;
                 };
               };
@@ -102,6 +106,14 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:3000";
                   proxyWebsockets = true;
+                };
+              };
+              "o526.net" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:4321";
+                  proxyWebsockets = false;
                 };
               };
               "quintus.sh" = {

@@ -4,6 +4,9 @@ polkit.addRule(function(action, subject) {
     if (subject.user == "blog" && (unit == "blog.service" || unit == "blog:preview.service")) {
       return polkit.Result.YES;
     }
+    if (subject.user == "endpoints" && unit == "endpoints.service") {
+      return polkit.Result.YES;
+    }
     if (subject.user == "quintus" && unit == "quintus.service") {
       return polkit.Result.YES;
     }

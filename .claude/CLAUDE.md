@@ -72,6 +72,24 @@ Every secret must have explicit `owner` and `group`. Secrets are owned by the se
 
 `versioning.yml` runs daily on self-hosted runners (tim then tom). It updates `flake.lock`, builds all darwin and NixOS configurations, and auto-merges to main on success.
 
+### Cloud Proxy
+
+The EC2 instance (`cloud/`) runs nginx as a reverse proxy with automatic ACME certificates. Public traffic arrives at the instance, terminates TLS, and forwards through a WireGuard tunnel to tom (`10.100.0.2`). Each proxied domain needs:
+
+1. `cloud/proxy.tf` — Route53 A record pointing to the EC2 instance
+2. `cloud/configuration.nix` — ACME cert entry and nginx virtualHost with proxyPass to tom's port
+3. `machines/tom/configuration.nix` — TCP port in firewall `allowedTCPPorts`
+
+For new top-level domains (not subdomains of existing zones), also add the zone ID to `cloud/tofu.auto.tfvars.json` under `proxy_hosted_zones`.
+
+| Domain | Tom Port | Service |
+|--------|----------|---------|
+| api.o526.net | 8083 | endpoints |
+| dev.o526.net | 3000 | blog preview |
+| o526.net | 4321 | blog |
+| quintus.sh | 5000 | quintus |
+| todos.guide | 8082 | todos |
+
 ### GitHub Runners (tom)
 
 Runner configuration lives in `machines/tom/services/github-runners/default.nix`. Each runner needs a corresponding secret declaration in `machines/tom/configuration.nix`.
@@ -83,6 +101,8 @@ Runner configuration lives in `machines/tom/services/github-runners/default.nix`
 - Multiple runners: `github/runners/{repo}/{runner}` (e.g., `github/runners/slacks/mercury`)
 
 **extraPackages:** Adds tools to the runner environment. Use this for CLI tools needed by workflows (e.g., `pkgs.gh` for GitHub CLI). The "self-hosted" label is added automatically.
+
+**Polkit:** If a runner's workflow restarts a systemd service, add a polkit rule in `machines/tom/security/polkit/50-runners.rules` granting the runner's user permission to manage that unit. Runners use `NoNewPrivileges` which blocks sudo, so polkit is the only option.
 
 ### Systemd Services (tom)
 

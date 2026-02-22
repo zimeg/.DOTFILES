@@ -180,6 +180,16 @@
       url = "https://github.com/zimeg/slack-sandbox";
       user = "slacks";
     };
+    endpoints = {
+      enable = true;
+      ephemeral = true;
+      group = "endpoints";
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/endpoints";
+      url = "https://github.com/zimeg/endpoints";
+      user = "endpoints";
+    };
     quintus = {
       enable = true;
       ephemeral = true;

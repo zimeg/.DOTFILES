@@ -3,6 +3,7 @@
 {
   imports = [
     ./blog
+    ./endpoints
     ./quintus
     ./slack
   ];

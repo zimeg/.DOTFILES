@@ -155,6 +155,7 @@
         4321 # Blog
         5000 # Quintus
         8082 # Todo's Guide
+        8083 # Endpoints
       ];
       allowedUDPPorts = [
         123 # NTP
@@ -218,6 +219,10 @@
       "github/runners/coffee" = {
         owner = "coffee";
         group = "coffee";
+      };
+      "github/runners/endpoints" = {
+        owner = "endpoints";
+        group = "endpoints";
       };
       "github/runners/dotfiles" = {
         owner = "dotfiles";
@@ -376,6 +381,10 @@
         isSystemUser = true;
         group = "dotfiles";
       };
+      endpoints = {
+        isSystemUser = true;
+        group = "endpoints";
+      };
       etime = {
         isSystemUser = true;
         group = "etime";
@@ -408,6 +417,7 @@
       blog = { };
       coffee = { };
       dotfiles = { };
+      endpoints = { };
       etime = { };
       quintus = { };
       slacks = { };
