@@ -220,13 +220,13 @@
         owner = "coffee";
         group = "coffee";
       };
-      "github/runners/endpoints" = {
-        owner = "endpoints";
-        group = "endpoints";
-      };
       "github/runners/dotfiles" = {
         owner = "dotfiles";
         group = "dotfiles";
+      };
+      "github/runners/endpoints" = {
+        owner = "endpoints";
+        group = "endpoints";
       };
       "github/runners/etime" = {
         owner = "etime";
