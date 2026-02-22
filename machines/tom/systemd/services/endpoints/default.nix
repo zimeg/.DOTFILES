@@ -18,7 +18,8 @@
         Environment = "PORT=8083";
         Restart = "always";
         RestartSec = 2;
-        User = "root";
+        User = "endpoints";
+        Group = "endpoints";
       };
     };
   };

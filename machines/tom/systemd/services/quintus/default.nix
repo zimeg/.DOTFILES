@@ -17,7 +17,8 @@
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/quintus --refresh";
         Restart = "always";
         RestartSec = 2;
-        User = "root";
+        User = "quintus";
+        Group = "quintus";
       };
     };
   };

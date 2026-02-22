@@ -17,7 +17,8 @@
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog --refresh";
         Restart = "always";
         RestartSec = 2;
-        User = "root";
+        User = "blog";
+        Group = "blog";
       };
     };
     "blog:preview" = {
@@ -30,7 +31,8 @@
       ];
       serviceConfig = {
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog/dev --refresh -- --port 3000";
-        User = "root";
+        User = "blog";
+        Group = "blog";
       };
     };
   };
