@@ -6,9 +6,10 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `sops`: refresh todos authorization callback url towards verified 2025-02-22
-- `endpoints`: productionize personal api method on self hosted tom 2025-02-22
-- `polkit`: preview changes to blog with development branch changes 2025-02-18
+- `nvim`: remove separate parsers for json that has comments within 2026-02-22
+- `sops`: refresh todos authorization callback url towards verified 2026-02-22
+- `endpoints`: productionize personal api method on self hosted tom 2026-02-22
+- `polkit`: preview changes to blog with development branch changes 2026-02-18
 - `wireguard`: resolve the present location of tom upstream proxies 2026-02-18
 - `darwin`: set the apple icon appearance docks theme to clear dark 2026-02-15
 - `systemd`: serve slack apps with most dedicated application names 2026-02-09

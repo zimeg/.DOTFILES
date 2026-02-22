@@ -58,7 +58,6 @@
           jq # https://github.com/flurie/tree-sitter-jq
           jsdoc # https://github.com/tree-sitter/tree-sitter-jsdoc
           json # https://github.com/tree-sitter/tree-sitter-json
-          # jsonc # https://gitlab.com/WhyNotHugo/tree-sitter-jsonc.git # https://github.com/zimeg/.DOTFILES/issues/69
           lua # https://github.com/MunifTanjim/tree-sitter-lua
           luadoc # https://github.com/amaanq/tree-sitter-luadoc
           make # https://github.com/alemuller/tree-sitter-make
