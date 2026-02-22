@@ -259,8 +259,8 @@ resource "aws_vpc_security_group_ingress_rule" "wireguard" {
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "root" {
-  name    = "o526.net"
+resource "aws_route53_record" "api" {
+  name    = "api.o526.net"
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
@@ -277,8 +277,8 @@ resource "aws_route53_record" "dev" {
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "tom" {
-  name    = "tom.o526.net"
+resource "aws_route53_record" "root" {
+  name    = "o526.net"
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
@@ -299,6 +299,15 @@ resource "aws_route53_record" "todos" {
   name    = "todos.guide"
   type    = "A"
   zone_id = var.proxy_hosted_zones["todos.guide"]
+  ttl     = 300
+  records = [aws_instance.redirect.public_ip]
+}
+
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "tom" {
+  name    = "tom.o526.net"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
   records = [aws_instance.redirect.public_ip]
 }
