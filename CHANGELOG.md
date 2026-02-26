@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tree`: list directories and contents as leafs on branches aliked 2026-02-26
 - `sops`: rotate token for quintus github runner with twelve months 2026-02-24
 - `nvim`: remove separate parsers for json that has comments within 2026-02-22
 - `sops`: refresh todos authorization callback url towards verified 2026-02-22

@@ -17,6 +17,7 @@ let
     less # https://github.com/gwsw/less
     pciutils # https://github.com/pciutils/pciutils
     sops # https://github.com/getsops/sops
+    tree # https://github.com/Old-Man-Programmer/tree
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; [
