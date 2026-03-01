@@ -201,7 +201,7 @@
     universalaccess = {
       closeViewScrollWheelToggle = false;
       closeViewZoomFollowsFocus = false;
-      mouseDriverCursorSize = 1.0;
+      mouseDriverCursorSize = 1.5;
       reduceMotion = true;
       reduceTransparency = false;
     };
