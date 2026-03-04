@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `claude`: alias work versions for the latest models provided kind 2026-03-03
 - `darwin`: increase mouse driver cursor pointer icon size for view 2026-03-01
 - `tree`: list directories and contents as leafs on branches aliked 2026-02-26
 - `sops`: rotate token for quintus github runner with twelve months 2026-02-24

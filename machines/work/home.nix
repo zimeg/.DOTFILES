@@ -3,4 +3,7 @@
   imports = [
     ./programs/git
   ];
+  programs.zsh.shellAliases = {
+    claude = "slack-claude";
+  };
 }
