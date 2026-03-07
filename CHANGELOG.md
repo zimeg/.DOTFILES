@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tmux`: copies selections across ssh boundaries to paste whatever 2026-03-07
 - `claude`: alias work versions for the latest models provided kind 2026-03-03
 - `darwin`: increase mouse driver cursor pointer icon size for view 2026-03-01
 - `tree`: list directories and contents as leafs on branches aliked 2026-02-26
