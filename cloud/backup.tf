@@ -1,117 +1,147 @@
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket
-resource "aws_s3_bucket" "git" {
-  bucket = "tom.git"
+# https://opentofu.org/docs/language/values/variables/
+variable "import_minecraft_backup" {
+  description = "Import existing minecraft backup resources (temporary)"
+  type        = bool
+  default     = false
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls
-resource "aws_s3_bucket_ownership_controls" "git" {
-  bucket = aws_s3_bucket.git.id
-
-  rule {
-    object_ownership = "BucketOwnerPreferred"
-  }
+locals {
+  import_minecraft = var.import_minecraft_backup ? toset(["import"]) : toset([])
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket_acl
-resource "aws_s3_bucket_acl" "git" {
-  bucket     = aws_s3_bucket.git.id
-  acl        = "private"
-  depends_on = [aws_s3_bucket_ownership_controls.git]
-
-  lifecycle {
-    ignore_changes = [acl]
-  }
-}
-
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block
-resource "aws_s3_bucket_public_access_block" "git" {
-  bucket = aws_s3_bucket.git.id
-
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-}
-
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket_versioning
-resource "aws_s3_bucket_versioning" "git" {
-  bucket = aws_s3_bucket.git.id
-
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/s3_bucket_intelligent_tiering_configuration
-resource "aws_s3_bucket_intelligent_tiering_configuration" "git" {
-  bucket = aws_s3_bucket.git.id
-  name   = "archives"
-
-  tiering {
-    access_tier = "ARCHIVE_ACCESS"
-    days        = 90
+module "backup" {
+  for_each = {
+    git       = "tom.git"
+    minecraft = "tom.25565"
   }
 
-  tiering {
-    access_tier = "DEEP_ARCHIVE_ACCESS"
-    days        = 180
-  }
+  source = "./modules/backup"
+  name   = each.key
+  bucket = each.value
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/iam_user
-resource "aws_iam_user" "git" {
-  name = "git"
+# https://opentofu.org/docs/language/import/
+# Temporary: import existing minecraft backup resources from the old state.
+# Set import_minecraft_backup = true for the first apply, then remove these.
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_s3_bucket.this
+  id       = "tom.25565"
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/iam_access_key
-resource "aws_iam_access_key" "git" {
-  user = aws_iam_user.git.name
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_s3_bucket_ownership_controls.this
+  id       = "tom.25565"
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/iam_policy
-resource "aws_iam_policy" "git" {
-  name = "git"
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid    = "AllowListBucket"
-        Effect = "Allow"
-        Action = ["s3:ListBucket"]
-        Resource = [
-          "arn:aws:s3:::${aws_s3_bucket.git.id}"
-        ]
-      },
-      {
-        Sid    = "AllowSpecificObject"
-        Effect = "Allow"
-        Action = [
-          "s3:GetObject",
-          "s3:PutObject",
-          "s3:DeleteObject",
-        ]
-        Resource = [
-          "arn:aws:s3:::${aws_s3_bucket.git.id}/*"
-        ]
-      }
-    ]
-  })
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_s3_bucket_acl.this
+  id       = "tom.25565"
 }
 
-# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment
-resource "aws_iam_user_policy_attachment" "git" {
-  user       = aws_iam_user.git.name
-  policy_arn = aws_iam_policy.git.arn
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_s3_bucket_versioning.this
+  id       = "tom.25565"
+}
+
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_s3_bucket_intelligent_tiering_configuration.this
+  id       = "tom.25565,archives"
+}
+
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_iam_user.this
+  id       = "minecraft"
+}
+
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_iam_policy.this
+  id       = "arn:aws:iam::415471498952:policy/minecraft"
+}
+
+import {
+  for_each = local.import_minecraft
+  to       = module.backup["minecraft"].aws_iam_user_policy_attachment.this
+  id       = "minecraft/arn:aws:iam::415471498952:policy/minecraft"
 }
 
 # https://opentofu.org/docs/language/values/outputs/
 output "backup_git_access_key_id" {
-  value     = aws_iam_access_key.git.id
+  value     = module.backup["git"].access_key_id
   sensitive = true
 }
 
 # https://opentofu.org/docs/language/values/outputs/
 output "backup_git_secret_access_key" {
-  value     = aws_iam_access_key.git.secret
+  value     = module.backup["git"].secret_access_key
   sensitive = true
+}
+
+# https://opentofu.org/docs/language/values/outputs/
+output "backup_minecraft_access_key_id" {
+  value     = module.backup["minecraft"].access_key_id
+  sensitive = true
+}
+
+# https://opentofu.org/docs/language/values/outputs/
+output "backup_minecraft_secret_access_key" {
+  value     = module.backup["minecraft"].secret_access_key
+  sensitive = true
+}
+
+# https://opentofu.org/docs/language/modules/develop/refactoring/
+moved {
+  from = aws_s3_bucket.git
+  to   = module.backup["git"].aws_s3_bucket.this
+}
+
+moved {
+  from = aws_s3_bucket_ownership_controls.git
+  to   = module.backup["git"].aws_s3_bucket_ownership_controls.this
+}
+
+moved {
+  from = aws_s3_bucket_acl.git
+  to   = module.backup["git"].aws_s3_bucket_acl.this
+}
+
+moved {
+  from = aws_s3_bucket_public_access_block.git
+  to   = module.backup["git"].aws_s3_bucket_public_access_block.this
+}
+
+moved {
+  from = aws_s3_bucket_versioning.git
+  to   = module.backup["git"].aws_s3_bucket_versioning.this
+}
+
+moved {
+  from = aws_s3_bucket_intelligent_tiering_configuration.git
+  to   = module.backup["git"].aws_s3_bucket_intelligent_tiering_configuration.this
+}
+
+moved {
+  from = aws_iam_user.git
+  to   = module.backup["git"].aws_iam_user.this
+}
+
+moved {
+  from = aws_iam_access_key.git
+  to   = module.backup["git"].aws_iam_access_key.this
+}
+
+moved {
+  from = aws_iam_policy.git
+  to   = module.backup["git"].aws_iam_policy.this
+}
+
+moved {
+  from = aws_iam_user_policy_attachment.git
+  to   = module.backup["git"].aws_iam_user_policy_attachment.this
 }
