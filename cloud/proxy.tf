@@ -239,6 +239,16 @@ resource "aws_vpc_security_group_ingress_rule" "https" {
 }
 
 # https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
+resource "aws_vpc_security_group_ingress_rule" "minecraft" {
+  security_group_id = aws_security_group.network.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "tcp"
+  from_port   = 25565
+  to_port     = 25565
+}
+
+# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
 resource "aws_vpc_security_group_ingress_rule" "ntp" {
   security_group_id = aws_security_group.network.id
 

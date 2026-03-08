@@ -79,7 +79,7 @@ Every secret must have explicit `owner` and `group`. Secrets are owned by the se
 The EC2 instance (`cloud/`) runs nginx as a reverse proxy with automatic ACME certificates. Public traffic arrives at the instance, terminates TLS, and forwards through a WireGuard tunnel to tom (`10.100.0.2`). Each proxied domain needs:
 
 1. `cloud/proxy.tf` — Route53 A record pointing to the EC2 instance
-2. `cloud/configuration.nix` — ACME cert entry and nginx virtualHost with proxyPass to tom's port
+2. `cloud/configuration.nix` — ACME cert entry and nginx virtualHost with proxyPass to tom's port, plus the port in `allowedTCPPorts`
 3. `machines/tom/configuration.nix` — TCP port in firewall `allowedTCPPorts`
 
 For new top-level domains (not subdomains of existing zones), also add the zone ID to `cloud/tofu.auto.tfvars.json` under `proxy_hosted_zones`.
@@ -92,8 +92,9 @@ For new top-level domains (not subdomains of existing zones), also add the zone 
 | o526.net | 4321 | blog |
 | quintus.sh | 5000 | quintus |
 | todos.guide | 8082 | todos |
+| tom.o526.net | 25565 (TCP stream) | minecraft |
 
-**SSH stream proxying:** For non-HTTP services (like git SSH), use nginx `streamConfig` with TCP forwarding instead of ACME/virtualHost. The cloud proxy forwards the port directly to tom over WireGuard. This requires a security group ingress rule and Route53 record in `cloud/proxy.tf`, but no ACME cert or virtualHost.
+**TCP stream proxying:** For non-HTTP services (like git SSH or Minecraft), use nginx `streamConfig` with TCP forwarding instead of ACME/virtualHost. The cloud proxy forwards the port directly to tom over WireGuard. This requires a security group ingress rule and Route53 record in `cloud/proxy.tf`, but no ACME cert or virtualHost.
 
 ### GitHub Runners (tom)
 

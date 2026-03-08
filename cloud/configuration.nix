@@ -31,6 +31,7 @@
                 22 # SSH
                 80 # HTTP
                 443 # HTTPS
+                25565 # Minecraft
               ];
               allowedUDPPorts = [
                 123 # NTP
@@ -82,6 +83,13 @@
           services.nginx = {
             enable = true;
             streamConfig = ''
+              upstream minecraft {
+                server 10.100.0.2:25565;
+              }
+              server {
+                listen 25565;
+                proxy_pass minecraft;
+              }
               upstream ntp {
                 server 10.100.0.2:123;
               }

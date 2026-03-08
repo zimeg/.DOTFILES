@@ -159,6 +159,7 @@
         8082 # Todo's Guide
         8083 # Endpoints
         23231 # Soft Serve
+        25565 # Minecraft
       ];
       allowedUDPPorts = [
         123 # NTP
