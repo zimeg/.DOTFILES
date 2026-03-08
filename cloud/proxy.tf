@@ -249,6 +249,16 @@ resource "aws_vpc_security_group_ingress_rule" "ntp" {
 }
 
 # https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
+resource "aws_vpc_security_group_ingress_rule" "ssh" {
+  security_group_id = aws_security_group.network.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "tcp"
+  from_port   = 22
+  to_port     = 22
+}
+
+# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
 resource "aws_vpc_security_group_ingress_rule" "wireguard" {
   security_group_id = aws_security_group.network.id
 
@@ -270,6 +280,15 @@ resource "aws_route53_record" "api" {
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "dev" {
   name    = "dev.o526.net"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["o526.net"]
+  ttl     = 300
+  records = [aws_instance.redirect.public_ip]
+}
+
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "git" {
+  name    = "git.o526.net"
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300

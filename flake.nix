@@ -61,6 +61,7 @@
       devShells = each (pkgs: {
         default = pkgs.mkShell {
           packages = [
+            pkgs.go-task # https://github.com/go-task/task
             pkgs.opentofu # https://github.com/opentofu/opentofu
           ];
         };

@@ -62,6 +62,8 @@ This is a Nix flake managing four machines with Home Manager, sops-nix for secre
 
 tom uses btrfs subvolumes (`root`, `nix`, `persistent`) with an ephemeral root recreated on each boot via `machines/tom/start.sh` in initrd. Old root snapshots are kept for 30 days. Directories/files that must survive reboots are declared in `environment.persistence."/persistent"` in `machines/tom/configuration.nix`.
 
+**DynamicUser conflict:** NixOS services with `DynamicUser=true` store state in `/var/lib/private/{service}` (symlinked from `/var/lib/{service}`). Impermanence bind mounts on `/var/lib/{service}` conflict with this, causing "Device or resource busy". Fix by either persisting `/var/lib/private/{service}` or switching to a static user with `DynamicUser = lib.mkForce false`.
+
 ### Secrets (sops-nix)
 
 All secrets are age-encrypted YAML/JSON files under `machines/{name}/secrets/`. The age key location differs per OS: `/var/lib/sops-nix/key.txt` on NixOS (persisted through impermanence), `~/Library/Application Support/sops/age/keys.txt` on macOS. Secret declarations and path mappings live in each machine's `configuration.nix` under the `sops` attribute set.
@@ -86,9 +88,12 @@ For new top-level domains (not subdomains of existing zones), also add the zone 
 |--------|----------|---------|
 | api.o526.net | 8083 | endpoints |
 | dev.o526.net | 3000 | blog preview |
+| git.o526.net | 23231 (SSH stream) | soft-serve |
 | o526.net | 4321 | blog |
 | quintus.sh | 5000 | quintus |
 | todos.guide | 8082 | todos |
+
+**SSH stream proxying:** For non-HTTP services (like git SSH), use nginx `streamConfig` with TCP forwarding instead of ACME/virtualHost. The cloud proxy forwards the port directly to tom over WireGuard. This requires a security group ingress rule and Route53 record in `cloud/proxy.tf`, but no ACME cert or virtualHost.
 
 ### GitHub Runners (tom)
 
@@ -123,9 +128,18 @@ Use polkit (not sudo) when services need to restart other services. GitHub runne
 - `pkgs.sudo` in extraPackages doesn't provide setuid - use full path to wrapper
 - GitHub runners sandbox with `NoNewPrivileges`, `PrivateUsers`, `RestrictSUIDSGID` - these block sudo even with `serviceOverrides`
 
+### Soft Serve (tom)
+
+SSH-only git server at `machines/tom/services/soft-serve/`. Runs as static user `git` (not DynamicUser) on port 23231. Cloud proxy forwards port 22 → tom:23231 via nginx TCP stream. Key quirks:
+- `initial_admin_keys` only applies on first DB init — wipe `/var/lib/soft-serve` to re-initialize
+- NixOS module sets `UMask = "0027"` stripping execute from hooks — override with `lib.mkForce "0022"`
+- Use `--sync-hooks` flag to fix stale nix store paths after rebuilds
+- Restic backups to S3 bucket `tom.git`
+
 ## Working Conventions
 
 - Use `man configuration.nix` for NixOS option documentation instead of searching online.
 - Never read files from the nix store.
 - Use the Plan subagent for designing implementation approaches instead of the Explore subagent.
 - Cloud infrastructure, tom, and tom's GitHub runners for repos are interconnected. Use existing patterns across these as reference when making changes.
+- Maintain alphabetical ordering throughout config files: imports, firewall ports, security groups, Route53 records, nginx streams, users/groups.

@@ -28,6 +28,7 @@
             firewall = {
               enable = true;
               allowedTCPPorts = [
+                22 # SSH
                 80 # HTTP
                 443 # HTTPS
               ];
@@ -89,6 +90,13 @@
                 proxy_pass ntp;
                 proxy_responses 1;
                 proxy_timeout 3s;
+              }
+              upstream ssh {
+                server 10.100.0.2:23231;
+              }
+              server {
+                listen 22;
+                proxy_pass ssh;
               }
             '';
             virtualHosts = {

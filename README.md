@@ -9,7 +9,7 @@ installs are performed by bash scripts. the commands run assume you are working
 with a clean machine, so might be desctructive to past configs.
 
 ```sh
-$ git clone https://github.com/zimeg/.DOTFILES.git
+$ git clone git@git.o526.net:.DOTFILES.git
 $ cd .DOTFILES
 ```
 

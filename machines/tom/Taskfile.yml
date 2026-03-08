@@ -1,0 +1,35 @@
+version: "3"
+
+tasks:
+  restore:
+    internal: true
+    vars:
+      TMPDIR:
+        sh: mktemp -d
+    cmds:
+      - sudo systemctl stop {{.SERVICE}}.service
+      - restic -r s3:s3.us-east-1.amazonaws.com/{{.BUCKET}} restore latest --target {{.TMPDIR}}
+      - sudo rsync -av --delete {{.TMPDIR}}/{{.PATH}}/ /persistent/{{.PATH}}/
+      - sudo chown -R {{.OWNER}} /persistent/{{.PATH}}
+      - sudo systemctl start {{.SERVICE}}.service
+      - defer: rm -rf {{.TMPDIR}}
+
+  restore:git:
+    desc: Restore Git from the latest backup
+    cmds:
+      - task: restore
+        vars:
+          SERVICE: soft-serve
+          BUCKET: tom.git
+          PATH: var/lib/soft-serve
+          OWNER: git:git
+
+  restore:minecraft:
+    desc: Restore Minecraft from the latest backup
+    cmds:
+      - task: restore
+        vars:
+          SERVICE: minecraft
+          BUCKET: tom.25565
+          PATH: srv/minecraft/world
+          OWNER: minecraft:minecraft

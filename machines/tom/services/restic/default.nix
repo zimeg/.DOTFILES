@@ -1,6 +1,27 @@
 # https://github.com/restic/restic
 {
   services.restic.backups = {
+    git = {
+      initialize = true;
+      user = "git";
+      environmentFile = "/run/secrets/aws/iam/git";
+      passwordFile = "/run/secrets/restic/git";
+      repository = "s3:s3.us-east-1.amazonaws.com/tom.git";
+      paths = [
+        "/var/lib/soft-serve"
+      ];
+      pruneOpts = [
+        "--keep-hourly 24"
+        "--keep-daily 5"
+        "--keep-weekly 6"
+        "--keep-monthly 12"
+        "--keep-yearly 60"
+      ];
+      timerConfig = {
+        OnCalendar = "hourly";
+        Persistent = true;
+      };
+    };
     minecraft = {
       initialize = true;
       user = "minecraft";

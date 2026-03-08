@@ -67,6 +67,7 @@
     ./services/pulseaudio
     ./services/restic
     ./services/sddm
+    ./services/soft-serve
     ./services/tailscale
     ./services/xserver
     ./systemd/services
@@ -93,6 +94,7 @@
       "/srv/minecraft/world"
       "/var/lib/nixos"
       "/var/lib/slack"
+      "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
@@ -156,6 +158,7 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
+        23231 # Soft Serve
       ];
       allowedUDPPorts = [
         123 # NTP
@@ -202,11 +205,17 @@
         key = "";
         sopsFile = ./programs/awscli/vault.json;
       };
+      "aws/iam/git" = {
+        format = "dotenv";
+        owner = "git";
+        group = "git";
+        sopsFile = ./services/restic/vault.git.env;
+      };
       "aws/iam/minecraft" = {
         format = "dotenv";
         owner = "minecraft";
         group = "minecraft";
-        sopsFile = ./services/minecraft-server/vault.env;
+        sopsFile = ./services/restic/vault.minecraft.env;
       };
       "github/oauth" = {
         owner = config.users.users.default.name;
@@ -271,6 +280,10 @@
       "github/runners/slacks/pluto" = {
         owner = "slacks";
         group = "slacks";
+      };
+      "restic/git" = {
+        owner = "git";
+        group = "git";
       };
       "restic/minecraft" = {
         owner = "minecraft";
@@ -389,6 +402,10 @@
         isSystemUser = true;
         group = "etime";
       };
+      git = {
+        isSystemUser = true;
+        group = "git";
+      };
       quintus = {
         isSystemUser = true;
         group = "quintus";
@@ -419,6 +436,7 @@
       dotfiles = { };
       endpoints = { };
       etime = { };
+      git = { };
       quintus = { };
       slacks = { };
       snaek = { };

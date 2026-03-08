@@ -16,6 +16,10 @@
         serverAliveInterval = 0;
         userKnownHostsFile = "~/.ssh/known_hosts";
       };
+      "git.o526.net" = {
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
       "github.com" = {
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
