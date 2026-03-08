@@ -50,7 +50,7 @@ import {
 import {
   for_each = local.import_minecraft
   to       = module.backup["minecraft"].aws_s3_bucket_intelligent_tiering_configuration.this
-  id       = "tom.25565,archives"
+  id       = "tom.25565:archives"
 }
 
 import {
