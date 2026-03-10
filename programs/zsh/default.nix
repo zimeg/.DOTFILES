@@ -37,6 +37,9 @@
         completions = [ "share/zsh/site-functions" ];
       }
     ];
+    shellAliases = {
+      glitch = "tput cnorm";
+    };
   };
   home.sessionVariables = {
     WD_CONFIG = "$HOME/.config/wd/.warprc";

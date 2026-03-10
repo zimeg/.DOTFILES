@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `zsh`: alias a command sequence that returns a hidden cursor ease 2026-03-09
 - `license`: remove scheduled updates with a more stable formatting 2026-03-09
 - `minecraft-server`: port forward an open connection for tom world 2026-03-08
 - `soft-serve`: host a git server having flavor for a terminal kind 2026-03-07
