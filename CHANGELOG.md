@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `license`: remove scheduled updates with a more stable formatting 2026-03-09
 - `minecraft-server`: port forward an open connection for tom world 2026-03-08
 - `soft-serve`: host a git server having flavor for a terminal kind 2026-03-07
 - `tmux`: copies selections across ssh boundaries to paste whatever 2026-03-07
