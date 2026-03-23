@@ -26,7 +26,7 @@ let
     delve # https://github.com/go-delve/delve
     deno # https://github.com/denoland/deno
     dockerfile-language-server # https://github.com/rcjsuen/dockerfile-language-server
-    go_1_24 # https://github.com/golang/go
+    go # https://github.com/golang/go
     gofumpt # https://github.com/mvdan/gofumpt
     golangci-lint # https://github.com/golangci/golangci-lint
     golangci-lint-langserver # https://github.com/nametake/golangci-lint-langserver

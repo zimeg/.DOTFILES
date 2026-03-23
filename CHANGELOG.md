@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `go`: use a latest release available to unstable packages release 2026-03-23
 - `zsh`: alias a command sequence that returns a hidden cursor ease 2026-03-09
 - `license`: remove scheduled updates with a more stable formatting 2026-03-09
 - `minecraft-server`: port forward an open connection for tom world 2026-03-08
