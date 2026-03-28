@@ -8,6 +8,7 @@
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
       conform-nvim # https://github.com/stevearc/conform.nvim
+      gitlinker-nvim # https://github.com/ruifm/gitlinker.nvim
       melange-nvim # https://github.com/savq/melange-nvim
       nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
