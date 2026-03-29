@@ -59,36 +59,36 @@
         path = "/run/secrets/github/runners/dotfiles";
       };
       "github/theorderingmachine" = {
-        key = "ssh/private";
+        key = "ssh/accounts/theorderingmachine/private";
         group = "_github-runner";
         owner = "_github-runner";
         path = "/run/secrets/github/theorderingmachine";
       };
-      "ssh/private" = {
-        owner = input.config.users.users.ez.name;
-        path = "/Users/ez/.ssh/id_ed25519";
-      };
-      "ssh/public" = {
-        owner = input.config.users.users.ez.name;
-        path = "/Users/ez/.ssh/id_ed25519.pub";
-      };
-      "ssh/theorderingmachine/private" = {
-        key = "ssh/private";
+      "ssh/accounts/theorderingmachine/private" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/accounts/theorderingmachine";
       };
-      "ssh/theorderingmachine/public" = {
-        key = "ssh/public";
+      "ssh/accounts/theorderingmachine/public" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/accounts/theorderingmachine.pub";
       };
-      "ssh/zimeg/private" = {
+      "ssh/accounts/zimeg/private" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/accounts/zimeg";
       };
-      "ssh/zimeg/public" = {
+      "ssh/accounts/zimeg/public" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/accounts/zimeg.pub";
+      };
+      "ssh/default/private" = {
+        key = "ssh/accounts/theorderingmachine/private";
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519";
+      };
+      "ssh/default/public" = {
+        key = "ssh/accounts/theorderingmachine/public";
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519.pub";
       };
     };
   };
