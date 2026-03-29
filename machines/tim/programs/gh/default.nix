@@ -9,18 +9,6 @@
     };
   };
   programs.git = {
-    includes = [
-      {
-        condition = "hasconfig:remote.*.url:git@zimeg:*";
-        contents = {
-          user = {
-            email = "zim@o526.net";
-            name = "@zimeg";
-            signingKey = "~/.ssh/accounts/zimeg";
-          };
-        };
-      }
-    ];
     signing = {
       key = "~/.ssh/accounts/theorderingmachine";
     };
