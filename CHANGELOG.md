@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: sign commits if ssh verficiations unlock a secret password 2026-03-28
 - `codex`: call additional provider for agentic development process 2026-03-28
 - `node`: follow the unstable channels for active releases in shell 2026-03-28
 - `git`: skip signing commits with default unused as warning appear 2026-03-28

@@ -54,21 +54,41 @@
     };
     secrets = {
       "github/runners/dotfiles" = {
-        owner = "dotfiles";
-        group = "dotfiles";
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/runners/dotfiles";
       };
-      "github/ssh" = {
-        key = "ssh/private";
-        owner = "dotfiles";
-        group = "dotfiles";
+      "github/accounts/theorderingmachine" = {
+        key = "ssh/accounts/theorderingmachine/private";
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/accounts/theorderingmachine";
       };
-      "ssh/public" = {
+      "ssh/accounts/theorderingmachine/private" = {
         owner = input.config.users.users.ez.name;
-        path = "/Users/ez/.ssh/id_ed25519.pub";
+        path = "/Users/ez/.ssh/accounts/theorderingmachine";
       };
-      "ssh/private" = {
+      "ssh/accounts/theorderingmachine/public" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/theorderingmachine.pub";
+      };
+      "ssh/accounts/zimeg/private" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/zimeg";
+      };
+      "ssh/accounts/zimeg/public" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/zimeg.pub";
+      };
+      "ssh/default/private" = {
+        key = "ssh/accounts/theorderingmachine/private";
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/id_ed25519";
+      };
+      "ssh/default/public" = {
+        key = "ssh/accounts/theorderingmachine/public";
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519.pub";
       };
     };
   };
@@ -77,20 +97,20 @@
     stateVersion = 5;
   };
   users = {
-    knownGroups = [ "dotfiles" ];
-    knownUsers = [ "dotfiles" ];
+    knownGroups = [ "_github-runner" ];
+    knownUsers = [ "_github-runner" ];
     groups = {
-      dotfiles = {
-        gid = 534;
+      _github-runner = {
+        gid = 533;
       };
     };
     users = {
-      dotfiles = {
-        createHome = true;
-        gid = 534;
-        home = "/private/var/lib/dotfiles";
-        name = "dotfiles";
-        uid = 534;
+      _github-runner = {
+        createHome = false;
+        gid = 533;
+        home = "/private/var/lib/github-runners";
+        name = "_github-runner";
+        uid = 533;
       };
       ez = {
         home = /Users/ez;

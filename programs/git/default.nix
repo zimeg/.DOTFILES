@@ -64,7 +64,8 @@
       enable = true;
     };
     signing = {
-      format = null;
+      format = "ssh";
+      signByDefault = true;
     };
   };
   home.file.".config/git/mailmap" = {
