@@ -54,13 +54,15 @@
     };
     secrets = {
       "github/runners/dotfiles" = {
-        owner = "dotfiles";
-        group = "dotfiles";
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/runners/dotfiles";
       };
-      "github/ssh" = {
+      "github/theorderingmachine" = {
         key = "ssh/private";
-        owner = "dotfiles";
-        group = "dotfiles";
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/theorderingmachine";
       };
       "ssh/private" = {
         owner = input.config.users.users.ez.name;
@@ -95,20 +97,20 @@
     stateVersion = 5;
   };
   users = {
-    knownGroups = [ "dotfiles" ];
-    knownUsers = [ "dotfiles" ];
+    knownGroups = [ "_github-runner" ];
+    knownUsers = [ "_github-runner" ];
     groups = {
-      dotfiles = {
-        gid = 534;
+      _github-runner = {
+        gid = 533;
       };
     };
     users = {
-      dotfiles = {
-        createHome = true;
-        gid = 534;
-        home = "/private/var/lib/dotfiles";
-        name = "dotfiles";
-        uid = 534;
+      _github-runner = {
+        createHome = false;
+        gid = 533;
+        home = "/private/var/lib/github-runners";
+        name = "_github-runner";
+        uid = 533;
       };
       ez = {
         home = /Users/ez;
