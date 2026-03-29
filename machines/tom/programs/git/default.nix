@@ -2,8 +2,16 @@
 {
   programs.git = {
     enable = true;
-    signing = {
-      key = "~/.ssh/id_ed25519";
+    config = {
+      commit = {
+        gpgSign = true;
+      };
+      gpg = {
+        format = "ssh";
+      };
+      user = {
+        signingKey = "~/.ssh/id_ed25519";
+      };
     };
   };
 }
