@@ -1,9 +1,6 @@
 # https://github.com/git/git
 {
   programs.git = {
-    signing = {
-      key = "~/.ssh/id_ed25519";
-    };
     settings = {
       gpg = {
         ssh = {
@@ -14,6 +11,9 @@
         email = "zim@o526.net";
         name = "@zimeg";
       };
+    };
+    signing = {
+      key = "~/.ssh/id_ed25519";
     };
   };
   home.file.".config/git/allowed_signers".text = ''
