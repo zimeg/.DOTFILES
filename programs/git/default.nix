@@ -1,5 +1,5 @@
 # https://github.com/git/git
-{ lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.git = {
     enable = true;
@@ -64,9 +64,8 @@
       enable = true;
     };
     signing = {
-      format = lib.mkDefault "ssh";
-      key = lib.mkDefault "~/.ssh/id_ed25519";
-      signByDefault = lib.mkDefault true;
+      format = "ssh";
+      signByDefault = true;
     };
   };
   home.file.".config/git/mailmap" = {
