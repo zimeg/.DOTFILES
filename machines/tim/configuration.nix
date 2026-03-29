@@ -10,6 +10,7 @@
   ];
   environment = {
     systemPackages = [
+      pkgs.codex # https://github.com/openai/codex
       pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
     ];
   };

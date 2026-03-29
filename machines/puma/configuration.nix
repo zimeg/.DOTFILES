@@ -5,6 +5,11 @@
     ../../programs/darwin
     ./programs/darwin
   ];
+  environment = {
+    systemPackages = [
+      pkgs.codex # https://github.com/openai/codex
+    ];
+  };
   fonts = {
     packages = [
       pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto

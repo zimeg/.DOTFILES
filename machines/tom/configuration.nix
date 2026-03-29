@@ -121,6 +121,7 @@
   };
   environment.systemPackages = with pkgs; [
     addDriverRunpath
+    codex # https://github.com/openai/codex
     parted
     restic
     unzip
