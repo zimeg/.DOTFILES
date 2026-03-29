@@ -63,6 +63,9 @@
     lfs = {
       enable = true;
     };
+    signing = {
+      format = null;
+    };
   };
   home.file.".config/git/mailmap" = {
     source = ./.mailmap;

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: skip signing commits with default unused as warning appear 2026-03-28
 - `github-runners`: use known group for darwin dotfiles test runner 2026-03-28
 - `nvim`: grab permlink of highlighted changes for shared reference 2026-03-28
 - `zsh`: export nearest bin with above bin to paths for development 2026-03-23
