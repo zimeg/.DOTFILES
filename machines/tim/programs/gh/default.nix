@@ -9,9 +9,6 @@
     };
   };
   programs.git = {
-    signing = {
-      key = "~/.ssh/accounts/theorderingmachine";
-    };
     settings = {
       gpg = {
         ssh = {
@@ -22,6 +19,9 @@
         email = "tom@deorr.co";
         name = "@theorderingmachine";
       };
+    };
+    signing = {
+      key = "~/.ssh/accounts/theorderingmachine";
     };
   };
   home.file.".config/git/allowed_signers".text = ''
