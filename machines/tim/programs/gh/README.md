@@ -6,4 +6,7 @@ swapping accounts in certain projects takes commands:
 $ git config user.name "@zimeg"
 $ git config user.email "zim@o526.net"
 $ git config user.signingKey "~/.ssh/accounts/zimeg"
+$ git remote -v
+origin  git@zimeg:example/project.git (fetch)
+origin  git@zimeg:example/project.git (push)
 ```
