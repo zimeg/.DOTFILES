@@ -58,11 +58,11 @@
         owner = "_github-runner";
         path = "/run/secrets/github/runners/dotfiles";
       };
-      "github/theorderingmachine" = {
+      "github/accounts/theorderingmachine" = {
         key = "ssh/accounts/theorderingmachine/private";
         group = "_github-runner";
         owner = "_github-runner";
-        path = "/run/secrets/github/theorderingmachine";
+        path = "/run/secrets/github/accounts/theorderingmachine";
       };
       "ssh/accounts/theorderingmachine/private" = {
         owner = input.config.users.users.ez.name;

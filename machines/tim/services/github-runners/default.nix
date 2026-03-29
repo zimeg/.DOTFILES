@@ -7,7 +7,7 @@
       ephemeral = true;
       extraEnvironment = {
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
-        GIT_SSH_COMMAND = "ssh -i /run/secrets/github/theorderingmachine -o StrictHostKeyChecking=accept-new";
+        GIT_SSH_COMMAND = "ssh -i /run/secrets/github/accounts/theorderingmachine -o StrictHostKeyChecking=accept-new";
       };
       extraLabels = [
         "tim"
