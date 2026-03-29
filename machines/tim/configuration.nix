@@ -62,13 +62,31 @@
         owner = "dotfiles";
         group = "dotfiles";
       };
+      "ssh/private" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/id_ed25519";
+      };
       "ssh/public" = {
         owner = input.config.users.users.ez.name;
         path = "/Users/ez/.ssh/id_ed25519.pub";
       };
-      "ssh/private" = {
+      "ssh/theorderingmachine/private" = {
+        key = "ssh/private";
         owner = input.config.users.users.ez.name;
-        path = "/Users/ez/.ssh/id_ed25519";
+        path = "/Users/ez/.ssh/accounts/theorderingmachine";
+      };
+      "ssh/theorderingmachine/public" = {
+        key = "ssh/public";
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/theorderingmachine.pub";
+      };
+      "ssh/zimeg/private" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/zimeg";
+      };
+      "ssh/zimeg/public" = {
+        owner = input.config.users.users.ez.name;
+        path = "/Users/ez/.ssh/accounts/zimeg.pub";
       };
     };
   };

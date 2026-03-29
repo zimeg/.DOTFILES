@@ -2,6 +2,7 @@
 {
   imports = [
     ./programs/gh
+    ./programs/ssh
     ./programs/wd
   ];
 }
