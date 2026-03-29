@@ -15,10 +15,12 @@
         pkgs.openssh # https://github.com/openssh/openssh-portable
         pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
       ];
+      group = "dotfiles";
       name = "tim";
       replace = true;
       tokenFile = "/run/secrets/github/runners/dotfiles";
       url = "https://github.com/zimeg/.DOTFILES";
+      user = "dotfiles";
     };
   };
 }
