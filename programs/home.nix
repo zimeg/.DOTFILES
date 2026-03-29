@@ -48,7 +48,7 @@ let
     nodePackages_latest.bash-language-server # https://github.com/bash-lsp/bash-language-server
     nodePackages_latest.prettier # https://github.com/prettier/prettier
     nodePackages_latest.typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
-    nodejs_22 # https://github.com/nodejs/node
+    nodejs # https://github.com/nodejs/node
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
