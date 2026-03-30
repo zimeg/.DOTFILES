@@ -18,6 +18,7 @@
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.ngrok # https://github.com/ngrok/ngrok
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
+      pkgs.vhs # https://github.com/charmbracelet/vhs
       pkgs.vscode # https://github.com/microsoft/vscode
       pkgs.zizmor # https://github.com/zizmorcore/zizmor
     ];

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `vhs`: record terminal demos with tapes that share in caring gifs 2026-03-30
 - `pnpm`: install the performant node package manager for packaging 2026-03-29
 - `git`: sign commits if ssh verficiations unlock a secret password 2026-03-28
 - `codex`: call additional provider for agentic development process 2026-03-28
