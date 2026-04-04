@@ -21,6 +21,8 @@ let
     wget # https://github.com/mirror/wget
   ];
   languages = with pkgs; [
+    astro-language-server # https://github.com/withastro/language-tools/tree/main/packages/language-server
+    bash-language-server # https://github.com/bash-lsp/bash-language-server
     biome # https://github.com/biomejs/biome
     cargo # https://github.com/rust-lang/cargo
     delve # https://github.com/go-delve/delve
@@ -44,11 +46,8 @@ let
     marksman # https://github.com/artempyanykh/marksman
     nil # https://github.com/oxalica/nil
     nixfmt # https://github.com/NixOS/nixfmt
-    nodePackages_latest."@astrojs/language-server" # https://github.com/withastro/language-tools/tree/main/packages/language-server
-    nodePackages_latest.bash-language-server # https://github.com/bash-lsp/bash-language-server
-    nodePackages_latest.prettier # https://github.com/prettier/prettier
-    nodePackages_latest.typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
     nodejs # https://github.com/nodejs/node
+    prettier # https://github.com/prettier/prettier
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
@@ -63,6 +62,7 @@ let
     terraform-ls # https://github.com/hashicorp/terraform-ls
     tflint # https://github.com/terraform-linters/tflint
     tree-sitter # https://github.com/tree-sitter/tree-sitter
+    typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
     uv # https://github.com/astral-sh/uv
     vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
     yaml-language-server # https://github.com/redhat-developer/yaml-language-server
