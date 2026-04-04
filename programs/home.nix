@@ -44,10 +44,10 @@ let
     marksman # https://github.com/artempyanykh/marksman
     nil # https://github.com/oxalica/nil
     nixfmt # https://github.com/NixOS/nixfmt
-    nodePackages_latest."@astrojs/language-server" # https://github.com/withastro/language-tools/tree/main/packages/language-server
-    nodePackages_latest.bash-language-server # https://github.com/bash-lsp/bash-language-server
-    nodePackages_latest.prettier # https://github.com/prettier/prettier
-    nodePackages_latest.typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
+    astro-language-server # https://github.com/withastro/language-tools/tree/main/packages/language-server
+    bash-language-server # https://github.com/bash-lsp/bash-language-server
+    prettier # https://github.com/prettier/prettier
+    typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
     nodejs # https://github.com/nodejs/node
     pyright # https://github.com/microsoft/pyright
     python3 # https://github.com/python/cpython
