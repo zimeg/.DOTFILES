@@ -21,10 +21,25 @@
       serviceConfig = {
         CacheDirectory = "endpoints";
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/endpoints --refresh";
-        Restart = "always";
-        RestartSec = 2;
-        User = "endpoints";
         Group = "endpoints";
+        LockPersonality = true;
+        NoNewPrivileges = true;
+        PrivateDevices = true;
+        PrivateTmp = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        ProtectSystem = "strict";
+        Restart = "always";
+        RestartSec = 120;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        SystemCallArchitectures = "native";
+        User = "endpoints";
       };
     };
   };

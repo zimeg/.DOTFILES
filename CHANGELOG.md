@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `systemd`: protect against services finding another other process 2026-04-04
 - `nix`: import language servers and formatted linter from upstream 2026-04-04
 - `vhs`: record terminal demos with tapes that share in caring gifs 2026-03-30
 - `pnpm`: install the performant node package manager for packaging 2026-03-29

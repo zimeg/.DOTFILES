@@ -30,8 +30,23 @@ in
   systemd.services.soft-serve.serviceConfig = {
     DynamicUser = lib.mkForce false;
     ExecStart = lib.mkForce "${lib.getExe cfg.package} serve --sync-hooks";
+    Group = "git";
+    LockPersonality = true;
+    NoNewPrivileges = true;
+    PrivateDevices = true;
+    PrivateTmp = true;
+    ProtectClock = true;
+    ProtectControlGroups = true;
+    ProtectHome = true;
+    ProtectHostname = true;
+    ProtectKernelLogs = true;
+    ProtectKernelModules = true;
+    ProtectKernelTunables = true;
+    ProtectSystem = "strict";
+    RestrictRealtime = true;
+    RestrictSUIDSGID = true;
+    SystemCallArchitectures = "native";
     UMask = lib.mkForce "0022";
     User = "git";
-    Group = "git";
   };
 }

@@ -20,10 +20,25 @@
       serviceConfig = {
         CacheDirectory = "blog";
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog --refresh";
-        Restart = "always";
-        RestartSec = 2;
-        User = "blog";
         Group = "blog";
+        LockPersonality = true;
+        NoNewPrivileges = true;
+        PrivateDevices = true;
+        PrivateTmp = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        ProtectSystem = "strict";
+        Restart = "always";
+        RestartSec = 120;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        SystemCallArchitectures = "native";
+        User = "blog";
       };
     };
     "blog:preview" = {
@@ -41,8 +56,23 @@
       serviceConfig = {
         CacheDirectory = "blog";
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/blog/dev --refresh -- --port 3000";
-        User = "blog";
         Group = "blog";
+        LockPersonality = true;
+        NoNewPrivileges = true;
+        PrivateDevices = true;
+        PrivateTmp = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        ProtectSystem = "strict";
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        SystemCallArchitectures = "native";
+        User = "blog";
       };
     };
   };
