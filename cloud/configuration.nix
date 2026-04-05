@@ -66,6 +66,10 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
+              "tom.o526.net" = {
+                email = "zim@o526.net";
+                group = "nginx";
+              };
               "o526.net" = {
                 email = "zim@o526.net";
                 group = "nginx";
@@ -122,6 +126,17 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:3000";
                   proxyWebsockets = true;
+                };
+              };
+              "tom.o526.net" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/slack/events" = {
+                  proxyPass = "http://10.100.0.2:18789";
+                  proxyWebsockets = false;
+                  extraConfig = ''
+                    proxy_set_header x-forwarded-user "slack";
+                  '';
                 };
               };
               "o526.net" = {

@@ -13,6 +13,11 @@
     };
   };
   nixpkgs.config = {
+    allowInsecurePredicate =
+      pkg:
+      builtins.elem (pkgs.lib.getName pkg) [
+        "openclaw"
+      ];
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
@@ -60,6 +65,7 @@
     ./services/interception-tools
     ./services/minecraft-server
     ./services/ollama
+    ./services/openclaw-gateway
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
@@ -93,6 +99,7 @@
       "/etc/ollama/models"
       "/srv/minecraft/world"
       "/var/lib/nixos"
+      "/var/lib/openclaw"
       "/var/lib/slack"
       "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
@@ -159,6 +166,7 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
+        18789 # OpenClaw
         23231 # Soft Serve
         25565 # Minecraft
       ];
@@ -282,6 +290,12 @@
       "github/runners/slacks/pluto" = {
         owner = "slacks";
         group = "slacks";
+      };
+      "openclaw" = {
+        format = "dotenv";
+        owner = "openclaw";
+        group = "openclaw";
+        sopsFile = ./services/openclaw-gateway/vault.env;
       };
       "restic/git" = {
         owner = "git";
