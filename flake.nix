@@ -24,6 +24,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-openclaw = {
+      url = "github:openclaw/nix-openclaw";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -166,6 +170,7 @@
             ./machines/tom/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.impermanence.nixosModules.impermanence
+            inputs.nix-openclaw.nixosModules.openclaw-gateway
             inputs.sops-nix.nixosModules.sops
             {
               home-manager = {

@@ -60,6 +60,7 @@
     ./services/interception-tools
     ./services/minecraft-server
     ./services/ollama
+    ./services/openclaw-gateway
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
@@ -93,6 +94,7 @@
       "/etc/ollama/models"
       "/srv/minecraft/world"
       "/var/lib/nixos"
+      "/var/lib/openclaw"
       "/var/lib/slack"
       "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
