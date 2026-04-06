@@ -221,8 +221,8 @@
       upstream = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          configurations
           "${nixpkgs}/nixos/maintainers/scripts/ec2/amazon-image.nix"
+          configurations
           {
             image.baseName = name;
           }
