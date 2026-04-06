@@ -227,6 +227,12 @@
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
       };
+      "aws/iam/openclaw" = {
+        format = "dotenv";
+        owner = "openclaw";
+        group = "openclaw";
+        sopsFile = ./services/restic/vault.openclaw.env;
+      };
       "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";
@@ -304,6 +310,10 @@
       "restic/minecraft" = {
         owner = "minecraft";
         group = "minecraft";
+      };
+      "restic/openclaw" = {
+        owner = "openclaw";
+        group = "openclaw";
       };
       "slack/snaek" = {
         format = "dotenv";

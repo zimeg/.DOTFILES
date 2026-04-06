@@ -42,5 +42,25 @@
         Persistent = true;
       };
     };
+    openclaw = {
+      initialize = true;
+      user = "openclaw";
+      environmentFile = "/run/secrets/aws/iam/openclaw";
+      passwordFile = "/run/secrets/restic/openclaw";
+      repository = "s3:s3.us-east-1.amazonaws.com/tom.openclaw";
+      paths = [
+        "/var/lib/openclaw"
+      ];
+      pruneOpts = [
+        "--keep-daily 5"
+        "--keep-weekly 6"
+        "--keep-monthly 12"
+        "--keep-yearly 60"
+      ];
+      timerConfig = {
+        OnCalendar = "daily";
+        Persistent = true;
+      };
+    };
   };
 }
