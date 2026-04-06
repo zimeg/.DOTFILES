@@ -4,6 +4,7 @@
   services.openclaw-gateway = {
     enable = true;
     config = {
+      # https://docs.openclaw.ai/gateway/configuration-reference#agent-defaults
       agents = {
         defaults = {
           maxConcurrent = 4;
@@ -13,9 +14,11 @@
           subagents = {
             maxConcurrent = 8;
           };
+          timeFormat = "24";
           workspace = "/var/lib/openclaw/workspace";
         };
       };
+      # https://docs.openclaw.ai/gateway/configuration-reference#auth-storage
       auth = {
         profiles = {
           "anthropic:default" = {
@@ -28,10 +31,12 @@
           };
         };
       };
+      # https://docs.openclaw.ai/tools/browser
       browser = {
         enabled = false;
       };
       channels = {
+        # https://docs.openclaw.ai/channels/slack
         slack = {
           enabled = true;
           channels = {
@@ -134,6 +139,7 @@
           webhookPath = "/slack/events";
         };
       };
+      # https://docs.openclaw.ai/tools/slash-commands
       commands = {
         allowFrom = {
           slack = [
@@ -147,6 +153,7 @@
         text = true;
         useAccessGroups = true;
       };
+      # https://docs.openclaw.ai/gateway/trusted-proxy-auth
       gateway = {
         auth = {
           mode = "trusted-proxy";
@@ -163,6 +170,7 @@
         mode = "local";
         trustedProxies = [ "10.100.0.1" ];
       };
+      # https://docs.openclaw.ai/gateway/configuration-reference#tools
       tools = {
         profile = "coding";
         web = {
