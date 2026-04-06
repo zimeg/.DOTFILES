@@ -12,13 +12,13 @@ function help {
 
 # Update infrastructure with any state changes
 function apply {
-    nix run .# apply
+    nix run ..#tofu -- apply
 }
 
 # Ensure formatting matches a statand
 function check {
-    nix run .# fmt -check
-    nix run .# validate
+    nix run ..#tofu -- fmt -check
+    nix run ..#tofu -- validate
 }
 
 # Reset back to a clean directory
@@ -33,12 +33,12 @@ function clean {
 # Setup the current state
 function init {
     rm -f terraform.tfstate terraform.tfstate.backup
-    nix run .# init
+    nix run ..#tofu -- init
 }
 
 # Preview any changes to the configurations
 function plan {
-    nix run .# plan
+    nix run ..#tofu -- plan
 }
 
 # Hint if no command is provided

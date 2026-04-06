@@ -1,11 +1,9 @@
-{ nixpkgs, self, ... }@inputs:
+{ nixpkgs, self, ... }:
 {
   "x86_64-linux" =
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
       configurations =
         { config, ... }:
         {
@@ -219,18 +217,17 @@
             diskSize = 4 * 1024;
           };
         };
-      name = "web-${system}";
-      image = inputs.nixos-generators.nixosGenerate {
-        inherit pkgs;
-        format = "amazon";
+      upstream = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
+          "${nixpkgs}/nixos/maintainers/scripts/ec2/amazon-image.nix"
           configurations
           {
-            image.baseName = name;
+            image.baseName = "web-${system}";
           }
         ];
       };
-      virtualization = "${image}/${name}.vhd";
+      virtualization = "${upstream.config.system.build.amazonImage}/${upstream.config.image.fileName}";
     in
     {
       tofu = pkgs.writeShellScriptBin "tofu" ''

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cloud`: build upstream image from imported modules not generated 2026-04-05
 - `openclaw`: bring tom to slack in persistent http connection kept 2026-04-05
 - `systemd`: protect against services finding another other process 2026-04-04
 - `nix`: import language servers and formatted linter from upstream 2026-04-04
