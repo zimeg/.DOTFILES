@@ -135,7 +135,6 @@
             name = "TOM";
           };
           streaming = "partial";
-          userTokenReadOnly = true;
           webhookPath = "/slack/events";
         };
       };
