@@ -197,6 +197,8 @@
       "${pkgs.coreutils}/bin/cp /etc/openclaw/openclaw.json /var/lib/openclaw/openclaw.json"
     ];
     group = "openclaw";
+    logPath = "/var/lib/openclaw/gateway.log";
+    port = 18789;
     servicePath = [
       pkgs.curl # https://github.com/curl/curl
       pkgs.fd # https://github.com/sharkdp/fd
@@ -205,8 +207,6 @@
       pkgs.jq # https://github.com/jqlang/jq
       pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
     ];
-    logPath = "/var/lib/openclaw/gateway.log";
-    port = 18789;
     stateDir = "/var/lib/openclaw";
     user = "openclaw";
   };
