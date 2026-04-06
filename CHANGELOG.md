@@ -7,6 +7,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 ## patches
 
 - `openclaw`: bring tom to slack in persistent http connection kept 2026-04-05
+- `cloud`: route tofu through root flake and nixpkgs image path 2026-04-05
 - `systemd`: protect against services finding another other process 2026-04-04
 - `nix`: import language servers and formatted linter from upstream 2026-04-04
 - `vhs`: record terminal demos with tapes that share in caring gifs 2026-03-30

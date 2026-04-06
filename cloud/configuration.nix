@@ -3,9 +3,7 @@
   "x86_64-linux" =
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
       configurations =
         { config, ... }:
         {
@@ -220,17 +218,18 @@
           };
         };
       name = "web-${system}";
-      image = inputs.nixos-generators.nixosGenerate {
-        inherit pkgs;
-        format = "amazon";
+      imageCfg = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
           configurations
+          "${nixpkgs}/nixos/maintainers/scripts/ec2/amazon-image.nix"
           {
             image.baseName = name;
           }
         ];
       };
-      virtualization = "${image}/${name}.vhd";
+      image = imageCfg.config.system.build.amazonImage;
+      virtualization = "${image}/${imageCfg.config.image.fileName}";
     in
     {
       tofu = pkgs.writeShellScriptBin "tofu" ''
