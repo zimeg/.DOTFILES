@@ -4,6 +4,6 @@
     ./programs/git
   ];
   programs.zsh.shellAliases = {
-    claude = "slack-claude";
+    claude = "slack-claude --dangerously-skip-permissions";
   };
 }
