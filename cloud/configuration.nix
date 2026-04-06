@@ -217,14 +217,13 @@
             diskSize = 4 * 1024;
           };
         };
-      name = "web-${system}";
       upstream = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           "${nixpkgs}/nixos/maintainers/scripts/ec2/amazon-image.nix"
           configurations
           {
-            image.baseName = name;
+            image.baseName = "web-${system}";
           }
         ];
       };
