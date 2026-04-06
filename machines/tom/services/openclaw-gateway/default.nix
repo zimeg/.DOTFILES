@@ -1,0 +1,216 @@
+# https://github.com/openclaw/openclaw
+{ config, pkgs, ... }:
+{
+  services.openclaw-gateway = {
+    enable = true;
+    config = {
+      # https://docs.openclaw.ai/gateway/configuration-reference#agent-defaults
+      agents = {
+        defaults = {
+          maxConcurrent = 4;
+          model = {
+            primary = "openai/gpt-5.4";
+          };
+          subagents = {
+            maxConcurrent = 8;
+          };
+          timeFormat = "24";
+          workspace = "/var/lib/openclaw/workspace";
+        };
+      };
+      # https://docs.openclaw.ai/gateway/configuration-reference#auth-storage
+      auth = {
+        profiles = {
+          "anthropic:default" = {
+            provider = "anthropic";
+            mode = "api_key";
+          };
+          "openai:default" = {
+            provider = "openai";
+            mode = "api_key";
+          };
+        };
+      };
+      # https://docs.openclaw.ai/tools/browser
+      browser = {
+        enabled = false;
+      };
+      channels = {
+        # https://docs.openclaw.ai/channels/slack
+        slack = {
+          enabled = true;
+          allowFrom = [
+            "U02APLEMRPS"
+            "U04051AF9NJ"
+          ];
+          channels = {
+            "C03VCFT5GTX" = {
+              enabled = true;
+            };
+            "C040KHFGMPY" = {
+              enabled = true;
+            };
+            "C041V3KQW81" = {
+              enabled = true;
+            };
+            "C043U188EDS" = {
+              enabled = true;
+            };
+            "C04CRUE6MU3" = {
+              enabled = true;
+            };
+            "C05GLQ05L2W" = {
+              enabled = true;
+            };
+            "C05RQ2FKE2Y" = {
+              enabled = true;
+            };
+            "C064YRT8WDR" = {
+              enabled = true;
+            };
+            "C06HQ3CC6SD" = {
+              enabled = true;
+            };
+            "C073324A4QJ" = {
+              enabled = true;
+            };
+            "C073329N8FL" = {
+              enabled = true;
+            };
+            "C07331ZRZMG" = {
+              enabled = true;
+            };
+            "C0732UG1F6F" = {
+              enabled = true;
+            };
+            "C0744SEE1J8" = {
+              enabled = true;
+            };
+            "C07EBSSKBPH" = {
+              enabled = true;
+            };
+            "C07H53TDER4" = {
+              enabled = true;
+            };
+            "C07JEU0KE0K" = {
+              enabled = true;
+            };
+            "C07MQSN1LHE" = {
+              enabled = true;
+            };
+            "C079K702X3R" = {
+              enabled = true;
+            };
+            "C08M8DH4MDF" = {
+              enabled = true;
+            };
+            "C0942M6KZGF" = {
+              enabled = true;
+            };
+            "C0AFXED2MJB" = {
+              enabled = true;
+            };
+            "C0AGMPZK4RJ" = {
+              enabled = true;
+            };
+            "C0AQ0JM6B7E" = {
+              enabled = true;
+            };
+            "C0AQVMBBVFF" = {
+              enabled = true;
+            };
+          };
+          dmPolicy = "allowlist";
+          groupPolicy = "allowlist";
+          mode = "http";
+          nativeStreaming = true;
+          replyToMode = "all";
+          signingSecret = {
+            source = "env";
+            provider = "default";
+            id = "SLACK_SIGNING_SECRET";
+          };
+          slashCommand = {
+            enabled = true;
+            name = "TOM";
+          };
+          streaming = "partial";
+          webhookPath = "/slack/events";
+        };
+      };
+      # https://docs.openclaw.ai/tools/slash-commands
+      commands = {
+        allowFrom = {
+          slack = [
+            "U02APLEMRPS"
+            "U04051AF9NJ"
+          ];
+        };
+        bash = false;
+        config = false;
+        native = "auto";
+        text = true;
+        useAccessGroups = true;
+      };
+      # https://docs.openclaw.ai/gateway/trusted-proxy-auth
+      gateway = {
+        auth = {
+          mode = "trusted-proxy";
+          trustedProxy = {
+            allowUsers = [ "slack" ];
+            requiredHeaders = [ "x-slack-signature" ];
+            userHeader = "x-forwarded-user";
+          };
+        };
+        bind = "lan";
+        controlUi = {
+          enabled = false;
+        };
+        mode = "local";
+        trustedProxies = [ "10.100.0.1" ];
+      };
+      # https://docs.openclaw.ai/gateway/configuration-reference#tools
+      tools = {
+        profile = "coding";
+        web = {
+          search = {
+            enabled = true;
+            apiKey = {
+              source = "env";
+              provider = "default";
+              id = "BRAVE_API_KEY";
+            };
+            cacheTtlMinutes = 15;
+            maxResults = 5;
+            provider = "brave";
+            timeoutSeconds = 30;
+          };
+        };
+      };
+    };
+    environment = {
+      NODE_ENV = "production";
+      OPENCLAW_CONFIG_PATH = "/var/lib/openclaw/openclaw.json";
+    };
+    environmentFiles = [ config.sops.secrets."openclaw/env".path ];
+    execStartPre = [
+      "${pkgs.coreutils}/bin/cp /etc/openclaw/openclaw.json /var/lib/openclaw/openclaw.json"
+    ];
+    group = "openclaw";
+    logPath = "/var/lib/openclaw/gateway.log";
+    port = 18789;
+    servicePath = [
+      pkgs.curl # https://github.com/curl/curl
+      pkgs.fd # https://github.com/sharkdp/fd
+      pkgs.gh # https://github.com/cli/cli
+      pkgs.git # https://github.com/git/git
+      pkgs.jq # https://github.com/jqlang/jq
+      pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
+    ];
+    stateDir = "/var/lib/openclaw";
+    user = "openclaw";
+  };
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/openclaw/.gitconfig - - - - ${./gitconfig}"
+  ];
+}
