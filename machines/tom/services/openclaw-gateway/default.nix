@@ -39,6 +39,10 @@
         # https://docs.openclaw.ai/channels/slack
         slack = {
           enabled = true;
+          allowFrom = [
+            "U02APLEMRPS"
+            "U04051AF9NJ"
+          ];
           channels = {
             "C03VCFT5GTX" = {
               enabled = true;
@@ -116,10 +120,6 @@
               enabled = true;
             };
           };
-          allowFrom = [
-            "U02APLEMRPS"
-            "U04051AF9NJ"
-          ];
           dmPolicy = "allowlist";
           groupPolicy = "allowlist";
           mode = "http";
