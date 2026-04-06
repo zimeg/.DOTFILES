@@ -218,7 +218,7 @@
           };
         };
       name = "web-${system}";
-      imageCfg = nixpkgs.lib.nixosSystem {
+      upstream = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           configurations
@@ -228,8 +228,8 @@
           }
         ];
       };
-      image = imageCfg.config.system.build.amazonImage;
-      virtualization = "${image}/${imageCfg.config.image.fileName}";
+      image = upstream.config.system.build.amazonImage;
+      virtualization = "${image}/${upstream.config.image.fileName}";
     in
     {
       tofu = pkgs.writeShellScriptBin "tofu" ''
