@@ -192,14 +192,25 @@
       NODE_ENV = "production";
       OPENCLAW_CONFIG_PATH = "/var/lib/openclaw/openclaw.json";
     };
-    environmentFiles = [ config.sops.secrets."openclaw".path ];
+    environmentFiles = [ config.sops.secrets."openclaw/env".path ];
     execStartPre = [
       "${pkgs.coreutils}/bin/cp /etc/openclaw/openclaw.json /var/lib/openclaw/openclaw.json"
     ];
     group = "openclaw";
+    servicePath = [
+      pkgs.curl # https://github.com/curl/curl
+      pkgs.fd # https://github.com/sharkdp/fd
+      pkgs.gh # https://github.com/cli/cli
+      pkgs.git # https://github.com/git/git
+      pkgs.jq # https://github.com/jqlang/jq
+      pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
+    ];
     logPath = "/var/lib/openclaw/gateway.log";
     port = 18789;
     stateDir = "/var/lib/openclaw";
     user = "openclaw";
   };
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/openclaw/.gitconfig - - - - ${./gitconfig}"
+  ];
 }

@@ -297,11 +297,17 @@
         owner = "slacks";
         group = "slacks";
       };
-      "openclaw" = {
+      "openclaw/env" = {
         format = "dotenv";
         owner = "openclaw";
         group = "openclaw";
         sopsFile = ./services/openclaw-gateway/vault.env;
+      };
+      "openclaw/ssh/private" = {
+        owner = "openclaw";
+        group = "openclaw";
+        key = "tom/ssh/private";
+        path = "/var/lib/openclaw/.ssh/id_ed25519";
       };
       "restic/git" = {
         owner = "git";
@@ -432,6 +438,11 @@
         isSystemUser = true;
         group = "git";
       };
+      openclaw = {
+        isSystemUser = true;
+        group = "openclaw";
+        home = "/var/lib/openclaw";
+      };
       quintus = {
         isSystemUser = true;
         group = "quintus";
@@ -463,6 +474,7 @@
       endpoints = { };
       etime = { };
       git = { };
+      openclaw = { };
       quintus = { };
       slacks = { };
       snaek = { };
