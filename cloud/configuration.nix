@@ -228,8 +228,7 @@
           }
         ];
       };
-      image = upstream.config.system.build.amazonImage;
-      virtualization = "${image}/${upstream.config.image.fileName}";
+      virtualization = "${upstream.config.system.build.amazonImage}/${upstream.config.image.fileName}";
     in
     {
       tofu = pkgs.writeShellScriptBin "tofu" ''
