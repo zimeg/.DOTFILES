@@ -1,4 +1,4 @@
-{ nixpkgs, self, ... }@inputs:
+{ nixpkgs, self, ... }:
 {
   "x86_64-linux" =
     let
