@@ -5,6 +5,8 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    withPython3 = false;
+    withRuby = false;
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
       conform-nvim # https://github.com/stevearc/conform.nvim
