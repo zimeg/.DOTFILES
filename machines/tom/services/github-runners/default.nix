@@ -58,6 +58,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -72,6 +73,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -86,6 +88,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -100,6 +103,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -114,6 +118,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -128,6 +133,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -142,6 +148,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -156,6 +163,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
@@ -170,6 +178,7 @@
       enable = true;
       ephemeral = true;
       extraPackages = [
+        pkgs.curl # https://github.com/curl/curl
         pkgs.gh # https://github.com/cli/cli
         pkgs.rsync # https://rsync.samba.org
       ];
