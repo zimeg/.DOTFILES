@@ -53,6 +53,9 @@
               };
             };
           };
+          services.openssh = {
+            enable = nixpkgs.lib.mkForce false;
+          };
           security.acme = {
             acceptTerms = true;
             certs = {
