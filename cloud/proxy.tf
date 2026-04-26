@@ -98,6 +98,21 @@ resource "aws_instance" "redirect" {
   }
 }
 
+# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/eip
+resource "aws_eip" "redirect" {
+  domain = "vpc"
+}
+
+# https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/eip_association
+resource "aws_eip_association" "redirect" {
+  allocation_id = aws_eip.redirect.id
+  instance_id   = aws_instance.redirect.id
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 # https://search.opentofu.org/provider/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment
 resource "aws_iam_role_policy_attachment" "vm" {
   role       = aws_iam_role.vm.id
@@ -284,7 +299,7 @@ resource "aws_route53_record" "api" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -293,7 +308,7 @@ resource "aws_route53_record" "dev" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -302,7 +317,7 @@ resource "aws_route53_record" "git" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -311,7 +326,7 @@ resource "aws_route53_record" "root" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -320,7 +335,7 @@ resource "aws_route53_record" "quintus" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["quintus.sh"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -329,7 +344,7 @@ resource "aws_route53_record" "todos" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["todos.guide"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
+  records = [aws_eip.redirect.public_ip]
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
@@ -338,13 +353,9 @@ resource "aws_route53_record" "tom" {
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
   ttl     = 300
-  records = [aws_instance.redirect.public_ip]
-}
-
-output "public_dns" {
-  value = aws_instance.redirect.public_dns
+  records = [aws_eip.redirect.public_ip]
 }
 
 output "public_ip" {
-  value = aws_instance.redirect.public_ip
+  value = aws_eip.redirect.public_ip
 }

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cloud`: find stable identified protocol afront a changed proxied 2026-04-25
 - `cloud`: map secure shell addresses forbidden for cloud providing 2026-04-25
 - `github-runners`: add curl to slack github action runner packages 2026-04-25
 - `nvim`: remove packaged supported providers of runtimes languages 2026-04-18
