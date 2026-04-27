@@ -53,16 +53,21 @@
       sshKeyPaths = [ ];
     };
     secrets = {
-      "github/runners/dotfiles" = {
-        group = "_github-runner";
-        owner = "_github-runner";
-        path = "/run/secrets/github/runners/dotfiles";
-      };
       "github/accounts/theorderingmachine" = {
         key = "ssh/accounts/theorderingmachine/private";
         group = "_github-runner";
         owner = "_github-runner";
         path = "/run/secrets/github/accounts/theorderingmachine";
+      };
+      "github/runners/dotfiles" = {
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/runners/dotfiles";
+      };
+      "github/runners/etime/neutral" = {
+        group = "_github-runner";
+        owner = "_github-runner";
+        path = "/run/secrets/github/runners/etime/neutral";
       };
       "ssh/accounts/theorderingmachine/private" = {
         owner = input.config.users.users.ez.name;

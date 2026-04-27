@@ -41,16 +41,41 @@
       url = "https://github.com/zimeg/.DOTFILES";
       user = "dotfiles";
     };
-    etime = {
+    etime-positive = {
       enable = true;
       ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
       extraPackages = [
+        pkgs.codecov-cli # https://github.com/codecov/codecov-cli
+        pkgs.curl # https://github.com/curl/curl
+        pkgs.gnupg # https://gnupg.org
         pkgs.time
       ];
       group = "etime";
-      name = "tom";
+      name = "positive";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/etime";
+      tokenFile = "/run/secrets/github/runners/etime/positive";
+      url = "https://github.com/zimeg/emporia-time";
+      user = "etime";
+    };
+    etime-negative = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.codecov-cli # https://github.com/codecov/codecov-cli
+        pkgs.curl # https://github.com/curl/curl
+        pkgs.gnupg # https://gnupg.org
+        pkgs.time
+      ];
+      group = "etime";
+      name = "negative";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/etime/negative";
       url = "https://github.com/zimeg/emporia-time";
       user = "etime";
     };
@@ -198,6 +223,41 @@
       tokenFile = "/run/secrets/github/runners/endpoints";
       url = "https://github.com/zimeg/endpoints";
       user = "endpoints";
+    };
+    git-coverage = {
+      enable = true;
+      ephemeral = true;
+      extraPackages = [
+        pkgs.codecov-cli # https://github.com/codecov/codecov-cli
+        pkgs.curl # https://github.com/curl/curl
+        pkgs.gnupg # https://gnupg.org
+      ];
+      group = "git-coverage";
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coverage";
+      url = "https://github.com/zimeg/git-coverage";
+      user = "git-coverage";
+    };
+    newsflash = {
+      enable = true;
+      ephemeral = true;
+      group = "newsflash";
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/newsflash";
+      url = "https://github.com/zimeg/newsflash.nvim";
+      user = "newsflash";
+    };
+    proximity = {
+      enable = true;
+      ephemeral = true;
+      group = "proximity";
+      name = "tom";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/proximity";
+      url = "https://github.com/zimeg/proximity.nvim";
+      user = "proximity";
     };
     quintus = {
       enable = true;

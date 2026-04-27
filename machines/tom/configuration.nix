@@ -47,6 +47,7 @@
         "minecraft-server"
         "nvidia-settings"
         "nvidia-x11"
+        "test-results-parser"
       ];
     cudaCapabilities = [ "8.6" ];
     cudaForwardCompat = true;
@@ -253,9 +254,25 @@
         owner = "endpoints";
         group = "endpoints";
       };
-      "github/runners/etime" = {
+      "github/runners/etime/negative" = {
         owner = "etime";
         group = "etime";
+      };
+      "github/runners/etime/positive" = {
+        owner = "etime";
+        group = "etime";
+      };
+      "github/runners/coverage" = {
+        owner = "git-coverage";
+        group = "git-coverage";
+      };
+      "github/runners/newsflash" = {
+        owner = "newsflash";
+        group = "newsflash";
+      };
+      "github/runners/proximity" = {
+        owner = "proximity";
+        group = "proximity";
       };
       "github/runners/quintus" = {
         owner = "quintus";
@@ -438,10 +455,22 @@
         isSystemUser = true;
         group = "git";
       };
+      git-coverage = {
+        isSystemUser = true;
+        group = "git-coverage";
+      };
+      newsflash = {
+        isSystemUser = true;
+        group = "newsflash";
+      };
       openclaw = {
         isSystemUser = true;
         group = "openclaw";
         home = "/var/lib/openclaw";
+      };
+      proximity = {
+        isSystemUser = true;
+        group = "proximity";
       };
       quintus = {
         isSystemUser = true;
@@ -474,7 +503,10 @@
       endpoints = { };
       etime = { };
       git = { };
+      git-coverage = { };
+      newsflash = { };
       openclaw = { };
+      proximity = { };
       quintus = { };
       slacks = { };
       snaek = { };

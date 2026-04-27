@@ -23,5 +23,24 @@
       url = "https://github.com/zimeg/.DOTFILES";
       user = "_github-runner";
     };
+    etime-neutral = {
+      enable = true;
+      ephemeral = true;
+      extraEnvironment = {
+        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+      };
+      extraLabels = [
+        "tim"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "_github-runner";
+      name = "neutral";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/etime/neutral";
+      url = "https://github.com/zimeg/emporia-time";
+      user = "_github-runner";
+    };
   };
 }
