@@ -33,6 +33,7 @@
       ];
       extraPackages = [
         pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
+        pkgs.gh # https://github.com/cli/cli
       ];
       group = "dotfiles";
       name = "tom";
@@ -50,6 +51,7 @@
       extraPackages = [
         pkgs.codecov-cli # https://github.com/codecov/codecov-cli
         pkgs.curl # https://github.com/curl/curl
+        pkgs.gh # https://github.com/cli/cli
         pkgs.gnupg # https://gnupg.org
         pkgs.time
       ];
@@ -69,6 +71,7 @@
       extraPackages = [
         pkgs.codecov-cli # https://github.com/codecov/codecov-cli
         pkgs.curl # https://github.com/curl/curl
+        pkgs.gh # https://github.com/cli/cli
         pkgs.gnupg # https://gnupg.org
         pkgs.time
       ];
@@ -230,6 +233,7 @@
       extraPackages = [
         pkgs.codecov-cli # https://github.com/codecov/codecov-cli
         pkgs.curl # https://github.com/curl/curl
+        pkgs.gh # https://github.com/cli/cli
         pkgs.gnupg # https://gnupg.org
       ];
       group = "git-coverage";
@@ -242,6 +246,9 @@
     newsflash = {
       enable = true;
       ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "newsflash";
       name = "tom";
       replace = true;
@@ -252,6 +259,9 @@
     proximity = {
       enable = true;
       ephemeral = true;
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "proximity";
       name = "tom";
       replace = true;
