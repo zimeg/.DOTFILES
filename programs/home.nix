@@ -8,10 +8,12 @@ let
     claude-code # https://github.com/anthropics/claude-code
     cowsay # https://github.com/tnalpgge/rank-amateur-cowsay
     curl # https://github.com/curl/curl
+    ffmpeg # https://github.com/FFmpeg/FFmpeg
     file # https://github.com/file/file
     fontconfig # https://gitlab.freedesktop.org/fontconfig/fontconfig
     gimp2 # https://gitlab.gnome.org/GNOME/gimp
     gnumake # https://github.com/mirror/make
+    imagemagick # https://github.com/ImageMagick/ImageMagick
     gnused # https://git.savannah.gnu.org/cgit/sed.git
     heroku # https://github.com/heroku/cli
     less # https://github.com/gwsw/less
