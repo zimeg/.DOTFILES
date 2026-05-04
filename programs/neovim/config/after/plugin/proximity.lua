@@ -45,5 +45,8 @@ proximity.setup({
 		["<leader>pr"] = {
 			"README.md",
 		},
+		["<leader>ps"] = {
+			"SCRATCHPAD.md",
+		},
 	},
 })

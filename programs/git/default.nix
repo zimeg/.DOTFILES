@@ -59,6 +59,7 @@
     };
     ignores = [
       ".DS_Store"
+      "SCRATCHPAD.md"
     ];
     lfs = {
       enable = true;

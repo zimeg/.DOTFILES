@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `git`: ignore a scratchpad markdown file with general directories 2026-05-03
 - `soft-serve`: allow tim administrative access to private git repo 2026-04-29
 - `github-runners`: add github command line interface package often 2026-04-29
 - `github-runners`: self host runner workflow deterministic package 2026-04-26
