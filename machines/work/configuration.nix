@@ -81,6 +81,9 @@
       "ai/vertex/project" = {
         owner = input.config.users.users."eden.zimbelman".name;
       };
+      "ci/circleci" = {
+        owner = input.config.users.users."eden.zimbelman".name;
+      };
     };
   };
   system = {
