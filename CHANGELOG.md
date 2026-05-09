@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `zsh`: alias zips to worktree in git directories adjacent to hook 2026-05-09
 - `sops`: add access token to circleci for work machine debug times 2026-05-08
 - `ffmpeg`: keep copies of image processing magic for demonstration 2026-05-03
 - `git`: ignore a scratchpad markdown file with general directories 2026-05-03

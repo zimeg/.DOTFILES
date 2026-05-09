@@ -59,6 +59,7 @@
     };
     ignores = [
       ".DS_Store"
+      ".gitworktrees"
       "SCRATCHPAD.md"
     ];
     lfs = {

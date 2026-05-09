@@ -4,7 +4,7 @@ _zroot() {
 
 _zw() {
   local root="$(_zroot)"
-  local wt="$root/.claude/worktrees/$1"
+  local wt="$root/.gitworktrees/$1"
   if [[ -d "$wt" ]]; then
     cd "$wt"
   else
