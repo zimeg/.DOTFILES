@@ -12,6 +12,7 @@ let
     file # https://github.com/file/file
     fontconfig # https://gitlab.freedesktop.org/fontconfig/fontconfig
     gimp2 # https://gitlab.gnome.org/GNOME/gimp
+    gnugrep # https://git.savannah.gnu.org/cgit/grep.git
     gnumake # https://github.com/mirror/make
     imagemagick # https://github.com/ImageMagick/ImageMagick
     gnused # https://git.savannah.gnu.org/cgit/sed.git
