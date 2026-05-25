@@ -9,26 +9,13 @@
         defaults = {
           maxConcurrent = 4;
           model = {
-            primary = "openai/gpt-5.4";
+            primary = "ollama/gemma4:26b";
           };
           subagents = {
             maxConcurrent = 8;
           };
           timeFormat = "24";
           workspace = "/var/lib/openclaw/workspace";
-        };
-      };
-      # https://docs.openclaw.ai/gateway/configuration-reference#auth-storage
-      auth = {
-        profiles = {
-          "anthropic:default" = {
-            provider = "anthropic";
-            mode = "api_key";
-          };
-          "openai:default" = {
-            provider = "openai";
-            mode = "api_key";
-          };
         };
       };
       # https://docs.openclaw.ai/tools/browser
@@ -168,6 +155,21 @@
         };
         mode = "local";
         trustedProxies = [ "10.100.0.1" ];
+      };
+      models = {
+        providers = {
+          ollama = {
+            api = "ollama";
+            apiKey = "ollama-local";
+            baseUrl = "http://127.0.0.1:11434";
+            models = [
+              {
+                id = "gemma4:26b";
+                name = "gemma4:26b";
+              }
+            ];
+          };
+        };
       };
       # https://docs.openclaw.ai/gateway/configuration-reference#tools
       tools = {

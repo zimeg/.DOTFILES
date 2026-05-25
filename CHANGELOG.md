@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ollama`: support local model with current network hardware claws 2026-05-25
 - `grep`: search input files with a standard packaging across shell 2026-05-18
 - `zsh`: alias zips to worktree in git directories adjacent to hook 2026-05-09
 - `sops`: add access token to circleci for work machine debug times 2026-05-08
