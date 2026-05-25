@@ -26,10 +26,16 @@
         # https://docs.openclaw.ai/channels/slack
         slack = {
           enabled = true;
+          ackReaction = "";
           allowFrom = [
             "U02APLEMRPS"
+            "U02HQCUL3"
             "U04051AF9NJ"
+            "U06MCF88LQY"
           ];
+          capabilities = {
+            interactiveReplies = true;
+          };
           channels = {
             "C03VCFT5GTX" = {
               enabled = true;

@@ -66,6 +66,10 @@
         "reaction_added",
         "reaction_removed"
       ]
+    },
+    "interactivity": {
+      "is_enabled": true,
+      "request_url": "https://tom.o526.net/slack/events"
     }
   }
 }
