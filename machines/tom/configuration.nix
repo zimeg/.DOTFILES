@@ -62,6 +62,7 @@
     ./security/polkit
     ./security/rtkit
     ./security/sudo
+    ./services/caddy
     ./services/github-runners
     ./services/interception-tools
     ./services/minecraft-server

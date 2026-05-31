@@ -1,0 +1,13 @@
+{
+  admin off
+  auto_https off
+}
+
+# https://docs.ollama.com/faq#how-can-i-use-ollama-with-a-proxy-server
+:11435 {
+  bind 127.0.0.1
+
+  reverse_proxy 127.0.0.1:11434 {
+    header_up Host localhost:11434
+  }
+}
