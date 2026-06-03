@@ -339,6 +339,18 @@
         owner = "openclaw";
         group = "openclaw";
       };
+      "slack/begut/env" = {
+        format = "dotenv";
+        owner = "begut";
+        group = "begut";
+        sopsFile = ./systemd/services/slack/begut/vault.env;
+      };
+      "slack/begut/ssh/private" = {
+        owner = "begut";
+        group = "begut";
+        key = "tom/ssh/private";
+        path = "/var/lib/slack/begut/.ssh/id_ed25519";
+      };
       "slack/snaek" = {
         format = "dotenv";
         owner = "snaek";
@@ -432,6 +444,11 @@
           wireguard-tools # https://git.zx2c4.com/wireguard-tools
         ];
       };
+      begut = {
+        isSystemUser = true;
+        group = "begut";
+        home = "/var/cache/begut";
+      };
       blog = {
         isSystemUser = true;
         group = "blog";
@@ -498,6 +515,7 @@
       };
     };
     groups = {
+      begut = { };
       blog = { };
       coffee = { };
       dotfiles = { };
