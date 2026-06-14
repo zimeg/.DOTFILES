@@ -3,43 +3,39 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false; # https://github.com/zimeg/.DOTFILES/issues/56
-    matchBlocks = {
+    settings = {
       "*" = {
-        addKeysToAgent = "no";
-        compression = false;
-        controlMaster = "no";
-        controlPath = "~/.ssh/control-%r@%n:%p";
-        controlPersist = "no";
-        forwardAgent = false;
-        hashKnownHosts = false;
-        serverAliveCountMax = 2;
-        serverAliveInterval = 0;
-        userKnownHostsFile = "~/.ssh/known_hosts";
+        AddKeysToAgent = "no";
+        Compression = false;
+        ControlMaster = "no";
+        ControlPath = "~/.ssh/control-%r@%n:%p";
+        ControlPersist = "no";
+        ForwardAgent = false;
+        HashKnownHosts = false;
+        ServerAliveCountMax = 2;
+        ServerAliveInterval = 0;
+        UserKnownHostsFile = "~/.ssh/known_hosts";
       };
       "git.o526.net" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
       "github.com" = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
       tim = {
-        hostname = "eztim25";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-        extraOptions = {
-          RemoteCommand = "tmux attach";
-          RequestTTY = "true";
-        };
+        HostName = "eztim25";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
+        RemoteCommand = "tmux attach";
+        RequestTTY = true;
       };
       tom = {
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-        extraOptions = {
-          RemoteCommand = "tmux attach";
-          RequestTTY = "true";
-        };
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
+        RemoteCommand = "tmux attach";
+        RequestTTY = true;
       };
     };
   };

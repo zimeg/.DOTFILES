@@ -92,7 +92,15 @@
       };
     };
     initrd = {
-      postResumeCommands = builtins.readFile ./start.sh;
+      systemd.services.root-subvolume-reset = {
+        description = "Reset the ephemeral root subvolume";
+        wantedBy = [ "initrd.target" ];
+        after = [ "initrd-root-device.target" ];
+        before = [ "sysroot.mount" ];
+        unitConfig.DefaultDependencies = false;
+        serviceConfig.Type = "oneshot";
+        script = builtins.readFile ./start.sh;
+      };
     };
   };
   environment.persistence."/persistent" = {

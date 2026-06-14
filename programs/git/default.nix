@@ -36,14 +36,6 @@
       fetch = {
         prune = true;
       };
-      filter = {
-        lfs = {
-          required = true;
-          clean = "git-lfs clean -- %f";
-          process = "git-lfs filter-process";
-          smudge = "git-lfs smudge -- %f";
-        };
-      };
       init = {
         defaultBranch = "main";
       };

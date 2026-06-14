@@ -34,7 +34,7 @@
         name = "wd";
         src = pkgs.zsh-wd;
         file = "share/wd/wd.plugin.zsh";
-        completions = [ "share/zsh/site-functions" ];
+        functions = [ "share/zsh/site-functions" ];
       }
     ];
     shellAliases = {
