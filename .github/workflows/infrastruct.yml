@@ -36,3 +36,7 @@ jobs:
         working-directory: ./cloud
         run: |
           nix run .# apply -- -auto-approve
+      - name: Upload the installer
+        run: |
+          nix build .#nixosConfigurations.tom.config.system.build.images.iso-installer
+          aws s3 cp result/iso/*.iso s3://cdn.o526.net/tom.iso
