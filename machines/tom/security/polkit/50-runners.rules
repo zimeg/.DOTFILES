@@ -10,7 +10,7 @@ polkit.addRule(function(action, subject) {
     if (subject.user == "quintus" && unit == "quintus.service") {
       return polkit.Result.YES;
     }
-    if (subject.user == "slacks" && (unit == "snaek.service" || unit == "tails.service" || unit == "todos.service")) {
+    if (subject.user == "slacks" && (unit == "begut.service" || unit == "snaek.service" || unit == "tails.service" || unit == "todos.service")) {
       return polkit.Result.YES;
     }
   }
