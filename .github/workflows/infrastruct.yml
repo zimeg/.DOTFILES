@@ -39,4 +39,4 @@ jobs:
       - name: Upload the installer
         run: |
           nix build .#nixosConfigurations.tom.config.system.build.images.iso-installer
-          nix run nixpkgs#awscli2 -- s3 cp result/iso/*.iso s3://cdn.o526.net/tom.iso
+          nix run nixpkgs#awscli2 -- s3 cp result/iso/*.iso s3://cdn.o526.net/TOM.iso
