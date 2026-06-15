@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `awscli`: install packaging without brew requirements for working 2026-06-15
 - `caddy`: route proxied ollama requests through hosted connections 2026-05-30
 - `openclaw`: interact through replies without so much acknowledged 2026-05-25
 - `ollama`: support local model with current network hardware claws 2026-05-25
