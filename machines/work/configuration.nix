@@ -15,12 +15,10 @@
       pkgs.act # https://github.com/nektos/act
       pkgs.awscli2 # https://github.com/aws/aws-cli/tree/v2
       pkgs.claude-code # https://github.com/anthropics/claude-code
-      pkgs.code-cursor # https://github.com/getcursor/cursor
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.ngrok # https://github.com/ngrok/ngrok
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
       pkgs.vhs # https://github.com/charmbracelet/vhs
-      pkgs.vscode # https://github.com/microsoft/vscode
       pkgs.zizmor # https://github.com/zizmorcore/zizmor
     ];
   };
@@ -39,9 +37,7 @@
         pkg:
         builtins.elem (lib.getName pkg) [
           "claude-code"
-          "cursor"
           "ngrok"
-          "vscode"
         ];
     };
   };
