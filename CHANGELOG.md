@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `recon`: reveal agentic sessions across panes with recon toolings 2026-06-24
 - `vscode`: remove standalone editors to prefer termainl or browser 2026-06-16
 - `awscli`: install packaging without brew requirements for working 2026-06-15
 - `caddy`: route proxied ollama requests through hosted connections 2026-05-30
