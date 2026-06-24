@@ -19,6 +19,7 @@ let
     heroku # https://github.com/heroku/cli
     less # https://github.com/gwsw/less
     pciutils # https://github.com/pciutils/pciutils
+    nur.repos.zimeg.recon # https://github.com/mwbrooks/recon
     sops # https://github.com/getsops/sops
     tree # https://github.com/Old-Man-Programmer/tree
     wget # https://github.com/mirror/wget
