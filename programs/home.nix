@@ -53,7 +53,7 @@ let
     nodejs # https://github.com/nodejs/node
     prettier # https://github.com/prettier/prettier
     pyright # https://github.com/microsoft/pyright
-    python3 # https://github.com/python/cpython
+    python314 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
     rust-analyzer # https://github.com/rust-lang/rust-analyzer
     rustc # https://github.com/rust-lang/rust
