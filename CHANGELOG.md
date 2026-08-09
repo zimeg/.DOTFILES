@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `neovim`: stop highlighting tmux configurations without packaging 2026-08-08
 - `python`: pin the latest version according to constant pi numbers 2026-07-06
 - `recon`: reveal agentic sessions across panes with recon toolings 2026-06-24
 - `vscode`: remove standalone editors to prefer termainl or browser 2026-06-16
