@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `claude`: default to large context windows of a favored modelesqe 2026-08-14
 - `neovim`: stop highlighting tmux configurations without packaging 2026-08-08
 - `python`: pin the latest version according to constant pi numbers 2026-07-06
 - `recon`: reveal agentic sessions across panes with recon toolings 2026-06-24
