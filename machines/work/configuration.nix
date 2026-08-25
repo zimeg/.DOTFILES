@@ -15,6 +15,7 @@
       pkgs.act # https://github.com/nektos/act
       pkgs.awscli2 # https://github.com/aws/aws-cli/tree/v2
       pkgs.claude-code # https://github.com/anthropics/claude-code
+      pkgs.codex # https://github.com/openai/codex
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
       pkgs.ngrok # https://github.com/ngrok/ngrok
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
