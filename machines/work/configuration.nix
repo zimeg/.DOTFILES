@@ -28,6 +28,18 @@
       pkgs.nerd-fonts._0xproto # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/0xProto
     ];
   };
+  homebrew = {
+    enable = true; # https://github.com/Homebrew/brew
+    enableZshIntegration = true;
+    brews = [
+      "gnu-sed" # https://www.gnu.org/software/sed
+    ];
+    onActivation = {
+      autoUpdate = false;
+      cleanup = "none";
+      upgrade = false;
+    };
+  };
   nix = {
     enable = false; # https://github.com/zimeg/.DOTFILES/issues/28
   };
