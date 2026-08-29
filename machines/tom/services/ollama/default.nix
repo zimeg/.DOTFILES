@@ -5,7 +5,7 @@
     enable = true;
     loadModels = [ "gemma4:26b" ];
     package = pkgs.ollama-cuda;
-    models = "/etc/ollama/models";
+    modelsDir = "/etc/ollama/models";
     user = "ollama";
   };
 }
