@@ -2,11 +2,14 @@
 { config, pkgs, ... }:
 {
   services.hermes-agent = {
+    enable = true;
     addToSystemPackages = true;
+    group = "hermes";
+    user = "hermes";
+    workingDirectory = "/var/lib/hermes/workspace";
     documents = {
       "AGENTS.md" = ./AGENTS.md;
     };
-    enable = true;
     environmentFiles = [
       config.sops.secrets."hermes/env".path
     ];
@@ -18,7 +21,6 @@
       pkgs.jq # https://github.com/jqlang/jq
       pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
     ];
-    group = "hermes";
     hermesHomeFiles = {
       "SOUL.md" = ./SOUL.md;
     };
@@ -29,8 +31,6 @@
         provider = "custom";
       };
     };
-    user = "hermes";
-    workingDirectory = "/var/lib/hermes/workspace";
   };
   systemd.tmpfiles.rules = [
     "d /var/lib/hermes/.config 0700 hermes hermes -"
