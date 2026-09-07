@@ -202,7 +202,7 @@
     defaultSopsFormat = "yaml";
     age = {
       generateKey = false;
-      keyFile = "/var/lib/sops-nix/key.txt";
+      keyFile = "/persistent/var/lib/sops-nix/key.txt";
     };
     secrets = {
       "ai/credentials" = {
