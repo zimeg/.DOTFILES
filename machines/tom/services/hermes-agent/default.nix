@@ -35,11 +35,16 @@
   systemd.tmpfiles.rules = [
     "d /var/lib/hermes/.config 0700 hermes hermes -"
     "d /var/lib/hermes/.config/gh 0700 hermes hermes -"
+    "d /var/lib/hermes/.ssh 0700 hermes hermes -"
     "L+ /var/lib/hermes/.gitconfig - - - - ${./gitconfig}"
   ];
   systemd.services.hermes-agent.serviceConfig.ExecStartPre = [
     "${pkgs.coreutils}/bin/install -m 0600 ${
       config.sops.secrets."hermes/github".path
     } /var/lib/hermes/.config/gh/hosts.yml"
+    # Build allowed_signers so ssh-verified commits validate for this identity.
+    "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -m 0644 /dev/stdin /var/lib/hermes/.ssh/allowed_signers <<<\"tom@deorr.co $(${pkgs.coreutils}/bin/cat ${
+      config.sops.secrets."hermes/ssh/public".path
+    })\"'"
   ];
 }

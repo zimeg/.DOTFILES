@@ -313,11 +313,29 @@
         group = "slacks";
       };
       "hermes/env" = {
-        format = "dotenv";
+        format = "yaml";
         owner = "hermes";
         group = "hermes";
         key = "hermes-env";
-        sopsFile = ./services/hermes-agent/vault.env;
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/ssh/private" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/private";
+        path = "/var/lib/hermes/.ssh/id_ed25519";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/ssh/public" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/public";
+        path = "/var/lib/hermes/.ssh/id_ed25519.pub";
+        mode = "0644";
+        sopsFile = ./services/hermes-agent/vault.yaml;
       };
       "hermes/github" = {
         format = "binary";
