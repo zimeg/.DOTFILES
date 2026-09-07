@@ -328,12 +328,12 @@
         mode = "0600";
         sopsFile = ./services/hermes-agent/vault.yaml;
       };
-      "hermes/ssh/public" = {
+      "hermes/ssh/signers" = {
         format = "yaml";
         owner = "hermes";
         group = "hermes";
-        key = "ssh/public";
-        path = "/var/lib/hermes/.ssh/id_ed25519.pub";
+        key = "ssh/signers";
+        path = "/var/lib/hermes/.ssh/allowed_signers";
         mode = "0644";
         sopsFile = ./services/hermes-agent/vault.yaml;
       };
