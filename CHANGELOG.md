@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes`: respond in harness made to messenger gods with channels 2026-09-07
 - `ollama`: change option for directories of downloaded models kept 2026-08-28
 - `homebrew`: tap a gnu implementation for macos sed change package 2026-08-27
 - `codex`: add harness for testing plugin installations common used 2026-08-24

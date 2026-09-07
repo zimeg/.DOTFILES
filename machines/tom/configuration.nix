@@ -14,11 +14,6 @@
     };
   };
   nixpkgs.config = {
-    allowInsecurePredicate =
-      pkg:
-      builtins.elem (pkgs.lib.getName pkg) [
-        "openclaw"
-      ];
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
@@ -65,10 +60,10 @@
     ./security/sudo
     ./services/caddy
     ./services/github-runners
+    ./services/hermes-agent
     ./services/interception-tools
     ./services/minecraft-server
     ./services/ollama
-    ./services/openclaw-gateway
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
@@ -109,8 +104,8 @@
     directories = [
       "/etc/ollama/models"
       "/srv/minecraft/world"
+      "/var/lib/hermes"
       "/var/lib/nixos"
-      "/var/lib/openclaw"
       "/var/lib/slack"
       "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
@@ -177,7 +172,6 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
-        18789 # OpenClaw
         23231 # Soft Serve
         25565 # Minecraft
       ];
@@ -237,12 +231,6 @@
         owner = "minecraft";
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
-      };
-      "aws/iam/openclaw" = {
-        format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/restic/vault.openclaw.env;
       };
       "github/oauth" = {
         owner = config.users.users.default.name;
@@ -324,17 +312,19 @@
         owner = "slacks";
         group = "slacks";
       };
-      "openclaw/env" = {
+      "hermes/env" = {
         format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/openclaw-gateway/vault.env;
+        owner = "hermes";
+        group = "hermes";
+        key = "hermes-env";
+        sopsFile = ./services/hermes-agent/vault.env;
       };
-      "openclaw/ssh/private" = {
-        owner = "openclaw";
-        group = "openclaw";
-        key = "tom/ssh/private";
-        path = "/var/lib/openclaw/.ssh/id_ed25519";
+      "hermes/github" = {
+        format = "binary";
+        owner = "hermes";
+        group = "hermes";
+        key = "";
+        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
         owner = "git";
@@ -343,10 +333,6 @@
       "restic/minecraft" = {
         owner = "minecraft";
         group = "minecraft";
-      };
-      "restic/openclaw" = {
-        owner = "openclaw";
-        group = "openclaw";
       };
       "slack/snaek" = {
         format = "dotenv";
@@ -469,14 +455,14 @@
         isSystemUser = true;
         group = "git-coverage";
       };
+      hermes = {
+        isSystemUser = true;
+        group = "hermes";
+        home = "/var/lib/hermes";
+      };
       newsflash = {
         isSystemUser = true;
         group = "newsflash";
-      };
-      openclaw = {
-        isSystemUser = true;
-        group = "openclaw";
-        home = "/var/lib/openclaw";
       };
       proximity = {
         isSystemUser = true;
@@ -514,8 +500,8 @@
       etime = { };
       git = { };
       git-coverage = { };
+      hermes = { };
       newsflash = { };
-      openclaw = { };
       proximity = { };
       quintus = { };
       slacks = { };
