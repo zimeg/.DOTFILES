@@ -67,10 +67,6 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
-              "tom.o526.net" = {
-                email = "zim@o526.net";
-                group = "nginx";
-              };
               "o526.net" = {
                 email = "zim@o526.net";
                 group = "nginx";
