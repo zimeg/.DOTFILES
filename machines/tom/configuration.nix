@@ -351,6 +351,12 @@
         owner = "minecraft";
         group = "minecraft";
       };
+      "slack/begut" = {
+        format = "dotenv";
+        owner = "begut";
+        group = "begut";
+        sopsFile = ./systemd/services/slack/begut/vault.env;
+      };
       "slack/snaek" = {
         format = "dotenv";
         owner = "snaek";
@@ -444,6 +450,11 @@
           wireguard-tools # https://git.zx2c4.com/wireguard-tools
         ];
       };
+      begut = {
+        isSystemUser = true;
+        group = "begut";
+        home = "/var/cache/begut";
+      };
       blog = {
         isSystemUser = true;
         group = "blog";
@@ -510,6 +521,7 @@
       };
     };
     groups = {
+      begut = { };
       blog = { };
       coffee = { };
       dotfiles = { };
