@@ -26,10 +26,20 @@
     };
     settings = {
       model = {
-        base_url = "http://localhost:11434/v1";
-        default = "gemma4:26b";
-        provider = "custom";
+        default = "gpt-5.6-terra";
+        provider = "openai-api";
       };
+      fallback_providers = [
+        {
+          model = "claude-opus-4-8";
+          provider = "anthropic";
+        }
+        {
+          base_url = "http://localhost:11434/v1";
+          model = "gemma4:26b";
+          provider = "custom";
+        }
+      ];
     };
   };
   systemd.tmpfiles.rules = [
