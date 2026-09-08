@@ -48,9 +48,4 @@
     "d /var/lib/hermes/.ssh 0700 hermes hermes -"
     "L+ /var/lib/hermes/.gitconfig - - - - ${./gitconfig}"
   ];
-  systemd.services.hermes-agent.serviceConfig.ExecStartPre = [
-    "${pkgs.coreutils}/bin/install -m 0600 ${
-      config.sops.secrets."hermes/github".path
-    } /var/lib/hermes/.config/gh/hosts.yml"
-  ];
 }

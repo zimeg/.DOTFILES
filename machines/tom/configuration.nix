@@ -342,6 +342,8 @@
         owner = "hermes";
         group = "hermes";
         key = "";
+        path = "/var/lib/hermes/.config/gh/hosts.yml";
+        mode = "0600";
         sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
