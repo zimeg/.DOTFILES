@@ -341,7 +341,6 @@
         format = "binary";
         owner = "hermes";
         group = "hermes";
-        key = "";
         sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
