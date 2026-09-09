@@ -1,12 +1,18 @@
-# Placeholder only: replace every value and encrypt this file with sops before
-# applying the NixOS configuration.
 ssh:
-  hosts: |
-    git.o526.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxlLeOJd7FcHy7Ik0m6UFldUErX7o4o8ARgG5MUg5AY
-    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-    github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
-    github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
-  private: |
-    -----BEGIN OPENSSH PRIVATE KEY-----
-    CHANGE_ME
-    -----END OPENSSH PRIVATE KEY-----
+    hosts: ENC[AES256_GCM,data:xV6rbPatn+ZxeGAhyi1YnKEwQoakaNQtf9JdAYoOJFWaFf+qLCYujA8RS819WYdkYnc23XbGYNMM75m4ymvsNg/R6hWDDG4sHahNixiAA8LpLQD92NN5FxRNSvUIcrUokx4iLHpvNlVg+V7YYYJf75L60Lrul+eXT8UlncbU9XgU8LPvdoYuVkBAPcGhYSdqL6X6QIWy7yr7pIDYhlf0m5O2hgFFDQTezimACqToBOx2aMs7uAwi1dAiOqqMPKTTEU8s4FAAsIasz5he+j7nklFEBjnhBJXCs4S6r/0v+wrMpo0PhScsqLCS2NwkUUxEHzEnXdcU+/rQQjD6gO5riZL20GE4AUGVRxJOTF+D6FWiSeyEl7DmybCf3nVfUe/Gd3QP1oLxRuHxkImQgmdAmXX2skksiMguDDD+KLGeSRZuFDoi4HWUMYdkOL6HC7GmynWqQsytaijJra5yKyrAN1yYyEQ+R36/AMNF8xckcpmRnLsUGg+bVJLzNx1d/TyeRZsmgnrebyLv+csEOf3mPWh1m+BnP8cNmzcobxbMMLekZ/Mh+mJKF56Nor2DS+9ouiHqYvaYnD6czblcQWR1V+2zews7iy4SwLbtbcP2RpXFvVxBDA/+wXs8/rohk6SZXj39kjhxRMDXNwGv6ox3PL8x3POEw3R9d7G3/yIEXckEoE9vIyLf5s5zoDIVP/EawDOFcYDQ1cqpFFv+iq4rw4+k9smgV7CkTiEum+wsaFNH/yfC2FjwIWILYJrFXDc/+jDmvKwLjzDLO4f+mrOqfYzok5baYRaf161JICUsiq5RxIvJPHAhp2ppges7xLmCnZjsqIsAvBsS17gHxBi4rSMjGPe0C2udHShbY3Sra/kI5c5mbWvkYhoVkNa1O8Leokk1lz4oiOxTMLwy64hMgLSgv4LmcxCg7fF2wgmp18JV89gIjfbyUKgJoMDI2WBqTdeW951C+nJFGdgArwGw1u0fCEEacJSpGBh7zmPA+3ItO8cCrVPO6FCq+YH6FsFxR0ih4it8vQ9IT4vwkDzaec3fyTgJB3LVfaniuH8K2dsu/Zv/9M3IKA81lI8VbMTGA909OVH/nHxIFYMAPGGzXm+Ngidr8m9ABhDxcJynR0TRFoSs0OHux8c19rW9dexr3CmP/lwo6e1NXmR2XUXqnUuhXanY8sqAq3vsDwQUS8O+QxVH9CLDQaV3,iv:CQIyf+PKgkVvmWTrLOJinZ4cJRQeRo8hii8SKMKpvUA=,tag:F/bEzhd65B8HGyaLKujAtQ==,type:str]
+    private: ENC[AES256_GCM,data:8WokA9n9Tuq5474JxveRY5lNY7H/MR8KZQALoBBVgyeu2pBMyEnhXveR5UZCfMK7oSpvFHLre7wmVrSpCngKNqcM4Pur5WVh6tvUwohOsxzQ9A7NehivV8ziWbA0tx4wlhVUijobqN9GwHep0WYUAV6UT7HSqixGCf1erN23+IWIGiYqFxhszUfsrQGkQ0Nkn4VCuyb5JTDtkljeLcM1fpFS686URtuvyWjX++9narjo8dS0vGI15WIxUCyWY2S4j5V0nW9WirEOW3pnpkkE2g2SPywMgtmzn5F0L2rSCp6qc7l2CWd725oz79vW0yNn+NXUoNIoymWMcDCUPcFELabV6GsJ3r0wnOZq25jyUeRz0W3ygohPIgmzrbzfCBpAkUQtv7gfhgq9xsOdhAoJM4QXLP9mTTtv2hZjA+dKReVeBbYeRBepmABVsM4H6Tp0QEdDCqAFfOOibrzFxNENUFy5MsqijQfpumnScJYtpkBbjKmtJv3+jSEO+MJoYrWXPVO6,iv:nVfE9e5Q6gRepPhxgIEP9r2j4JGH9gW4Be0jxwct32A=,tag:6xO1oBMoZnTPeicKL8ei6g==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBMTDdGYzRCYVl4NFIxR2pO
+            bkxtUVJwb1VMQTRkWE5BZkl2WHlUUFVyRFZRCmw2cFV1QUEyaVFtUWY5ZkpEbGRr
+            am5SRWd2ZTY3ZHhPMUt2eExpTDFIakkKLS0tIFc2R3BrRDRidG9BSmVKT21ITm14
+            US9jdzhSenpIRmVxOXd5czFsenlnL1EKVIlk959FxgzI7muaqb4TEKYZ8vWMI1+b
+            +a/yLKmH3YfbCvPHGJbQ8hoEskdaXqM43p0liEMkRkMZYXULkWKdLA==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1dujf55uzev2nnpq6c2drn0e8pmpxay22qqfsavwaxqakwn9se5hsputgx4
+    lastmodified: "2026-09-09T06:40:28Z"
+    mac: ENC[AES256_GCM,data:U88bD7QMYxnj3tJ2WnS70nUSQUeQYmg4YqyTuzBqXCzMjFPJw+cj1FxQ5srOYlSC/RHk5JC4O+aLjFZoSctcnHOIIugdqjvgEGZPlOg/tB8vFpdx8owHiyJlyZT2wCTRPmhzSn21Wn+aQD4FRBCTgclpf36FfNdyLvTQQ8aIgHw=,iv:fF0SnG34Gd90MvBFjyErBhqOq9w+ta3RvznaKfPup3Q=,tag:hy3ouqLJrYmejI1M1E70Og==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.13.3
