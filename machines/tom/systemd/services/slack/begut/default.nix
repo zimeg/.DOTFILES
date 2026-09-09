@@ -17,8 +17,8 @@
         XDG_CACHE_HOME = "/var/cache/begut";
       };
       path = [
-        pkgs.git
-        pkgs.openssh
+        pkgs.git # https://git-scm.com
+        pkgs.openssh # https://github.com/openssh/openssh-portable
       ];
       serviceConfig = {
         CacheDirectory = "begut";
