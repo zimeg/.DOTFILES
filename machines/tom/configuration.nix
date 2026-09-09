@@ -351,7 +351,7 @@
         owner = "minecraft";
         group = "minecraft";
       };
-      "slack/begut" = {
+      "slack/begut/env" = {
         format = "dotenv";
         owner = "begut";
         group = "begut";

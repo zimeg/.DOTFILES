@@ -22,7 +22,7 @@
       ];
       serviceConfig = {
         CacheDirectory = "begut";
-        EnvironmentFile = config.sops.secrets."slack/begut".path;
+        EnvironmentFile = config.sops.secrets."slack/begut/env".path;
         ExecStart = "${pkgs.nix}/bin/nix run github:zimeg/slack-sandbox?dir=py.bolt.begut --refresh";
         LockPersonality = true;
         NoNewPrivileges = true;
