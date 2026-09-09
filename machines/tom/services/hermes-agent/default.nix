@@ -29,6 +29,9 @@
         default = "gpt-5.6-terra";
         provider = "openai-api";
       };
+      platforms.slack.extra = {
+        markdown_blocks = true;
+      };
       fallback_providers = [
         {
           model = "claude-opus-4-8";
