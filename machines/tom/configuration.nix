@@ -363,7 +363,6 @@
         owner = "begut";
         group = "begut";
         mode = "0600";
-        path = "/run/secrets/slack/begut-ssh-private";
         sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/begut/ssh/hosts" = {
@@ -372,7 +371,6 @@
         owner = "begut";
         group = "begut";
         mode = "0644";
-        path = "/run/secrets/slack/begut-ssh-hosts";
         sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {
