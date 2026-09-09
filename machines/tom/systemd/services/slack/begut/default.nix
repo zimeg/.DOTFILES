@@ -12,10 +12,11 @@
         "network-online.target"
       ];
       environment = {
+        GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets."slack/begut/ssh/private".path} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=${config.sops.secrets."slack/begut/ssh/known_hosts".path}";
         HOME = "/var/cache/begut";
         XDG_CACHE_HOME = "/var/cache/begut";
       };
-      path = [ pkgs.git ];
+      path = [ pkgs.git pkgs.openssh ];
       serviceConfig = {
         CacheDirectory = "begut";
         EnvironmentFile = config.sops.secrets."slack/begut".path;

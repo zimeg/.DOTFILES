@@ -1,0 +1,11 @@
+# Template only. Replace every value, then encrypt this file in place with sops.
+ssh:
+  private: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    CHANGE_ME
+    -----END OPENSSH PRIVATE KEY-----
+  known_hosts: |
+    # Pin the host keys for the Git SSH hosts used by WIKI_REMOTE_STAGING and
+    # WIKI_REMOTE_PRODUCTION. For GitHub, obtain these from GitHub's published
+    # SSH host keys rather than accepting a key on first use.
+    github.com CHANGE_ME
