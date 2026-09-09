@@ -364,7 +364,7 @@
         group = "begut";
         mode = "0600";
         path = "/run/secrets/slack/begut-ssh-private";
-        sopsFile = ./systemd/services/slack/begut/vault.yaml.example;
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/begut/ssh/known_hosts" = {
         format = "yaml";
@@ -373,7 +373,7 @@
         group = "begut";
         mode = "0644";
         path = "/run/secrets/slack/begut-ssh-known-hosts";
-        sopsFile = ./systemd/services/slack/begut/vault.yaml.example;
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {
         format = "dotenv";

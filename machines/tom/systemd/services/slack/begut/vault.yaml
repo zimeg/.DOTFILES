@@ -1,4 +1,5 @@
-# Template only. Replace every value, then encrypt this file in place with sops.
+# Placeholder only: replace every value and encrypt this file with sops before
+# applying the NixOS configuration.
 ssh:
   private: |
     -----BEGIN OPENSSH PRIVATE KEY-----
