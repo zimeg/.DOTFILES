@@ -15,6 +15,7 @@
         HOME = "/var/cache/begut";
         XDG_CACHE_HOME = "/var/cache/begut";
       };
+      path = [ pkgs.git ];
       serviceConfig = {
         CacheDirectory = "begut";
         EnvironmentFile = config.sops.secrets."slack/begut".path;
