@@ -357,20 +357,20 @@
         group = "begut";
         sopsFile = ./systemd/services/slack/begut/vault.env;
       };
-      "slack/begut/ssh/private" = {
-        format = "yaml";
-        key = "ssh/private";
-        owner = "begut";
-        group = "begut";
-        mode = "0600";
-        sopsFile = ./systemd/services/slack/begut/vault.yaml;
-      };
       "slack/begut/ssh/hosts" = {
         format = "yaml";
         key = "ssh/hosts";
         owner = "begut";
         group = "begut";
         mode = "0644";
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
+      };
+      "slack/begut/ssh/private" = {
+        format = "yaml";
+        key = "ssh/private";
+        owner = "begut";
+        group = "begut";
+        mode = "0600";
         sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {
