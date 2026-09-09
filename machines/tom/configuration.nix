@@ -366,13 +366,13 @@
         path = "/run/secrets/slack/begut-ssh-private";
         sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
-      "slack/begut/ssh/known_hosts" = {
+      "slack/begut/ssh/hosts" = {
         format = "yaml";
-        key = "ssh/known_hosts";
+        key = "ssh/hosts";
         owner = "begut";
         group = "begut";
         mode = "0644";
-        path = "/run/secrets/slack/begut-ssh-known-hosts";
+        path = "/run/secrets/slack/begut-ssh-hosts";
         sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {

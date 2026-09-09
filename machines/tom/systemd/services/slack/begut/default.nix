@@ -12,7 +12,7 @@
         "network-online.target"
       ];
       environment = {
-        GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets."slack/begut/ssh/private".path} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=${config.sops.secrets."slack/begut/ssh/known_hosts".path}";
+        GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets."slack/begut/ssh/private".path} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=${config.sops.secrets."slack/begut/ssh/hosts".path}";
         HOME = "/var/cache/begut";
         XDG_CACHE_HOME = "/var/cache/begut";
       };
