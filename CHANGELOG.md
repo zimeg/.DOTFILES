@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `ssh`: add personal git forge to known hosts before a connections 2026-09-09
 - `systemd`: restart begut applications at request of github runner 2026-09-09
 - `hermes`: respond in harness made to messenger gods with channels 2026-09-07
 - `sops`: read persistent unlockings to avoid out of order startups 2026-09-07
