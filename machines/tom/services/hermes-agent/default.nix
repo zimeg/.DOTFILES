@@ -40,6 +40,13 @@
           provider = "custom";
         }
       ];
+      # https://hermes-agent.nousresearch.com/docs/user-guide/messaging/slack
+      platforms.slack = {
+        extra = {
+          native_task_cards = true;
+          rich_blocks = true;
+        };
+      };
     };
   };
   systemd.tmpfiles.rules = [

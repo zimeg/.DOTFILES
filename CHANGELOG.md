@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes`: render native task card in thinking and rich block text 2026-09-10
 - `ssh`: add personal git forge to known hosts before a connections 2026-09-09
 - `systemd`: restart begut applications at request of github runner 2026-09-09
 - `hermes`: respond in harness made to messenger gods with channels 2026-09-07
