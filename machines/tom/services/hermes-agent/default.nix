@@ -29,11 +29,6 @@
         default = "gpt-5.6-terra";
         provider = "openai-api";
       };
-      platforms.slack = {
-        extra = {
-          rich_blocks = true;
-        };
-      };
       fallback_providers = [
         {
           model = "claude-opus-4-8";
@@ -45,6 +40,12 @@
           provider = "custom";
         }
       ];
+      platforms.slack = {
+        extra = {
+          native_task_cards = true;
+          rich_blocks = true;
+        };
+      };
     };
   };
   systemd.tmpfiles.rules = [
