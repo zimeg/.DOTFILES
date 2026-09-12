@@ -25,6 +25,9 @@
       "SOUL.md" = ./SOUL.md;
     };
     settings = {
+      browser = {
+        backend = "off";
+      };
       model = {
         default = "gpt-5.6-terra";
         provider = "openai-api";
