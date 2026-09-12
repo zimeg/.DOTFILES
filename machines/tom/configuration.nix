@@ -503,6 +503,7 @@
         isSystemUser = true;
         group = "hermes";
         home = "/var/lib/hermes";
+        linger = true;
       };
       newsflash = {
         isSystemUser = true;
