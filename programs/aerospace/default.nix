@@ -8,6 +8,7 @@
     };
     settings = {
       automatically-unhide-macos-hidden-apps = false;
+      config-version = 2;
       gaps = {
         outer = {
           top = 8;
@@ -77,6 +78,14 @@
           };
         };
       };
+      persistent-workspaces = [
+        "1"
+        "2"
+        "3"
+        "4"
+        "5"
+        "6"
+      ];
     };
   };
 }
