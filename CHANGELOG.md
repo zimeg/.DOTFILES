@@ -6,7 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `github-runners`: split dotfiles runner into zero and one 2026-09-15
+- `github-runners`: split tom dotfiles runner into new zero and one 2026-09-16
 - `changelog`: check for changelog entries for pull request updates 2026-09-15
 - `aerospace`: persist workspaces with latest configuration changes 2026-09-15
 - `systemd`: keep hermes user lingering for cronjob starup whenever 2026-09-12
