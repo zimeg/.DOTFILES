@@ -6,6 +6,19 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `changelog`: check for changelog entries for pull request updates 2026-09-15
+- `aerospace`: persist workspaces with latest configuration changes 2026-09-15
+- `systemd`: keep hermes user lingering for cronjob starup whenever 2026-09-12
+- `hermes`: render native task card in thinking and rich block text 2026-09-10
+- `ssh`: add personal git forge to known hosts before a connections 2026-09-09
+- `systemd`: restart begut applications at request of github runner 2026-09-09
+- `hermes`: respond in harness made to messenger gods with channels 2026-09-07
+- `sops`: read persistent unlockings to avoid out of order startups 2026-09-07
+- `ollama`: change option for directories of downloaded models kept 2026-08-28
+- `homebrew`: tap a gnu implementation for macos sed change package 2026-08-27
+- `codex`: add harness for testing plugin installations common used 2026-08-24
+- `nix`: remove packages from earlier evolutions after wating while 2026-08-22
+- `claude`: default to large context windows of a favored modelesqe 2026-08-14
 - `neovim`: stop highlighting tmux configurations without packaging 2026-08-08
 - `python`: pin the latest version according to constant pi numbers 2026-07-06
 - `recon`: reveal agentic sessions across panes with recon toolings 2026-06-24

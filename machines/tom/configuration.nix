@@ -4,6 +4,7 @@
   nix = {
     gc = {
       automatic = true;
+      options = "--delete-older-than 30d";
     };
     settings = {
       experimental-features = [
@@ -13,11 +14,6 @@
     };
   };
   nixpkgs.config = {
-    allowInsecurePredicate =
-      pkg:
-      builtins.elem (pkgs.lib.getName pkg) [
-        "openclaw"
-      ];
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
@@ -64,10 +60,10 @@
     ./security/sudo
     ./services/caddy
     ./services/github-runners
+    ./services/hermes-agent
     ./services/interception-tools
     ./services/minecraft-server
     ./services/ollama
-    ./services/openclaw-gateway
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
@@ -108,8 +104,8 @@
     directories = [
       "/etc/ollama/models"
       "/srv/minecraft/world"
+      "/var/lib/hermes"
       "/var/lib/nixos"
-      "/var/lib/openclaw"
       "/var/lib/slack"
       "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
@@ -176,7 +172,6 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
-        18789 # OpenClaw
         23231 # Soft Serve
         25565 # Minecraft
       ];
@@ -207,7 +202,7 @@
     defaultSopsFormat = "yaml";
     age = {
       generateKey = false;
-      keyFile = "/var/lib/sops-nix/key.txt";
+      keyFile = "/persistent/var/lib/sops-nix/key.txt";
     };
     secrets = {
       "ai/credentials" = {
@@ -236,12 +231,6 @@
         owner = "minecraft";
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
-      };
-      "aws/iam/openclaw" = {
-        format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/restic/vault.openclaw.env;
       };
       "github/oauth" = {
         owner = config.users.users.default.name;
@@ -331,17 +320,36 @@
         owner = "slacks";
         group = "slacks";
       };
-      "openclaw/env" = {
-        format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/openclaw-gateway/vault.env;
+      "hermes/env" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "hermes-env";
+        sopsFile = ./services/hermes-agent/vault.yaml;
       };
-      "openclaw/ssh/private" = {
-        owner = "openclaw";
-        group = "openclaw";
-        key = "tom/ssh/private";
-        path = "/var/lib/openclaw/.ssh/id_ed25519";
+      "hermes/ssh/private" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/private";
+        path = "/var/lib/hermes/.ssh/id_ed25519";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/ssh/signers" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/signers";
+        path = "/var/lib/hermes/.ssh/allowed_signers";
+        mode = "0644";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/github" = {
+        format = "binary";
+        owner = "hermes";
+        group = "hermes";
+        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
         owner = "git";
@@ -351,9 +359,27 @@
         owner = "minecraft";
         group = "minecraft";
       };
-      "restic/openclaw" = {
-        owner = "openclaw";
-        group = "openclaw";
+      "slack/begut/env" = {
+        format = "dotenv";
+        owner = "begut";
+        group = "begut";
+        sopsFile = ./systemd/services/slack/begut/vault.env;
+      };
+      "slack/begut/ssh/hosts" = {
+        format = "yaml";
+        key = "ssh/hosts";
+        owner = "begut";
+        group = "begut";
+        mode = "0644";
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
+      };
+      "slack/begut/ssh/private" = {
+        format = "yaml";
+        key = "ssh/private";
+        owner = "begut";
+        group = "begut";
+        mode = "0600";
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {
         format = "dotenv";
@@ -448,6 +474,11 @@
           wireguard-tools # https://git.zx2c4.com/wireguard-tools
         ];
       };
+      begut = {
+        isSystemUser = true;
+        group = "begut";
+        home = "/var/cache/begut";
+      };
       blog = {
         isSystemUser = true;
         group = "blog";
@@ -476,14 +507,15 @@
         isSystemUser = true;
         group = "git-coverage";
       };
+      hermes = {
+        isSystemUser = true;
+        group = "hermes";
+        home = "/var/lib/hermes";
+        linger = true;
+      };
       newsflash = {
         isSystemUser = true;
         group = "newsflash";
-      };
-      openclaw = {
-        isSystemUser = true;
-        group = "openclaw";
-        home = "/var/lib/openclaw";
       };
       proximity = {
         isSystemUser = true;
@@ -514,6 +546,7 @@
       };
     };
     groups = {
+      begut = { };
       blog = { };
       coffee = { };
       dotfiles = { };
@@ -521,8 +554,8 @@
       etime = { };
       git = { };
       git-coverage = { };
+      hermes = { };
       newsflash = { };
-      openclaw = { };
       proximity = { };
       quintus = { };
       slacks = { };

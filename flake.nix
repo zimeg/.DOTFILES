@@ -5,6 +5,10 @@
       url = "github:zimeg/git-coverage";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,10 +22,6 @@
     };
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-openclaw = {
-      url = "github:openclaw/nix-openclaw";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs = {
@@ -163,9 +163,9 @@
           modules = [
             nur.modules.nixos.default
             ./machines/tom/configuration.nix
+            inputs.hermes-agent.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             inputs.impermanence.nixosModules.impermanence
-            inputs.nix-openclaw.nixosModules.openclaw-gateway
             inputs.sops-nix.nixosModules.sops
             {
               home-manager = {
