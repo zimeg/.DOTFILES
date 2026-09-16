@@ -46,7 +46,6 @@
           extra = {
             allow_bots = "mentions";
             api_human_users = [
-              "B0B61CL1X60"
               "U0B5VN22WHL"
             ];
             native_task_cards = true;
