@@ -6,7 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `ci`: require changelog entries for pull request updates 2026-09-15
+- `changelog`: check for changelog entries for pull request updates 2026-09-15
 - `systemd`: keep hermes user lingering for cronjob starup whenever 2026-09-12
 - `hermes`: render native task card in thinking and rich block text 2026-09-10
 - `ssh`: add personal git forge to known hosts before a connections 2026-09-09
