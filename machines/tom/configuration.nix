@@ -244,7 +244,11 @@
         owner = "coffee";
         group = "coffee";
       };
-      "github/runners/dotfiles" = {
+      "github/runners/dotfiles/zero" = {
+        owner = "dotfiles";
+        group = "dotfiles";
+      };
+      "github/runners/dotfiles/one" = {
         owner = "dotfiles";
         group = "dotfiles";
       };
