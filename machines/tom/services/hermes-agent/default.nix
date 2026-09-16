@@ -41,10 +41,17 @@
         }
       ];
       # https://hermes-agent.nousresearch.com/docs/user-guide/messaging/slack
-      platforms.slack = {
-        extra = {
-          native_task_cards = true;
-          rich_blocks = true;
+      platforms = {
+        slack = {
+          extra = {
+            allow_bots = "mentions";
+            api_human_users = [
+              "B0B61CL1X60"
+              "U0B5VN22WHL"
+            ];
+            native_task_cards = true;
+            rich_blocks = true;
+          };
         };
       };
     };
