@@ -244,16 +244,16 @@
         owner = "coffee";
         group = "coffee";
       };
-      "github/runners/dotfiles/one" = {
-        owner = "dotfiles";
-        group = "dotfiles";
-        key = "one";
-        sopsFile = ./secrets/github-runners-dotfiles.yaml;
-      };
       "github/runners/dotfiles/zero" = {
         owner = "dotfiles";
         group = "dotfiles";
         key = "zero";
+        sopsFile = ./secrets/github-runners-dotfiles.yaml;
+      };
+      "github/runners/dotfiles/one" = {
+        owner = "dotfiles";
+        group = "dotfiles";
+        key = "one";
         sopsFile = ./secrets/github-runners-dotfiles.yaml;
       };
       "github/runners/endpoints" = {

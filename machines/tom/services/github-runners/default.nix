@@ -25,23 +25,6 @@
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
-    dotfiles-one = {
-      enable = true;
-      ephemeral = true;
-      extraLabels = [
-        "tom"
-      ];
-      extraPackages = [
-        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
-        pkgs.gh # https://github.com/cli/cli
-      ];
-      group = "dotfiles";
-      name = "one";
-      replace = true;
-      tokenFile = "/run/secrets/github/runners/dotfiles/one";
-      url = "https://github.com/zimeg/.DOTFILES";
-      user = "dotfiles";
-    };
     dotfiles-zero = {
       enable = true;
       ephemeral = true;
@@ -56,6 +39,23 @@
       name = "zero";
       replace = true;
       tokenFile = "/run/secrets/github/runners/dotfiles/zero";
+      url = "https://github.com/zimeg/.DOTFILES";
+      user = "dotfiles";
+    };
+    dotfiles-one = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "dotfiles";
+      name = "one";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/dotfiles/one";
       url = "https://github.com/zimeg/.DOTFILES";
       user = "dotfiles";
     };
