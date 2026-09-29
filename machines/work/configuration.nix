@@ -17,6 +17,7 @@
       pkgs.claude-code # https://github.com/anthropics/claude-code
       pkgs.codex # https://github.com/openai/codex
       pkgs.google-cloud-sdk # https://github.com/GoogleCloudPlatform/cloud-sdk-docker
+      pkgs.maven # https://github.com/apache/maven
       pkgs.ngrok # https://github.com/ngrok/ngrok
       pkgs.pinact # https://github.com/suzuki-shunsuke/pinact
       pkgs.vhs # https://github.com/charmbracelet/vhs
