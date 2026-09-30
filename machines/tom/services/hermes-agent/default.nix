@@ -26,12 +26,12 @@
     };
     settings = {
       model = {
-        default = "gpt-5.6-terra";
+        default = "gpt-6.1-sol";
         provider = "openai-api";
       };
       fallback_providers = [
         {
-          model = "claude-opus-4-8";
+          model = "claude-opus-5-5";
           provider = "anthropic";
         }
         {
@@ -56,6 +56,8 @@
     "L+ /var/lib/hermes/.gitconfig - - - - ${./gitconfig}"
   ];
   systemd.services.hermes-agent.serviceConfig.ExecStartPre = [
-    "${pkgs.coreutils}/bin/install -m 0600 ${config.sops.secrets."hermes/github".path} /var/lib/hermes/.config/gh/hosts.yml"
+    "${pkgs.coreutils}/bin/install -m 0600 ${
+      config.sops.secrets."hermes/github".path
+    } /var/lib/hermes/.config/gh/hosts.yml"
   ];
 }

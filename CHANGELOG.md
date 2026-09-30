@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
 - `maven`: keep build tools for java projects available for working 2026-09-29
 - `github-runners`: split tom dotfiles runner into new zero and one 2026-09-15
