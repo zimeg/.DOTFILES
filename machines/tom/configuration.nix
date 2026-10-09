@@ -175,6 +175,14 @@
         23231 # Soft Serve
         25565 # Minecraft
       ];
+      interfaces = {
+        wg0 = {
+          allowedTCPPorts = [
+            8084 # Coffee production
+            8085 # Coffee development (manually started on TOM)
+          ];
+        };
+      };
       allowedUDPPorts = [
         123 # NTP
         51820 # Wireguard
@@ -483,6 +491,10 @@
         isSystemUser = true;
         group = "coffee";
       };
+      coffee-production = {
+        isSystemUser = true;
+        group = "coffee-production";
+      };
       dotfiles = {
         isSystemUser = true;
         group = "dotfiles";
@@ -545,6 +557,7 @@
       begut = { };
       blog = { };
       coffee = { };
+      coffee-production = { };
       dotfiles = { };
       endpoints = { };
       etime = { };

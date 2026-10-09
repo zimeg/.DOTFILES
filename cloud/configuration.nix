@@ -4,13 +4,8 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # Enable each route only after its app, credentials and DNS cutover are ready.
-      coffee = {
-        production = false;
-        staging = false;
-      };
       configurations =
-        { config, lib, ... }:
+        { config, ... }:
         {
           system = {
             stateVersion = "25.11";
@@ -68,7 +63,7 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
-              "dev.maintainers.coffee" = lib.mkIf coffee.staging {
+              "dev.maintainers.coffee" = {
                 email = "zim@o526.net";
                 group = "nginx";
               };
@@ -76,7 +71,7 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
-              "maintainers.coffee" = lib.mkIf coffee.production {
+              "maintainers.coffee" = {
                 email = "zim@o526.net";
                 group = "nginx";
               };
@@ -130,7 +125,7 @@
                   proxyWebsockets = false;
                 };
               };
-              "dev.maintainers.coffee" = lib.mkIf coffee.staging {
+              "dev.maintainers.coffee" = {
                 enableACME = true;
                 forceSSL = true;
                 locations."/" = {
@@ -146,7 +141,7 @@
                   proxyWebsockets = true;
                 };
               };
-              "maintainers.coffee" = lib.mkIf coffee.production {
+              "maintainers.coffee" = {
                 enableACME = true;
                 forceSSL = true;
                 locations."/" = {
