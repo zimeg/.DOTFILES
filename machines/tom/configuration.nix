@@ -172,6 +172,8 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
+        8084 # Coffee production
+        8085 # Coffee development
         23231 # Soft Serve
         25565 # Minecraft
       ];
