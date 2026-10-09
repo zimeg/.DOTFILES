@@ -25,7 +25,7 @@
         CacheDirectoryMode = "0700";
         EnvironmentFile = "/run/secrets/coffee/production/env";
         ExecStart = "${pkgs.nix}/bin/nix run github:maintainersdotcoffee/shop --refresh";
-        Group = "coffee-production";
+        Group = "coffee";
         LockPersonality = true;
         NoNewPrivileges = true;
         PrivateDevices = true;
@@ -44,7 +44,7 @@
         RestrictSUIDSGID = true;
         SystemCallArchitectures = "native";
         UMask = "0077";
-        User = "coffee-production";
+        User = "coffee";
       };
     };
   };
