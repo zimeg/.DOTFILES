@@ -4,10 +4,14 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      # Enable each route only after its app, credentials and DNS cutover are ready.
+      coffee = {
+        production = false;
+        staging = false;
+      };
       configurations =
-        { config, ... }:
+        { config, lib, ... }:
         {
-          imports = [ ./coffee.nix ];
           system = {
             stateVersion = "25.11";
           };
@@ -64,7 +68,15 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
+              "dev.maintainers.coffee" = lib.mkIf coffee.staging {
+                email = "zim@o526.net";
+                group = "nginx";
+              };
               "dev.o526.net" = {
+                email = "zim@o526.net";
+                group = "nginx";
+              };
+              "maintainers.coffee" = lib.mkIf coffee.production {
                 email = "zim@o526.net";
                 group = "nginx";
               };
@@ -118,12 +130,28 @@
                   proxyWebsockets = false;
                 };
               };
+              "dev.maintainers.coffee" = lib.mkIf coffee.staging {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:8085";
+                  proxyWebsockets = false;
+                };
+              };
               "dev.o526.net" = {
                 enableACME = true;
                 forceSSL = true;
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:3000";
                   proxyWebsockets = true;
+                };
+              };
+              "maintainers.coffee" = lib.mkIf coffee.production {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:8084";
+                  proxyWebsockets = false;
                 };
               };
               "o526.net" = {
