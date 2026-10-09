@@ -64,7 +64,7 @@
                 group = "nginx";
               };
               "dev.maintainers.coffee" = {
-                email = "zim@o526.net";
+                email = "hello@maintainers.coffee";
                 group = "nginx";
               };
               "dev.o526.net" = {
@@ -72,7 +72,7 @@
                 group = "nginx";
               };
               "maintainers.coffee" = {
-                email = "zim@o526.net";
+                email = "hello@maintainers.coffee";
                 group = "nginx";
               };
               "o526.net" = {
