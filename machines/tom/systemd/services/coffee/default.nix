@@ -14,14 +14,14 @@
       environment = {
         APP_ENV = "production";
         APP_ORIGIN = "https://maintainers.coffee";
-        HOME = "/var/cache/coffee-production";
+        HOME = "/var/cache/coffee";
         HOST = "10.100.0.2";
         NODE_ENV = "production";
         PORT = "8084";
-        XDG_CACHE_HOME = "/var/cache/coffee-production";
+        XDG_CACHE_HOME = "/var/cache/coffee";
       };
       serviceConfig = {
-        CacheDirectory = "coffee-production";
+        CacheDirectory = "coffee";
         CacheDirectoryMode = "0700";
         EnvironmentFile = "/run/secrets/coffee/production/env";
         ExecStart = "${pkgs.nix}/bin/nix run github:maintainersdotcoffee/shop --refresh";
