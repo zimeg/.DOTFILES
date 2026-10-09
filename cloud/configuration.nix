@@ -7,6 +7,7 @@
       configurations =
         { config, ... }:
         {
+          imports = [ ./coffee.nix ];
           system = {
             stateVersion = "25.11";
           };

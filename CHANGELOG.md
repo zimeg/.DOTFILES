@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: prepare isolated staging and production behind proxy 2026-10-08
 - `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
 - `maven`: keep build tools for java projects available for working 2026-09-29
