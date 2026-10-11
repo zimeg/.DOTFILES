@@ -4,7 +4,7 @@ polkit.addRule(function(action, subject) {
     if (subject.user == "blog" && (unit == "blog.service" || unit == "blog:preview.service")) {
       return polkit.Result.YES;
     }
-    if (subject.user == "coffee" && unit == "coffee.service" && action.lookup("verb") == "restart") {
+    if (subject.user == "coffee" && unit == "coffee.service") {
       return polkit.Result.YES;
     }
     if (subject.user == "endpoints" && unit == "endpoints.service") {
