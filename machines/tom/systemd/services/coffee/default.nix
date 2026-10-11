@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   systemd.services = {
-    "coffee-production" = {
+    "coffee" = {
       documentation = [ "https://github.com/maintainersdotcoffee/shop" ];
       wants = [ "network-online.target" ];
       after = [
