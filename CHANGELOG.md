@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: let the tom runner restart the production app on release 2026-10-11
 - `coffee`: host production and route manual development on TOM 2026-10-08
 - `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
