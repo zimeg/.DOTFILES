@@ -104,12 +104,6 @@
     directories = [
       "/etc/ollama/models"
       "/srv/minecraft/world"
-      {
-        directory = "/var/lib/coffee";
-        user = "coffee";
-        group = "coffee";
-        mode = "0700";
-      }
       "/var/lib/hermes"
       "/var/lib/nixos"
       "/var/lib/slack"
