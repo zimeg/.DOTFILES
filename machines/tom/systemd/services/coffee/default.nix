@@ -1,5 +1,5 @@
 # https://github.com/maintainersdotcoffee/shop
-{ ... }:
+{ pkgs, ... }:
 {
   systemd.services = {
     "coffee" = {
@@ -23,7 +23,7 @@
       serviceConfig = {
         CacheDirectory = "coffee";
         CacheDirectoryMode = "0700";
-        ExecStart = "/var/lib/coffee/current/bin/maintainers.coffee";
+        ExecStart = "${pkgs.nix}/bin/nix run github:maintainersdotcoffee/shop# --refresh";
         Group = "coffee";
         LockPersonality = true;
         NoNewPrivileges = true;
@@ -41,8 +41,6 @@
         RestartSec = 120;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
-        StateDirectory = "coffee";
-        StateDirectoryMode = "0700";
         SystemCallArchitectures = "native";
         UMask = "0077";
         User = "coffee";
