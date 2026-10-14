@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: point public shop and development DNS at the proxy 2026-10-12
 - `coffee`: activate immutable release packages from persisted state 2026-10-11
 - `coffee`: let the tom runner restart the production app on release 2026-10-11
 - `coffee`: host production and route manual development on TOM 2026-10-08
