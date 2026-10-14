@@ -303,7 +303,7 @@ resource "aws_route53_record" "api" {
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "coffee_dev" {
+resource "aws_route53_record" "beans" {
   name    = "dev.maintainers.coffee"
   type    = "A"
   zone_id = var.proxy_hosted_zones["maintainers.coffee"]
