@@ -15,7 +15,6 @@
       url = "https://github.com/zimeg/blog";
       user = "blog";
     };
-    # Future application secrets must stay separate from the runner token.
     coffee = {
       enable = true;
       ephemeral = true;
