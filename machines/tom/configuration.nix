@@ -73,6 +73,7 @@
     ./services/sddm
     ./services/soft-serve
     ./services/tailscale
+    ./services/tinyproxy
     ./services/xserver
     ./systemd/services
     ./systemd/targets
