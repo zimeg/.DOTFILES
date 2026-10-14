@@ -451,6 +451,17 @@
         path = "/run/secrets/wg.key";
       };
     };
+    templates = {
+      "coffee" = {
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee"}
+        '';
+        group = "coffee";
+        mode = "0400";
+        owner = "coffee";
+        restartUnits = [ "coffee.service" ];
+      };
+    };
   };
   time = {
     timeZone = "America/Los_Angeles";

@@ -1,19 +1,6 @@
 # https://github.com/maintainersdotcoffee/shop
 { config, pkgs, ... }:
 {
-  sops = {
-    templates = {
-      "coffee-nix" = {
-        content = ''
-          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee"}
-        '';
-        group = "coffee";
-        mode = "0400";
-        owner = "coffee";
-        restartUnits = [ "coffee.service" ];
-      };
-    };
-  };
   systemd.services = {
     "coffee" = {
       documentation = [ "https://github.com/maintainersdotcoffee/shop" ];
@@ -29,7 +16,7 @@
         APP_ORIGIN = "https://maintainers.coffee";
         HOME = "/var/cache/coffee";
         HOST = "10.100.0.2";
-        NIX_USER_CONF_FILES = config.sops.templates."coffee-nix".path;
+        NIX_USER_CONF_FILES = config.sops.templates."coffee".path;
         NODE_ENV = "production";
         PORT = "8084";
         XDG_CACHE_HOME = "/var/cache/coffee";
