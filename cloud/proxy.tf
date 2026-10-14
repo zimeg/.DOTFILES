@@ -303,15 +303,6 @@ resource "aws_route53_record" "api" {
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "coffee" {
-  name    = "maintainers.coffee"
-  type    = "A"
-  zone_id = var.proxy_hosted_zones["maintainers.coffee"]
-  ttl     = 300
-  records = [aws_eip.redirect.public_ip]
-}
-
-# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "coffee_dev" {
   name    = "dev.maintainers.coffee"
   type    = "A"
@@ -334,6 +325,15 @@ resource "aws_route53_record" "git" {
   name    = "git.o526.net"
   type    = "A"
   zone_id = var.proxy_hosted_zones["o526.net"]
+  ttl     = 300
+  records = [aws_eip.redirect.public_ip]
+}
+
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "coffee" {
+  name    = "maintainers.coffee"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["maintainers.coffee"]
   ttl     = 300
   records = [aws_eip.redirect.public_ip]
 }
