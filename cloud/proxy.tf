@@ -302,17 +302,11 @@ resource "aws_route53_record" "api" {
   records = [aws_eip.redirect.public_ip]
 }
 
-# The shop state retains the existing hosted zone and mail records.
-data "aws_route53_zone" "coffee" {
-  name         = "maintainers.coffee"
-  private_zone = false
-}
-
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "coffee" {
   name    = "maintainers.coffee"
   type    = "A"
-  zone_id = data.aws_route53_zone.coffee.zone_id
+  zone_id = var.proxy_hosted_zones["maintainers.coffee"]
   ttl     = 300
   records = [aws_eip.redirect.public_ip]
 }
@@ -321,7 +315,7 @@ resource "aws_route53_record" "coffee" {
 resource "aws_route53_record" "coffee_dev" {
   name    = "dev.maintainers.coffee"
   type    = "A"
-  zone_id = data.aws_route53_zone.coffee.zone_id
+  zone_id = var.proxy_hosted_zones["maintainers.coffee"]
   ttl     = 300
   records = [aws_eip.redirect.public_ip]
 }
