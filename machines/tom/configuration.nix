@@ -103,7 +103,8 @@
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
-      "/srv/minecraft/world"
+      # World upgrades rename directories beside world, so persist their parent.
+      "/srv/minecraft"
       "/var/lib/hermes"
       "/var/lib/nixos"
       "/var/lib/slack"
