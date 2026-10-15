@@ -18,6 +18,9 @@
     coffee = {
       enable = true;
       ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
       group = "coffee";
       name = "tom";
       replace = true;

@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: self host service to serve order on our machine made so 2026-10-14
 - `sops`: rotate a removed token with access to late token provider 2026-10-14
 - `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
