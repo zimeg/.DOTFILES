@@ -103,7 +103,7 @@
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
-      "/srv/minecraft/world"
+      "/srv/minecraft"
       "/var/lib/hermes"
       "/var/lib/nixos"
       "/var/lib/slack"
