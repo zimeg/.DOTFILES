@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: rotate a removed token with access to late token provider 2026-10-14
 - `coffee`: reuse the runner credential for private source reads 2026-10-13
 - `coffee`: point public shop and development DNS at the proxy 2026-10-13
 - `coffee`: activate immutable release packages from persisted state 2026-10-11
