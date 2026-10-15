@@ -6,12 +6,8 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: self host service to serve order on our machine made so 2026-10-14
 - `sops`: rotate a removed token with access to late token provider 2026-10-14
-- `coffee`: reuse the runner credential for private source reads 2026-10-13
-- `coffee`: point public shop and development DNS at the proxy 2026-10-13
-- `coffee`: activate immutable release packages from persisted state 2026-10-11
-- `coffee`: let the tom runner restart the production app on release 2026-10-11
-- `coffee`: host production and route manual development on TOM 2026-10-08
 - `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
 - `maven`: keep build tools for java projects available for working 2026-09-29
