@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes`: add claude code to the service path for delegated codes 2026-10-15
 - `minecraft`: persist server directories for atomic world upgrades 2026-10-15
 - `coffee`: self host service to serve order on our machine made so 2026-10-14
 - `sops`: rotate a removed token with access to late token provider 2026-10-14
