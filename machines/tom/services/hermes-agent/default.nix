@@ -14,6 +14,7 @@
       config.sops.secrets."hermes/env".path
     ];
     extraPackages = [
+      pkgs.claude-code # https://github.com/anthropics/claude-code
       pkgs.curl # https://github.com/curl/curl
       pkgs.fd # https://github.com/sharkdp/fd
       pkgs.gh # https://github.com/cli/cli

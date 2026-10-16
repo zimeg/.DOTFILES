@@ -17,6 +17,7 @@
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
+        "claude-code"
         "cuda_cccl"
         "cuda_cudart"
         "cuda_cuobjdump"
