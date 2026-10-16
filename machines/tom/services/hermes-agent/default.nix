@@ -79,6 +79,7 @@
         "network.target"
       ];
       bindsTo = [ "hermes-browser-access.service" ];
+      partOf = [ "hermes-browser-access.service" ];
       wantedBy = [ "multi-user.target" ];
       environment = {
         HOME = "/var/lib/hermes";
@@ -95,11 +96,13 @@
     hermes-browser-access = {
       description = "Restrict Hermes browser CDP to its service user";
       after = [ "firewall.service" ];
+      # Match both source and destination ports: untrusted clients must not
+      # connect, and an untrusted process binding 9222 must not impersonate CDP.
       # Keep this OUTPUT rule outside firewall reload hooks: those temporarily
       # remove extraStopCommands rules while the browser remains running.
       serviceConfig = {
-        ExecStart = "${config.networking.firewall.package}/bin/iptables -w -I OUTPUT -o lo -d 127.0.0.1 -p tcp --dport 9222 -m owner ! --uid-owner hermes -j REJECT";
-        ExecStop = "${config.networking.firewall.package}/bin/iptables -w -D OUTPUT -o lo -d 127.0.0.1 -p tcp --dport 9222 -m owner ! --uid-owner hermes -j REJECT";
+        ExecStart = "${config.networking.firewall.package}/bin/iptables -w -I OUTPUT -o lo -p tcp -m multiport --ports 9222 -m owner ! --uid-owner hermes -j REJECT";
+        ExecStop = "${config.networking.firewall.package}/bin/iptables -w -D OUTPUT -o lo -p tcp -m multiport --ports 9222 -m owner ! --uid-owner hermes -j REJECT";
         RemainAfterExit = true;
         Type = "oneshot";
         User = "root";
