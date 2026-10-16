@@ -235,6 +235,14 @@
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
       };
+      "coffee/env" = {
+        format = "dotenv";
+        owner = "coffee";
+        group = "coffee";
+        mode = "0400";
+        restartUnits = [ "coffee.service" ];
+        sopsFile = ./systemd/services/coffee/vault.env;
+      };
       "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";

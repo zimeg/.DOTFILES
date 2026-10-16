@@ -24,6 +24,7 @@
       serviceConfig = {
         CacheDirectory = "coffee";
         CacheDirectoryMode = "0700";
+        EnvironmentFile = config.sops.secrets."coffee/env".path;
         ExecStart = "${pkgs.nix}/bin/nix run github:maintainersdotcoffee/shop# --refresh";
         Group = "coffee";
         LockPersonality = true;

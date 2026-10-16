@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: load production environment variable from a secret sops 2026-10-15
 - `hermes`: add claude code to the service path for delegated codes 2026-10-15
 - `minecraft`: persist server directories for atomic world upgrades 2026-10-15
 - `coffee`: self host service to serve order on our machine made so 2026-10-14
