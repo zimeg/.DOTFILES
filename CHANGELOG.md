@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: send notifications to channels after order process done 2026-10-25
 - `coffee`: unlock database variable for external storage of detail 2026-10-23
 - `coffee`: include secrets for api interactions with stripe setups 2026-10-17
 - `coffee`: update credential bearing secrets for login after loads 2026-10-16
