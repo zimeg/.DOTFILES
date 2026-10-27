@@ -255,6 +255,31 @@
         owner = "coffee";
         group = "coffee";
       };
+      "github/runners/coffee-americano" = {
+        owner = "coffee";
+        group = "coffee";
+        key = "github/runners/coffee";
+      };
+      "github/runners/coffee-cappuccino" = {
+        owner = "coffee";
+        group = "coffee";
+        key = "github/runners/coffee";
+      };
+      "github/runners/coffee-cortado" = {
+        owner = "coffee";
+        group = "coffee";
+        key = "github/runners/coffee";
+      };
+      "github/runners/coffee-espresso" = {
+        owner = "coffee";
+        group = "coffee";
+        key = "github/runners/coffee";
+      };
+      "github/runners/coffee-latte" = {
+        owner = "coffee";
+        group = "coffee";
+        key = "github/runners/coffee";
+      };
       "github/runners/dotfiles/zero" = {
         owner = "dotfiles";
         group = "dotfiles";

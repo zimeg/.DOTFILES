@@ -28,6 +28,71 @@
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
+    coffee-americano = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      group = "coffee";
+      name = "americano";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee-americano";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-cappuccino = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      group = "coffee";
+      name = "cappuccino";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee-cappuccino";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-cortado = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      group = "coffee";
+      name = "cortado";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee-cortado";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-espresso = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      group = "coffee";
+      name = "espresso";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee-espresso";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-latte = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      group = "coffee";
+      name = "latte";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee-latte";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
     dotfiles-zero = {
       enable = true;
       ephemeral = true;
