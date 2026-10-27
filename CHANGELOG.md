@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `sops`: rotate ordering machine github token workflow credentials 2026-10-27
 - `github-runners`: expand coffee servings for six concurrent slots 2026-10-26
 - `coffee`: keep track of credentials for sending a email messaging 2026-10-25
 - `coffee`: send notifications to channels after order process done 2026-10-25
