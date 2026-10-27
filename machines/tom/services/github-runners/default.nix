@@ -21,6 +21,9 @@
       extraLabels = [
         "tom"
       ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "coffee";
       name = "affogato";
       replace = true;
@@ -33,6 +36,9 @@
       ephemeral = true;
       extraLabels = [
         "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
       ];
       group = "coffee";
       name = "americano";
@@ -47,6 +53,9 @@
       extraLabels = [
         "tom"
       ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "coffee";
       name = "cappuccino";
       replace = true;
@@ -59,6 +68,9 @@
       ephemeral = true;
       extraLabels = [
         "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
       ];
       group = "coffee";
       name = "cortado";
@@ -73,6 +85,9 @@
       extraLabels = [
         "tom"
       ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "coffee";
       name = "espresso";
       replace = true;
@@ -85,6 +100,9 @@
       ephemeral = true;
       extraLabels = [
         "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
       ];
       group = "coffee";
       name = "latte";
