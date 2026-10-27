@@ -15,16 +15,16 @@
       url = "https://github.com/zimeg/blog";
       user = "blog";
     };
-    coffee = {
+    coffee-affogato = {
       enable = true;
       ephemeral = true;
       extraLabels = [
         "tom"
       ];
       group = "coffee";
-      name = "tom";
+      name = "affogato";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee";
+      tokenFile = "/run/secrets/github/runners/coffee/affogato";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
@@ -37,7 +37,7 @@
       group = "coffee";
       name = "americano";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee-americano";
+      tokenFile = "/run/secrets/github/runners/coffee/americano";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
@@ -50,7 +50,7 @@
       group = "coffee";
       name = "cappuccino";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee-cappuccino";
+      tokenFile = "/run/secrets/github/runners/coffee/cappuccino";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
@@ -63,7 +63,7 @@
       group = "coffee";
       name = "cortado";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee-cortado";
+      tokenFile = "/run/secrets/github/runners/coffee/cortado";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
@@ -76,7 +76,7 @@
       group = "coffee";
       name = "espresso";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee-espresso";
+      tokenFile = "/run/secrets/github/runners/coffee/espresso";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
@@ -89,7 +89,7 @@
       group = "coffee";
       name = "latte";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee-latte";
+      tokenFile = "/run/secrets/github/runners/coffee/latte";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };

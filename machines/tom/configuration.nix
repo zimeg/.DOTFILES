@@ -251,34 +251,29 @@
         owner = "blog";
         group = "blog";
       };
-      "github/runners/coffee" = {
+      "github/runners/coffee/affogato" = {
         owner = "coffee";
         group = "coffee";
       };
-      "github/runners/coffee-americano" = {
+      "github/runners/coffee/americano" = {
         owner = "coffee";
         group = "coffee";
-        key = "github/runners/coffee";
       };
-      "github/runners/coffee-cappuccino" = {
+      "github/runners/coffee/cappuccino" = {
         owner = "coffee";
         group = "coffee";
-        key = "github/runners/coffee";
       };
-      "github/runners/coffee-cortado" = {
+      "github/runners/coffee/cortado" = {
         owner = "coffee";
         group = "coffee";
-        key = "github/runners/coffee";
       };
-      "github/runners/coffee-espresso" = {
+      "github/runners/coffee/espresso" = {
         owner = "coffee";
         group = "coffee";
-        key = "github/runners/coffee";
       };
-      "github/runners/coffee-latte" = {
+      "github/runners/coffee/latte" = {
         owner = "coffee";
         group = "coffee";
-        key = "github/runners/coffee";
       };
       "github/runners/dotfiles/zero" = {
         owner = "dotfiles";
@@ -488,7 +483,7 @@
     templates = {
       "coffee" = {
         content = ''
-          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee"}
+          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee/affogato"}
         '';
         group = "coffee";
         mode = "0400";
