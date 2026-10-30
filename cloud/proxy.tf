@@ -54,7 +54,7 @@ resource "aws_ebs_snapshot_import" "route" {
 
     user_bucket {
       s3_bucket = aws_s3_bucket.server.id
-      s3_key    = aws_s3_object.upload.id
+      s3_key    = aws_s3_object.upload.key
     }
   }
 
