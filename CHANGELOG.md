@@ -6,7 +6,6 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `cloud`: update random provider and lock verified package hashes 2026-10-29
 - `sops`: rotate sandbox credentials until we start anew again more 2026-10-27
 - `sops`: rotate ordering machine github token workflow credentials 2026-10-27
 - `github-runners`: expand coffee servings for six concurrent slots 2026-10-26
