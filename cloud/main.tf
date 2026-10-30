@@ -8,7 +8,7 @@ terraform {
     # https://search.opentofu.org/provider/hashicorp/random/latest
     random = {
       source  = "hashicorp/random"
-      version = "3.7.2"
+      version = "3.9.1"
     }
   }
   backend "s3" {
