@@ -6,7 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `sops`: provision hermes age identity for project development 2026-10-30
+- `sops`: provision hermes age private secret for agent development 2026-10-30
 - `sops`: rotate sandbox credentials until we start anew again more 2026-10-27
 - `sops`: rotate ordering machine github token workflow credentials 2026-10-27
 - `github-runners`: expand coffee servings for six concurrent slots 2026-10-26
