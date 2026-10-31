@@ -374,6 +374,15 @@ resource "aws_route53_record" "tom" {
   records = [aws_eip.redirect.public_ip]
 }
 
+# https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "web" {
+  name    = "www.maintainers.coffee"
+  type    = "A"
+  zone_id = var.proxy_hosted_zones["maintainers.coffee"]
+  ttl     = 300
+  records = [aws_eip.redirect.public_ip]
+}
+
 output "public_ip" {
   value = aws_eip.redirect.public_ip
 }
