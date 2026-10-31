@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `nginx`: advertise one day hsts for maintainers coffee over https 2026-10-31
 - `cloud`: redirect web coffee links to the canonical secure domain 2026-10-31
 - `sops`: provision hermes age private secret for agent development 2026-10-30
 - `sops`: rotate sandbox credentials until we start anew again more 2026-10-27

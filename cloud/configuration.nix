@@ -147,6 +147,9 @@
               };
               "maintainers.coffee" = {
                 enableACME = true;
+                extraConfig = ''
+                  add_header Strict-Transport-Security "max-age=86400" always;
+                '';
                 forceSSL = true;
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:8084";
