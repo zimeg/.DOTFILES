@@ -347,12 +347,27 @@
         owner = "slacks";
         group = "slacks";
       };
+      "hermes/age" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "age/private";
+        path = "/var/lib/hermes/.config/sops/age/keys.txt";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
       "hermes/env" = {
         format = "yaml";
         owner = "hermes";
         group = "hermes";
         key = "hermes-env";
         sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/github" = {
+        format = "binary";
+        owner = "hermes";
+        group = "hermes";
+        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "hermes/ssh/private" = {
         format = "yaml";
@@ -371,12 +386,6 @@
         path = "/var/lib/hermes/.ssh/allowed_signers";
         mode = "0644";
         sopsFile = ./services/hermes-agent/vault.yaml;
-      };
-      "hermes/github" = {
-        format = "binary";
-        owner = "hermes";
-        group = "hermes";
-        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
         owner = "git";

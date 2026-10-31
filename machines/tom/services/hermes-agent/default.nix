@@ -21,6 +21,7 @@
       pkgs.git # https://github.com/git/git
       pkgs.jq # https://github.com/jqlang/jq
       pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
+      pkgs.sops # https://github.com/getsops/sops
     ];
     hermesHomeFiles = {
       "SOUL.md" = ./SOUL.md;
