@@ -375,7 +375,7 @@ resource "aws_route53_record" "tom" {
 }
 
 # https://search.opentofu.org/provider/opentofu/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "coffee_www" {
+resource "aws_route53_record" "web" {
   name    = "www.maintainers.coffee"
   type    = "A"
   zone_id = var.proxy_hosted_zones["maintainers.coffee"]
