@@ -87,6 +87,10 @@
                 email = "hello@todos.guide";
                 group = "nginx";
               };
+              "www.maintainers.coffee" = {
+                email = "hello@maintainers.coffee";
+                group = "nginx";
+              };
             };
           };
           services.nginx = {
@@ -174,6 +178,13 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:8082";
                   proxyWebsockets = false;
+                };
+              };
+              "www.maintainers.coffee" = {
+                addSSL = true;
+                enableACME = true;
+                locations."/" = {
+                  return = "308 https://maintainers.coffee$request_uri";
                 };
               };
             };
