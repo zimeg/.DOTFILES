@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `coffee`: add personal link to accept thanks for dotfile projects 2026-11-01
 - `nginx`: advertise one day hsts for maintainers coffee over https 2026-10-31
 - `cloud`: redirect web coffee links to the canonical secure domain 2026-10-31
 - `sops`: provision hermes age private secret for agent development 2026-10-30
