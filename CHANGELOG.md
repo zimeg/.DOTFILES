@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `pinta`: swap programs for supported paint editor from gimp build 2026-11-01
 - `changelog`: exempt dependabot pull requests if changes were made 2026-11-01
 - `claude`: remove custom directives for particular agents markdown 2026-11-01
 - `coffee`: add personal link to accept thanks for dotfile projects 2026-11-01
