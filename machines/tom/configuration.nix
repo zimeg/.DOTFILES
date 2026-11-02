@@ -17,8 +17,10 @@
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
+        "cccl"
         "claude-code"
         "cuda_cccl"
+        "cuda_crt"
         "cuda_cudart"
         "cuda_cuobjdump"
         "cuda_cupti"
@@ -41,6 +43,7 @@
         "libcusolver"
         "libnpp"
         "libnvjitlink"
+        "libnvvm"
         "minecraft-server"
         "nvidia-settings"
         "nvidia-x11"
