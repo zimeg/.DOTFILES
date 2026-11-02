@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `cuda`: allow compiler dependencies for updated toolkit builds 2026-11-01
 - `pinta`: swap programs for supported paint editor from gimp build 2026-11-01
 - `changelog`: exempt dependabot pull requests if changes were made 2026-11-01
 - `claude`: remove custom directives for particular agents markdown 2026-11-01
