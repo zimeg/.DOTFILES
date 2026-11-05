@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `opencode`: remove earlier agent tooling with credential patterns 2026-11-05
 - `cuda`: accept unfree compiler option dependencies for nvidia gpu 2026-11-01
 - `pinta`: swap programs for supported paint editor from gimp build 2026-11-01
 - `changelog`: exempt dependabot pull requests if changes were made 2026-11-01
