@@ -211,14 +211,6 @@
       keyFile = "/persistent/var/lib/sops-nix/key.txt";
     };
     secrets = {
-      "ai/credentials" = {
-        owner = config.users.users.default.name;
-        group = "wheel";
-        format = "json";
-        key = "";
-        path = "${config.users.users.default.home}/.local/share/opencode/auth.json";
-        sopsFile = ./programs/opencode/vault.json;
-      };
       "aws/credentials" = {
         owner = config.users.users.default.name;
         group = "wheel";
