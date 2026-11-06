@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `tailscale`: rotate authentication token while on studio networks 2026-11-05
 - `coffee`: remove shipping date after having package arrive online 2026-11-05
 - `opencode`: remove earlier agent tooling with credential patterns 2026-11-05
 - `cuda`: accept unfree compiler option dependencies for nvidia gpu 2026-11-01
