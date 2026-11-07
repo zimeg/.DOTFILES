@@ -3,6 +3,7 @@
 {
   imports = [
     ./blog
+    ./coffee
     ./endpoints
     ./ollama
     ./quintus

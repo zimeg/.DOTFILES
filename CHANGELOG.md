@@ -6,8 +6,31 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
-- `hermes-agent`: use github cli credentials for https git pushes 2026-10-06
-
+- `hermes-agent`: use github cli credentials for https git pushes 2026-11-07
+- `tailscale`: rotate authentication token while on studio networks 2026-11-05
+- `coffee`: remove shipping date after having package arrive online 2026-11-05
+- `opencode`: remove earlier agent tooling with credential patterns 2026-11-05
+- `cuda`: accept unfree compiler option dependencies for nvidia gpu 2026-11-01
+- `pinta`: swap programs for supported paint editor from gimp build 2026-11-01
+- `changelog`: exempt dependabot pull requests if changes were made 2026-11-01
+- `claude`: remove custom directives for particular agents markdown 2026-11-01
+- `coffee`: add personal link to accept thanks for dotfile projects 2026-11-01
+- `nginx`: advertise one day hsts for maintainers coffee over https 2026-10-31
+- `cloud`: redirect web coffee links to the canonical secure domain 2026-10-31
+- `sops`: provision hermes age private secret for agent development 2026-10-30
+- `sops`: rotate sandbox credentials until we start anew again more 2026-10-27
+- `sops`: rotate ordering machine github token workflow credentials 2026-10-27
+- `github-runners`: expand coffee servings for six concurrent slots 2026-10-26
+- `coffee`: keep track of credentials for sending a email messaging 2026-10-25
+- `coffee`: send notifications to channels after order process done 2026-10-25
+- `coffee`: unlock database variable for external storage of detail 2026-10-23
+- `coffee`: include secrets for api interactions with stripe setups 2026-10-17
+- `coffee`: update credential bearing secrets for login after loads 2026-10-16
+- `coffee`: load production environment variable from a secret sops 2026-10-15
+- `hermes`: add claude code to the service path for delegated codes 2026-10-15
+- `minecraft`: persist server directories for atomic world upgrades 2026-10-15
+- `coffee`: self host service to serve order on our machine made so 2026-10-14
+- `sops`: rotate a removed token with access to late token provider 2026-10-14
 - `hermes-agent`: reload credits after updates for latest providers 2026-09-29
 - `claude`: bump model version to be recent with kind acclaimations 2026-09-29
 - `maven`: keep build tools for java projects available for working 2026-09-29

@@ -17,7 +17,10 @@
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
+        "cccl"
+        "claude-code"
         "cuda_cccl"
+        "cuda_crt"
         "cuda_cudart"
         "cuda_cuobjdump"
         "cuda_cupti"
@@ -40,6 +43,7 @@
         "libcusolver"
         "libnpp"
         "libnvjitlink"
+        "libnvvm"
         "minecraft-server"
         "nvidia-settings"
         "nvidia-x11"
@@ -103,7 +107,7 @@
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
-      "/srv/minecraft/world"
+      "/srv/minecraft"
       "/var/lib/hermes"
       "/var/lib/nixos"
       "/var/lib/slack"
@@ -172,6 +176,8 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
+        8084 # Coffee production
+        8085 # Coffee development
         23231 # Soft Serve
         25565 # Minecraft
       ];
@@ -205,14 +211,6 @@
       keyFile = "/persistent/var/lib/sops-nix/key.txt";
     };
     secrets = {
-      "ai/credentials" = {
-        owner = config.users.users.default.name;
-        group = "wheel";
-        format = "json";
-        key = "";
-        path = "${config.users.users.default.home}/.local/share/opencode/auth.json";
-        sopsFile = ./programs/opencode/vault.json;
-      };
       "aws/credentials" = {
         owner = config.users.users.default.name;
         group = "wheel";
@@ -232,6 +230,14 @@
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
       };
+      "coffee/env" = {
+        format = "dotenv";
+        owner = "coffee";
+        group = "coffee";
+        mode = "0400";
+        restartUnits = [ "coffee.service" ];
+        sopsFile = ./systemd/services/coffee/vault.env;
+      };
       "github/oauth" = {
         owner = config.users.users.default.name;
         group = "wheel";
@@ -240,7 +246,27 @@
         owner = "blog";
         group = "blog";
       };
-      "github/runners/coffee" = {
+      "github/runners/coffee/affogato" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/americano" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/cappuccino" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/cortado" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/espresso" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/latte" = {
         owner = "coffee";
         group = "coffee";
       };
@@ -316,12 +342,27 @@
         owner = "slacks";
         group = "slacks";
       };
+      "hermes/age" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "age/private";
+        path = "/var/lib/hermes/.config/sops/age/keys.txt";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
       "hermes/env" = {
         format = "yaml";
         owner = "hermes";
         group = "hermes";
         key = "hermes-env";
         sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/github" = {
+        format = "binary";
+        owner = "hermes";
+        group = "hermes";
+        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "hermes/ssh/private" = {
         format = "yaml";
@@ -340,12 +381,6 @@
         path = "/var/lib/hermes/.ssh/allowed_signers";
         mode = "0644";
         sopsFile = ./services/hermes-agent/vault.yaml;
-      };
-      "hermes/github" = {
-        format = "binary";
-        owner = "hermes";
-        group = "hermes";
-        sopsFile = ./services/hermes-agent/github.yaml;
       };
       "restic/git" = {
         owner = "git";
@@ -447,6 +482,17 @@
         owner = "root";
         group = "root";
         path = "/run/secrets/wg.key";
+      };
+    };
+    templates = {
+      "coffee" = {
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee/affogato"}
+        '';
+        group = "coffee";
+        mode = "0400";
+        owner = "coffee";
+        restartUnits = [ "coffee.service" ];
       };
     };
   };

@@ -14,12 +14,14 @@
       config.sops.secrets."hermes/env".path
     ];
     extraPackages = [
+      pkgs.claude-code # https://github.com/anthropics/claude-code
       pkgs.curl # https://github.com/curl/curl
       pkgs.fd # https://github.com/sharkdp/fd
       pkgs.gh # https://github.com/cli/cli
       pkgs.git # https://github.com/git/git
       pkgs.jq # https://github.com/jqlang/jq
       pkgs.ripgrep # https://github.com/BurntSushi/ripgrep
+      pkgs.sops # https://github.com/getsops/sops
     ];
     hermesHomeFiles = {
       "SOUL.md" = ./SOUL.md;
