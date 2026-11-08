@@ -1,5 +1,7 @@
 [commit]
   gpgsign = true
+[credential "https://github.com"]
+  helper = !gh auth git-credential
 [gpg]
   format = ssh
 [gpg "ssh"]
