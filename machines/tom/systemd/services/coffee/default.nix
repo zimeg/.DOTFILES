@@ -1,6 +1,8 @@
 # https://github.com/maintainersdotcoffee/shop
 { config, pkgs, ... }:
 {
+  imports = [ ./logs.nix ];
+
   systemd.services = {
     "coffee" = {
       documentation = [ "https://github.com/maintainersdotcoffee/shop" ];
