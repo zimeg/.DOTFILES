@@ -116,7 +116,6 @@
       "coffee-logs-follow@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
-          # The client cannot supply arguments or broaden this trusted-field match.
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json --follow --no-tail _SYSTEMD_UNIT=coffee.service";
           DynamicUser = true;
           NoNewPrivileges = true;
@@ -134,7 +133,6 @@
       "coffee-logs-history@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
-          # The client cannot supply arguments or broaden this trusted-field match.
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json  _SYSTEMD_UNIT=coffee.service";
           DynamicUser = true;
           NoNewPrivileges = true;
