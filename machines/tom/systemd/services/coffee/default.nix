@@ -36,7 +36,14 @@
   };
   systemd = {
     tmpfiles = {
-      rules = [ "d /run/coffee-logs 0750 root hermes -" ];
+      rules = [
+        "d /run/coffee-logs 0750 root hermes -"
+        "a+ /var/lib/hermes - - - - u:ez:--x"
+        "a+ /var/lib/hermes/.local - - - - u:ez:--x"
+        "a+ /var/lib/hermes/.local/state - - - - u:ez:--x"
+        "a+ /var/lib/hermes/.local/state/coffee-dev - - - - u:ez:--x"
+        "a+ /var/lib/hermes/.local/state/coffee-dev/output.log - - - - u:ez:r--"
+      ];
     };
     sockets = {
       coffee-logs-follow = {
