@@ -1,7 +1,6 @@
 # https://github.com/maintainersdotcoffee/shop
 {
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -39,28 +38,34 @@
     tmpfiles = {
       rules = [ "d /run/coffee-logs 0750 root hermes -" ];
     };
-    sockets =
-      lib.mapAttrs'
-        (
-          name: _:
-          lib.nameValuePair "coffee-logs-${name}" {
-            description = "Coffee ${name} log reader";
-            wantedBy = [ "sockets.target" ];
-            listenStreams = [ "/run/coffee-logs/${name}" ];
-            socketConfig = {
-              Accept = true;
-              MaxConnections = 4;
-              RemoveOnStop = true;
-              SocketGroup = "hermes";
-              SocketMode = "0660";
-              SocketUser = "root";
-            };
-          }
-        )
-        {
-          follow = "--follow --no-tail";
-          history = "";
+    sockets = {
+      coffee-logs-follow = {
+        description = "Coffee follow log reader";
+        wantedBy = [ "sockets.target" ];
+        listenStreams = [ "/run/coffee-logs/follow" ];
+        socketConfig = {
+          Accept = true;
+          MaxConnections = 4;
+          RemoveOnStop = true;
+          SocketGroup = "hermes";
+          SocketMode = "0660";
+          SocketUser = "root";
         };
+      };
+      coffee-logs-history = {
+        description = "Coffee history log reader";
+        wantedBy = [ "sockets.target" ];
+        listenStreams = [ "/run/coffee-logs/history" ];
+        socketConfig = {
+          Accept = true;
+          MaxConnections = 4;
+          RemoveOnStop = true;
+          SocketGroup = "hermes";
+          SocketMode = "0660";
+          SocketUser = "root";
+        };
+      };
+    };
     services = {
       "coffee" = {
         documentation = [ "https://github.com/maintainersdotcoffee/shop" ];
@@ -108,33 +113,42 @@
           User = "coffee";
         };
       };
-    }
-    //
-      lib.mapAttrs'
-        (
-          name: args:
-          lib.nameValuePair "coffee-logs-${name}@" {
-            description = "Read only Coffee service journal records";
-            serviceConfig = {
-              # The client cannot supply arguments or broaden this trusted-field match.
-              ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json ${args} _SYSTEMD_UNIT=coffee.service";
-              DynamicUser = true;
-              NoNewPrivileges = true;
-              PrivateDevices = true;
-              PrivateTmp = true;
-              ProtectHome = true;
-              ProtectSystem = "strict";
-              RestrictAddressFamilies = [ "AF_UNIX" ];
-              StandardError = "journal";
-              StandardInput = "socket";
-              StandardOutput = "socket";
-              SupplementaryGroups = [ "systemd-journal" ];
-            };
-          }
-        )
-        {
-          follow = "--follow --no-tail";
-          history = "";
+      "coffee-logs-follow@" = {
+        description = "Read only Coffee service journal records";
+        serviceConfig = {
+          # The client cannot supply arguments or broaden this trusted-field match.
+          ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json --follow --no-tail _SYSTEMD_UNIT=coffee.service";
+          DynamicUser = true;
+          NoNewPrivileges = true;
+          PrivateDevices = true;
+          PrivateTmp = true;
+          ProtectHome = true;
+          ProtectSystem = "strict";
+          RestrictAddressFamilies = [ "AF_UNIX" ];
+          StandardError = "journal";
+          StandardInput = "socket";
+          StandardOutput = "socket";
+          SupplementaryGroups = [ "systemd-journal" ];
         };
+      };
+      "coffee-logs-history@" = {
+        description = "Read only Coffee service journal records";
+        serviceConfig = {
+          # The client cannot supply arguments or broaden this trusted-field match.
+          ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json  _SYSTEMD_UNIT=coffee.service";
+          DynamicUser = true;
+          NoNewPrivileges = true;
+          PrivateDevices = true;
+          PrivateTmp = true;
+          ProtectHome = true;
+          ProtectSystem = "strict";
+          RestrictAddressFamilies = [ "AF_UNIX" ];
+          StandardError = "journal";
+          StandardInput = "socket";
+          StandardOutput = "socket";
+          SupplementaryGroups = [ "systemd-journal" ];
+        };
+      };
+    };
   };
 }
