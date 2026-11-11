@@ -66,6 +66,7 @@
     ./services/github-runners
     ./services/hermes-agent
     ./services/interception-tools
+    ./services/logrotate
     ./services/minecraft-server
     ./services/ollama
     ./services/openssh
