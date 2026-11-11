@@ -8,10 +8,10 @@
   environment = {
     systemPackages = [
       (pkgs.writeShellApplication {
-        name = "coffee-logs";
+        name = "receipts";
         runtimeInputs = [ pkgs.socat ];
         text = ''
-          exec socat -u "UNIX-CONNECT:/run/coffee-logs/''${1:-history}" STDOUT
+          exec socat -u "UNIX-CONNECT:/run/receipts/''${1:-history}" STDOUT
         '';
       })
     ];
@@ -37,41 +37,12 @@
   systemd = {
     tmpfiles = {
       rules = [
-        "d /run/coffee-logs 0750 root hermes -"
         "a+ /var/lib/hermes - - - - u:ez:--x"
         "a+ /var/lib/hermes/.local - - - - u:ez:--x"
         "a+ /var/lib/hermes/.local/state - - - - u:ez:--x"
         "a+ /var/lib/hermes/.local/state/coffee-dev - - - - u:ez:--x"
         "a+ /var/lib/hermes/.local/state/coffee-dev/output.log - - - - u:ez:r--"
       ];
-    };
-    sockets = {
-      coffee-logs-follow = {
-        description = "Coffee follow log reader";
-        wantedBy = [ "sockets.target" ];
-        listenStreams = [ "/run/coffee-logs/follow" ];
-        socketConfig = {
-          Accept = true;
-          MaxConnections = 4;
-          RemoveOnStop = true;
-          SocketGroup = "hermes";
-          SocketMode = "0660";
-          SocketUser = "root";
-        };
-      };
-      coffee-logs-history = {
-        description = "Coffee history log reader";
-        wantedBy = [ "sockets.target" ];
-        listenStreams = [ "/run/coffee-logs/history" ];
-        socketConfig = {
-          Accept = true;
-          MaxConnections = 4;
-          RemoveOnStop = true;
-          SocketGroup = "hermes";
-          SocketMode = "0660";
-          SocketUser = "root";
-        };
-      };
     };
     services = {
       "coffee" = {
@@ -120,7 +91,7 @@
           User = "coffee";
         };
       };
-      "coffee-logs-follow@" = {
+      "receipts-follow@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json --follow --no-tail _SYSTEMD_UNIT=coffee.service";
@@ -137,7 +108,7 @@
           SupplementaryGroups = [ "systemd-journal" ];
         };
       };
-      "coffee-logs-history@" = {
+      "receipts-history@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json  _SYSTEMD_UNIT=coffee.service";

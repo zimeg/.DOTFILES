@@ -79,6 +79,7 @@
     ./services/tailscale
     ./services/xserver
     ./systemd/services
+    ./systemd/sockets
     ./systemd/targets
   ];
   boot = {
