@@ -12,15 +12,7 @@
         name = "coffee-logs";
         runtimeInputs = [ pkgs.socat ];
         text = ''
-          case "''${1:-history}" in
-            history|follow) mode="''${1:-history}" ;;
-            *) echo 'usage: coffee-logs [history|follow]' >&2; exit 2 ;;
-          esac
-          if [ "$#" -gt 1 ]; then
-            echo 'usage: coffee-logs [history|follow]' >&2
-            exit 2
-          fi
-          exec socat -u "UNIX-CONNECT:/run/coffee-logs/$mode" STDOUT
+          exec socat -u "UNIX-CONNECT:/run/coffee-logs/''${1:-history}" STDOUT
         '';
       })
     ];
