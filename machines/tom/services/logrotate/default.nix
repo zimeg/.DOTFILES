@@ -1,3 +1,4 @@
+# https://github.com/logrotate/logrotate
 { ... }:
 {
   services = {
