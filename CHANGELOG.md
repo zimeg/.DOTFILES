@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `github-runners`: rotate secret to planets nearest sun of secrets 2026-11-13
 - `hermes-agent`: expose github cli credential for https git pushes 2026-11-07
 - `tailscale`: rotate authentication token while on studio networks 2026-11-05
 - `coffee`: remove shipping date after having package arrive online 2026-11-05
