@@ -84,7 +84,7 @@
       "receipts-history@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
-          ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json  _SYSTEMD_UNIT=coffee.service";
+          ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json _SYSTEMD_UNIT=coffee.service";
           DynamicUser = true;
           NoNewPrivileges = true;
           PrivateDevices = true;
