@@ -65,7 +65,7 @@
         };
       };
       "coffee-receipts-follow@" = {
-        description = "Read only Coffee service journal records";
+        description = "streaming Maintainers Coffee logs";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json --follow --no-tail _SYSTEMD_UNIT=coffee.service";
           DynamicUser = true;
@@ -82,7 +82,7 @@
         };
       };
       "coffee-receipts-output@" = {
-        description = "Read only Coffee service journal records";
+        description = "outputted Maintainers Coffee logs";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json _SYSTEMD_UNIT=coffee.service";
           DynamicUser = true;
