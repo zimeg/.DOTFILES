@@ -60,7 +60,9 @@
               config.sops.secrets."hermes/github".path
             } /var/lib/hermes/.config/gh/hosts.yml"
           ];
-          ReadWritePaths = [ "/var/log/coffee" ]; # https://github.com/maintainersdotcoffee/shop
+          ReadWritePaths = [
+            "/var/log/coffee" # https://github.com/maintainersdotcoffee/shop
+          ];
         };
       };
     };
