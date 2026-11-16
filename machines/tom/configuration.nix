@@ -82,6 +82,7 @@
     ./systemd/services
     ./systemd/sockets
     ./systemd/targets
+    ./systemd/tmpfiles
   ];
   boot = {
     loader = {

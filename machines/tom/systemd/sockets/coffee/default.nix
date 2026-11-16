@@ -1,9 +1,6 @@
 { ... }:
 {
   systemd = {
-    tmpfiles = {
-      rules = [ "d /run/receipts 0750 root hermes -" ];
-    };
     sockets = {
       receipts-follow = {
         description = "Coffee follow log reader";
