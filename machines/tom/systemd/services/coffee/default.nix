@@ -11,7 +11,7 @@
         name = "receipts";
         runtimeInputs = [ pkgs.socat ];
         text = ''
-          exec socat -u "UNIX-CONNECT:/run/receipts/''${1:-history}" STDOUT
+          exec socat -u "UNIX-CONNECT:/run/receipts/''${1:-output}" STDOUT
         '';
       })
     ];
@@ -81,7 +81,7 @@
           SupplementaryGroups = [ "systemd-journal" ];
         };
       };
-      "receipts-history@" = {
+      "receipts-output@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json _SYSTEMD_UNIT=coffee.service";

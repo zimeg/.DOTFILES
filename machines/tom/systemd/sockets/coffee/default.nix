@@ -16,10 +16,10 @@
           SocketUser = "root";
         };
       };
-      receipts-history = {
-        description = "Coffee history log reader";
+      receipts-output = {
+        description = "Coffee output log reader";
         wantedBy = [ "sockets.target" ];
-        listenStreams = [ "/run/receipts/history" ];
+        listenStreams = [ "/run/receipts/output" ];
         socketConfig = {
           Accept = true;
           MaxConnections = 4;
