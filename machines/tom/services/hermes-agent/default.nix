@@ -44,6 +44,7 @@
       ];
       # https://hermes-agent.nousresearch.com/docs/user-guide/messaging/slack
       platforms.slack = {
+        require_mention = false;
         extra = {
           native_task_cards = true;
           rich_blocks = true;
