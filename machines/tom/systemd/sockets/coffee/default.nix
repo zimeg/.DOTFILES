@@ -4,7 +4,7 @@
   systemd = {
     sockets = {
       receipts-follow = {
-        description = "Coffee follow log reader";
+        description = "streaming Maintainers Coffee logs";
         wantedBy = [ "sockets.target" ];
         listenStreams = [ "/run/receipts/follow" ];
         socketConfig = {
@@ -17,7 +17,7 @@
         };
       };
       receipts-output = {
-        description = "Coffee output log reader";
+        description = "outputted Maintainers Coffee logs";
         wantedBy = [ "sockets.target" ];
         listenStreams = [ "/run/receipts/output" ];
         socketConfig = {
