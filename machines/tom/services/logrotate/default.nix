@@ -5,7 +5,7 @@
     logrotate = {
       settings = {
         coffee-dev = {
-          files = [ "/var/lib/hermes/.local/state/coffee-dev/output.log" ];
+          files = [ "/var/log/coffee/development.log" ];
           frequency = "daily";
           rotate = 7;
           maxsize = "10M";
