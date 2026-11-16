@@ -64,11 +64,6 @@
           User = "coffee";
         };
       };
-      "hermes-agent" = {
-        serviceConfig = {
-          ReadWritePaths = [ "/var/log/coffee" ];
-        };
-      };
       "receipts-follow@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
