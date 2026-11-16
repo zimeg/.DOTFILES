@@ -3,7 +3,7 @@ terraform {
     # https://search.opentofu.org/provider/hashicorp/aws/latest
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.72.0"
+      version = "~> 6.73.0"
     }
     # https://search.opentofu.org/provider/hashicorp/random/latest
     random = {
