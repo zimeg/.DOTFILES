@@ -1,9 +1,5 @@
 # https://github.com/maintainersdotcoffee/shop
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   environment = {
     systemPackages = [
