@@ -4,7 +4,8 @@
   systemd = {
     tmpfiles = {
       rules = [
-        "d /run/receipts 0750 root hermes -"
+        "d /run/coffee 0750 root hermes -"
+        "d /run/coffee/receipts 0750 root hermes -"
       ];
     };
   };

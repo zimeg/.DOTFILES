@@ -3,10 +3,10 @@
 {
   systemd = {
     sockets = {
-      receipts-follow = {
+      coffee-receipts-follow = {
         description = "streaming Maintainers Coffee logs";
         wantedBy = [ "sockets.target" ];
-        listenStreams = [ "/run/receipts/follow" ];
+        listenStreams = [ "/run/coffee/receipts/follow" ];
         socketConfig = {
           Accept = true;
           MaxConnections = 4;
@@ -16,10 +16,10 @@
           SocketUser = "root";
         };
       };
-      receipts-output = {
+      coffee-receipts-output = {
         description = "outputted Maintainers Coffee logs";
         wantedBy = [ "sockets.target" ];
-        listenStreams = [ "/run/receipts/output" ];
+        listenStreams = [ "/run/coffee/receipts/output" ];
         socketConfig = {
           Accept = true;
           MaxConnections = 4;

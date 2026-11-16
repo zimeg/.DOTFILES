@@ -8,10 +8,10 @@
   environment = {
     systemPackages = [
       (pkgs.writeShellApplication {
-        name = "receipts";
+        name = "coffee-receipts";
         runtimeInputs = [ pkgs.socat ];
         text = ''
-          exec socat -u "UNIX-CONNECT:/run/receipts/''${1:-output}" STDOUT
+          exec socat -u "UNIX-CONNECT:/run/coffee/receipts/''${1:-output}" STDOUT
         '';
       })
     ];
@@ -64,7 +64,7 @@
           User = "coffee";
         };
       };
-      "receipts-follow@" = {
+      "coffee-receipts-follow@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json --follow --no-tail _SYSTEMD_UNIT=coffee.service";
@@ -81,7 +81,7 @@
           SupplementaryGroups = [ "systemd-journal" ];
         };
       };
-      "receipts-output@" = {
+      "coffee-receipts-output@" = {
         description = "Read only Coffee service journal records";
         serviceConfig = {
           ExecStart = "${pkgs.systemd}/bin/journalctl --system --no-pager --all --output=json _SYSTEMD_UNIT=coffee.service";
