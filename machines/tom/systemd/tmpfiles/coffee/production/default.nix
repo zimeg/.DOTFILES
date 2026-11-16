@@ -1,3 +1,5 @@
+# https://github.com/maintainersdotcoffee/shop
+
 { ... }:
 {
   systemd = {
