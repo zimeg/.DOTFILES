@@ -63,12 +63,16 @@
                 email = "zim@o526.net";
                 group = "nginx";
               };
+              "dev.maintainers.coffee" = {
+                email = "hello@maintainers.coffee";
+                group = "nginx";
+              };
               "dev.o526.net" = {
                 email = "zim@o526.net";
                 group = "nginx";
               };
-              "tom.o526.net" = {
-                email = "zim@o526.net";
+              "maintainers.coffee" = {
+                email = "hello@maintainers.coffee";
                 group = "nginx";
               };
               "o526.net" = {
@@ -81,6 +85,10 @@
               };
               "todos.guide" = {
                 email = "hello@todos.guide";
+                group = "nginx";
+              };
+              "www.maintainers.coffee" = {
+                email = "hello@maintainers.coffee";
                 group = "nginx";
               };
             };
@@ -121,6 +129,14 @@
                   proxyWebsockets = false;
                 };
               };
+              "dev.maintainers.coffee" = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:8085";
+                  proxyWebsockets = false;
+                };
+              };
               "dev.o526.net" = {
                 enableACME = true;
                 forceSSL = true;
@@ -129,15 +145,15 @@
                   proxyWebsockets = true;
                 };
               };
-              "tom.o526.net" = {
+              "maintainers.coffee" = {
                 enableACME = true;
+                extraConfig = ''
+                  add_header Strict-Transport-Security "max-age=86400" always;
+                '';
                 forceSSL = true;
-                locations."/slack/events" = {
-                  proxyPass = "http://10.100.0.2:18789";
+                locations."/" = {
+                  proxyPass = "http://10.100.0.2:8084";
                   proxyWebsockets = false;
-                  extraConfig = ''
-                    proxy_set_header x-forwarded-user "slack";
-                  '';
                 };
               };
               "o526.net" = {
@@ -162,6 +178,13 @@
                 locations."/" = {
                   proxyPass = "http://10.100.0.2:8082";
                   proxyWebsockets = false;
+                };
+              };
+              "www.maintainers.coffee" = {
+                addSSL = true;
+                enableACME = true;
+                locations."/" = {
+                  return = "308 https://maintainers.coffee$request_uri";
                 };
               };
             };

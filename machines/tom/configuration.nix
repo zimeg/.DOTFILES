@@ -4,6 +4,7 @@
   nix = {
     gc = {
       automatic = true;
+      options = "--delete-older-than 30d";
     };
     settings = {
       experimental-features = [
@@ -13,15 +14,13 @@
     };
   };
   nixpkgs.config = {
-    allowInsecurePredicate =
-      pkg:
-      builtins.elem (pkgs.lib.getName pkg) [
-        "openclaw"
-      ];
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkgs.lib.getName pkg) [
+        "cccl"
+        "claude-code"
         "cuda_cccl"
+        "cuda_crt"
         "cuda_cudart"
         "cuda_cuobjdump"
         "cuda_cupti"
@@ -44,6 +43,7 @@
         "libcusolver"
         "libnpp"
         "libnvjitlink"
+        "libnvvm"
         "minecraft-server"
         "nvidia-settings"
         "nvidia-x11"
@@ -64,10 +64,11 @@
     ./security/sudo
     ./services/caddy
     ./services/github-runners
+    ./services/hermes-agent
     ./services/interception-tools
+    ./services/logrotate
     ./services/minecraft-server
     ./services/ollama
-    ./services/openclaw-gateway
     ./services/openssh
     ./services/pipewire
     ./services/plasma6
@@ -80,7 +81,9 @@
     ./services/tinyproxy
     ./services/xserver
     ./systemd/services
+    ./systemd/sockets
     ./systemd/targets
+    ./systemd/tmpfiles
   ];
   boot = {
     loader = {
@@ -93,16 +96,24 @@
       };
     };
     initrd = {
-      postResumeCommands = builtins.readFile ./start.sh;
+      systemd.services.root-subvolume-reset = {
+        description = "Reset the ephemeral root subvolume";
+        wantedBy = [ "initrd.target" ];
+        after = [ "initrd-root-device.target" ];
+        before = [ "sysroot.mount" ];
+        unitConfig.DefaultDependencies = false;
+        serviceConfig.Type = "oneshot";
+        script = builtins.readFile ./start.sh;
+      };
     };
   };
   environment.persistence."/persistent" = {
     hideMounts = true;
     directories = [
       "/etc/ollama/models"
-      "/srv/minecraft/world"
+      "/srv/minecraft"
+      "/var/lib/hermes"
       "/var/lib/nixos"
-      "/var/lib/openclaw"
       "/var/lib/slack"
       "/var/lib/soft-serve"
       "/var/lib/systemd/coredump"
@@ -169,7 +180,8 @@
         5000 # Quintus
         8082 # Todo's Guide
         8083 # Endpoints
-        18789 # OpenClaw
+        8084 # Coffee production
+        8085 # Coffee development
         23231 # Soft Serve
         25565 # Minecraft
       ];
@@ -200,17 +212,9 @@
     defaultSopsFormat = "yaml";
     age = {
       generateKey = false;
-      keyFile = "/var/lib/sops-nix/key.txt";
+      keyFile = "/persistent/var/lib/sops-nix/key.txt";
     };
     secrets = {
-      "ai/credentials" = {
-        owner = config.users.users.default.name;
-        group = "wheel";
-        format = "json";
-        key = "";
-        path = "${config.users.users.default.home}/.local/share/opencode/auth.json";
-        sopsFile = ./programs/opencode/vault.json;
-      };
       "aws/credentials" = {
         owner = config.users.users.default.name;
         group = "wheel";
@@ -230,11 +234,13 @@
         group = "minecraft";
         sopsFile = ./services/restic/vault.minecraft.env;
       };
-      "aws/iam/openclaw" = {
+      "coffee/env" = {
         format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/restic/vault.openclaw.env;
+        owner = "coffee";
+        group = "coffee";
+        mode = "0400";
+        restartUnits = [ "coffee.service" ];
+        sopsFile = ./systemd/services/coffee/vault.env;
       };
       "github/oauth" = {
         owner = config.users.users.default.name;
@@ -244,11 +250,35 @@
         owner = "blog";
         group = "blog";
       };
-      "github/runners/coffee" = {
+      "github/runners/coffee/affogato" = {
         owner = "coffee";
         group = "coffee";
       };
-      "github/runners/dotfiles" = {
+      "github/runners/coffee/americano" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/cappuccino" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/cortado" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/espresso" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/coffee/latte" = {
+        owner = "coffee";
+        group = "coffee";
+      };
+      "github/runners/dotfiles/zero" = {
+        owner = "dotfiles";
+        group = "dotfiles";
+      };
+      "github/runners/dotfiles/one" = {
         owner = "dotfiles";
         group = "dotfiles";
       };
@@ -316,17 +346,45 @@
         owner = "slacks";
         group = "slacks";
       };
-      "openclaw/env" = {
-        format = "dotenv";
-        owner = "openclaw";
-        group = "openclaw";
-        sopsFile = ./services/openclaw-gateway/vault.env;
+      "hermes/age" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "age/private";
+        path = "/var/lib/hermes/.config/sops/age/keys.txt";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
       };
-      "openclaw/ssh/private" = {
-        owner = "openclaw";
-        group = "openclaw";
-        key = "tom/ssh/private";
-        path = "/var/lib/openclaw/.ssh/id_ed25519";
+      "hermes/env" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "hermes-env";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/github" = {
+        format = "binary";
+        owner = "hermes";
+        group = "hermes";
+        sopsFile = ./services/hermes-agent/github.yaml;
+      };
+      "hermes/ssh/private" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/private";
+        path = "/var/lib/hermes/.ssh/id_ed25519";
+        mode = "0600";
+        sopsFile = ./services/hermes-agent/vault.yaml;
+      };
+      "hermes/ssh/signers" = {
+        format = "yaml";
+        owner = "hermes";
+        group = "hermes";
+        key = "ssh/signers";
+        path = "/var/lib/hermes/.ssh/allowed_signers";
+        mode = "0644";
+        sopsFile = ./services/hermes-agent/vault.yaml;
       };
       "restic/git" = {
         owner = "git";
@@ -336,9 +394,27 @@
         owner = "minecraft";
         group = "minecraft";
       };
-      "restic/openclaw" = {
-        owner = "openclaw";
-        group = "openclaw";
+      "slack/begut/env" = {
+        format = "dotenv";
+        owner = "begut";
+        group = "begut";
+        sopsFile = ./systemd/services/slack/begut/vault.env;
+      };
+      "slack/begut/ssh/hosts" = {
+        format = "yaml";
+        key = "ssh/hosts";
+        owner = "begut";
+        group = "begut";
+        mode = "0644";
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
+      };
+      "slack/begut/ssh/private" = {
+        format = "yaml";
+        key = "ssh/private";
+        owner = "begut";
+        group = "begut";
+        mode = "0600";
+        sopsFile = ./systemd/services/slack/begut/vault.yaml;
       };
       "slack/snaek" = {
         format = "dotenv";
@@ -412,6 +488,17 @@
         path = "/run/secrets/wg.key";
       };
     };
+    templates = {
+      "coffee" = {
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder."github/runners/coffee/affogato"}
+        '';
+        group = "coffee";
+        mode = "0400";
+        owner = "coffee";
+        restartUnits = [ "coffee.service" ];
+      };
+    };
   };
   time = {
     timeZone = "America/Los_Angeles";
@@ -432,6 +519,11 @@
           fastfetch # https://github.com/fastfetch-cli/fastfetch
           wireguard-tools # https://git.zx2c4.com/wireguard-tools
         ];
+      };
+      begut = {
+        isSystemUser = true;
+        group = "begut";
+        home = "/var/cache/begut";
       };
       blog = {
         isSystemUser = true;
@@ -461,14 +553,15 @@
         isSystemUser = true;
         group = "git-coverage";
       };
+      hermes = {
+        isSystemUser = true;
+        group = "hermes";
+        home = "/var/lib/hermes";
+        linger = true;
+      };
       newsflash = {
         isSystemUser = true;
         group = "newsflash";
-      };
-      openclaw = {
-        isSystemUser = true;
-        group = "openclaw";
-        home = "/var/lib/openclaw";
       };
       proximity = {
         isSystemUser = true;
@@ -499,6 +592,7 @@
       };
     };
     groups = {
+      begut = { };
       blog = { };
       coffee = { };
       dotfiles = { };
@@ -506,8 +600,8 @@
       etime = { };
       git = { };
       git-coverage = { };
+      hermes = { };
       newsflash = { };
-      openclaw = { };
       proximity = { };
       quintus = { };
       slacks = { };

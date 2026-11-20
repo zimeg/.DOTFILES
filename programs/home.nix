@@ -11,7 +11,6 @@ let
     ffmpeg # https://github.com/FFmpeg/FFmpeg
     file # https://github.com/file/file
     fontconfig # https://gitlab.freedesktop.org/fontconfig/fontconfig
-    gimp2 # https://gitlab.gnome.org/GNOME/gimp
     gnugrep # https://git.savannah.gnu.org/cgit/grep.git
     gnumake # https://github.com/mirror/make
     imagemagick # https://github.com/ImageMagick/ImageMagick
@@ -19,6 +18,8 @@ let
     heroku # https://github.com/heroku/cli
     less # https://github.com/gwsw/less
     pciutils # https://github.com/pciutils/pciutils
+    pinta # https://github.com/PintaProject/Pinta
+    nur.repos.zimeg.recon # https://github.com/mwbrooks/recon
     sops # https://github.com/getsops/sops
     tree # https://github.com/Old-Man-Programmer/tree
     wget # https://github.com/mirror/wget
@@ -52,7 +53,7 @@ let
     nodejs # https://github.com/nodejs/node
     prettier # https://github.com/prettier/prettier
     pyright # https://github.com/microsoft/pyright
-    python3 # https://github.com/python/cpython
+    python314 # https://github.com/python/cpython
     ruff # https://github.com/astral-sh/ruff
     rust-analyzer # https://github.com/rust-lang/rust-analyzer
     rustc # https://github.com/rust-lang/rust

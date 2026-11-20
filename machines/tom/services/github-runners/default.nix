@@ -15,17 +15,103 @@
       url = "https://github.com/zimeg/blog";
       user = "blog";
     };
-    coffee = {
+    coffee-affogato = {
       enable = true;
       ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
       group = "coffee";
-      name = "tom";
+      name = "affogato";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/coffee";
+      tokenFile = "/run/secrets/github/runners/coffee/affogato";
       url = "https://github.com/maintainersdotcoffee/shop";
       user = "coffee";
     };
-    dotfiles = {
+    coffee-americano = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "coffee";
+      name = "americano";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee/americano";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-cappuccino = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "coffee";
+      name = "cappuccino";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee/cappuccino";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-cortado = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "coffee";
+      name = "cortado";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee/cortado";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-espresso = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "coffee";
+      name = "espresso";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee/espresso";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    coffee-latte = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "coffee";
+      name = "latte";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/coffee/latte";
+      url = "https://github.com/maintainersdotcoffee/shop";
+      user = "coffee";
+    };
+    dotfiles-zero = {
       enable = true;
       ephemeral = true;
       extraLabels = [
@@ -36,9 +122,26 @@
         pkgs.gh # https://github.com/cli/cli
       ];
       group = "dotfiles";
-      name = "tom";
+      name = "zero";
       replace = true;
-      tokenFile = "/run/secrets/github/runners/dotfiles";
+      tokenFile = "/run/secrets/github/runners/dotfiles/zero";
+      url = "https://github.com/zimeg/.DOTFILES";
+      user = "dotfiles";
+    };
+    dotfiles-one = {
+      enable = true;
+      ephemeral = true;
+      extraLabels = [
+        "tom"
+      ];
+      extraPackages = [
+        pkgs.fastfetch # https://github.com/fastfetch-cli/fastfetch
+        pkgs.gh # https://github.com/cli/cli
+      ];
+      group = "dotfiles";
+      name = "one";
+      replace = true;
+      tokenFile = "/run/secrets/github/runners/dotfiles/one";
       url = "https://github.com/zimeg/.DOTFILES";
       user = "dotfiles";
     };

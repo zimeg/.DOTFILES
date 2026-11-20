@@ -21,6 +21,14 @@
   };
   nix = {
     enable = true; # https://github.com/zimeg/.DOTFILES/issues/28
+    gc = {
+      automatic = true;
+      interval = {
+        Hour = 3;
+        Minute = 15;
+      };
+      options = "--delete-older-than 30d";
+    };
     settings = {
       experimental-features = [
         "flakes"

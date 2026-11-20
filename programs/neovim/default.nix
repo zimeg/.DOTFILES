@@ -74,7 +74,7 @@
           sql # https://github.com/derekstride/tree-sitter-sql
           ssh_config # https://github.com/ObserverOfTime/tree-sitter-ssh-config
           terraform # https://github.com/MichaHoffmann/tree-sitter-hcl
-          tmux # https://github.com/Freed-Wu/tree-sitter-tmux
+          # tmux # https://github.com/Freed-Wu/tree-sitter-tmux # https://github.com/zimeg/.DOTFILES/issues/91
           toml # https://github.com/tree-sitter-grammars/tree-sitter-toml
           tsx # https://github.com/tree-sitter/tree-sitter-typescript
           typescript # https://github.com/tree-sitter/tree-sitter-typescript

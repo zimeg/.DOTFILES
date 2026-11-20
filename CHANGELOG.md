@@ -6,6 +6,56 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes-agent`: require implied mention or no explicit at request 2026-11-16
+- `coffee`: share scoped agentic production logs to develop outputs 2026-11-16
+- `github-runners`: rotate secret to planets nearest sun of secrets 2026-11-13
+- `hermes-agent`: expose github cli credential for https git pushes 2026-11-07
+- `tailscale`: rotate authentication token while on studio networks 2026-11-05
+- `coffee`: remove shipping date after having package arrive online 2026-11-05
+- `opencode`: remove earlier agent tooling with credential patterns 2026-11-05
+- `cuda`: accept unfree compiler option dependencies for nvidia gpu 2026-11-01
+- `pinta`: swap programs for supported paint editor from gimp build 2026-11-01
+- `changelog`: exempt dependabot pull requests if changes were made 2026-11-01
+- `claude`: remove custom directives for particular agents markdown 2026-11-01
+- `coffee`: add personal link to accept thanks for dotfile projects 2026-11-01
+- `nginx`: advertise one day hsts for maintainers coffee over https 2026-10-31
+- `cloud`: redirect web coffee links to the canonical secure domain 2026-10-31
+- `sops`: provision hermes age private secret for agent development 2026-10-30
+- `sops`: rotate sandbox credentials until we start anew again more 2026-10-27
+- `sops`: rotate ordering machine github token workflow credentials 2026-10-27
+- `github-runners`: expand coffee servings for six concurrent slots 2026-10-26
+- `coffee`: keep track of credentials for sending a email messaging 2026-10-25
+- `coffee`: send notifications to channels after order process done 2026-10-25
+- `coffee`: unlock database variable for external storage of detail 2026-10-23
+- `coffee`: include secrets for api interactions with stripe setups 2026-10-17
+- `coffee`: update credential bearing secrets for login after loads 2026-10-16
+- `coffee`: load production environment variable from a secret sops 2026-10-15
+- `hermes`: add claude code to the service path for delegated codes 2026-10-15
+- `minecraft`: persist server directories for atomic world upgrades 2026-10-15
+- `coffee`: self host service to serve order on our machine made so 2026-10-14
+- `sops`: rotate a removed token with access to late token provider 2026-10-14
+- `hermes-agent`: reload credits after updates for latest providers 2026-09-29
+- `claude`: bump model version to be recent with kind acclaimations 2026-09-29
+- `maven`: keep build tools for java projects available for working 2026-09-29
+- `github-runners`: split tom dotfiles runner into new zero and one 2026-09-15
+- `changelog`: check for changelog entries for pull request updates 2026-09-15
+- `aerospace`: persist workspaces with latest configuration changes 2026-09-15
+- `systemd`: keep hermes user lingering for cronjob starup whenever 2026-09-12
+- `hermes`: render native task card in thinking and rich block text 2026-09-10
+- `ssh`: add personal git forge to known hosts before a connections 2026-09-09
+- `systemd`: restart begut applications at request of github runner 2026-09-09
+- `hermes`: respond in harness made to messenger gods with channels 2026-09-07
+- `sops`: read persistent unlockings to avoid out of order startups 2026-09-07
+- `ollama`: change option for directories of downloaded models kept 2026-08-28
+- `homebrew`: tap a gnu implementation for macos sed change package 2026-08-27
+- `codex`: add harness for testing plugin installations common used 2026-08-24
+- `nix`: remove packages from earlier evolutions after wating while 2026-08-22
+- `claude`: default to large context windows of a favored modelesqe 2026-08-14
+- `neovim`: stop highlighting tmux configurations without packaging 2026-08-08
+- `python`: pin the latest version according to constant pi numbers 2026-07-06
+- `recon`: reveal agentic sessions across panes with recon toolings 2026-06-24
+- `vscode`: remove standalone editors to prefer termainl or browser 2026-06-16
+- `awscli`: install packaging without brew requirements for working 2026-06-15
 - `caddy`: route proxied ollama requests through hosted connections 2026-05-30
 - `openclaw`: interact through replies without so much acknowledged 2026-05-25
 - `ollama`: support local model with current network hardware claws 2026-05-25
