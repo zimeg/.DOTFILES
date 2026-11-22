@@ -28,7 +28,7 @@
     };
     settings = {
       model = {
-        default = "gpt-6.1-sol";
+        default = "gpt-6.2-sol";
         provider = "openai-api";
       };
       fallback_providers = [

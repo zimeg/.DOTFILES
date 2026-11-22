@@ -6,6 +6,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 ## patches
 
+- `hermes-agent`: bump model version to latest sunshine as it rains 2026-11-21
 - `hermes-agent`: require implied mention or no explicit at request 2026-11-16
 - `coffee`: share scoped agentic production logs to develop outputs 2026-11-16
 - `github-runners`: rotate secret to planets nearest sun of secrets 2026-11-13
