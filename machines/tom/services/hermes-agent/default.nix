@@ -50,6 +50,12 @@
           rich_blocks = true;
         };
       };
+      providers = {
+        ollama = {
+          api = "http://localhost:11434/v1";
+          default_model = "gemma4:26b";
+        };
+      };
     };
   };
   systemd = {
