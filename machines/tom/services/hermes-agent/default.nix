@@ -37,9 +37,8 @@
           provider = "anthropic";
         }
         {
-          base_url = "http://localhost:11434/v1";
           model = "gemma4:26b";
-          provider = "custom";
+          provider = "ollama";
         }
       ];
       # https://hermes-agent.nousresearch.com/docs/user-guide/messaging/slack
