@@ -28,7 +28,7 @@
     };
     settings = {
       model = {
-        default = "gpt-6.1-sol";
+        default = "gpt-6.2-sol";
         provider = "openai-api";
       };
       fallback_providers = [
@@ -37,9 +37,8 @@
           provider = "anthropic";
         }
         {
-          base_url = "http://localhost:11434/v1";
           model = "gemma4:26b";
-          provider = "custom";
+          provider = "ollama";
         }
       ];
       # https://hermes-agent.nousresearch.com/docs/user-guide/messaging/slack
@@ -48,6 +47,12 @@
         extra = {
           native_task_cards = true;
           rich_blocks = true;
+        };
+      };
+      providers = {
+        ollama = {
+          api = "http://localhost:11434/v1";
+          default_model = "gemma4:26b";
         };
       };
     };
