@@ -8,6 +8,7 @@ versioning is done in a continuous fashion without worries of breaking changes.
 
 - `hermes-agent`: replace heartbeat checks with self hosting ollama 2026-11-27
 - `hermes-agent`: bump model version to latest sunshine as it rains 2026-11-21
+- `tinyproxy`: route local slack action requests through loopback 2026-11-19
 - `hermes-agent`: require implied mention or no explicit at request 2026-11-16
 - `coffee`: share scoped agentic production logs to develop outputs 2026-11-16
 - `github-runners`: rotate secret to planets nearest sun of secrets 2026-11-13
